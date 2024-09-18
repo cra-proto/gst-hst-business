@@ -42,6 +42,7 @@ https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-bus
 ```mermaid
 mindmap
   root((digital-service-business))
+    [business-account]
     [gst-hst-filing-remitting]
     [gst-hst-internet-file-transfer]
     [gst-hst-netfile]
