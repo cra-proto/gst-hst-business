@@ -23,7 +23,7 @@ Project to optimize the content related to filing GST/HST returns.
 - [ ] SME review and accuracy check
 - [ ] Validation usability testing (including accessibility review)
 - [ ] Refine prototype (if required)
-- [ ] Spot check usability (if required)
+- [ ] Spot check usability ==(if required)==
 
 ```mermaid
 gantt
@@ -50,7 +50,3 @@ mindmap
 ```
 
 **Updated:**  2024-09-18
-
-
-> [!TIAP]
-> Helpful advice for doing things better or more easily.
