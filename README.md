@@ -28,7 +28,6 @@ Project to optimize the content related to filing GST/HST returns.
 ```mermaid
 gantt
     title Design phase timeframe
-    excludes weekends
     dateFormat  YYYY-MM-DD
     section Design
     Create repo and import scoped files :active, a1, 2024-09-18, 3d
