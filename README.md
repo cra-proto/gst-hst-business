@@ -23,16 +23,29 @@ Project to optimize the content related to filing GST/HST returns.
 - [ ] Refine prototype (if required)
 - [ ] Spot check usability (if required)
 
+```mermaid
+gantt
+    title Timeframe
+    dateFormat  YYYY-MM-DD
+    section Design
+    Create repo and import scoped files           :a1, 2024-09-18, 3d
+    User testing     :a2, after a1  , 14d
+    Evaluation of user testing     :a3, after a2  , 14d
+    design and prototyping     :after a3  , 60d
+```
+
 ## Canada.ca path structure: 
 https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/
 
 ```mermaid
 mindmap
   root((digital-service-business))
-    gst-hst-filing-remitting
-    gst-hst-internet-file-transfer
-    gst-hst-netfile
-    gst-hst-telefile
+    [gst-hst-filing-remitting]
+    [gst-hst-internet-file-transfer]
+    [gst-hst-netfile]
+    [gst-hst-telefile]
 ```
+
+
 
 **Updated:**  2024-09-18
