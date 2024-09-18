@@ -31,7 +31,7 @@ gantt
     dateFormat  YYYY-MM-DD
     section Design
     Create repo and import scoped files :active, a1, 2024-09-18, 3d
-    User testing :a2, after a1, 14d
+    User testing :a2, 2d after a1, 14d
     Evaluation of user testing :a3, after a2, 14d
     Content and design updates and prototyping :after a3, 60d
 ```
