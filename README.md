@@ -11,7 +11,7 @@ Project to optimize the content related to filing GST/HST returns.
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [Github Canada.ca page template](https://github.com/cra-proto/gst-hst-business/)
 
-## Github update procedures
+## Github update procedures:
 - Test development files will be have **"_proto#"** appended to the end of the file name.
 - Changes will be committed by **create a new branch** and then performing a pull request to merge the content.
 - Updates should have comments identifying the change.
