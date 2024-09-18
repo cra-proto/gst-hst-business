@@ -50,3 +50,7 @@ mindmap
 ```
 
 **Updated:**  2024-09-18
+
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
