@@ -16,7 +16,7 @@ Project to optimize the content related to filing GST/HST returns.
 - Updates should have comments identifying the change.
 
 ---
-## Design Phase steps:
+## Design phase steps:
 - [ ] Prototype: co-design navigation and content
 - [ ] SME review and accuracy check
 - [ ] Validation usability testing (including accesibilty review)
