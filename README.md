@@ -52,5 +52,5 @@ mindmap
 **Updated:**  2024-09-18
 
 
-> [!TIP]
+> [!TIAP]
 > Helpful advice for doing things better or more easily.
