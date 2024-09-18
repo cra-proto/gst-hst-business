@@ -15,7 +15,7 @@ Project to optimize the content related to filing GST/HST returns.
 - Test development files will be have **"_proto#"** appended to the end of the file name.
 - Changes will be committed by **create a new branch** and then performing a pull request to merge the content.
 - Updates should have comments identifying the change.
-
+- Any path structure changes should be communicated to those updating the repo.
 ---
 
 ## Design phase steps:
