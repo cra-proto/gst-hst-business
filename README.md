@@ -28,6 +28,7 @@ layout: default                                    # Available: default, fluid, 
 title:  [The title of the current page]            # This value will set the title and h1 tag
 lang:   [en | fr]                                  # Either "en" or "fr"
 dateModified: [2021-99-99]                         # ISO date
+description: [Description of the current page]     # Metadata description
 breadcrumbs:                                       # By default the Canada.ca crumbs is already set
   - title: "[The title]"
     link:  "[The url]"
@@ -52,11 +53,13 @@ gantt
     title Design phase timeframe
     dateFormat  YYYY-MM-DD
     section Design
-    Create repo and import scoped files :active, a1, 2024-09-18, 3d
-    User testing :a2, 2024-09-23, 14d
-    Evaluation of user testing :a3, after a2, 14d
-    Content and design updates and prototyping :after a3, 60d
+    Create repository and page template files :done, a1, 2024-09-18, 3d
+    User testing :b1, 2024-09-23, 14d
+    Import scoped files to repo :active, a2, 2024-09-26, 3d
+    Evaluation of user testing :b2, after b1, 14d
+    Content and design updates and prototyping :after b2, 60d
 ```
+* future dates may be placeholders.
 
 ## Canada.ca path structure: 
 https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/
