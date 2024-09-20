@@ -26,6 +26,7 @@ defaults:
       sitesearch: true
       lang: "en"
       altLangPage: "#"
+      css: https://use.fontawesome.com/releases/v5.15.4/css/all.css
       css: https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.css
       script: https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.js
   -
