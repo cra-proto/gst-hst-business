@@ -27,9 +27,9 @@ defaults:
       lang: "en"
       altLangPage: "#"
       css: >-  
-      https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.css
+  -   https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.css
       script: >-  
-      https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.js
+  -   https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.js
   -
     scope:
       path: "en/"
