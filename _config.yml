@@ -27,8 +27,14 @@ defaults:
   -
     scope:
       path: "en/"
+      type: pages
     values:
       lang: "en"
+      layout: default
+      share: true
+      sitemenu: true
+      sitesearch: true
+      altLangPage: "#"
   -
     scope:
       path: "fr/"
