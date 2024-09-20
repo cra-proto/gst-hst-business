@@ -26,6 +26,7 @@ defaults:
       sitesearch: true
       lang: "en"
       altLangPage: "#"
+      script: https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.js
   -
     scope:
       path: "en/"
