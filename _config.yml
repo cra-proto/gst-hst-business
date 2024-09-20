@@ -28,7 +28,6 @@ defaults:
   -
     scope:
       path: "en/"
-      type: pages
     values:
       lang: "en"
   -
