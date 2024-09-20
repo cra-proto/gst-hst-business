@@ -11,7 +11,7 @@ Project to optimize the content related to filing GST/HST returns.
 - [Jekyll theme for GCWeb]([https://github.com/cra-proto/gst-hst-business/blob/main/en/page_template-e.html](https://github.com/wet-boew/gcweb-jekyll))
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [Github Canada.ca page template](https://github.com/cra-proto/gst-hst-business/blob/main/en/page_template-e.html)
-- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/en/page_template_jekyll-e.html)
+- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/en/page_template_jekyll-en.html)
 
 ## Github update procedures:
 - Test development files will be have **"_proto#"** appended to the end of the file name.
