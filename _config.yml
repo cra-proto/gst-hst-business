@@ -24,6 +24,7 @@ defaults:
       share: true
       sitemenu: true
       sitesearch: true
+      lang: "en"
       altLangPage: "#"
   -
     scope:
