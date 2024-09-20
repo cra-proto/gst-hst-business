@@ -1,10 +1,36 @@
 # Remote theme, use the latest version
 remote_theme: wet-boew/gcweb-jekyll
 
-#
+# 1. Files excluded from Jekyll builds
+exclude:
+- README.md
+- Gemfile
+- Gemfile.lock
+- gcweb-jekyll.gemspec
+
+# 7. Site settings
+assets: "https://wet-boew.github.io/themes-dist"
+description:
+  en: "GST/HST for small Businesses" # English site description and default description
+  fr: "TPS/TVH pour les pour les petites entreprises" # French site description and default description
+  
 # Page front matter defaults
 defaults:
   - scope:
       path: "" # Ensure it's applied to all pages
+      type: pages
     values:
       layout: default
+      share: true
+      sitemenu: true
+      sitesearch: true
+  -
+    scope:
+      path: "en/"
+    values:
+      lang: "en"
+  -
+    scope:
+      path: "fr/"
+    values:
+      lang: "fr"
