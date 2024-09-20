@@ -20,6 +20,26 @@ Project to optimize the content related to filing GST/HST returns.
 - Any path structure changes should be communicated to those updating the repo.
 ---
 
+## GCWeb Jekyll page template example:
+
+```
+---
+layout: default                                    # Available: default, fluid, layout-home, no-container, wothout-h1
+title:  [The title of the current page]            # This value will set the title and h1 tag
+lang:   [en | fr]                                  # Either "en" or "fr"
+dateModified: [2021-99-99]                         # ISO date
+breadcrumbs:                                       # By default the Canada.ca crumbs is already set
+  - title: "[The title]"
+    link:  "[The url]"
+altLangPage: "#"                                   # Optional. Use the url of the alternate language page to display the language toggle
+pageclass: cnt-wdth-lmtd                           # Optional. You can use "cnt-wdth-lmtd" to limit the lenght of content lines to 65 characters
+css: [https://domain.ca/your-stylesheet.css]       # Optional. You can add custom css to your page
+script: [https://domain.ca/your-awesome-script.js] # Optional. You can add custom javascript to your page
+---
+
+<p>Content that would be displayed on the page</p>
+```
+
 ## Design phase steps:
 - [ ] Prototype: co-design navigation and content
 - [ ] SME review and accuracy check
