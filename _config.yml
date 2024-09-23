@@ -13,6 +13,9 @@ assets: "https://wet-boew.github.io/themes-dist"
 description:
   en: "GST/HST for small Businesses" # English site description and default description
   fr: "TPS/TVH pour les pour les petites entreprises" # French site description and default description
+
+feedback: true
+feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
   
 # Page front matter defaults
 defaults:
