@@ -61,7 +61,7 @@ mindmap
 layout: default                                    # Available: default, fluid, layout-home, no-container, wothout-h1
 title:  [The title of the current page]            # This value will set the title and h1 tag
 lang:   [en | fr]                                  # Either "en" or "fr"
-dateModified: [2021-99-99]                         # ISO date
+dateModified: [2024-99-99]                         # ISO date
 description: [Description of the current page]     # Metadata description
 breadcrumbs:                                       # By default the Canada.ca crumbs is already set
   - title: "[The title]"
