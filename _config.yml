@@ -32,6 +32,8 @@ defaults:
       script: "https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js"
       contextualFooter: true
       contextualFooterTitle: "Canada Revenue Agency (CRA)"
+      footerIncludeVersion: "v1"
+      noFooterContextual: false
   -
     scope:
       path: "en/"
