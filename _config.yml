@@ -21,11 +21,12 @@ defaults:
       type: pages
     values:
       layout: default
+      lang: "en"
+      altLangPage: "#"
       share: true
       sitemenu: true
       sitesearch: true
-      lang: "en"
-      altLangPage: "#"
+      feedback: true
   -
     scope:
       path: "en/"
