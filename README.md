@@ -39,7 +39,7 @@ gantt
     Evaluation of user testing :b2, after b1, 14d
     Content and design updates and prototyping :after b2, 60d
 ```
-* future dates may be placeholders.
+\* future dates may be placeholders.
 
 ## Canada.ca path structure: 
 https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/
