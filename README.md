@@ -18,7 +18,7 @@ Project to optimize the content related to filing GST/HST returns.
 - Any path structure changes should be communicated to those updating the repo.
 ---
 
-## Deleted files
+## Deleted files list
 - None
 
 ## Design phase steps:
