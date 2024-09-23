@@ -27,6 +27,8 @@ defaults:
       sitemenu: true
       sitesearch: true
       feedback: true
+      feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
+      
   -
     scope:
       path: "en/"
