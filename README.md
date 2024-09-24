@@ -11,11 +11,11 @@ Project to optimize the content related to filing GST/HST returns.
 - [Github Canada.ca page template](https://github.com/cra-proto/gst-hst-business/blob/main/en/page_template-e.html)
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/en/page_template_jekyll-en.html)
 
-## Github update procedures:
-- Test development files will be have **"_proto#"** appended to the end of the file name.
-- Changes will be committed by **create a new branch** and then performing a pull request to merge the content.
+## Update procedures:
+- Test development files will be have `_proto#` appended to the end of the file name.
+- Changes will be committed by `create a new branch` and then performing a pull request to merge the changed content.
 - Updates should have comments identifying the change.
-- Any path structure changes should be communicated to those updating the repo.
+- Any repository path structure changes should be communicated to all indivdual updating the repository.
 ---
 
 ## Deleted files list
@@ -42,7 +42,7 @@ gantt
 \* future dates may be placeholders.
 
 ## Canada.ca path structure: 
-https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/
+[https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/)
 
 ```mermaid
 mindmap
@@ -56,7 +56,7 @@ mindmap
 
 ## GCWeb Jekyll page template example:
 
-```
+```jekyll
 ---
 layout: default                                    # Available: default, fluid, layout-home, no-container, wothout-h1
 title:  [The title of the current page]            # This value will set the title and h1 tag
