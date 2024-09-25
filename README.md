@@ -21,7 +21,7 @@ Project to optimize the content related to filing GST/HST returns.
 ## Deleted files list
 - None
 
-## Design phase steps:
+## Design phase roadmap:
 - [ ] Prototype: co-design navigation and content
 - [ ] SME review and accuracy check
 - [ ] Validation usability testing (including accessibility review)
@@ -75,7 +75,7 @@ script: [https://domain.ca/your-awesome-script.js] # Optional. You can add custo
 <p>Content that would be displayed on the page</p>
 ```
 
-## Additional links
+## Resources
 
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
