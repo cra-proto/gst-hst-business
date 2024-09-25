@@ -1,14 +1,17 @@
+baseurl: /gst-hst-business
+url: https://cra-proto.github.io
+
 # Remote theme, use the latest version
 remote_theme: wet-boew/gcweb-jekyll
 
-# 1. Files excluded from Jekyll builds
+# Files excluded from Jekyll builds
 exclude:
 - README.md
 - Gemfile
 - Gemfile.lock
 - gcweb-jekyll.gemspec
 
-# 7. Site settings
+# Site settings
 assets: "https://wet-boew.github.io/themes-dist"
 description:
   en: "GST/HST for small Businesses" # English site description and default description
@@ -21,17 +24,19 @@ defaults:
       type: pages
     values:
       layout: default
-      lang: "en"
+      lang: en
       altLangPage: "#"
       share: true
       sitemenu: true
       sitesearch: true
       feedback: true
-      feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
-      css: "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      css: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css"
-      script: "https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js"
-      script: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js"
+      feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
+      css: 
+        - https://use.fontawesome.com/releases/v5.15.4/css/all.css
+        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css
+      script: 
+        - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
+        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js
   -
     scope:
       path: "en/"
