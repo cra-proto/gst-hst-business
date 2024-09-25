@@ -31,6 +31,15 @@ defaults:
       sitesearch: true
       feedback: true
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
+      contextualFooter:
+        title: "Canada Revenue Agency (CRA)"
+        links:
+         - text: "Contact the CRA"
+           link: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
+         - text: "About the CRA"
+           link: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
+         - text: "Compliance and enforcement"
+           link: "https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance.html"
       css: 
         - https://use.fontawesome.com/releases/v5.15.4/css/all.css
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css
