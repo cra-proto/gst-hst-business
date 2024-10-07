@@ -34,8 +34,8 @@ gantt
     dateFormat  YYYY-MM-DD
     section Design
     Create repository and page template files :done, a1, 2024-09-18, 3d
-    User testing :b1, 2024-09-25, 14d
-    Import scoped files to repo :active, a2, 2024-09-26, 3d
+    User testing :b1, 2024-10-03, 5d
+    Import scoped files to repo :active, a2, 2024-10-10, 3d
     Evaluation of user testing :b2, after b1, 14d
     Content and design updates and prototyping :after b2, 60d
 ```
