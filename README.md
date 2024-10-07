@@ -78,6 +78,7 @@ script: [https://domain.ca/your-awesome-script.js] # Optional. You can add custo
 ## Resources
 
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
+- [Centrally Deployed Templates Solutions \(CDTS\)- Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 
