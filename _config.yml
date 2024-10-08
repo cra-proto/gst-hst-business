@@ -32,9 +32,9 @@ defaults:
       feedback: true
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
       customSearch: 
-       - action: www.canada.ca/en/revenue-agency/search.html
-       - placeholder: "CRA"
-       - method: "get"
+        action: www.canada.ca/en/revenue-agency/search.html
+        placeholder: "CRA"
+        method: "get"
       contextualFooter:
         title: "Canada Revenue Agency (CRA)"
         links:
