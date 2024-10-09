@@ -46,7 +46,7 @@ gantt
 
 ```mermaid
 mindmap
-  root((digital-service-business - 8))
+  root((digital-service-business - 7))
     [business-account - 1]
     [gst-hst-filing-remitting  - 3]
     [gst-hst-internet-file-transfer - 11]
