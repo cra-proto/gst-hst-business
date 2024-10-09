@@ -30,7 +30,7 @@ defaults:
       sitesearch: true
       feedback: true
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
-      privacyUrl: https://www.canada.ca/en/transparency/privacy.html
+      privacyUrl: https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html
       contextualFooter:
         title: "Canada Revenue Agency (CRA)"
         links:
