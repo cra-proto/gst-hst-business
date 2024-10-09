@@ -16,9 +16,6 @@ assets: https://wet-boew.github.io/themes-dist
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
-subject:
-  en: "Economics and Industry;Taxes"
-  fr: "Économie et industrie;Impôt"
   
 # Page front matter defaults
 defaults:
@@ -33,6 +30,7 @@ defaults:
       sitesearch: true
       feedback: true
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
+      privacyUrl: https://www.canada.ca/en/transparency/privacy.html
       contextualFooter:
         title: "Canada Revenue Agency (CRA)"
         links:
