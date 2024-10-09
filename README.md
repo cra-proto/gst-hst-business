@@ -59,15 +59,17 @@ mindmap
 ```jekyll
 ---
 layout: default                                    # Available: default, fluid, layout-home, no-container, wothout-h1
-title:  [The title of the current page]            # This value will set the title and h1 tag
-lang:   [en | fr]                                  # Either "en" or "fr"
-dateModified: [2024-99-99]                         # ISO date
-description: [Description of the current page]     # Metadata description
-breadcrumbs:                                       # By default the Canada.ca crumbs is already set
-  - title: "[The title]"
-    link:  "[The url]"
+title: [The title of the current page]             # This value will set the title and h1 tag
+titleH1: [The header of the current page]          # This value will set the h1 tag
+lang: [en | fr]                                    # Either "en" or "fr"
+description: [Description of the current page]     # Optional. Metadata description
+subject: [the subject of the current page]         # Optional. Metadata subject 
 altLangPage: "#"                                   # Optional. Use the url of the alternate language page to display the language toggle
-pageclass: cnt-wdth-lmtd                           # Optional. You can use "cnt-wdth-lmtd" to limit the lenght of content lines to 65 characters
+dateModified: [2024-99-99]                         # ISO date
+dateIssued: [2024-99-99]                           # Optional. ISO date
+breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
+  - title: "[The title]"
+    link: "[The url]"
 css: [https://domain.ca/your-stylesheet.css]       # Optional. You can add custom css to your page
 script: [https://domain.ca/your-awesome-script.js] # Optional. You can add custom javascript to your page
 ---
