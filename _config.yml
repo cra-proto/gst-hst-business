@@ -29,6 +29,8 @@ defaults:
       sitemenu: true
       sitesearch: true
       feedback: true
+      feedbackData:
+        theme: "Taxes"
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
       privacyUrl: https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html
       contextualFooter:
