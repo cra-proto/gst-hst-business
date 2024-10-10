@@ -60,6 +60,7 @@ mindmap
 ---
 layout: default                                    # Available: default, fluid, layout-home, no-container, wothout-h1
 title: [The title of the current page]             # This value will set the title and h1 tag
+sectionTitle: [Section title for the page]         # This value will set the section title above the h1 tag
 titleH1: [The header of the current page]          # This value will set the h1 tag
 lang: [en | fr]                                    # Either "en" or "fr"
 description: [Description of the current page]     # Optional. Metadata description
