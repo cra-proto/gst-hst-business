@@ -41,17 +41,22 @@ gantt
 ```
 \* future dates may be placeholders.
 
-## Canada.ca path structure: 
-[https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/)
+## Canada.ca path structure of scoped files: 
+[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[37 pages\]
 
 ```mermaid
 mindmap
-  root((digital-service-business - 7))
-    [business-account - 1]
-    [gst-hst-filing-remitting  - 3]
-    [gst-hst-internet-file-transfer - 11]
-    [gst-hst-netfile - 12]
-    [gst-hst-telefile - 7]
+  root((services))
+    [e-services/digital-services-businesses/digital-service-business - 1]
+      [gst-hst-filing-remitting - 2]
+      [gst-hst-internet-file-transfer - 8]
+      [gst-hst-netfile - 8]
+      [gst-hst-telefile - 7]
+    [tax/businesses/topics - 1]
+      [gst-hst-businesses - 4]
+        [complete-file-return-business - 4]
+          [file-returns - 1]
+        [digital-economy-gsthst - 1]
 ```
 
 ## GCWeb Jekyll page template example:
