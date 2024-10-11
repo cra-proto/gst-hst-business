@@ -14,7 +14,7 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Update procedures:
 - Test development files will be have `_proto#` appended to the end of the file name.
-- Changes will be committed by `create a new branch` and then performing a pull request to merge the changed content.
+- Changes will be committed by selecting `create a new branch` and then performing a pull request to merge the changed content.
 - Updates should have comments identifying the change.
 - Any repository path structure changes should be communicated to all indivdual updating the repository.
 ---
@@ -86,9 +86,9 @@ script: [https://domain.ca/your-awesome-script.js] # Optional. You can add custo
 
 ## Resources
 
-- [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
-- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
+- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
+- [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 
-**Updated:**  2024-09-20
+**Updated:**  2024-10-11
