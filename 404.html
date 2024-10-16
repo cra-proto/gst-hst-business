@@ -10,11 +10,10 @@
 		<meta name="robots" content="noindex, nofollow, noarchive">		
 		<!-- Meta data-->
 		<!-- Load closure template scripts -->
-        <!--<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/compiled/soyutils.js"></script>-->
-        <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-en.js"></script>
-        <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
-        <link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/wet-boew/assets/favicon.ico" rel="shortcut icon">
+                <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-en.js"></script>
+                <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+                <link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/wet-boew/assets/favicon.ico" rel="shortcut icon">
 		<noscript>
 			<!-- Write closure fall-back static file -->
 			<!-- refTop.html -->
@@ -36,7 +35,12 @@
 			var defTop = document.getElementById("def-top");
 			defTop.outerHTML = wet.builder.top({
 				"cdnEnv": "esdcprod",
-			    "breadcrumbs": false
+			    "breadcrumbs": false, 
+                          customSearch: [{
+                            action: "www.canada.ca/en/revenue-agency/search.html",
+                            placeholder: "CRA",
+                            method: "get",
+                          }],
 			});
 		</script>
 		<main property="mainContentOfPage" typeof="WebPageElement" class="container">
@@ -82,7 +86,23 @@
 			var defFooter = document.getElementById("def-footer");
 			defFooter.outerHTML = wet.builder.footer({
 				"cdnEnv": "esdcprod",
-			   "showFeatures": false
+			   "showFeatures": false, 
+                           privacyLink: {
+                               href: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"
+                           }, 
+                           contextualFooter: {
+                               title: "Canada Revenue Agency (CRA)",
+                               links: [{
+                                   text: "Contact the CRA", 
+                                   href: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
+                               }, {
+                                   text: "About the CRA", 
+                                   href: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
+                               }, {
+                                   text: "Compliance and enforcement", 
+                                   href: "https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance.html"
+                              }]
+                           }
 			});
 		</script>
 		<!-- Write closure template -->
