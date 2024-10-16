@@ -35,9 +35,9 @@ gantt
     dateFormat  YYYY-MM-DD
     section Design
     Create repository and page template files :done, a1, 2024-09-18, 3d
-    User testing and notetaking :b1, 2024-09-26, 12d
-    Import scoped files to repo :active, a2, 2024-10-10, 3d
-    Evaluation of user testing :b2, after b1, 14d
+    User testing and notetaking :b1, 2024-09-26, 14d
+    Import scoped files to repo :active, a2, 2024-10-10, 7d
+    Evaluation of user testing :b2, after b1, 13d
     Content and design updates and prototyping :after b2, 60d
 ```
 \* future dates may be placeholders.
@@ -64,21 +64,26 @@ mindmap
 
 ```jekyll
 ---
-layout: default                                    # Available: default, fluid, layout-home, no-container, wothout-h1
-title: [The title of the current page]             # This value will set the title and h1 tag
-sectionTitle: [Section title for the page]         # This value will set the section title above the h1 tag
-titleH1: [The header of the current page]          # This value will set the h1 tag
+layout: [default]                                  # Available: core, default, fluid, layout-home, layout-servermesssage, layout-splashpage, no-container, without-h1
+title: "The title of the current page"             # This value will set the title and h1 tag
+sectionTitle: "Section title for the page"         # This value will set the section title above the h1 tag
+titleH1: "The header of the current page"          # This value will set the h1 tag (title over rides)
 lang: [en | fr]                                    # Either "en" or "fr"
-description: [Description of the current page]     # Optional. Metadata description
-subject: [the subject of the current page]         # Optional. Metadata subject 
-altLangPage: "#"                                   # Optional. Use the url of the alternate language page to display the language toggle
-dateModified: [2024-99-99]                         # ISO date
-dateIssued: [2024-99-99]                           # Optional. ISO date
+description: "Description of the current page"     # Optional. Metadata description
+subject: "the subject of the current page"         # Optional. Metadata subject
+auth:
+  type: [signedoff | active | contextual]          # Optional. Creates and configures a sign in button
+  label: "Sign in button label"                    # Label of the sign in button
+  labelExtended: "Sign in button extended label"   # Extended label of the sign in button
+  link: "The url"                                  # link of the sign in button
+altLangPage: "The url"                             # Optional. Use the url of the alternate language page to display the language toggle
+dateModified: 2024-99-99                           # ISO date
+dateIssued: 2024-99-99                             # Optional. ISO date
 breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
-  - title: "[The title]"
-    link: "[The url]"
-css: [https://domain.ca/your-stylesheet.css]       # Optional. You can add custom css to your page
-script: [https://domain.ca/your-awesome-script.js] # Optional. You can add custom javascript to your page
+  - title: "The title"
+    link: "The url"
+css: "https://domain.ca/your-stylesheet.css"       # Optional. You can add custom css to your page
+script: "https://domain.ca/your-awesome-script.js" # Optional. You can add custom javascript to your page
 ---
 
 <p>Content that would be displayed on the page</p>
