@@ -1,33 +1,115 @@
----
-layout: layout-servermesssage
-title: "Not Found"
-titleH1: "We couldn't find that Web page"
-description: "Error 404"
-subject: ""
-altLangPage: "https://www.canada.ca/fr/erreurs/404.html"
-dateModified: 2021-12-14
-dateIssued: 2015-10-06
----
-
-<div>
-  <div class="mwstext section">
-    <div class="row mrgn-tp-lg">
-      <div class="col-xs-3 col-sm-2 col-md-1 text-center mrgn-tp-md">
-        <span class="glyphicon glyphicon-warning-sign glyphicon-error"></span>
-      </div>
-      <div class="col-xs-9 col-sm-10 col-md-11">
-        <h1 class="mrgn-tp-md">We couldn't find that Web page</h1>
-        <p class="pagetag"><strong>Error 404</strong></p>
-      </div>
-    </div>
-    <div class="row mrgn-bttm-lg">
-      <div class="col-md-12">
-        <p>We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for. What next?</p>
-        <ul>
-          <li>Return to the <a href="http://www.canada.ca/en.html">home page</a>;</li>
-          <li><a href="http://www.canada.ca/en/contact.html">Contact us</a> and we'll help you out.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>We couldn't find that Web page - Canada.ca</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="robots" content="noindex, nofollow, noarchive">		
+		<!-- Meta data-->
+		<!-- Load closure template scripts -->
+                <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-en.js"></script>
+                <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+                <link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/wet-boew/assets/favicon.ico" rel="shortcut icon">
+		<noscript>
+			<!-- Write closure fall-back static file -->
+			<!-- refTop.html -->
+		</noscript>
+		<!-- Write closure template -->
+		<script>
+			document.write(wet.builder.refTop({
+				"cdnEnv": "esdcprod"
+			}));
+		</script>
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<div id="def-top">
+			<!-- Write closure fall-back static file -->
+			<!-- top-en.html -->
+		</div>
+		<!-- Write closure template -->
+		<script>
+			var defTop = document.getElementById("def-top");
+			defTop.outerHTML = wet.builder.top({
+				"cdnEnv": "esdcprod",
+			    "breadcrumbs": false, 
+                          customSearch: [{
+                            action: "www.canada.ca/en/revenue-agency/search.html",
+                            placeholder: "CRA",
+                            method: "get",
+                          }],
+			});
+		</script>
+		<main property="mainContentOfPage" typeof="WebPageElement" class="container">
+            <div class="row mrgn-tp-lg"> 
+                <div class="col-xs-3 col-sm-2 col-md-1 text-center mrgn-tp-md"> 
+                    <span class="glyphicon glyphicon-warning-sign glyphicon-error"></span> 
+                </div> 
+                <div class="col-xs-9 col-sm-10 col-md-11"> 
+                    <h1 class="mrgn-tp-md">We couldn't find that Web page</h1> 
+                    <p class="pagetag"><b>Error 404</b></p> 
+                </div> 
+            </div> 
+            <div class="row mrgn-bttm-lg"> 
+                <div class="col-md-12"> 
+                    <p>We're sorry you ended up here. Sometimes a page gets moved or deleted, but hopefully we can help you find what you're looking for. What next?</p> 
+                    <ul> 
+                        <li>Return to the <a href="https://canada.ca/en.html">home page</a>;</li> 
+                        <li>Consult the <a href="https://canada.ca/en/sitemap.html">site map</a>;</li> 
+                        <li>Check out the <a href="http://webarchive.bac-lac.gc.ca/?lang=en" rel="external">Government of Canada Web Archive</a> to view an older version; or</li> 
+                        <li><a href="https://canada.ca/en/contact.html">Contact us</a> and we'll help you out.</li> 
+                    </ul> 
+                </div> 
+			</div>
+			<div id="def-preFooter">
+				<!-- Write closure fall-back static file -->
+				<!-- preFooter-fr.html -->
+			</div>
+			<!-- Write closure template -->
+			<script>
+				var defPreFooter = document.getElementById("def-preFooter");
+				defPreFooter.outerHTML = wet.builder.preFooter({
+					"cdnEnv": "esdcprod",
+				    "pagedetails": false
+				});
+			</script>
+		</main>
+		<div id="def-footer">
+			<!-- Write closure fall-back static file -->
+			<!-- footer-en.html -->
+		</div>
+		<!-- Write closure template -->
+		<script>
+			var defFooter = document.getElementById("def-footer");
+			defFooter.outerHTML = wet.builder.footer({
+				"cdnEnv": "esdcprod",
+			   "showFeatures": false, 
+                           privacyLink: {
+                               href: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"
+                           }, 
+                           contextualFooter: {
+                               title: "Canada Revenue Agency (CRA)",
+                               links: [{
+                                   text: "Contact the CRA", 
+                                   href: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
+                               }, {
+                                   text: "About the CRA", 
+                                   href: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
+                               }, {
+                                   text: "Compliance and enforcement", 
+                                   href: "https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance.html"
+                              }]
+                           }
+			});
+		</script>
+		<!-- Write closure template -->
+		<script>
+			document.write(wet.builder.refFooter({
+				"cdnEnv": "esdcprod"
+			}));
+		</script>
+	</body>
+</html>
