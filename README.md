@@ -30,14 +30,31 @@ Project to optimize the content related to filing GST/HST returns.
 - [ ] Spot check usability (if required)
 
 ```mermaid
+%%{
+  init: {
+    'darkMode': false, 
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#9FA6FF',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#534FBC',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#FF0000',
+      'textColor': '#000', 
+      'secondaryTextColor': '#FF0000',
+      'tertiaryColor': '#FFFFFF', 
+      'tertiaryTextColor': '#FFF'
+    }
+  }
+}%%
 gantt
     title Design phase timeframe
     dateFormat  YYYY-MM-DD
     section Design
     Create repository and page template files :done, a1, 2024-09-18, 3d
-    User testing and notetaking :b1, 2024-09-26, 14d
-    Import scoped files to repo :active, a2, 2024-10-10, 7d
-    Evaluation of user testing :b2, after b1, 13d
+    User testing and notetaking :done, b1, 2024-09-26, 19d
+    Import scoped files to repo :done, a2, 2024-10-10, 9d
+    Evaluation of user testing :active, b2, after b1, 14d
     Content and design updates and prototyping :after b2, 60d
 ```
 \* future dates may be placeholders.
