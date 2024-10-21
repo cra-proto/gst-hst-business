@@ -60,7 +60,7 @@ gantt
 \* future dates may be placeholders.
 
 ## Canada.ca path structure of scoped files: 
-[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[37 pages\]
+[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[40 pages\]
 
 ```mermaid
 mindmap
@@ -72,7 +72,7 @@ mindmap
       [gst-hst-telefile - 7]
     [tax/businesses/topics - 1]
       [gst-hst-businesses - 4]
-        [complete-file-return-business - 4]
+        [complete-file-return-business - 7]
           [file-returns - 1]
         [digital-economy-gsthst - 1]
 ```
