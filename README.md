@@ -9,8 +9,8 @@ Project to optimize the content related to filing GST/HST returns.
 - Prototype live site root digital services page : [File a GST/HST return, rebate or election electronically](https://cra-proto.github.io/gst-hst-business/en/digital-services-businesses/file-a-gst-hst-return-rebate-election-electronically.html)
 - Prototype live site root GST/HST businesses page : [GST/HST for businesses](https://cra-proto.github.io/gst-hst-business/en/topics/gst-hst-businesses.html)
 - Scoped GST COP page list: [GST/HST for Business - scoping](https://122gc.sharepoint.com/sites/WOSCoordination/Lists/GSTHST%20for%20business%20COP%20%20scoping/AllItems.aspx?env=WebViewList&viewid=1379b8f8-af3b-47fb-ba50-29a24ea1d13d&useFiltersInViewXml=1&OR=Teams-HL&CT=1726666893920&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDA4MTcwMDQxOSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)
-- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
+- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
 
 ## Update procedures:
 - Test development files will be have `_proto#` appended to the end of the file name.
@@ -115,8 +115,8 @@ script: "https://domain.ca/your-awesome-script.js" # Optional. You can add custo
 
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
-- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
+- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 
 **Updated:**  2024-10-11
