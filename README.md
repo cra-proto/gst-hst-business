@@ -35,18 +35,23 @@ Project to optimize the content related to filing GST/HST returns.
     'darkMode': false, 
     'theme': 'base',
     'themeVariables': {
-      'primaryColor': '#9FA6FF',
-      'primaryTextColor': '#000',
-      'primaryBorderColor': '#534FBC',
-      'lineColor': '#F8B229',
-      'secondaryColor': '#FF0000',
-      'textColor': '#000', 
-      'secondaryTextColor': '#FF0000',
-      'tertiaryColor': '#FFFFFF', 
-      'tertiaryTextColor': '#FFF'
+      'lineColor': '#F8B229', 
+      'textColor': '#ADADAD', 
+      'primaryColor': '#000ED6', 
+      'primaryBorderColor': '#534FBC', 
+      'primaryTextColor': '#ADADAD', 
+      'secondaryColor': '#850000',
+      'secondaryTextColor': '#ADADAD', 
+      'tertiaryColor': '#FFFFFF',  
+      'tertiaryTextColor': '#ADADAD'
     }
   }
 }%%
+
+%% https://mermaid.js.org/config/directives.html#declaring-directives)](https://mermaid.js.org/config/directives.html#declaring-directives
+%% https://mermaid.js.org/config/schema-docs/config-defs-gantt-diagram-config.html#toppadding
+
+%% color theme need opened with the high contrast light theme.
 gantt
     title Design phase timeframe
     dateFormat  YYYY-MM-DD
