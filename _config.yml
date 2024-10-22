@@ -1,5 +1,7 @@
 baseurl: /gst-hst-business
 url: https://cra-proto.github.io
+repository: cra-protp/gst-hst-business
+website: https://www.canada.ca/en/revenue-agency/search.html
 
 # Remote theme, use the latest version
 remote_theme: wet-boew/gcweb-jekyll
