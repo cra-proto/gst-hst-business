@@ -6,8 +6,7 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Important links
 
-- [\[GST COP\] Scoped inventory page \(github\)](https://cra-proto.github.io/gst-hst-business/en/index.html)
-- [GST/HST for Business - scoping](https://122gc.sharepoint.com/sites/WOSCoordination/Lists/GSTHST%20for%20business%20COP%20%20scoping/AllItems.aspx?env=WebViewList&viewid=1379b8f8-af3b-47fb-ba50-29a24ea1d13d&useFiltersInViewXml=1&OR=Teams-HL&CT=1726666893920&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDA4MTcwMDQxOSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)
+- [\[GST COP\] Scoped inventory page \(github\)](https://cra-proto.github.io/gst-hst-business/index.html)
 - [Github.dev](https://github.dev/cra-proto/gst-hst-business/blob/main/)
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
 - [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
