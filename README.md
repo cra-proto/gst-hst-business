@@ -12,10 +12,10 @@ Project to optimize the content related to filing GST/HST returns.
 - [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
 
 ## Update procedures:
-- Test development files will be have `_proto#` appended to the end of the file name.
-- Changes will be committed by selecting `create a new branch` and then performing a pull request to merge the changed content.
-- Updates should have comments identifying the change.
-- Any repository path structure changes should be communicated to all indivdual updating the repository.
+- Test development files will have `_proto#` appended to the end of the file name
+- Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
+- Updates should have comments identifying what has been updated
+- Any repository path structure changes should be communicated to all indivduals who directly update the repository
 ---
 
 ## Deleted files list
