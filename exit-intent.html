@@ -16,6 +16,19 @@ noFooterMain: true
 
 <!-- <p>This page is outside the test site</p> -->
 <p>Please press the back button to return to the previous page.</p>
-<p>
-    <button class="btn btn-call-to-action btn-lg" type="button" onclick="history.back()">Go Back!</button>
-</p>
+<ul class="list-inline">
+    <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
+    <li><button id="leave" class="btn btn-default btn-lg" type="button">Leave the test site</button></li>
+</ul>
+<script>
+    let getURI = function getURI() {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        if (params.uri) {
+            window.location = params.uri;
+        }
+    };
+    document.getElementsById("back").addEventListener("click", history.back, false);
+    document.getElementsById("leave").addEventListener("click", getURI, false);
+</script>
