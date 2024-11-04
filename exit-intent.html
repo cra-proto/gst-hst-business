@@ -18,7 +18,7 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li><button id="leave" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li><button id="leave" class="wb-inv btn btn-link btn-lg" type="button">Leave the test site</button></li>
 </ul>
 <script>
     let getURI = function getURI() {
@@ -37,7 +37,7 @@ noFooterMain: true
             window.location = destinationURI;
         }
     });
-    if (!getURI()) {
-        document.getElementById("leave").classList.add("wb-inv");
+    if (getURI()) {
+        document.getElementById("leave").classList.remive("wb-inv");
     }
 </script>
