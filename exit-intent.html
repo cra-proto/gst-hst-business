@@ -25,12 +25,19 @@ noFooterMain: true
         const params = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
         });
-        if (params.uri) {
-            window.location = params.uri;
-        }
+        return params.uri;
     };
     document.getElementsById("back").addEventListener("click", () => {
         history.back();
     });
-    document.getElementsById("leave").addEventListener("click", getURI, false);
+    document.getElementsById("leave").addEventListener("click", () => {
+        let destinationURI = getURI();
+        
+        if (destinationURI) {
+            window.location = destinationURI;
+        }
+    });
+    if (!getURI()) {
+        document.getElementsById("leave").classList.add("wb-inv");
+    }
 </script>
