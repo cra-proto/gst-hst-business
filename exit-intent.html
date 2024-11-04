@@ -30,7 +30,7 @@ noFooterMain: true
     document.getElementsById("back").addEventListener("click", () => {
         history.back();
     });
-    document.getElementsById("leave").addEventListener("click", () => {
+    document.getElementById("leave").addEventListener("click", () => {
         let destinationURI = getURI();
         
         if (destinationURI) {
@@ -38,6 +38,6 @@ noFooterMain: true
         }
     });
     if (!getURI()) {
-        document.getElementsById("leave").classList.add("wb-inv");
+        document.getElementById("leave").classList.add("wb-inv");
     }
 </script>
