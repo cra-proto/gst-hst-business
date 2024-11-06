@@ -1,5 +1,7 @@
 baseurl: /gst-hst-business
 url: https://cra-proto.github.io
+repository: cra-protp/gst-hst-business
+website: https://www.canada.ca/en.html
 
 # Remote theme, use the latest version
 remote_theme: wet-boew/gcweb-jekyll
@@ -33,6 +35,7 @@ defaults:
         theme: "Taxes"
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
       privacyUrl: https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html
+      termsURL: https://www.canada.ca/en/transparency/terms.html
       contextualFooter:
         title: "Canada Revenue Agency (CRA)"
         links:

@@ -6,17 +6,16 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Important links
 
-- Prototype live site root digital services page : [File a GST/HST return, rebate or election electronically](https://cra-proto.github.io/gst-hst-business/en/digital-services-businesses/file-a-gst-hst-return-rebate-election-electronically.html)
-- Prototype live site root GST/HST businesses page : [GST/HST for businesses](https://cra-proto.github.io/gst-hst-business/en/topics/gst-hst-businesses.html)
-- Scoped GST COP page list: [GST/HST for Business - scoping](https://122gc.sharepoint.com/sites/WOSCoordination/Lists/GSTHST%20for%20business%20COP%20%20scoping/AllItems.aspx?env=WebViewList&viewid=1379b8f8-af3b-47fb-ba50-29a24ea1d13d&useFiltersInViewXml=1&OR=Teams-HL&CT=1726666893920&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDA4MTcwMDQxOSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)
-- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
+- [\[GST COP\] Scoped inventory page \(github\)](https://cra-proto.github.io/gst-hst-business/index.html)
+- [Github.dev](https://github.dev/cra-proto/gst-hst-business/blob/main/)
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
+- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
 
 ## Update procedures:
-- Test development files will be have `_proto#` appended to the end of the file name.
-- Changes will be committed by selecting `create a new branch` and then performing a pull request to merge the changed content.
-- Updates should have comments identifying the change.
-- Any repository path structure changes should be communicated to all indivdual updating the repository.
+- Test development files will have `_proto#` appended to the end of the file name
+- Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
+- Updates should have comments identifying what has been updated
+- Any repository path structure changes should be communicated to all indivduals who directly update the repository
 ---
 
 ## Deleted files list
@@ -35,18 +34,23 @@ Project to optimize the content related to filing GST/HST returns.
     'darkMode': false, 
     'theme': 'base',
     'themeVariables': {
-      'primaryColor': '#9FA6FF',
-      'primaryTextColor': '#000',
-      'primaryBorderColor': '#534FBC',
-      'lineColor': '#F8B229',
-      'secondaryColor': '#FF0000',
-      'textColor': '#000', 
-      'secondaryTextColor': '#FF0000',
-      'tertiaryColor': '#FFFFFF', 
-      'tertiaryTextColor': '#FFF'
+      'lineColor': '#F8B229', 
+      'textColor': '#ADADAD', 
+      'primaryColor': '#000ED6', 
+      'primaryBorderColor': '#534FBC', 
+      'primaryTextColor': '#ADADAD', 
+      'secondaryColor': '#850000',
+      'secondaryTextColor': '#ADADAD', 
+      'tertiaryColor': '#FFFFFF',  
+      'tertiaryTextColor': '#ADADAD'
     }
   }
 }%%
+
+%% https://mermaid.js.org/config/directives.html#declaring-directives)](https://mermaid.js.org/config/directives.html#declaring-directives
+%% https://mermaid.js.org/config/schema-docs/config-defs-gantt-diagram-config.html#toppadding
+
+%% color theme need opened with the high contrast light theme.
 gantt
     title Design phase timeframe
     dateFormat  YYYY-MM-DD
@@ -60,19 +64,19 @@ gantt
 \* future dates may be placeholders.
 
 ## Canada.ca path structure of scoped files: 
-[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[37 pages\]
+[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[50 pages\]
 
 ```mermaid
 mindmap
   root((services))
-    [e-services/digital-services-businesses - 1]
+    [e-services/digital-services-businesses - 3]
       [gst-hst-filing-remitting - 2]
       [gst-hst-internet-file-transfer - 8]
-      [gst-hst-netfile - 8]
+      [gst-hst-netfile - 10]
       [gst-hst-telefile - 7]
     [tax/businesses/topics - 1]
-      [gst-hst-businesses - 4]
-        [complete-file-return-business - 4]
+      [gst-hst-businesses - 10]
+        [complete-file-return-business - 7]
           [file-returns - 1]
         [digital-economy-gsthst - 1]
 ```
@@ -109,9 +113,10 @@ script: "https://domain.ca/your-awesome-script.js" # Optional. You can add custo
 ## Resources
 
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
+- [GCWeb, the WET-BOEW Canada.ca theme](https://wet-boew.github.io/GCWeb/index-en.html)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
-- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
+- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 
-**Updated:**  2024-10-11
+**Updated:**  2024-11-06
