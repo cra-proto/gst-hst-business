@@ -64,18 +64,18 @@ gantt
 \* future dates may be placeholders.
 
 ## Canada.ca path structure of scoped files: 
-[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[40 pages\]
+[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[50 pages\]
 
 ```mermaid
 mindmap
   root((services))
-    [e-services/digital-services-businesses - 1]
+    [e-services/digital-services-businesses - 3]
       [gst-hst-filing-remitting - 2]
       [gst-hst-internet-file-transfer - 8]
-      [gst-hst-netfile - 8]
+      [gst-hst-netfile - 10]
       [gst-hst-telefile - 7]
     [tax/businesses/topics - 1]
-      [gst-hst-businesses - 4]
+      [gst-hst-businesses - 10]
         [complete-file-return-business - 7]
           [file-returns - 1]
         [digital-economy-gsthst - 1]
@@ -119,4 +119,4 @@ script: "https://domain.ca/your-awesome-script.js" # Optional. You can add custo
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
 - [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 
-**Updated:**  2024-10-22
+**Updated:**  2024-11-06
