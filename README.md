@@ -12,16 +12,20 @@ Project to optimize the content related to filing GST/HST returns.
 - [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
 
 ## Update procedures:
+
 - Test development files will have `_proto#` appended to the end of the file name
 - Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
 - Updates should have comments identifying what has been updated
 - Any repository path structure changes should be communicated to all indivduals who directly update the repository
+
 ---
 
 ## Deleted files list
+
 - None
 
 ## Design phase roadmap:
+
 - [ ] Prototype: co-design navigation and content
 - [ ] SME review and accuracy check
 - [ ] Validation usability testing (including accessibility review)
@@ -60,10 +64,13 @@ gantt
     Import scoped files to repo :done, a2, 2024-10-10, 9d
     Evaluation of user testing :active, b2, after b1, 14d
     Content and design updates and prototyping :after b2, 60d
+
 ```
+
 \* future dates may be placeholders.
 
-## Canada.ca path structure of scoped files: 
+## Canada.ca path structure of scoped files
+
 [https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[50 pages\]
 
 ```mermaid
@@ -81,7 +88,7 @@ mindmap
         [digital-economy-gsthst - 1]
 ```
 
-## GCWeb Jekyll page template example:
+## GCWeb Jekyll page template example
 
 ```jekyll
 ---
