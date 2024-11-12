@@ -1,3 +1,5 @@
+# standard jekyll configuration
+content_editable: true
 baseurl: /gst-hst-business
 url: https://cra-proto.github.io
 repository: cra-protp/gst-hst-business
