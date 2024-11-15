@@ -90,7 +90,7 @@ mindmap
 
 ## GCWeb Jekyll page template example
 
-```jekyll
+```yaml
 ---
 layout: [default]                                  # Available: core, default, fluid, layout-home, layout-servermesssage, layout-splashpage, no-container, without-h1
 title: "The title of the current page"             # This value will set the title and h1 tag
