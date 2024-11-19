@@ -105,8 +105,8 @@ auth:
   labelExtended: "Sign in button extended label"   # Extended label of the sign in button
   link: "The url"                                  # link of the sign in button
 altLangPage: "The url"                             # Optional. Use the url of the alternate language page to display the language toggle
-dateModified: 2024-99-99                           # ISO date
-dateIssued: 2024-99-99                             # Optional. ISO date
+dateModified: YYYY-MM-DD                           # ISO date
+dateIssued: YYYY-MM-DD                             # Optional. ISO date
 breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
   - title: "The title"
     link: "The url"
