@@ -65,6 +65,11 @@ defaults:
       lang: "fr"
   -
     scope:
+      path: "templates/"
+    values:
+      lang: "en"
+  -
+    scope:
       path: "sandbox/"
     values:
       lang: "en"
