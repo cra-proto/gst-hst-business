@@ -63,3 +63,8 @@ defaults:
       path: "fr/"
     values:
       lang: "fr"
+  -
+    scope:
+      path: "sandbox/"
+    values:
+      lang: "en"
