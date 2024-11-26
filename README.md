@@ -124,6 +124,7 @@ script: "https://domain.ca/your-awesome-script.js" # Optional. You can add custo
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
+- [Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)
 - [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 
 **Updated:**  2024-11-06
