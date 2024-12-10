@@ -1,3 +1,5 @@
+# Support information
+
 ## GCWeb Jekyll page template example
 
 ```yaml
