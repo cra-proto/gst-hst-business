@@ -28,9 +28,12 @@ feedbackData:
 </div>
 
 <div class="mwsbodytext text parbase section">
-    <p>You can file your GST/HST return different ways. Find the filing method that works best for you.</p>
-   <!-- <p>To see what options are available for a specific payment you are making, answer a few questions to <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/make-payment/payment-options-type-payment-you-are-making.html">identify the best payment options for your situation</a>.</p>-->
-    <p>See all the different ways to file. Use filters to find more specific options.</p>
+
+    <div class="alert alert-info"> 
+  <h2 class="h3">Mandatory electronic filing</h2>
+        <p>If you are a GST/HST registrant with a reporting period that begins in 2024, you <a href="/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/file-return.html">must file your returns electronically</a> (except for charities and <a href="/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/definitions-gst-hst.html#qstslfi">selected listed financial institutions</a>). If you don't, we may charge you a penalty.</p> 
+    </div> 
+    <p>See all the different ways to file your GST/HST return. Use filters to find the filing methods that work best for you.</p>
 </div>
 
 <div class="mwsgeneric-base-html parbase section">
@@ -136,7 +139,7 @@ feedbackData:
             <div class="col-md-8">
                 <div class="wb-tagfilter provisional wb-filter" id="filteredFAQ" data-wb-filter="{&quot;selector&quot;: &quot;.events-list>li&quot;, &quot;section&quot;: &quot;.wb-tagfilter-items&quot;, &quot;uiTemplate&quot;: &quot;#searchFilter&quot;}">
                     <div id="searchFilter">
-                        <p class="wb-fltr-info">Payment options: <span class="h3" data-nbitem></span> out of <span class="h3" data-total></span></p>
+                        <p class="wb-fltr-info">Filing methods: <span class="h3" data-nbitem></span> out of <span class="h3" data-total></span></p>
                         <input type="search" class="hidden" id="customSearchUI">
                     </div>
                     <div class="wb-tagfilter-items">
@@ -144,22 +147,19 @@ feedbackData:
                             <li data-wb-tags="ways__deposit time__sameDay pay__multi">
                                 <div class="panel panel-info brdr-rds-0">
                                     <header class="panel-heading">
-                                        <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">Online banking</h2>
+                                        <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">My Business Account (using NETFILE)</h2>
                                     </header>
                                     <div class="panel-body">
-                                        <p>Some banks and credit unions in Canada allow you to add the CRA as a payee to make a single or multiple scheduled payments. Options and services available depend on your bank or credit union.</p>
-                                        <p>Payments are made <strong>directly from your bank account</strong>.</p>
+                                        <p>File your GST/HST return from within your CRA My Business Account.</p>
                                         <details class="mrgn-bttm-lg">
-                                            <summary>Payments you <strong>can</strong> and <strong>cannot</strong> make online through your bank or credit union</summary>
-                                            <p>Payments accepted through this method:</p>
-                                            <div data-ajax-replace="https://www.canada.ca/content/canadasite/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html#ajax-can"></div>
-                                            <hr class="brdr-tp">
-                                            <p>Payments <strong>not</strong> accepted through this method:</p>
-                                            <div data-ajax-replace="https://www.canada.ca/content/canadasite/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html#ajax-cant"></div>
-                                            <p class="mrgn-tp-lg">If your payment is not on the list, you can also <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=/en/revenue-agency/services/payments/payments-cra/individual-payments/make-payment/payment-options-type-payment-you-are-making.html">identify the best payment options for your situation</a>.</p>
+                                            <summary>Benefits</summary>
                                         </details>
-                                        <p><span class="h4">Learn how to pay:</span> <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html">Using your bank or credit union website or app</a></p>
-                                        <div class="mrgn-tp-lg mrgn-bttm-lg" data-ajax-replace="https://www.canada.ca/content/canadasite/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html#processing-time"> </div>
+                                        <details class="mrgn-bttm-lg">
+                                            <summary>Limitations</summary>
+                                        </details>
+
+                                        <p><span class="h4">Learn how to file:</span> <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html">Using My Business Account</a></p>
+                               <!--         <div class="mrgn-tp-lg mrgn-bttm-lg" data-ajax-replace="https://www.canada.ca/content/canadasite/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html#processing-time"> </div>-->
                                     </div>
                                 </div>
                             </li>
