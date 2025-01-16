@@ -48,7 +48,7 @@ feedbackData:
                     <li class="radio">
                       <label>
                         <input type="radio" name="pymnt-fltr" class="wb-tagfilter-ctrl" value="" checked>
-                        All </label>
+                        Show all (clear filters) </label>
                     </li>
                   </ul>
                 </fieldset>
@@ -81,7 +81,7 @@ feedbackData:
                     <li class="radio">
                       <label>
                         <input type="radio" name="pymnt-fltr" class="wb-tagfilter-ctrl" value="rep__filing" data-gc-analytics-customclick="CRA|ARC:MakeAPaymentFilterOption:Platform">
-                        Options for representatives</label>
+                        [Options for representatives]</label>
                     </li>
                     <li class="radio">
                       <label>
@@ -91,7 +91,7 @@ feedbackData:
                     <li class="radio">
                       <label>
                         <input type="radio" name="pymnt-fltr" class="wb-tagfilter-ctrl" value="rc7200__filer" data-gc-analytics-customclick="CRA|ARC:MakeAPaymentFilterOption:Cash">
-                        Options for RC7200 filers</label>
+                        [Options for RC7200 filers]</label>
                     </li>
                     <li class="radio">
                       <label>
@@ -144,21 +144,22 @@ feedbackData:
               <li data-wb-tags="eletronic__methods no__code no__software joint__filer rc7200__filer file__schedule file__election file__rebate file__npo">
                 <div class="panel panel-info brdr-rds-0">
                   <header class="panel-heading">
-                    <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">My Business Account (using NETFILE)</h2>
+                    <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">In your CRA account (using NETFILE)</h2>
                   </header>
                   <div class="panel-body">
-                    <p>File your GST/HST return from within your CRA My Business Account.</p>
-                    <details class="mrgn-bttm-lg">
-                      <summary>Benefits</summary>
-                    </details>
-                    <details class="mrgn-bttm-lg">
-                      <summary>Limitations</summary>
-                    </details>
+                    <p>File your GST/HST return from within your CRA account through My Business Account or Represent a Client.</p>
+                    <h3>What you can and cannot do using this method</h3>
+                    <ul class="fa-ul">
+                               <li><span class="fas fa-check text-success fa-li"></span>List item 1</li>
+       <li><span class="fas fa-check text-success fa-li"></span>List item 2</li>
+       <li><span class="fas fa-times text-danger fa-li"></span>List item 3</li>
+       <li><span class="fas fa-times text-danger fa-li"></span>List item 4</li>
+                    </ul>
                     <p><span class="h4">Learn how to file:</span> <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=/en/revenue-agency/services/about-canada-revenue-agency-cra/pay-online-banking.html">Using My Business Account</a></p>
                   </div>
                 </div>
               </li>
-              <li data-wb-tags="eletronic__methods no__code no__software rc7200__filer rep__filing file__schedule file__election file__rebate file__npo">
+            <!--  <li data-wb-tags="eletronic__methods no__code no__software rc7200__filer rep__filing file__schedule file__election file__rebate file__npo">
                 <div class="panel panel-info brdr-rds-0">
                   <header class="panel-heading">
                     <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">Represent a Client (using NETFILE)</h2>
@@ -176,14 +177,14 @@ feedbackData:
                     <p><span class="h4">Learn how to file:</span> <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=/en/revenue-agency/services/e-services/payment-save-time-pay-online.html">Using Represent a Client</a></p>
                   </div>
                 </div>
-              </li>
+              </li>-->
               <li data-wb-tags="eletronic__methods no__software rc7200__filer rep__filing file__schedule file__rebate file__npo">
                 <div class="panel panel-info brdr-rds-0">
                   <header class="panel-heading">
                     <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">[NETFILE form]</h2>
                   </header>
                   <div class="panel-body">
-                    <p>If you do not have access to My Business Account or Represent a Client you can file your GST/HST return directly with the CRA using the NETFILE form online.</p>
+                    <p>If you do not have a CRA account (My Business Account or Represent a Client) you can file your GST/HST return directly with the CRA using the NETFILE form online.</p>
                     <p>This filing method <a href="tbd">requires an access code</a>.</p>
                     <details class="mrgn-bttm-lg">
                       <summary>Benefits</summary>
@@ -218,9 +219,7 @@ feedbackData:
                     <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">Through a financial institution</h2>
                   </header>
                   <div class="panel-body">
-                    <p>You can file your GST/HST return
-                      <mark>online or in person</mark>
-                      at a participating Canadian financial institution via electronic data interchange (EDI).</p>
+                    <p>You can file your GST/HST return online through a participating Canadian financial institution using electronic data interchange (EDI).</p>
                     <details class="mrgn-bttm-lg">
                       <summary>Benefits</summary>
                     </details>
