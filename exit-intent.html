@@ -31,11 +31,13 @@ noFooterMain: true
     document.getElementById("back").addEventListener("click", () => {
         history.back();
     });
-    document.getElementById("leave").addEventListener("click", () => {
-        let destinationURI = getURI();
+    if (document.getElementById("leave") !== null) {
+        document.getElementById("leave").addEventListener("click", () => {
+            let destinationURI = getURI();
         
-        if (destinationURI) {
-            window.location = destinationURI;
+            if (destinationURI) {
+                window.location = destinationURI;
+            }
         }
     });
     if (getURI()) {
