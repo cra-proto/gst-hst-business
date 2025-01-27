@@ -2,5 +2,8 @@
     <div class="container" style="font-size: 14px;">
         <h2>This site is for CRA testing purposes only</h2>
         <p>Do not enter any personal information on this site</p>
+        {% if page.soureceurl %}
+        <p>source: <a href="{{page.soureceurl.link}}">{{page.soureceurl.title}}</a></p>
+        {% endif %}
     </div>
 </section>
