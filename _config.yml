@@ -35,7 +35,7 @@ defaults:
       feedback: true
       feedbackData:
         theme: "Taxes"
-      feedbackPath: "https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
+      feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
       privacyUrl: https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html
       termsURL: https://www.canada.ca/en/transparency/terms.html
       contextualFooter:
