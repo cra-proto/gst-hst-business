@@ -23,7 +23,7 @@ feedbackData:
   <div class="col-md-8">
     <p>Most GST/HST registrants can file their return electronically on the Canada Revenue Agency website via the use of <a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method/gst-hst-ift-software_proto1.html">CRA-approved third party software</a>. This online service is also reffered to as <strong>Internet File Transfer</strong> and requires the use a four-digit <a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method/gst-hst-access-codes_proto1.html">access code</a> for authentication.</p>
     <p>If your return is created and you are ready to file, click continue to proceed.</p>
-    <form action="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntrGft.action?request_locale=en_CA" method="post">
+    <form action="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntrGft.action?request_locale=en_CA" method="post">
       <input class="btn btn-default btn-primary" type="submit" value="Continue">
     </form>
     <!--
@@ -45,7 +45,7 @@ feedbackData:
       <li><strike>GST/HST Internet File Transfer has a new look that meets the guidelines set by the Government of Canada. The guidelines help with the delivery of websites and applications that are more accessible, usable, and optimized for mobile devices.</strike></li>
     </ul>
     <h2>Third party software is required</h2>
-    <p>You will need to have accounting software that supports the GST/HST Internet File Transfer. Consult our list of <a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method/gst-hst-ift-software.html#crtfd">certified software vendors</a>. If you do not wish to use accounting software, you can still file your return electronically using <a href="cmpr_mthds">other filing methods that suit your needs</a>.</p> -->
+    <p>You will need to have accounting software that supports the GST/HST Internet File Transfer. Consult our list of <a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method/gst-hst-ift-software.html#crtfd">certified software vendors</a>. If you do not wish to use accounting software, you can still file your return electronically using <a href="#cmpr_mthds">other filing methods that suit your needs</a>.</p> -->
     <h2 id="lgblty">Eligibility</h2>
     <p>Filing using Internet File Transfer is available to most GST/HST registrants, <strong>excluding</strong> those with accounts that are administered by Revenu Québec.</p>
     <p>The following registrants are <strong>not eligible</strong> to use GST/HST Internet File Transfer and must use an alternate filing method:</p>
@@ -64,19 +64,19 @@ feedbackData:
     </ul>
     <p>
       <mark>Does this need to be here?</mark>
-      If you are a selected listed financial institution (SLFI) that reports both the GST/HST and QST, you must <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/charge-collect-which-rate/financial-institutions.html#rqfl">determine which returns to complete and when to file</a>.</p>
+      If you are a selected listed financial institution (SLFI) that reports both the GST/HST and QST, you must <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/charge-collect-which-rate/financial-institutions.html#rqfl">determine which returns to complete and when to file</a>.</p>
     <h2>Before you start</h2>
     <p>Before using GST/HST Internet File transfer, ensure you meet the following requirements:</p>
     <ol>
-      <li>You are <a href="lgblty">eligible</a> to use GST/HST Internet File transfer</li>
+      <li>You are <a href="#lgblty">eligible</a> to use GST/HST Internet File transfer</li>
       <li>You have read the <a href="#prvcy">Privacy Notice Statement</a> and the <a href="#nnrspnsblty">Statement of non-responsibility</a></li>
       <li>You are using a browser which supports TLS 1.2
         <ul>
-          <li><strong>Note:</strong> If you are using an older browser that does not support the <a href="https://www.canada.ca/content/canadasite/en/revenue-agency/corporate/access-online-services-safely.html#h4">latest security standard</a>, you will not be able to access CRA's secure online services</li>
+          <li><strong>Note:</strong> If you are using an older browser that does not support the <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/content/canadasite/en/revenue-agency/corporate/access-online-services-safely.html#h4">latest security standard</a>, you will not be able to access CRA's secure online services</li>
         </ul>
       </li>
       <li>You have enabled cookies and JavaScript in your browser</li>
-      <li>You have your four-digit <a href="https://test.canada.ca/cra-arc/cops/gst-hst-business/en/topics/gst-hst-businesses/proto1_file-return-business_subway/choose-your-filing-method/gst-hst-access-codes.html">access code</a></li>
+      <li>You have your four-digit <a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method/gst-hst-access-codes.html">access code</a></li>
     </ol>
     <!--<h2>How it works</h2>
     <p>Using <a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method/gst-hst-ift-software_proto1.html">CRA-approved third party software</a>, you generate and save an electronic version of your GST/HST return. You then access the service through the CRA application page and attach your (.tax) file.</p>
@@ -91,8 +91,8 @@ feedbackData:
         </ul>
       </li>
       <li>Record the file name and path of the (.tax) file containing your return</li>
-      <li>If you have an amount owing, find out how to <a href="https://www.canada.ca/content/canadasite/en/revenue-agency/services/payments-cra.html">make a payment to the CRA</a></li>
-      <li>When you are ready to file, <a href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntrGft.action">access the GST/HST Internet File transfer application</a> 
+      <li>If you have an amount owing, find out how to <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/content/canadasite/en/revenue-agency/services/payments-cra.html">make a payment to the CRA</a></li>
+      <li>When you are ready to file, <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntrGft.action">access the GST/HST Internet File transfer application</a> 
         <!--<form action="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntrGft.action?request_locale=en_CA" method="post">
           <input class="btn btn-default btn-primary" type="submit" value="Continue">
         </form>--> 
@@ -113,18 +113,18 @@ feedbackData:
           <li>If there are any problems with the electronic tax return you tried to send us, we'll send you an explanation of errors or corrections needed. <strong>This means your tax return was not accepted for processing.</strong> You should save, print, or make note of all messages we send. Before trying to retransmit the return, you must make the appropriate corrections within your software according to the error messages you received and re-save your file.</li>
         </ol>
       </li>
-      <li>Consider setting up <a href="https://www.canada.ca/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html">direct deposit</a> to speed up any refund you may be expecting.</li>
+      <li>Consider setting up <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html">direct deposit</a> to speed up any refund you may be expecting.</li>
     </ol>
     <h2>Notices</h2>
     <details>
       <summary id="scrty">Security and confidentiality</summary>
-      <p>The CRA limits access to browsers supporting Transport Layer Security (TLS). TLS is a protocol that provides authentication, confidentially, and data integrity between communicating applications. Using the appropriate safeguards and configuration, TLS provides a method of transmitting data securely across networks. Effective implementation of TLS will assist in mitigating the most serious threats with web-based applications such as eavesdropping, data tampering, and message forgery. <a href="https://www.canada.ca/en/revenue-agency/corporate/access-online-services-safely.html#h4">Upgrade to TLS 1.2</a> so that your system is as secure as possible.</p>
+      <p>The CRA limits access to browsers supporting Transport Layer Security (TLS). TLS is a protocol that provides authentication, confidentially, and data integrity between communicating applications. Using the appropriate safeguards and configuration, TLS provides a method of transmitting data securely across networks. Effective implementation of TLS will assist in mitigating the most serious threats with web-based applications such as eavesdropping, data tampering, and message forgery. <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/en/revenue-agency/corporate/access-online-services-safely.html#h4">Upgrade to TLS 1.2</a> so that your system is as secure as possible.</p>
     </details>
     <details>
       <summary id="prvcy">Privacy Notice Statement</summary>
       <p>Personal information is collected under the authority of the Excise Tax Act for the purpose of filing your goods and services tax/ harmonized sales tax (GST/HST) returns and claiming eligible rebates. Please note that the Internet Protocol (IP) address will be collected, stored and used to identify the general location from where a return/rebate was filed from, to identify anomalies and/or inconsistencies that may warrant further review.</p>
       <p>Information may also be used for the administration and enforcement of the ETA and may be shared or verified with other government institutions as permitted by law. Incomplete or inaccurate information may result in the delay or denial of refunds and/or rebates; penalties may also apply.</p>
-      <p>Information is described in personal information bank PPU 241 in the Canada Revenue Agency (CRA) chapter of Programs and Information Holdings (formerly Info Source). Personal information is protected under the <a href="http://laws-lois.justice.gc.ca/eng/acts/P-21/index.html">Privacy Act</a> and individuals have a right of protection, access to and correction or notation of their personal information. To view the CRA&nbsp;Programs and Information Holdings (formerly Info Source) chapter and further details regarding requests for personal information at the CRA, go to <a href="https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra/access-information-privacy-canada-revenue-agency.html">Access to information and privacy at the Canada Revenue Agency</a>.</p>
+      <p>Information is described in personal information bank PPU 241 in the Canada Revenue Agency (CRA) chapter of Programs and Information Holdings (formerly Info Source). Personal information is protected under the <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=http://laws-lois.justice.gc.ca/eng/acts/P-21/index.html">Privacy Act</a> and individuals have a right of protection, access to and correction or notation of their personal information. To view the CRA Programs and Information Holdings (formerly Info Source) chapter and further details regarding requests for personal information at the CRA, go to <a href="https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra/access-information-privacy-canada-revenue-agency.html">Access to information and privacy at the Canada Revenue Agency</a>.</p>
     </details>
     <details>
       <summary id="nnrspnsblty">Non-responsibility of the CRA</summary>
