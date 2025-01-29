@@ -4,7 +4,7 @@
         <p style="margin-bottom: 0 !important;">Do not enter any personal information on this site</p>
         {% if page.soureceurl %}
         {% for source in page.soureceurl %}
-        {% if source.title %}
+        {% if source.title and source.title != "" %}
         <p id="testsite-banner"><strong>Source:</strong> <a href="{{ source.link }}"></a>{{ source.title }}</p>
         {% endif %}
         {% endfor %}
