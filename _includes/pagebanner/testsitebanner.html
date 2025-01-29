@@ -1,11 +1,11 @@
-<section class="gc-archv" style="background-color: #f9f4d4 !important; padding: 10px 0 !important;">
+<section id="test-banner" class="gc-archv" style="background-color: #f9f4d4 !important; padding: 10px 0 !important;">
     <div class="container" style="font-size: 14px;">
         <h2 style="margin-bottom: 4px !important;">This site is for CRA testing purposes only</h2>
         <p style="margin-bottom: 0 !important;">Do not enter any personal information on this site</p>
         {% if page.soureceurl %}
         {% for source in page.soureceurl %}
         {% if source.title and source.title != "" %}
-        <p id="testsite-banner"><strong>Source:</strong> <a href="{{ source.link }}"></a>{{ source.title }}</p>
+        <p id="testpage-source"><strong>Source:</strong> <a href="{{ source.link }}"></a>{{ source.title }}</p>
         {% endif %}
         {% endfor %}
         {% endif %}
