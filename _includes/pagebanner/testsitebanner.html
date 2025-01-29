@@ -3,7 +3,7 @@
         <h2 style="margin-bottom: 4px !important;">This site is for CRA testing purposes only</h2>
         <p style="margin-bottom: 0 !important;">Do not enter any personal information on this site</p>
         {% if page.soureceurl %}
-        <p id="testsite-banner"><strong>Source:</strong>{% for source in page.soureceurl %}{% if source.title %} <a href="{{ source.link }}">{{ source.title }}</a>{% endif %}{% endfor %}</p>
+        <p id="testsite-banner"><strong>Source:</strong>{% for source in page.soureceurl %}{% if source.title != "" %} <a href="{{ source.link }}">{{ source.title }}</a>{% endif %}{% endfor %}</p>
         {% endif %}
     </div>
 </section>
