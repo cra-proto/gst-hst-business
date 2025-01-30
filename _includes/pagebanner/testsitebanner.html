@@ -5,7 +5,7 @@
         {% if page.soureceurl %}
         {% for source in page.soureceurl %}
         {% if source.title and source.title != "" %}
-        <p id="testpage-source"><strong>Source:</strong> <a href="{{ source.link }}"></a>{{ source.title }}</p>
+        <p id="testpage-source"><strong>Source:</strong> <a href="{{ source.link }}">{{ source.title }}</a></p>
         {% endif %}
         {% endfor %}
         {% endif %}
