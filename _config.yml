@@ -54,6 +54,7 @@ defaults:
       script: 
         - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js
+        - https://cra-design.github.io/gst-hst-business/assets/scripts/test-site-banner.js
   -
     scope:
       path: "en/"
