@@ -1,13 +1,13 @@
-<section id="test-banner" class="gc-archv" style="background-color: #f9f4d4 !important; padding: 10px 0 !important;">
+<section id="test-banner" class="gc-archv">
     <div id="devtoolbar" class="pull-right">
         <ul class="btn-toolbar list-inline" role="toolbar">
             <li class="btn-group"><a id="editBtn" class="btn btn-default btn-sm" href=""><span class="fa fa-edit"></span><span class="wb-inv">Edit</span></a></li>
             <li id="githubBtnGrp" class="btn-group"><a id="githubBtn" class="btn btn-default btn-sm" href="#"><span class="fab fa-github"></span><span class="wb-inv">Go to Github source</span></a></li>
         </ul>
     </div>
-    <div class="container" style="font-size: 14px;">
-        <h2 style="margin-bottom: 4px !important;">This site is for CRA testing purposes only</h2>
-        <p style="margin-bottom: 0 !important;">Do not enter any personal information on this site</p>
+    <div class="container test-banner-content">
+        <h2>This site is for CRA testing purposes only</h2>
+        <p class="mrgn-bttm-0">Do not enter any personal information on this site</p>
         {% if page.soureceurl %}
         {% for source in page.soureceurl %}
         {% if source.title and source.title != "" %}
