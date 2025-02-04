@@ -1,7 +1,7 @@
 "use strict";
 
-let exitPage = "exit-intent.html",
-    getGithubURL = function (pageURL) {
+//let exitPage = "exit-intent.html",
+let getGithubURL = function (pageURL) {
         let pageName = "",
             githubURL = null;
 
@@ -37,7 +37,7 @@ let exitPage = "exit-intent.html",
     visitedLinkStyle = document.createElement("style");
 
 //Remove visited link highlighting from links to exit page
-visitedLinkStyle.innerHTML = "a[href*='" + rootDomain + exitPage + "']:visited{ color:#284162;}";
+visitedLinkStyle.innerHTML = "a[href*='" + rootDomain + exitPage + "']:visited{ color:#284162; }";
 $("head").append(visitedLinkStyle);
 
 // Initalize Edit button
