@@ -67,10 +67,10 @@ if (githubURL !== null) {
 
 $(document).on("wb-ready.wb", function () {
     $("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'])").each(function updateExitURL() {
-        this.data("wb-exitscript", { url: rootDomain + exitPage });
 /*
+        this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage + "&quot;}";
+        this.classList.add("wb-exitscript");
         this.href = rootDomain + exitPage + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
-        this.addClass("wb-exitscript");
 */
     });
     $("form:not([action^='" + rootDomain + "'])").each(function updateExitURL() {
