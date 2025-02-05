@@ -18,6 +18,7 @@ exclude:
 # Site settings
 assets: https://wet-boew.github.io/themes-dist
 exitPage: "exit-intent.html"
+developerOptions: true
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
