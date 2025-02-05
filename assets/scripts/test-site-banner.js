@@ -1,7 +1,7 @@
 "use strict";
 
 //let exitPage = "exit-intent.html",
-let exitPage = document.getElementById("exitpage").value;
+let exitPage = document.getElementById("exitpage");
 let devbar = document.getElementById("devtoolbar"), 
     getGithubURL = function (pageURL) {
         let pageName = "",
@@ -39,8 +39,10 @@ let devbar = document.getElementById("devtoolbar"),
     visitedLinkStyle = document.createElement("style");
 
 //Remove visited link highlighting from links to exit page
-visitedLinkStyle.innerHTML = "a[href*='" + rootDomain + exitPage + "']:visited{ color:#284162; }";
-$("head").append(visitedLinkStyle);
+if (exitPage) {
+    visitedLinkStyle.innerHTML = "a[href*='" + rootDomain + exitPage.value + "']:visited{ color:#284162; }";
+    $("head").append(visitedLinkStyle);
+}
 
 // Initalize Edit button
 if (devbar) {
@@ -70,16 +72,18 @@ if (devbar && githubURL !== null) {
 }
 
 $(document).on("wb-ready.wb", function () {
-    $("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'])").each(function updateExitURL() {
+    if (exitPage) {
+        $("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'])").each(function updateExitURL() {
 /*
-        this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage + "&quot;}";
-        this.classList.add("wb-exitscript");
-        this.href = rootDomain + exitPage + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
+            this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage.value + "&quot;}";
+            this.classList.add("wb-exitscript");
+            this.href = rootDomain + exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
 */
-    });
-    $("form:not([action^='" + rootDomain + "'])").each(function updateExitURL() {
+        });
+        $("form:not([action^='" + rootDomain + "'])").each(function updateExitURL() {
 /*
-        this.action = rootDomain + exitPage + "?uri=" + this.action.replace("?", "&");
+            this.action = rootDomain + exitPage.value + "?uri=" + this.action.replace("?", "&");
 */
-    });
+        });
+    }
 });
