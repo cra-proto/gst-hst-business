@@ -73,7 +73,7 @@ if (devbar && githubURL !== null) {
 
 $(document).on("wb-ready.wb", function () {
     if (exitPage) {
-        $("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'])").each(function updateExitURL() {
+        $("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'] [data-exit='false'])").each(function updateExitURL() {
 /*
             this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage.value + "&quot;}";
             this.classList.add("wb-exitscript");
