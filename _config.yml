@@ -2,7 +2,7 @@
 content_editable: true
 baseurl: /gst-hst-business
 url: https://cra-design.github.io
-repository: cra-protp/gst-hst-business
+repository: cra-design/gst-hst-business
 website: https://www.canada.ca/en.html
 
 # Remote theme, use the latest version
