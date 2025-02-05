@@ -19,29 +19,46 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li><button id="leave" class="wb-inv btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li><button id="leave" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
     <li><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
-    let getURI = function getURI() {
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        return params.uri;
-    };
+    let pageURL = window.location, 
+        getQueryEl = function getQueryEl(field) {
+            const params = new Proxy(new URLSearchParams(pageURL.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+            return params[field];
+        }, 
+        exitOrigin = getQueryEl("uri"), 
+        pagetitle = getQueryEl("pagetitle");
+
+    //script for back button
     document.getElementById("back").addEventListener("click", () => {
         history.back();
     });
-    if (document.getElementById("leave") !== null) {
+
+    //script for leave site button
+    if (document.getElementById("leave") !== null && typeof URLSearchParams !== "undefined" && exitOrigin !== null) {
+        if (pagetitle !== null) {
+            document.getElementById("leave").innerText = decodeURIComponent(pagetitle);
+        }
         document.getElementById("leave").addEventListener("click", () => {
-            let destinationURI = getURI();
-        
-            if (destinationURI) {
-                window.location = destinationURI;
+            let extractQuerystring = function extractQuerystring() {
+                    const params = new URLSearchParams(pageURL.search);
+
+                    params.delete("pagetitle");
+                    params.delete("uri");
+                    return params.toString();
+                },
+                queryStr = extractQuerystring();
+
+            if (queryStr !== "") {
+                queryStr = "?" + queryStr;
             }
-        });
-    }
-    if (getURI()) {
-        document.getElementById("leave").classList.remove("wb-inv");
+            window.location = exitOrigin + queryStr + window.location.hash;
+        });        
+    } else {
+        document.getElementById("leave").style.display = "none";
     }
 </script>
