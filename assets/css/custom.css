@@ -1,3 +1,4 @@
 #test-banner {background-color: #f9f4d4 !important; padding: 10px 0 !important;}
 .test-banner-content {font-size: 14px;}
 .test-banner-content h2 {margin-bottom: 4px !important;}
+.hide-devmenu {display: none};
