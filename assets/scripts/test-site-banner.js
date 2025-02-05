@@ -66,7 +66,7 @@ if (devbar) {
 
 // Initalize Github button
 if (devbar && githubURL !== null) {
-    document.getElementById("githubBtnGrp").classList.remove("wb-inv");
+    document.getElementById("githubBtnGrp").classList.remove("hide-devmenu");
     devbar.classList.add("mrgn-rght-md");
     document.getElementById("githubBtn").href = githubURL;
 }
