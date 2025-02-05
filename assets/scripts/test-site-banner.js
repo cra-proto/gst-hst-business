@@ -2,7 +2,8 @@
 
 //let exitPage = "exit-intent.html",
 let exitPage = document.getElementById("exitpage").value;
-let getGithubURL = function (pageURL) {
+let devbar = document.getElementById("devtoolbar"), 
+    getGithubURL = function (pageURL) {
         let pageName = "",
             githubURL = null;
 
@@ -42,27 +43,29 @@ visitedLinkStyle.innerHTML = "a[href*='" + rootDomain + exitPage + "']:visited{ 
 $("head").append(visitedLinkStyle);
 
 // Initalize Edit button
-document.getElementById("editBtn").addEventListener("click", function (event) {
-    if (document.getElementsByTagName("main").contentEditable === "true") {
-        document.getElementsByTagName("main").contentEditable = "false";
-        document.designMode = "off";
-        void 0;
-        this.classList.add("btn-default");
-        this.classList.remove("btn-primary");
-    } else {
-        document.getElementsByTagName("main").contentEditable = "true";
-        document.designMode = "on";
-        void 0;
-        this.classList.add("btn-primary");
-        this.classList.remove("btn-default");
-    }
-    event.preventDefault();
-});
+if (devbar) {
+    document.getElementById("editBtn").addEventListener("click", function (event) {
+        if (document.getElementsByTagName("main").contentEditable === "true") {
+            document.getElementsByTagName("main").contentEditable = "false";
+            document.designMode = "off";
+            void 0;
+            this.classList.add("btn-default");
+            this.classList.remove("btn-primary");
+        } else {
+            document.getElementsByTagName("main").contentEditable = "true";
+            document.designMode = "on";
+            void 0;
+            this.classList.add("btn-primary");
+            this.classList.remove("btn-default");
+        }
+        event.preventDefault();
+    });
+}
 
 // Initalize Github button
-if (githubURL !== null) {
+if (devbar && githubURL !== null) {
     document.getElementById("githubBtnGrp").classList.remove("wb-inv");
-    document.getElementById("devtoolbar").classList.add("mrgn-rght-md");
+    devbar.classList.add("mrgn-rght-md");
     document.getElementById("githubBtn").href = githubURL;
 }
 
