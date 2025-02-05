@@ -9,10 +9,10 @@ Project to optimize the content related to filing GST/HST returns.
 - [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
 - [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
 - [\[GST COP\] Scoped inventory page \(github\)](https://cra-design.github.io/gst-hst-business/index.html)
-- [Github.dev](https://github.dev/cra-proto/gst-hst-business/blob/main/)
-- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
-- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
-- [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_login-e.html)
+- [Github.dev](https://github.dev/cra-design/gst-hst-business/blob/main/)
+- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
+- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
+- [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
 
 ## Update procedures:
 
