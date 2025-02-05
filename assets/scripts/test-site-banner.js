@@ -1,6 +1,7 @@
 "use strict";
 
 //let exitPage = "exit-intent.html",
+let exitPage = document.getElementsById("exitpage").value;
 let getGithubURL = function (pageURL) {
         let pageName = "",
             githubURL = null;
