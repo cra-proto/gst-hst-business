@@ -5,7 +5,7 @@ let exitPage = document.getElementById("exitpage");
 let devbar = document.getElementById("devtoolbar"), 
     getGithubURL = function (pageURL) {
         let pageName = "",
-            githubURL = null;
+            gitURL = null;
 
         if (pageURL.indexOf(".htm") === -1) {
             pageName = "index.html";
@@ -14,18 +14,18 @@ let devbar = document.getElementById("devtoolbar"),
         switch (true) {
             // Generate github.com URL's from [repo name].github.io URL's
             case pageURL.indexOf(".github.io/") > -1:
-                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/(.*?)\.github\.io\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/$1\/$2\/blob\/main\/$3$4" + pageName);
+                gitURL = pageURL.toString().replace(new RegExp("^https:\/\/(.*?)\.github\.io\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/$1\/$2\/blob\/main\/$3$4" + pageName);
                 break;
             // Generate github.com URL's from test.canada.ca URL's
             case pageURL.indexOf("://test.canada.ca/") > -1:
-                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/test\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/gc-proto\/$1\/blob\/master\/$2$3" + pageName);
+                gitURL = pageURL.toString().replace(new RegExp("^https:\/\/test\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/gc-proto\/$1\/blob\/master\/$2$3" + pageName);
                 break;
             // Generate github.com URL's from [repo name].alpha.canada.ca URL's
             case pageURL.indexOf(".alpha.canada.ca/") > -1:
-                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/design\.cra-arc\.alpha\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/alpha-canada-ca\/cra-ucd-guide\/blob\/main\/$1\/$2$3" + pageName);
+                gitURL = pageURL.toString().replace(new RegExp("^https:\/\/design\.cra-arc\.alpha\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/alpha-canada-ca\/cra-ucd-guide\/blob\/main\/$1\/$2$3" + pageName);
                 break;
         }
-        return githubURL;
+        return gitURL;
     },
     getDomain = function (url) {
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
