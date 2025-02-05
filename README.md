@@ -6,6 +6,8 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Important links
 
+- [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
+- [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
 - [\[GST COP\] Scoped inventory page \(github\)](https://cra-design.github.io/gst-hst-business/index.html)
 - [Github.dev](https://github.dev/cra-proto/gst-hst-business/blob/main/)
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
@@ -18,9 +20,8 @@ Project to optimize the content related to filing GST/HST returns.
 - Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
 - Updates should be named or have comments identifying what has been updated or changed
 - Any repository path structure changes should be communicated to all indivduals who directly update the repository
-- On links to pages ouside of the repositore add `https://cra-design.github.io/gst-hst-business/exit-intent.html?uri=` before the start of all URLs so the links are sent through the exit intent page
 - Create all files in locations that reflects where they will be eventually published when created on Canada.ca
-
+- In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
 ---
 
 ## Added/Modified/Deleted files and pages to be published:
@@ -110,4 +111,4 @@ mindmap
         [digital-economy-gsthst - 1]
 ```
 
-**Updated:**  2025-01-29
+**Updated:**  2025-02-05
