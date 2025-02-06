@@ -17,8 +17,9 @@ exclude:
 
 # Site settings
 assets: https://wet-boew.github.io/themes-dist
-exitPage: "exit-intent.html"
+exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
 developerOptions: true
+relativeExternalLinks: true
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
