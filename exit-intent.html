@@ -19,8 +19,8 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
-    <li><span id="scriptleavelnk" class="wb-exitscript wb-exitscript-urlparam"></span></li>
+    <li id="leavesite"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="scriptleave"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
     let pageURL = window.location, 
@@ -62,12 +62,12 @@ noFooterMain: true
                 window.location = exitOrigin + queryStr + window.location.hash;
             });
         } else {
-            document.getElementById("leavesitelnk").style.display = "none";
+            document.getElementById("leavesite").style.display = "none";
         }
     
         //remove exit script button if no value sent
         if (scriptexturl === null || devOptions.value === "false") {
-            document.getElementById("scriptleavelnk").style.display = "none";
+            document.getElementById("scriptleave").style.display = "none";
         }
     }
 </script>
