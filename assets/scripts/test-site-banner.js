@@ -26,7 +26,7 @@ let devbar = document.getElementById("devtoolbar"),
                 break;
         }
         return gitURL;
-    },   
+    }, 
     getDomain = function (url) {
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
             domains = pattern.exec(url);
@@ -46,6 +46,9 @@ let devbar = document.getElementById("devtoolbar"),
                     this.href = rootDomain + exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
                     */
                 });
+                /*
+                $(".wb-exitscript").trigger("wb-init.wb-exitscript");
+                */
             }
             if (hrefSelector !== "") {
                 $(actionSelector).each(function updateExitAction() {
@@ -92,9 +95,9 @@ if (devbar && githubURL !== null) {
 }
 
 $(document).on("wb-ready.wb", function () {
-    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'] [data-exit='false'])", "form:not([action^='" + rootDomain + "'])");
+    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'], [data-exit='false'])", "form:not([action^='" + rootDomain + "'])");
 });
 
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function (event) {
-    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'] [data-exit='false'])", ".gcweb-menu form:not([action^='" + rootDomain + "'])");
+    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'], [data-exit='false'])", ".gcweb-menu form:not([action^='" + rootDomain + "'])");
 });
