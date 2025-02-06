@@ -1,6 +1,6 @@
 "use strict";
 
-//let exitPage = "exit-intent.html",
+//let exitPage = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 let exitPage = document.getElementById("exitpage");
 let devbar = document.getElementById("devtoolbar"), 
     getGithubURL = function (pageURL) {
@@ -41,9 +41,11 @@ let devbar = document.getElementById("devtoolbar"),
             if (hrefSelector !== "") {
                 $(hrefSelector).each(function updateExitHref() {
                     /*
-                    this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage.value + "&quot;}";
+                    let urlObj = { "url": exitPage.value};
+
+                    this.dataset.wbExitscript = JSON.stringify(urlObj);
                     this.classList.add("wb-exitscript");
-                    this.href = rootDomain + exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
+                    this.href = exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
                     */
                 });
                 /*
@@ -53,7 +55,7 @@ let devbar = document.getElementById("devtoolbar"),
             if (hrefSelector !== "") {
                 $(actionSelector).each(function updateExitAction() {
                     /*
-                    this.action = rootDomain + exitPage.value + "?uri=" + this.action.replace("?", "&");
+                    this.action = exitPage.value + "?uri=" + this.action.replace("?", "&");
                     */
                 });
             }
@@ -63,7 +65,7 @@ let devbar = document.getElementById("devtoolbar"),
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
-    visitedLinkStyle.innerHTML = "a[href*='" + rootDomain + exitPage.value + "']:visited{ color:#284162; }";
+    visitedLinkStyle.innerHTML = "a[href*='" + exitPage.value + "']:visited{ color:#284162; }";
     $("head").append(visitedLinkStyle);
 }
 
