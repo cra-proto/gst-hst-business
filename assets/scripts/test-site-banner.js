@@ -4,7 +4,7 @@
 let exitPage = document.getElementById("exitpage");
 let devbar = document.getElementById("devtoolbar"), 
     getGithubURL = function (pageURL) {
-        let pageName = "",
+        let pageName = "", 
             gitURL = null;
 
         if (pageURL.indexOf(".htm") === -1) {
@@ -26,16 +26,36 @@ let devbar = document.getElementById("devtoolbar"),
                 break;
         }
         return gitURL;
-    },
+    },   
     getDomain = function (url) {
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
             domains = pattern.exec(url);
 
         return domains[0];
-    },
-    currentPageUrl = window.location.origin + window.location.pathname,
-    githubURL = getGithubURL(currentPageUrl),
-    rootDomain = getDomain(currentPageUrl),
+    }, 
+    currentPageUrl = window.location.origin + window.location.pathname, 
+    githubURL = getGithubURL(currentPageUrl), 
+    rootDomain = getDomain(currentPageUrl), 
+    adjustLinks = function adjustLinks(hrefSelector, actionSelector) {
+        if (exitPage) {
+            if (hrefSelector !== "") {
+                $(hrefSelector).each(function updateExitHref() {
+                    /*
+                    this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage.value + "&quot;}";
+                    this.classList.add("wb-exitscript");
+                    this.href = rootDomain + exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
+                    */
+                });
+            }
+            if (hrefSelector !== "") {
+                $(actionSelector).each(function updateExitAction() {
+                    /*
+                    this.action = rootDomain + exitPage.value + "?uri=" + this.action.replace("?", "&");
+                    */
+                });
+            }
+        }
+    }, 
     visitedLinkStyle = document.createElement("style");
 
 //Remove visited link highlighting from links to exit page
@@ -72,18 +92,9 @@ if (devbar && githubURL !== null) {
 }
 
 $(document).on("wb-ready.wb", function () {
-    if (exitPage) {
-        $("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'] [data-exit='false'])").each(function updateExitURL() {
-/*
-            this.dataset.wbExitscript = "{ &quot;url&quot;: &quot;" + rootDomain + exitPage.value + "&quot;}";
-            this.classList.add("wb-exitscript");
-            this.href = rootDomain + exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
-*/
-        });
-        $("form:not([action^='" + rootDomain + "'])").each(function updateExitURL() {
-/*
-            this.action = rootDomain + exitPage.value + "?uri=" + this.action.replace("?", "&");
-*/
-        });
-    }
+    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'] [data-exit='false'])", "form:not([action^='" + rootDomain + "'])");
+});
+
+$(".gcweb-menu").on("wb-ready.gcweb-menu", function (event) {
+    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'] [data-exit='false'])", ".gcweb-menu form:not([action^='" + rootDomain + "'])");
 });
