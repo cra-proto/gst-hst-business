@@ -17,6 +17,7 @@
 {% include resources-inc/head.html %}
 </head>
 <body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+    <data id="devoptions" value="{{ site.developerOptions }}"></data>
 {%- if page.archived -%}
 	{% include headers-includes/archive.html %}
 {%- endif -%}
