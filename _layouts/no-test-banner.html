@@ -15,6 +15,7 @@ layout: core-nobanner
 {%- if page.secondarymenu -%}
 {%- comment -%} The pattern with the secondary menu is probably deprecated, but we do have pages published like this on Canada.ca {%- endcomment -%}
 <div class="container">
+    <data id="devoptions" value="{{ site.developerOptions }}"></data>
 	<div class="row">
 		<main property="mainContentOfPage" class="col-md-9 col-md-push-3" resource="#wb-main" typeof="WebPageElement">
 {%- else -%}
