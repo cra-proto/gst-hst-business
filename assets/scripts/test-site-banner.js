@@ -41,10 +41,11 @@ let devbar = document.getElementById("devtoolbar"),
             if (hrefSelector !== "") {
                 $(hrefSelector).each(function updateExitHref() {
                     /*
-                    let urlObj = { "url": exitPage.value};
-
-                    this.dataset.wbExitscript = JSON.stringify(urlObj);
-                    this.classList.add("wb-exitscript");
+                    if (this.classList.contains("wb-exitscript") === false) {
+                        let urlObj = { "url": exitPage.value }
+                        this.dataset.wbExitscript = JSON.stringify(urlObj);
+                        this.classList.add("wb-exitscript");
+                    }
                     this.href = exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
                     */
                 });
@@ -55,7 +56,15 @@ let devbar = document.getElementById("devtoolbar"),
             if (hrefSelector !== "") {
                 $(actionSelector).each(function updateExitAction() {
                     /*
-                    this.action = exitPage.value + "?uri=" + this.action.replace("?", "&");
+                    let hiddenInEl;
+
+                    this.method = "GET";
+                    hiddenInEl = document.createElement("input");
+                    hiddenInEl.value = this.action;
+                    hiddenInEl.name = "uri";
+                    hiddenInEl.type = "hidden";
+                    this.action = exitPage.value;
+                    this.append(hiddenInEl);
                     */
                 });
             }
