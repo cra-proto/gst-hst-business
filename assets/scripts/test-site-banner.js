@@ -36,23 +36,23 @@ let devbar = document.getElementById("devtoolbar"),
     currentPageUrl = window.location.origin + window.location.pathname, 
     githubURL = getGithubURL(currentPageUrl), 
     rootDomain = getDomain(currentPageUrl), 
-    adjustLinks = function adjustLinks(hrefSelector, actionSelector) {
+    adjustLinks = function adjustLinks(hrefSelector, actionSelector, destStartPath) {
         if (exitPage) {
             if (hrefSelector !== "") {
                 $(hrefSelector).each(function updateExitHref() {
                     /*
-                    if (this.classList.contains("wb-exitscript") === false) {
-                        let urlObj = { "url": exitPage.value }
-                        this.dataset.wbExitscript = JSON.stringify(urlObj);
-                        this.classList.add("wb-exitscript");
-                    }
-                    this.href = exitPage.value + "?uri=" + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
+                    let urlObj = { "url": exitPage.value }
+                    this.dataset.wbExitscript = JSON.stringify(urlObj);
+                    this.classList.add("wb-exitscript");
+                    this.href = destStartPath + this.href;
+                    this.href = exitPage.value + "?uri=" + destStartPath + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
                     */
                 });
                 /*
                 $(".wb-exitscript").trigger("wb-init.wb-exitscript");
                 */
             }
+
             if (hrefSelector !== "") {
                 $(actionSelector).each(function updateExitAction() {
                     /*
@@ -60,7 +60,7 @@ let devbar = document.getElementById("devtoolbar"),
 
                     this.method = "GET";
                     hiddenInEl = document.createElement("input");
-                    hiddenInEl.value = this.action;
+                    hiddenInEl.value = destStartPath + this.action;
                     hiddenInEl.name = "uri";
                     hiddenInEl.type = "hidden";
                     this.action = exitPage.value;
@@ -106,9 +106,9 @@ if (devbar && githubURL !== null) {
 }
 
 $(document).on("wb-ready.wb", function () {
-    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'], [data-exit='false'])", "form:not([action^='" + rootDomain + "'])");
+    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], [wb-exitscript])", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], [wb-exitscript])", "");
 });
 
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function (event) {
-    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='" + rootDomain + "'], [data-exit='false'])", ".gcweb-menu form:not([action^='" + rootDomain + "'])");
+    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], [wb-exitscript])", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], [wb-exitscript])", "");
 });
