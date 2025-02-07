@@ -37,7 +37,7 @@ let relExternalLnk = document.getElementById("relextlnk"),
     currentPageUrl = window.location.origin + window.location.pathname, 
     githubURL = getGithubURL(currentPageUrl), 
     rootDomain = getDomain(currentPageUrl), 
-    adjustLinks = function adjustLinks(hrefSelector, actionSelector, destStartPath) {
+    adjustLinks = function adjustLinks(hrefSelector, actionSelector, formActionSelector, destStartPath) {
         if (exitPage) {
             if (hrefSelector !== "") {
                 $(hrefSelector).each(function updateExitHref() {
@@ -54,7 +54,7 @@ let relExternalLnk = document.getElementById("relextlnk"),
                 */
             }
 
-            if (hrefSelector !== "") {
+            if (actionSelector !== "") {
                 $(actionSelector).each(function updateExitAction() {
                     /*
                     let hiddenInEl;
@@ -65,6 +65,21 @@ let relExternalLnk = document.getElementById("relextlnk"),
                     hiddenInEl.name = "uri";
                     hiddenInEl.type = "hidden";
                     this.action = exitPage.value;
+                    this.append(hiddenInEl);
+                    */
+                });
+            }
+
+            if (formActionSelector !== "") {
+                $(formActionSelector).each(function updateExitForm() {
+                    /*
+                    let hiddenInEl;
+
+                    hiddenInEl = document.createElement("input");
+                    hiddenInEl.value = destStartPath + this.formaction;
+                    hiddenInEl.name = "uri";
+                    hiddenInEl.type = "hidden";
+                    this.formaction = exitPage.value;
                     this.append(hiddenInEl);
                     */
                 });
@@ -108,16 +123,16 @@ if (devbar && githubURL !== null) {
 
 // changes all external site links and forms to go to destination link
 $(document).on("wb-ready.wb", function () {
-    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", "");
+    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", "input:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript), button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
-        adjustLinks("a[href^='/'], a:not([data-exit='false'], .wb-exitscript)", "form[href^='/'], form:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
+        adjustLinks("a[href^='/'], a:not([data-exit='false'], .wb-exitscript)", "form[action^='/'], form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/'], input:not([data-exit='false'], .wb-exitscript), button[formaction^='/'], button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
 });
 
 // changes all GCM Menu external site links and forms to go to destination link
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
-    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", "");
+    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu input:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript), .gcweb-menu button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
-        adjustLinks(".gcweb-menu a[href^='/'], .gcweb-menu a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[href^='/'], .gcweb-menu form:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
+        adjustLinks(".gcweb-menu a[href^='/'], .gcweb-menu a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='/'], .gcweb-menu form:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='/'], .gcweb-menu input:not([data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='/'], .gcweb-menu button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
 });
