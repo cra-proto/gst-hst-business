@@ -22,30 +22,45 @@ Project to optimize the content related to filing GST/HST returns.
 - Any repository path structure changes should be communicated to all indivduals who directly update the repository
 - Create all files in locations that reflects where they will be eventually published when created on Canada.ca
 - In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
+
+## Custom page template options
+
+- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
+- The `Github button` on the banner will take you to the the source page on github  
+- All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
+  - The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
+- The option `sourceurl` in the **YAML** section of the page code allows you to add URLs (settings the **link** and **title**) that will appear in the banner for easy navigation to pages you deem relevant to add
+- Additional custom `layout` options that are available in the **YAML** section of the page code are:
+  - `no-test-banner` - removes the top banner from the page
+  - `without-h1-test-banner` - removes the top banner and the h1 for the page is not automatically generated
+
+Additional site wide setting information can be found in the [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md) readme file
+
 ---
 
 ## Added/Modified/Deleted files and pages to be published:
-
-- ![Static Badge](https://img.shields.io/badge/Modified-blue) [GST/HST for businesses](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Modified-blue) [Remit (pay) the GST/HST you collected](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/pay-when_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Calculate and prepare to report the GST/HST](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [File your GST/HST return](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Who must complete a return](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1/who-must-file_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Modified-blue) [After you file](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/after-file_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Before you file](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/before-file_proto2.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Choose a filing method - File your GST/HST return](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method_proto4.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Contact us](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/contact-filing_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Leftover completing info (to be placed)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/leftover-completing-info_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Modified-blue) [Penalties for GST/HST returns](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/penalties-interest_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [How to file](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [GST/HST access codes](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-access-codes_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [In your CRA account (using NETFILE)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-cra-account-onepager_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [GST/HST Electronic Data Interchange \(EDI\)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-edi-onepager_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [How to file using third-party accounting software](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-ift-onepager_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Software for GST/HST Internet File Transfer](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-ift-software_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [How to file using the online NETFILE form](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-netfile-onepager_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [Paper filing](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-paper-filing-onepager_proto1.html)
-- ![Static Badge](https://img.shields.io/badge/Added-seagreen) [How to file by phone \(TELEFILE\)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-telefile-onepager_proto1.html)
+|Change|Page|
+|:-:|:-|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[GST/HST for businesses](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[Remit (pay) the GST/HST you collected](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/pay-when_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Calculate and prepare to report the GST/HST](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[File your GST/HST return](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Who must complete a return](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1/who-must-file_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[After you file](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/after-file_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Before you file](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/before-file_proto2.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Choose a filing method - File your GST/HST return](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/choose-your-filing-method_proto4.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Contact us](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/contact-filing_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Leftover completing info (to be placed)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/leftover-completing-info_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[Penalties for GST/HST returns](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/penalties-interest_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[GST/HST access codes](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-access-codes_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[In your CRA account (using NETFILE)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-cra-account-onepager_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[GST/HST Electronic Data Interchange \(EDI\)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-edi-onepager_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file using third-party accounting software](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-ift-onepager_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Software for GST/HST Internet File Transfer](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-ift-software_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file using the online NETFILE form](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-netfile-onepager_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Paper filing](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-paper-filing-onepager_proto1.html)|
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file by phone \(TELEFILE\)](https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/proto_file-return-business_subway/using-methods_proto1/gst-hst-telefile-onepager_proto1.html)|
 
 ## Design phase roadmap:
 
@@ -111,4 +126,4 @@ mindmap
         [digital-economy-gsthst - 1]
 ```
 
-**Updated:**  2025-02-05
+**Updated:**  2025-02-07
