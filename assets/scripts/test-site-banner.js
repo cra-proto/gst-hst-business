@@ -2,7 +2,8 @@
 
 //let exitPage = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 let exitPage = document.getElementById("exitpage");
-let devbar = document.getElementById("devtoolbar"), 
+let relExternalLnk = document.getElementById("relextlnk"), 
+    devbar = document.getElementById("devtoolbar"), 
     getGithubURL = function (pageURL) {
         let pageName = "", 
             gitURL = null;
@@ -107,8 +108,14 @@ if (devbar && githubURL !== null) {
 
 $(document).on("wb-ready.wb", function () {
     adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], [wb-exitscript])", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], [wb-exitscript])", "");
+    if (relExternalLnk.value !== "") {
+        adjustLinks("a[href^='/'], a:not([data-exit='false'], [wb-exitscript])", "form[href^='/'], form:not([data-exit='false'], [wb-exitscript])", relExternalLnk.value);
+    }
 });
 
-$(".gcweb-menu").on("wb-ready.gcweb-menu", function (event) {
+$(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
     adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], [wb-exitscript])", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], [wb-exitscript])", "");
+    if (relExternalLnk.value !== "") {
+        adjustLinks(".gcweb-menu a[href^='/'], .gcweb-menu a:not([data-exit='false'], [wb-exitscript])", ".gcweb-menu form[href^='/'], .gcweb-menu form:not([data-exit='false'], [wb-exitscript])", relExternalLnk.value);
+    }
 });
