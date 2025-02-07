@@ -1,5 +1,8 @@
 # Support information
 
+> [!NOTE]
+> Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
+
 ## GCWeb Jekyll page template example
 
 ```yaml
@@ -22,11 +25,28 @@ dateIssued: YYYY-MM-DD                             # Optional. ISO date
 breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
   - title: "The title"
     link: "The url"
-css: "https://domain.ca/your-stylesheet.css"       # Optional. You can add custom css to your page
-script: "https://domain.ca/your-awesome-script.js" # Optional. You can add custom javascript to your page
+css: "https://domain/your-stylesheet.css"          # Optional. You can add custom css to your page
+script: "https://domain/your-awesome-script.js"    # Optional. You can add custom javascript to your page
 ---
 
 <p>Content that would be displayed on the page</p>
+```
+
+## Custom page options
+
+```yaml
+layout: [default]                                  # Available: no-test-banner, without-h1-test-banner
+soureceurl:                                        # Optional. Links will be added to the page banner 
+  - title: "The title" 
+    link: "The url"
+```
+
+## Custom site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
+
+```yaml
+exitPage: "Exit intent page url"                   # Identifies the link to the exit intent page used for link generation on all pages
+relativeExternalLinks: ["" | "https://domain"]     # The domain will be prepended to all links on all pages where the link starts with "/"
+developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, cuntom banner links, exit page leave site button)
 ```
 
 ## Resources
