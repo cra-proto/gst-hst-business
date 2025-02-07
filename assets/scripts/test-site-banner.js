@@ -106,16 +106,18 @@ if (devbar && githubURL !== null) {
     document.getElementById("githubBtn").href = githubURL;
 }
 
+// changes all external site links and forms to go to destination link
 $(document).on("wb-ready.wb", function () {
-    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], [wb-exitscript])", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], [wb-exitscript])", "");
+    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
-        adjustLinks("a[href^='/'], a:not([data-exit='false'], [wb-exitscript])", "form[href^='/'], form:not([data-exit='false'], [wb-exitscript])", relExternalLnk.value);
+        adjustLinks("a[href^='/'], a:not([data-exit='false'], .wb-exitscript)", "form[href^='/'], form:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
 });
 
+// changes all GCM Menu external site links and forms to go to destination link
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
-    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], [wb-exitscript])", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], [wb-exitscript])", "");
+    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
-        adjustLinks(".gcweb-menu a[href^='/'], .gcweb-menu a:not([data-exit='false'], [wb-exitscript])", ".gcweb-menu form[href^='/'], .gcweb-menu form:not([data-exit='false'], [wb-exitscript])", relExternalLnk.value);
+        adjustLinks(".gcweb-menu a[href^='/'], .gcweb-menu a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[href^='/'], .gcweb-menu form:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
 });
