@@ -33,12 +33,18 @@ let visitedLinkStyle = document.createElement("style"),
             document.getElementById("githubBtn").href = githubURL;
         }
     }, 
-    adjustLinks = function adjustLinks(hrefSelector, actionSelector, formActionSelector, destStartPath) {
-        let updateFormSubmit = function updateFormSubmit(formEl, formAttr) {
+    adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
+        let adjustHref = function adjustHref(el, destStartPath) {;
+            if (destStartPath !== "") {
+                return new URL(el.replace("?", "&"), destStartPath).href
+            }
+            return el;
+        }, 
+        updateFormSubmit = function updateFormSubmit(formEl, formAttr) {
             let hiddenInEl;
 
             hiddenInEl = document.createElement("input");
-            hiddenInEl.value = destStartPath + formEl[formAttr];
+            hiddenInEl.value = adjustHref(formEl[formAttr], destStartPath);
             hiddenInEl.name = "uri";
             hiddenInEl.type = "hidden";
             formEl.append(hiddenInEl);
@@ -47,14 +53,14 @@ let visitedLinkStyle = document.createElement("style"),
 
         if (exitPage) {
             if (hrefSelector !== "") {
-                $(hrefSelector).each(function updateExitHref() {
+                $(elm).find(hrefSelector).each(function updateExitHref() {
                     /*
                     let urlObj = { "url": exitPage.value }
                     this.dataset.wbExitscript = JSON.stringify(urlObj);
                     this.classList.add("wb-exitscript");
                     */
-                    this.href = destStartPath + this.href;
-                    this.href = exitPage.value + "?uri=" + destStartPath + this.href.replace("?", "&") + "&pagetitle=" + encodeURIComponent(this.innerText);
+                    this.href = adjustHref(this.href, destStartPath);
+                    this.href = exitPage.value + "?uri=" + adjustHref(this.href, destStartPath) + "&pagetitle=" + encodeURIComponent(this.innerText);
                 });
                 /*
                 $(".wb-exitscript").trigger("wb-init.wb-exitscript");
@@ -62,18 +68,24 @@ let visitedLinkStyle = document.createElement("style"),
             }
 
             if (actionSelector !== "") {
-                $(actionSelector).each(function updateExitAction() {
+                $(elm).find(actionSelector).each(function updateExitAction() {
                     this.method = "GET";
                     updateFormSubmit(this, "action");
                 });
             }
 
             if (formActionSelector !== "") {
-                $(formActionSelector).each(function updateExitForm() {
+                $(elm).find(formActionSelector).each(function updateExitForm() {
                     updateFormSubmit(this, "formaction");
                 });
             }
         }
+    }, 
+    defaultadjustLinks = function defaultadjustLinks(elm) {
+        adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
+        if (relExternalLnk.value !== "") {
+            adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
+        }        
     }, 
     getDomain = function (url) {
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
@@ -115,16 +127,18 @@ if (devbar) {
 
 // changes all external site links and forms to go to destination link
 $(document).on("wb-ready.wb", function () {
-    adjustLinks("a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
-    if (relExternalLnk.value !== "") {
-        adjustLinks("a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
-    }
+    defaultadjustLinks(this);
 });
 
 // changes all GCM Menu external site links and forms to go to destination link
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
-    adjustLinks(".gcweb-menu a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "");
+    adjustLinks(this, ".gcweb-menu a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
-        adjustLinks(".gcweb-menu a[href^='/']a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='/']form:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
+        adjustLinks(this, ".gcweb-menu a[href^='/']a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='/']form:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
+});
+
+// changes all ajaxed external site links and forms to go to destination link
+$("[data-ajax-after], [data-ajax-append], [data-ajax-before], [data-ajax-prepend], [data-ajax-replace]").on("wb-contentupdated", function (event, data) {
+    defaultadjustLinks(this);
 });
