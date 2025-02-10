@@ -2,11 +2,12 @@
 
 //let exitPage = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 let exitPage = document.getElementById("exitpage");
-let relExternalLnk = document.getElementById("relextlnk"), 
+let visitedLinkStyle = document.createElement("style"), 
     devbar = document.getElementById("devtoolbar"), 
+    currentPageUrl = window.location.origin + window.location.pathname, 
     getGithubURL = function (pageURL) {
         let pageName = "", 
-            gitURL = null;
+            githubURL = null;
 
         if (pageURL.indexOf(".htm") === -1) {
             pageName = "index.html";
@@ -15,29 +16,35 @@ let relExternalLnk = document.getElementById("relextlnk"),
         switch (true) {
             // Generate github.com URL's from [repo name].github.io URL's
             case pageURL.indexOf(".github.io/") > -1:
-                gitURL = pageURL.toString().replace(new RegExp("^https:\/\/(.*?)\.github\.io\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/$1\/$2\/blob\/main\/$3$4" + pageName);
+                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/(.*?)\.github\.io\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/$1\/$2\/blob\/main\/$3$4" + pageName);
                 break;
             // Generate github.com URL's from test.canada.ca URL's
             case pageURL.indexOf("://test.canada.ca/") > -1:
-                gitURL = pageURL.toString().replace(new RegExp("^https:\/\/test\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/gc-proto\/$1\/blob\/master\/$2$3" + pageName);
+                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/test\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/gc-proto\/$1\/blob\/master\/$2$3" + pageName);
                 break;
             // Generate github.com URL's from [repo name].alpha.canada.ca URL's
             case pageURL.indexOf(".alpha.canada.ca/") > -1:
-                gitURL = pageURL.toString().replace(new RegExp("^https:\/\/design\.cra-arc\.alpha\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/alpha-canada-ca\/cra-ucd-guide\/blob\/main\/$1\/$2$3" + pageName);
+                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/design\.cra-arc\.alpha\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/alpha-canada-ca\/cra-ucd-guide\/blob\/main\/$1\/$2$3" + pageName);
                 break;
         }
-        return gitURL;
+        if (githubURL !== null) {
+            document.getElementById("githubBtnGrp").classList.remove("hide-devmenu");
+            devbar.classList.add("mrgn-rght-md");
+            document.getElementById("githubBtn").href = githubURL;
+        }
     }, 
-    getDomain = function (url) {
-        let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
-            domains = pattern.exec(url);
-
-        return domains[0];
-    }, 
-    currentPageUrl = window.location.origin + window.location.pathname, 
-    githubURL = getGithubURL(currentPageUrl), 
-    rootDomain = getDomain(currentPageUrl), 
     adjustLinks = function adjustLinks(hrefSelector, actionSelector, formActionSelector, destStartPath) {
+        let updateFormSubmit = function updateFormSubmit(formEl, formAttr) {
+            let hiddenInEl;
+
+            hiddenInEl = document.createElement("input");
+            hiddenInEl.value = destStartPath + formEl[formAttr];
+            hiddenInEl.name = "uri";
+            hiddenInEl.type = "hidden";
+            formEl[formAttr] = exitPage.value;
+            formEl.append(hiddenInEl);
+        };
+
         if (exitPage) {
             if (hrefSelector !== "") {
                 $(hrefSelector).each(function updateExitHref() {
@@ -57,15 +64,8 @@ let relExternalLnk = document.getElementById("relextlnk"),
             if (actionSelector !== "") {
                 $(actionSelector).each(function updateExitAction() {
                     /*
-                    let hiddenInEl;
-
                     this.method = "GET";
-                    hiddenInEl = document.createElement("input");
-                    hiddenInEl.value = destStartPath + this.action;
-                    hiddenInEl.name = "uri";
-                    hiddenInEl.type = "hidden";
-                    this.action = exitPage.value;
-                    this.append(hiddenInEl);
+                    updateFormSubmit(this, "action");
                     */
                 });
             }
@@ -73,20 +73,20 @@ let relExternalLnk = document.getElementById("relextlnk"),
             if (formActionSelector !== "") {
                 $(formActionSelector).each(function updateExitForm() {
                     /*
-                    let hiddenInEl;
-
-                    hiddenInEl = document.createElement("input");
-                    hiddenInEl.value = destStartPath + this.formaction;
-                    hiddenInEl.name = "uri";
-                    hiddenInEl.type = "hidden";
-                    this.formaction = exitPage.value;
-                    this.append(hiddenInEl);
+                    updateFormSubmit(this, "formaction");
                     */
                 });
             }
         }
     }, 
-    visitedLinkStyle = document.createElement("style");
+    getDomain = function (url) {
+        let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
+            domains = pattern.exec(url);
+
+        return domains[0];
+    }, 
+    rootDomain = getDomain(currentPageUrl), 
+    relExternalLnk = document.getElementById("relextlnk");
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
@@ -94,8 +94,8 @@ if (exitPage) {
     $("head").append(visitedLinkStyle);
 }
 
-// Initalize Edit button
 if (devbar) {
+    // Initalize Edit button
     document.getElementById("editBtn").addEventListener("click", function (event) {
         if (document.getElementsByTagName("main").contentEditable === "true") {
             document.getElementsByTagName("main").contentEditable = "false";
@@ -112,18 +112,14 @@ if (devbar) {
         }
         event.preventDefault();
     });
-}
 
-// Initalize Github button
-if (devbar && githubURL !== null) {
-    document.getElementById("githubBtnGrp").classList.remove("hide-devmenu");
-    devbar.classList.add("mrgn-rght-md");
-    document.getElementById("githubBtn").href = githubURL;
+    // Initalize Github button
+    getGithubURL(currentPageUrl);
 }
 
 // changes all external site links and forms to go to destination link
 $(document).on("wb-ready.wb", function () {
-    adjustLinks("a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", "input:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript), button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
+    adjustLinks("a[href^='http'] a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http'] form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http'] input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http'] button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
         adjustLinks("a[href^='/'], a:not([data-exit='false'], .wb-exitscript)", "form[action^='/'], form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/'], input:not([data-exit='false'], .wb-exitscript), button[formaction^='/'], button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
@@ -131,7 +127,7 @@ $(document).on("wb-ready.wb", function () {
 
 // changes all GCM Menu external site links and forms to go to destination link
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
-    adjustLinks(".gcweb-menu a:not([href^='mailto:'], [href^='#'], [href^='/'], [href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form:not([action^='" + rootDomain + "'], [action^='/'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu input:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript), .gcweb-menu button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
+    adjustLinks(".gcweb-menu a[href^='http'] .gcweb-menu a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='http'] .gcweb-menu form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='http'] .gcweb-menu input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='http'] .gcweb-menu button:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "");
     if (relExternalLnk.value !== "") {
         adjustLinks(".gcweb-menu a[href^='/'], .gcweb-menu a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='/'], .gcweb-menu form:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='/'], .gcweb-menu input:not([data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='/'], .gcweb-menu button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
