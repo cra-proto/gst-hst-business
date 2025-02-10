@@ -2,6 +2,7 @@
 
 //let exitPage = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 let exitPage = document.getElementById("exitpage");
+let relExternalLnk = document.getElementById("relextlnk");
 let visitedLinkStyle = document.createElement("style"), 
     devbar = document.getElementById("devtoolbar"), 
     currentPageUrl = window.location.origin + window.location.pathname, 
@@ -83,7 +84,7 @@ let visitedLinkStyle = document.createElement("style"),
     }, 
     defaultadjustLinks = function defaultadjustLinks(elm) {
         adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
-        if (relExternalLnk.value !== "") {
+        if (relExternalLnk && relExternalLnk.value !== "") {
             adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
         }        
     }, 
@@ -93,8 +94,7 @@ let visitedLinkStyle = document.createElement("style"),
 
         return domains[0];
     }, 
-    rootDomain = getDomain(currentPageUrl), 
-    relExternalLnk = document.getElementById("relextlnk");
+    rootDomain = getDomain(currentPageUrl);
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
@@ -133,7 +133,7 @@ $(document).on("wb-ready.wb", function () {
 // changes all GCM Menu external site links and forms to go to destination link
 $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
     adjustLinks(this, ".gcweb-menu a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "");
-    if (relExternalLnk.value !== "") {
+    if (relExternalLnk && relExternalLnk.value !== "") {
         adjustLinks(this, ".gcweb-menu a[href^='/']a:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu form[action^='/']form:not([data-exit='false'], .wb-exitscript)", ".gcweb-menu input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), .gcweb-menu button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.value);
     }
 });
