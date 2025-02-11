@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
     <link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cra-design.github.io/gst-hst-business/assets/css/custom.css">
     <link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/wet-boew/assets/favicon.ico" rel="shortcut icon">
 </head>
 
@@ -32,15 +33,25 @@
         <!-- /ROOT/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/static/refTop.html -->
         <!--#include virtual="/app/cls/WET/gcweb/v4_0_43/cdts/static/refTop.html" -->
     </noscript>
-    <section id="test-banner" class="gc-archv" style="background-color: #f9f4d4 !important; padding: 10px 0 !important;">
-        <div class="container" style="font-size: 14px;">
-            <h2 style="margin-bottom: 4px !important;">This site is for CRA testing purposes only</h2>
-            <p style="margin-bottom: 0 !important;">Do not enter any personal information on this site</p>
-            <!--
-            <p id="testpage-source"><strong>Source:</strong> <a href="#">Source URL</a></p>
--->
+    <data id="exitpage" value="https://cra-design.github.io/gst-hst-business/exit-intent.html"></data>
+    <data id="relextlnk" data-origin="https://www.canada.ca" value="false"></data>
+    <!-- START Test site banner  -->
+    <section id="test-banner" class="gc-archv">
+        <div id="devtoolbar" class="pull-right">
+            <ul class="btn-toolbar list-inline" role="toolbar">
+                <li class="btn-group"><a id="editBtn" class="btn btn-default btn-sm" data-exit="false" href=""><span class="fa fa-edit"></span><span class="wb-inv">Edit</span></a></li>
+                <li id="githubBtnGrp" class="btn-group hide-devmenu"><a id="githubBtn" class="btn btn-default btn-sm" data-exit="false" href="#"><span class="fab fa-github"></span><span class="wb-inv">Go to Github source</span></a></li>
+            </ul>
+        </div>
+        <div class="container test-banner-content">
+            <h2>This site is for CRA testing purposes only</h2>
+            <p class="mrgn-bttm-0">Do not enter any personal information on this site</p>
+            <ol id="testpage-source" class="list-inline mrgn-bttm-0">
+<!--            <li><span class="fa fa-globe"></span>&nbsp;<a data-exit="false" href="{{ source.link }}">{{ source.title }}</a></li> -->
+            </ol>
         </div>
     </section>
+    <!-- END Test site banner -->
     <div id="def-top">
         <nav aria-label="Skip Links">
             <ul id="wb-tphp">
@@ -226,5 +237,7 @@
     <span id="wb-rsz" class="wb-init">&nbsp;</span>
     <script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/theme.min.js"></script>
     <script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js"></script>
+    <script src="https://cra-design.github.io/gst-hst-business/assets/scripts/external-link-detour.js"></script>
+    <script src="https://cra-design.github.io/gst-hst-business/assets/scripts/test-site-banner.js"></script>
 </body>
 </html>
