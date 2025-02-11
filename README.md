@@ -20,6 +20,7 @@ Project to optimize the content related to filing GST/HST returns.
 - Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
 - Updates should be named or have comments identifying what has been updated or changed
 - Any repository path structure changes should be communicated to all indivduals who directly update the repository
+- There should be no relative links on any pages so all links should be made absolute
 - Create all files in locations that reflects where they will be eventually published when created on Canada.ca
 - In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
 
