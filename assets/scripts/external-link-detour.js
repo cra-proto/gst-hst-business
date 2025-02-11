@@ -1,7 +1,8 @@
 "use strict";
 
-//let exitPage = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
-//let relExternalLnk.dataset.origin = "https://www.canada.ca",
+//  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
+//  relExternalLnk.value = "false",
+//  relExternalLnk.dataset.origin = "https://www.canada.ca",
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
 let visitedLinkStyle = document.createElement("style"), 
