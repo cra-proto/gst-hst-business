@@ -36,6 +36,8 @@ if (document.getElementById("devtoolbar")) {
             document.getElementsByTagName("main").contentEditable = "false";
             document.designMode = "off";
             void 0;
+            // saves cuurent modified page content to local storage
+            localStorage.setItem("content", document.getElementsByTagName("main").innerHTML);
             this.classList.add("btn-default");
             this.classList.remove("btn-primary");
         } else {
@@ -50,4 +52,11 @@ if (document.getElementById("devtoolbar")) {
 
     // Initalize Github button
     getGithubURL(window.location.origin + window.location.pathname);
+
+    // Load modied page content if it exists from local Storage
+    window.onload = function () {
+        if (localStorage.getItem("content")) {
+            document.getElementsByTagName("main").innerHTML = localStorage.getItem("content");
+        }
+    }
 }
