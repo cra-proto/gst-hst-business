@@ -19,7 +19,8 @@ exclude:
 permalink: /404.html
 assets: https://wet-boew.github.io/themes-dist
 exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
-relativeExternalLinks: ""
+externalOrigin: "https://www.canada.ca"
+relativeExternalLinks: false
 developerOptions: true
 creator:
   en: "Canada Revenue Agency"
@@ -58,7 +59,7 @@ defaults:
       script: 
         - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js
-        - https://cra-design.github.io/gst-hst-business/assets/scripts/test-site-banner.js
+        - https://cra-design.github.io/gst-hst-business/assets/scripts/external-link-detour.js
   -
     scope:
       path: "en/"
