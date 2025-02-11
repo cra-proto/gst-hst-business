@@ -37,7 +37,7 @@ if (document.getElementById("devtoolbar")) {
             document.designMode = "off";
             void 0;
             // saves cuurent modified page content to local storage
-            localStorage.setItem("content", document.getElementsByTagName("main").innerHTML);
+//            sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
             this.classList.add("btn-default");
             this.classList.remove("btn-primary");
         } else {
@@ -54,9 +54,9 @@ if (document.getElementById("devtoolbar")) {
     getGithubURL(window.location.origin + window.location.pathname);
 
     // Load modied page content if it exists from local Storage
-    window.onload = function () {
-        if (localStorage.getItem("content")) {
-            document.getElementsByTagName("main").innerHTML = localStorage.getItem("content");
+/*    window.onload = function () {
+        if (sessionStorage.getItem("content")) {
+            document.getElementsByTagName("main")[0].innerHTML = sessionStorage.getItem("content");
         }
-    }
+    } */
 }
