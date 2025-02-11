@@ -59,7 +59,9 @@ soureceurl:                                        # Optional. Links will be add
 
 ```yaml
 exitPage: "Exit intent page url"                   # Identifies the link to the exit intent page used for link generation on all pages
-relativeExternalLinks: ["" | "https://domain"]     # The domain will be prepended to all links on all pages where the link starts with "/"
+relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
+externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
+relativeExternalLinks: false
 developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, cuntom banner links, exit page leave site button)
 ```
 
