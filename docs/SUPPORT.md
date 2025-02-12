@@ -7,6 +7,9 @@
 
 ```yaml
 ---
+
+# The "#" character can be used to create comments
+
 layout: [default]                                  # Available: core, default, fluid, layout-home, layout-servermesssage, layout-splashpage, no-container, without-h1
 title: "The title of the current page"             # This value will set the title and h1 tag
 sectionTitle: "Section title for the page"         # This value will set the section title above the h1 tag
@@ -74,3 +77,4 @@ developerOptions: [true | false]                   # Turns the developer options
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
 - [Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)
 - [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
+- [GitHub Help](https://help.github.com)
