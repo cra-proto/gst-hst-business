@@ -70,7 +70,7 @@ let visitedLinkStyle = document.createElement("style"),
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
-    visitedLinkStyle.innerHTML = "a[href*='" + exitPage.value + "']:visited{ color:#284162; }";
+    visitedLinkStyle.innerHTML = "a[href*='" + exitPage.value + "']:visited{ color:inherit; }";
     $("head").append(visitedLinkStyle);
 }
 
