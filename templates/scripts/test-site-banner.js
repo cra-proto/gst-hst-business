@@ -29,7 +29,7 @@ let getGithubURL = function (pageURL) {
         }
     };
 
-$(document).on("wb-ready.wb", function () {
+document.addEventListener("DOMContentLoaded", function() {
     if (document.getElementById("devtoolbar")) {
         // Initalize Edit button
         document.getElementById("editBtn").addEventListener("click", function (event) {
