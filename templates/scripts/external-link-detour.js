@@ -70,7 +70,7 @@ let visitedLinkStyle = document.createElement("style"),
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
-    visitedLinkStyle.innerHTML = ".btn-primary[href*='" + exitPage.value + "']:visited, .btn-success[href*='" + exitPage.value + "']:visited, .btn-info[href*='" + exitPage.value + "']:visited, .btn-danger[href*='" + exitPage.value + "']:visited { color: #fff; } .btn-default[href*='" + exitPage.value + "']:visited { color: #335075; } .btn-warning[href*='" + exitPage.value + "']:visited { color: #000; } a[href*='" + exitPage.value + "']:visited{ color:inherit; }";
+    visitedLinkStyle.innerHTML = ".btn-primary[href*='" + exitPage.value + "']:visited, .btn-success[href*='" + exitPage.value + "']:visited, .btn-info[href*='" + exitPage.value + "']:visited, .btn-danger[href*='" + exitPage.value + "']:visited {/ncolor: #fff;/n}/n.btn-default[href*='" + exitPage.value + "']:visited {/ncolor: #335075;/n}/n.btn-warning[href*='" + exitPage.value + "']:visited {/ncolor: #000;/n}/na[href*='" + exitPage.value + "']:visited{/ncolor:inherit;/n}/n";
     $("head").append(visitedLinkStyle);
 }
 
