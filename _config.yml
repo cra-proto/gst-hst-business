@@ -18,6 +18,7 @@ exclude:
 # Site settings
 permalink: /404.html
 assets: https://wet-boew.github.io/themes-dist
+sitebanner: true
 exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
 externalOrigin: "https://www.canada.ca"
 relativeExternalLinks: false
