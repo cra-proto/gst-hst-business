@@ -56,11 +56,11 @@ defaults:
       css: 
         - https://use.fontawesome.com/releases/v5.15.4/css/all.css
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css
-        - https://cra-design.github.io/gst-hst-business/assets/css/custom.css
+        - https://cra-design.github.io/gst-hst-business/templates/css/custom.css
       script: 
         - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js
-        - https://cra-design.github.io/gst-hst-business/assets/scripts/external-link-detour.js
+        - https://cra-design.github.io/gst-hst-business/templates/scripts/external-link-detour.js
   -
     scope:
       path: "en/"
