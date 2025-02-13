@@ -19,8 +19,8 @@
 <body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
     <data id="exitpage" value="{{ site.exitPage }}"></data>
     <data id="relextlnk" data-origin="{{ site.externalOrigin }}" value="{{ site.relativeExternalLinks }}"></data>
-{%- if site.sitebanner -%}
-    {% include pagebanner/testsitebanner.html %}
+{%- if site.siteBanner and page.testBanner != false -%}
+    {% include page-banner/site-banner.htm %}
 {%- endif -%}
 {%- if page.archived -%}
 	{% include headers-includes/archive.html %}
