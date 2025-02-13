@@ -52,7 +52,7 @@ noFooterCorporate: true                            # Remove the Corporate footer
 ## Custom page options
 
 ```yaml
-layout: [default]                                  # Available: no-test-banner, without-h1-test-banner
+testBanner: [true | false]                         # Optional. Can toggle the banner off or on for a page
 soureceurl:                                        # Optional. Links will be added to the page banner 
   - title: "The title" 
     link: "The url"
@@ -61,7 +61,7 @@ soureceurl:                                        # Optional. Links will be add
 ## Custom site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
-sitebanner: [true | false]                         # Toglles the site wide banner off and on for the site
+siteBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 exitPage: "Exit intent page url"                   # Identifies the link to the exit intent page used for link generation on all pages
 relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
