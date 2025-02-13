@@ -29,34 +29,38 @@ let getGithubURL = function (pageURL) {
         }
     };
 
-if (document.getElementById("devtoolbar")) {
-    // Initalize Edit button
-    document.getElementById("editBtn").addEventListener("click", function (event) {
-        if (document.getElementsByTagName("main").contentEditable === "true") {
-            document.getElementsByTagName("main").contentEditable = "false";
-            document.designMode = "off";
-            void 0;
-            // saves cuurent modified page content to local storage
-//            sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
-            this.classList.add("btn-default");
-            this.classList.remove("btn-primary");
-        } else {
-            document.getElementsByTagName("main").contentEditable = "true";
-            document.designMode = "on";
-            void 0;
-            this.classList.add("btn-primary");
-            this.classList.remove("btn-default");
-        }
-        event.preventDefault();
-    });
+$(document).on("wb-ready.wb", function () {
+    if (document.getElementById("devtoolbar")) {
+        // Initalize Edit button
+        document.getElementById("editBtn").addEventListener("click", function (event) {
+            if (document.getElementsByTagName("main").contentEditable === "true") {
+                document.getElementsByTagName("main").contentEditable = "false";
+                document.designMode = "off";
+                void 0;
+                // saves cuurent modified page content to local storage
+//                sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
+                this.classList.add("btn-default");
+                this.classList.remove("btn-primary");
+            } else {
+                document.getElementsByTagName("main").contentEditable = "true";
+                document.designMode = "on";
+                void 0;
+                this.classList.add("btn-primary");
+                this.classList.remove("btn-default");
+            }
+            event.preventDefault();
+        });
 
-    // Initalize Github button
-    getGithubURL(window.location.origin + window.location.pathname);
+        // Initalize Github button
+        getGithubURL(window.location.origin + window.location.pathname);
 
-    // Load modied page content if it exists from local Storage
-/*    window.onload = function () {
-        if (sessionStorage.getItem("content")) {
-            document.getElementsByTagName("main")[0].innerHTML = sessionStorage.getItem("content");
+        // Load modied page content if it exists from local Storage
+/*
+        window.onload = function () {
+            if (sessionStorage.getItem("content")) {
+                document.getElementsByTagName("main")[0].innerHTML = sessionStorage.getItem("content");
+            }
         }
-    } */
-}
+*/
+    }
+});
