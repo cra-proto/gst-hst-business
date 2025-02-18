@@ -42,14 +42,14 @@ Additional site wide setting information can be found in the [Support informatio
 ## Added/Modified/Deleted files and pages to be published:
 |Change|Github page|Canada.ca|
 |:-:|:-|:-|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|[After you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[After you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html)||
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[GST/HST for businesses](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[Penalties for GST/HST returns](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/penalties-interest_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[Remit (pay) the GST/HST you collected](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/pay-when_proto1.html)||
-|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Before you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/before-file_proto2.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Before you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Calculate and prepare to report the GST/HST](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Choose a filing method - File your GST/HST return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/choose-your-filing-method_proto4.html)||
-|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Contact us](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/contact-filing_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Contact us](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/contact-us.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[File your GST/HST return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return-business_subway_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[GST/HST access codes](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-access-codes_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file.html)||
@@ -57,7 +57,7 @@ Additional site wide setting information can be found in the [Support informatio
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file by phone \(TELEFILE\)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-telefile-onepager_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file using the online NETFILE form](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-netfile-onepager_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file using third-party accounting software](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-ift-onepager_proto1.html)||
-|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[In your CRA account (using NETFILE)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-cra-account-onepager_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[In your CRA account (using NETFILE)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-cra-account.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Instructions for completing a GST/HST return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1/return-instructions_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Leftover completing info (to be placed)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/leftover-completing-info_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Paper filing](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-paper-filing-onepager_proto1.html)||
