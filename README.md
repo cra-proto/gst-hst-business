@@ -43,7 +43,7 @@ Additional site wide setting information can be found in the [Support informatio
 |Change|Github page|Canada.ca|
 |:-:|:-|:-|
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[After you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html)||
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|[GST/HST for businesses](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[GST/HST for businesses](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses.html)||
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[Penalties for GST/HST returns](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/penalties-interest_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[Remit (pay) the GST/HST you collected](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/pay-when_proto1.html)||
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Before you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html)||
