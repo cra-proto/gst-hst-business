@@ -62,11 +62,16 @@ soureceurl:                                        # Optional. Links will be add
 
 ```yaml
 siteBanner: [true | false]                         # Toggles the site wide banner off and on for the site
+developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, cuntom banner links, exit page leave site button)
+
 exitPage: "Exit intent page url"                   # Identifies the link to the exit intent page used for link generation on all pages
+exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true 
 relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
 relativeExternalLinks: false
-developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, cuntom banner links, exit page leave site button)
+exitLinkExcludes:
+  - origin: "originating url"                      # Originating URL of links that will be ignored for generating exit intent page link 
+    destination: "destination url"                 # Optional. When there is an originating URL that is ignored this URL will override the navigation to that URLs destination
 ```
 
 ## Previewing the theme locally
@@ -89,6 +94,7 @@ The theme contains a minimal test suite, to ensure a site with the theme would b
 - [GCWeb, the WET-BOEW Canada.ca theme](https://wet-boew.github.io/GCWeb/index-en.html)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
+- [Variables | Jekyll](https://jekyllrb.com/docs/variables/)
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
 - [Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)
 - [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
