@@ -16,17 +16,20 @@ exclude:
 - gcweb-jekyll.gemspec
 
 # Site settings
-permalink: /404.html
 assets: https://wet-boew.github.io/themes-dist
-siteBanner: true
-exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
-externalOrigin: "https://www.canada.ca"
-relativeExternalLinks: false
-developerOptions: true
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
-  
+siteBanner: true
+exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
+exitLinkExcludes:
+  - origin: https://www.canada.ca/en/revenue-agency/services/e-services/cra-login-services.html
+    destination: https://cra-design.github.io/cra-portal/index.html
+exitByURL: false
+externalOrigin: "https://www.canada.ca"
+relativeExternalLinks: false
+developerOptions: true
+
 # Page front matter defaults
 defaults:
   - scope:
