@@ -14,6 +14,7 @@ layout: [default]                                  # Available: core, default, f
 title: "The title of the current page"             # This value will set the title and h1 tag
 sectionTitle: "Section title for the page"         # This value will set the section title above the h1 tag
 titleH1: "The header of the current page"          # This value will set the h1 tag (title over rides)
+pageType: [archived]                               # Optional. Sets the page banner indicated the page is archived
 lang: [en | fr]                                    # Either "en" or "fr"
 description: "Description of the current page"     # Optional. Metadata description
 subject: "the subject of the current page"         # Optional. Metadata subject
@@ -94,6 +95,7 @@ The theme contains a minimal test suite, to ensure a site with the theme would b
 - [GCWeb, the WET-BOEW Canada.ca theme](https://wet-boew.github.io/GCWeb/index-en.html)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
+- [Web page creation - GCWeb Jekyll \(translated\)](https://wet--boew-github-io.translate.goog/gcweb-jekyll/pages/index-fr.html?_x_tr_sl=fr&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp)
 - [Variables | Jekyll](https://jekyllrb.com/docs/variables/)
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
 - [Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)
