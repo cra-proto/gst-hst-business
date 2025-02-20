@@ -107,9 +107,6 @@ exitByURL: [true | false]                          # Toggles if the exit page us
 relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
 relativeExternalLinks: false
-exitLinkExcludes:
-  - origin: "originating url"                      # Originating URL of links that will be ignored for generating exit intent page link 
-    destination: "destination url"                 # Optional. When there is an originating URL that is ignored this URL will override the navigation to that URLs destination
 ```
 
 ## Resources
