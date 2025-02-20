@@ -10,25 +10,26 @@
 
 # The "#" character can be used to create comments
 
-layout: [default]                                  # Available: core, default, fluid, layout-home, layout-servermesssage, layout-splashpage, no-container, without-h1
+layout: ["default"]                                # Available layout types: core, default, application, documentation, fluid, home, no-container, servermesssage, splashpage-en, without-h1
+lang: ["en" | "fr"]                                # This value will set the page language
 title: "The title of the current page"             # This value will set the title and h1 tag
 sectionTitle: "Section title for the page"         # This value will set the section title above the h1 tag
 titleH1: "The header of the current page"          # This value will set the h1 tag (title over rides)
-pageType: [archived]                               # Optional. Sets the page banner indicated the page is archived
-lang: [en | fr]                                    # Either "en" or "fr"
 description: "Description of the current page"     # Optional. Metadata description
 subject: "the subject of the current page"         # Optional. Metadata subject
+altLangPage: "The url"                             # Optional. Use the url of the alternate language page to display the language toggle
 auth:
-  type: [signedoff | active | contextual]          # Optional. Creates and configures a sign in button
+  type: ["signedoff" | "active" | "contextual"]    # Optional. Creates and configures a sign in button
   label: "Sign in button label"                    # Label of the sign in button
   labelExtended: "Sign in button extended label"   # Extended label of the sign in button
   link: "The url"                                  # link of the sign in button
-altLangPage: "The url"                             # Optional. Use the url of the alternate language page to display the language toggle
-dateModified: YYYY-MM-DD                           # ISO date
-dateIssued: YYYY-MM-DD                             # Optional. ISO date
 breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
   - title: "The title"
     link: "The url"
+feedbackData:
+  section: "The title of the current page"         # This value sets what to identify the page as in the feedback section for when feedback is sent    
+dateIssued: YYYY-MM-DD                             # Optional. ISO date
+dateModified: YYYY-MM-DD                           # ISO date
 css: "https://domain/your-stylesheet.css"          # Optional. You can add custom css to your page
 script: "https://domain/your-awesome-script.js"    # Optional. You can add custom javascript to your page
 ---
@@ -40,6 +41,7 @@ script: "https://domain/your-awesome-script.js"    # Optional. You can add custo
 
 ```yaml
 breadcrumbs: false                                 # Disable the breadcrumb
+overwriteBreadcrumbs:
 
 nositesearch: true                                 # Remove the site search
 nomenu: true                                       # Remove the top menu
@@ -48,6 +50,41 @@ share: false                                       # Remove the share button
 noFooterMain: true                                 # Remove the footer
 noFooterContextual: true                           # Remove the Contextual footer
 noFooterCorporate: true                            # Remove the Corporate footer
+archived: true                                     # Adds the archived banner to the top of the page
+privacyUrl: "privacy page url"                     #
+termsUrl: "terms and conditions page url"          #
+secondarymenu:                                     
+parentPage:                                        
+pageclass: "page css class"                        # css class to add to the <body> tag  
+creator: "the page creator"                        #
+applicationName:
+applicationURL:
+css: "https://domain/your-stylesheet.css"          # Optional. You can add custom css to your entire site
+script: "https://domain/your-awesome-script.js"    # Optional. You can add custom javascript to your entire site
+```
+
+## Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
+[//]: # (**************************Test comment*********************************)
+```yaml
+layout: default
+lang: en
+share: true
+sitemenu: true
+sitesearch: true
+feedback: true
+feedbackData:
+  theme: "Taxes"
+feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
+privacyUrl: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"
+termsURL: "https://www.canada.ca/en/transparency/terms.html"
+creator:
+  en: "Canada Revenue Agency"
+  fr: "Agence du revenu du Canada"
+contextualFooter:
+  title: "Canada Revenue Agency (CRA)"
+  links:
+   - text: "Contact the CRA"
+     url: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
 ```
 
 ## Custom page options
@@ -74,20 +111,6 @@ exitLinkExcludes:
   - origin: "originating url"                      # Originating URL of links that will be ignored for generating exit intent page link 
     destination: "destination url"                 # Optional. When there is an originating URL that is ignored this URL will override the navigation to that URLs destination
 ```
-
-## Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/wet-boew/gcweb-jekyll`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-## Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.
 
 ## Resources
 
