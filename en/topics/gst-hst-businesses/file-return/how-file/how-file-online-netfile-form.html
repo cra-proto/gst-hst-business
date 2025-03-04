@@ -48,8 +48,8 @@ soureceurl:
   </nav>
   <h1 property="name" id="wb-cont" class="gc-thickline">Filing using the online NETFILE form<span class="wb-inv"> – File your GST/HST return</span></h1>
   <p>If you do not have an online CRA account online, you can file your GST/HST return and eligible rebates directly to the CRA using an online form with an access code.</p>
-  <p>If your return is created and you are ready to file, proceed to:<br>
-    <a class="btn btn-default" href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/lgbltyNpt.action" rel="noreferrer noopener"><span class="h4">File your return</span><span class="wb-inv"> using the GST/HST NETFILE form</span></a></p>
+  <p>If your return is created and ready, proceed to:<br>
+    <a class="btn btn-default" href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntr.action?request_locale=en_CA" rel="noreferrer noopener"><span class="h4">File your return</span><span class="wb-inv"> using the GST/HST NETFILE form</span></a></p>
   <nav role="navigation" aria-label="On this page">
     <h2 class="h3">On this page</h2>
     <ul>
@@ -76,11 +76,11 @@ soureceurl:
         <summary>Rebates you can claim</summary>
         <ul>
           <li>Application for GST/HST Public Service Bodies' Rebate and Self-Government Refund (form GST66)</li>
-          <li>Ontario First Nations point-of-sale relief (form GST189 &ndash; reason code 23
-            <mark>only ?</mark>
-            )</li>
+          <li>Ontario First Nations point-of-sale relief (form GST189, reason code 23)</li>
           <li>New Housing Rebate Application for Houses Purchased from a Builder (form GST190)</li>
-          <li>GST/HST Rebate Application for Federal, Provincial, and Territorial Governments (form GST490)</li>
+          <li>GST/HST Rebate Application for Federal, Provincial, and Territorial Governments (form GST490 -
+            <mark>standalone, separate form</mark>
+            )</li>
         </ul>
       </details>
     </li>
@@ -123,21 +123,52 @@ soureceurl:
   <h2 id="h_3">How to file</h2>
   <ol class="lst-stps ld-zr">
     <li>Prepare your return information in Canadian funds</li>
-    <li>Enter your return information into the GST/HST NETFILE form by following the instructions on the application pages.
+    <li>Access the online <a href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntr.action?request_locale=en_CA">GST/HST NETFILE form</a>
       <ul>
         <li>Your secure session will expire after 35 minutes of inactivity</li>
         <li>If you end your filing session before confirming that you want to file your return, the information you entered will not be saved</li>
       </ul>
-      <p><a href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntr.action?request_locale=en_CA">File your return using the GST/HST NETFILE form</a></p>
     </li>
-    <li>After you successfully submit your return you will receive a confirmation number. <strong>This confirmation number is your proof that the CRA has received your return.</strong> Print the page with your confirmation number and <a href="#rtn_dcmnts">keep it with your records</a>.</li>
-    <li>After you exit the online forms, it is recommended you shut down and restart your browser. This will help ensure that any information you entered cannot be viewed by others.</li>
-    <li>Depending on whether you expect to make a payment or receive a refund, review the following information:
+    <li>Enter your initial details into the form:
       <ul>
-        <li>If you have an amount owing, find out how to <a href="https://www.canada.ca/content/canadasite/en/revenue-agency/services/payments-cra.html">make a payment to the CRA</a>
-          <mark>(or proceed to pay?)</mark>
-        </li>
-        <li>Consider setting up <a href="https://www.canada.ca/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html">direct deposit</a> to speed up any refund you may be expecting</li>
+        <li>Your Business number</li>
+        <li>Your access code</li>
+        <li>Your reporting "from" date</li>
+        <li>Your reporting "to" date</li>
+      </ul>
+    </li>
+    <li>You can then select any additional options available in the NETFILE form that apply to you</li>
+    <li>If you have no amounts to report, speed up your return by checking the box “I am filing a nil return (all fields are $0)”
+      <ul>
+        <li>Your return will then have $0.00 entered in all the fields</li>
+      </ul>
+    </li>
+    <li>If you want to receive mail related to your GST/HST account electronically, check the box "I want to receive email notifications for my GST/HST account"
+      <ul>
+        <li>Additional fields will drop down</li>
+        <li>Enter and confirm your email address</li>
+        <li>Check the box "I have read and agree to the terms of use for email notifications."</li>
+      </ul>
+    </li>
+    <li>Check the box for each rebate or schedule option that applies to your return</li>
+    <li>Click "Next"</li>
+    <li>Follow the instructions on the application's next pages</li>
+    <p>To file your return, agree to the certification statement, and select “Submit”.
+      <mark>I can't see that far</mark>
+    </p>
+    <li>After you successfully submit your return, you will receive a confirmation number.
+      <ul>
+        <li>This means that we have <strong>accepted</strong> your tax return for processing</li>
+        <li><a href="https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html">Keep this confirmation number for your records</a></li>
+      </ul>
+    </li>
+    <li>After you exit the online forms, we recommend you shut down and restart your browser to ensure that any information you entered cannot be viewed by others</li>
+    <li>If you have an amount owing or are expecting a refund:
+      <ul>
+        <li>If you have an amount owing,
+          <mark>proceed to pay (?)</mark>
+          or find out how to <a href="https://www.canada.ca/content/canadasite/en/revenue-agency/services/payments-cra.html">make a payment to the CRA</a></li>
+        <li>If you are expecting a refund, speed up your deposit by setting up <a href="https://www.canada.ca/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html">direct deposit</a></li>
       </ul>
     </li>
     <li>You can sign up for <a href="https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/online-mail-reduce-your-cost-doing-business-saving-time-online.html">email notifications from the CRA</a>
@@ -147,7 +178,7 @@ soureceurl:
       </ul>
     </li>
   </ol>
-  <p>If you are ready, <a class="btn btn-default" href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/lgbltyNpt.action" rel="noreferrer noopener"><span class="h4">File your return</span><span class="wb-inv"> using the GST/HST NETFILE form</span></a></p>
+  <p>If you are ready, <a class="btn btn-default" href="https://apps.cra-arc.gc.ca/ebci/ghnf/netf/prot/ntr.action?request_locale=en_CA" rel="noreferrer noopener"><span class="h4">File your return</span><span class="wb-inv"> using the GST/HST NETFILE form</span></a></p>
   <h3 id="h_3_1">Filing a nil return</h3>
   <p>If you have no amounts to report you can file your return faster by selecting “I am filing a nil return (all fields are $0)” on the first Web form. Your return will then have $0.00 entered in all the fields. To file your return, agree to the certification statement, and select “Submit”.</p>
   <h2>
