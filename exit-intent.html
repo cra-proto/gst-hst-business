@@ -44,7 +44,8 @@ noFooterMain: true
     if (typeof URLSearchParams !== "undefined" && devOptions) {
         if (exitOrigin !== null && devOptions.value === "true") {
             if (pagetitle !== null) {
-                document.getElementById("leavesitelnk").innerText = decodeURIComponent(pagetitle);
+                document.getElementById("leavesitelnk").innerHTML = decodeURIComponent(pagetitle);
+               // document.getElementById("leavesitelnk").innerText = decodeURIComponent(pagetitle);
             }
             document.getElementById("leavesitelnk").addEventListener("click", () => {
                 let extractQuerystring = function extractQuerystring() {
