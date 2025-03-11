@@ -34,7 +34,7 @@ let visitedLinkStyle = document.createElement("style"),
                     */
                     this.href = adjustHref(this.href, destStartPath);
                   /*  this.href = exitPage.value + "?uri=" + adjustHref(this.href, destStartPath) + "&pagetitle=" + encodeURIComponent(this.innerText); */
-                    this.href = exitPage.value + "?uri=" + adjustHref(this.href, destStartPath) + "&pagetitle=" + encodeURIComponent(this.textContent);
+                    this.href = exitPage.value + "?uri=" + adjustHref(this.href, destStartPath).replace('#', '%23') + "&pagetitle=" + encodeURIComponent(this.textContent);
                 });
                 /*
                 $(".wb-exitscript").trigger("wb-init.wb-exitscript");
