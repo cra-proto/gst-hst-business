@@ -1,23 +1,26 @@
 # Privacy Statement
 
 ## How is the Canada Revenue Agency accountable for your privacy?
+
 As a Canadian taxpayer, you entrust the Canada Revenue Agency (“CRA”) with your personal information and you rely on us to keep it secure. As stated in the [Taxpayer Bill of Rights](https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra/taxpayer-bill-rights.html), you have the right to privacy and confidentiality. We protect your information under the [Privacy Act](https://laws-lois.justice.gc.ca/eng/acts/P-21/index.html) and other acts that have confidentiality provisions, such as the [Income Tax Act](https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-241.html) and the [Excise Tax Act](https://laws.justice.gc.ca/eng/acts/E-15/index.html). We are committed to protecting your privacy by making sure that the personal information we have is appropriately managed and protected, and that your right to access your information is respected.
 
 We are guided by the following principles:
- - We value and respect the personal information that we have, and we enable you to clearly understand how it is being used and for what purpose
- - We make sure that all CRA employees understand their responsibilities in handling personal information, as well as in responding to requests in a timely and helpful manner
- - We put you at the heart of all changes and improvements to service delivery, by embedding [Privacy by Design](https://www.canada.ca/en/revenue-agency/corporate/security/privacy-management-framework.html#annexa) into all that we do
- - We join together effective and secure information management principles across the CRA
- - We make decisions about how your personal information is handled based on ethical standards, and in alignment with legislative and policy obligations and leading privacy practices
+
+- We value and respect the personal information that we have, and we enable you to clearly understand how it is being used and for what purpose
+- We make sure that all CRA employees understand their responsibilities in handling personal information, as well as in responding to requests in a timely and helpful manner
+- We put you at the heart of all changes and improvements to service delivery, by embedding [Privacy by Design](https://www.canada.ca/en/revenue-agency/corporate/security/privacy-management-framework.html#annexa) into all that we do
+- We join together effective and secure information management principles across the CRA
+- We make decisions about how your personal information is handled based on ethical standards, and in alignment with legislative and policy obligations and leading privacy practices
 
 For more information on our commitment to privacy, please read our [Privacy Management Framework](https://www.canada.ca/en/revenue-agency/corporate/security/privacy-management-framework.html).
 
 ### What is the role of our Chief Privacy Officer?
+
 Our Chief Privacy Officer (CPO) has a broad mandate for privacy oversight at the CRA and is responsible for:
 
- - overseeing decisions related to privacy, including assessing the privacy impacts of our programs
- - championing personal privacy rights according to legislation and policy, including managing privacy breaches
- - reporting to our senior management on the state of privacy management at the CRA, at least twice a year
+- overseeing decisions related to privacy, including assessing the privacy impacts of our programs
+- championing personal privacy rights according to legislation and policy, including managing privacy breaches
+- reporting to our senior management on the state of privacy management at the CRA, at least twice a year
 
 The CPO oversees the access to information and privacy functions within the CRA. We created this position to reinforce our commitment to excellence in privacy. The fulfillment of the CPO mandate highlights our dedication to maintaining privacy and the trust that Canadians place in us.
 
@@ -125,7 +128,7 @@ What happens when you interact with us online?
 When you visit the web pages of any Government of Canada organization, most web servers automatically collect information about that visit. We safeguard the privacy of users of our web pages, in accordance with the Standard on Privacy and Web Analytics.
 
 IP addresses
-Web servers may automatically collect information about a visit to a website, including the visitor's Internet Protocol (IP) address. The IP address is collected to identify unauthorized attempts to upload information, change information, or otherwise cause damage. 
+Web servers may automatically collect information about a visit to a website, including the visitor's Internet Protocol (IP) address. The IP address is collected to identify unauthorized attempts to upload information, change information, or otherwise cause damage.
 
 Digital markers (including cookies)
 We may use sessional and persistent digital markers on some web pages to better understand your preferences and provide you with the best possible web experience. A digital marker is a resource created by your browser to reference certain pieces of information during the same or a later visit to a web page. During your online session with the CRA, your browser exchanges data with our web server.
@@ -134,7 +137,7 @@ You can adjust your browser settings to reject digital markers, including cookie
 
 Examples of digital markers are cookies and HTML5 web storage. Among other functions, digital markers:
 
-let a website recognize a previous visit each time a visitor accesses a site. 
+let a website recognize a previous visit each time a visitor accesses a site.
 track the information viewed on a site, to help website administrators make sure visitors find what they are looking for. For example, the number of mouse clicks made by an individual can indicate whether or not content was easy to find.
 Web analytics
 Web analytics is the collection, analysis, measurement, and reporting of data about web visits to understand web usage and to maintain and improve web service. When your computer asks for a CRA web page, we collect information under the authority of section 5 of the Canada Revenue Agency Act, for analytics purposes, which may be used for IT related audits, evaluations, research, planning, and reporting, as well as communications and information technology statistics. The following types of information will be collected during a visit to our web pages:
@@ -173,14 +176,17 @@ Personal information that you provide to us through a social media account is co
 For more details on our social media presence, please visit: Interacting with us on social media.
 
 ## Protecting the security of our web pages
+
 We use software programs to monitor network traffic in order to identify cyber threats, unauthorized attempts to upload information, change information, or otherwise cause damage. This software receives and records the IP address of the computer that has contacted our web pages, the date and time of the visit and the pages visited. We make no attempt to link these addresses with the identity of individuals visiting our pages, unless an attempt to undertake inappropriate activity as described above has been detected.
 
 We collect the network traffic information under section 161 of the [Financial Administration Act](https://laws-lois.justice.gc.ca/eng/acts/F-11/FullText.html). The information may be shared with appropriate law enforcement authorities if suspected criminal activities are detected. Such information may be used for network security statistics, as well as for IT related audits, evaluations, research, planning, and reporting. Our network traffic information is in [Standard Personal Information Bank CRA PSU 939, Security Incidents and Privacy Breaches](https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/info-source/standard-personal-information-banks.html#psu914).
 
 ## Communicating with us
+
 If you send us an email or complete a feedback form online, we use your personal information to respond to your enquiry. We collect personal information from email and feedback forms under section 5 of the [Canada Revenue Agency Act](https://laws-lois.justice.gc.ca/eng/acts/C-10.11/index.html). That information may be used for statistics, evaluations, and reporting. For the information we have of this type, see [Standard Personal Information Bank CRA PSU 914, Public Communications](https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/info-source/standard-personal-information-banks.html#psu914).
 
 ## Contact us
+
 For questions, comments, concerns or complaints about our privacy practices, please contact us:
 
 Access to Information and Privacy Directorate
@@ -190,7 +196,6 @@ Canada Revenue Agency
 5th floor, 555 Mackenzie Avenue
 
 Ottawa ON  K1A 0L5
-
 
 Phone: 613-960-5393 (Ottawa area) or 1-866-333-5402 (toll-free)
 

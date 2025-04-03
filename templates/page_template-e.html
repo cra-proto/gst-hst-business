@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html class="no-js" dir="ltr" lang="en" xmlns="https://www.w3.org/1999/xhtml">
     <head prefix="og: https://ogp.me/ns#">
@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
         <link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cra-design.github.io/gst-hst-business/templates/css/custom.css">
         <link href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/wet-boew/assets/favicon.ico" rel="shortcut icon">
     </head>
     <body vocab="https://schema.org/" typeof="WebPage" resource="#wb-webpage">
@@ -32,6 +33,10 @@
             <!-- /ROOT/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/static/refTop.html -->
             <!--#include virtual="/app/cls/WET/gcweb/v4_0_43/cdts/static/refTop.html" -->
         </noscript>
+        <data id="devoptions" value="true"></data>
+        <data id="exitpage" value="https://cra-design.github.io/gst-hst-business/exit-intent.html"></data>
+        <data id="relextlnk" data-origin="https://www.canada.ca" value="false"></data>
+        <div data-ajax-replace="https://cra-design.github.io/gst-hst-business/templates/includes/site-banner.htm"></div>
         <div id="def-top">
             <!-- Write closure fall-back static file -->
             <!-- /ROOT/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/static/top-en.html -->
@@ -55,7 +60,7 @@
                     type: "contextual", 
                     label: "sign in", 
                     labelExtended: "CRA sign in",
-                    link: "https://www.canada.ca/en/revenue-agency/services/e-services/cra-login-services.html"
+                    link: "https://cra-design.github.io/cra-portal/index.html?xitpg=false"
                 }], 
                 breadcrumbs: [{
                     title: "Canada.ca", 
@@ -63,12 +68,6 @@
                 }, {
                     title: "Taxes", 
                     href: "https://www.canada.ca/en/services/taxes.html"
-                }, {
-                    title: "Digital services", 
-                    href: "https://www.canada.ca/en/revenue-agency/services/e-services.html"
-                }, {
-                    title: "Digital services for Businesses", 
-                    href: "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses.html"
                 }]
             });
         </script>
@@ -81,7 +80,9 @@
 
 
 
-                        <p>page content</p>
+                        <div id="page-content">
+                            <p>page content</p>
+                        </div>
 
 
 
@@ -95,7 +96,7 @@
                         </div>
                         <dl id="wb-dtmd">
                             <dt>Date modified:</dt>
-                            <dd><time property="dateModified">2024-1#-##</time></dd>
+                            <dd><time property="dateModified">YYYY-MM-DD</time></dd>
                         </dl>
                     </section>
                     <div id="def-preFooter">
@@ -147,5 +148,7 @@
         <span id="wb-rsz" class="wb-init">&nbsp;</span>
         <script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/theme.min.js"></script>
         <script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js"></script>
+        <script src="https://cra-design.github.io/gst-hst-business/templates/scripts/external-link-detour.js"></script>
+        <script src="https://cra-design.github.io/gst-hst-business/templates/scripts/test-site-banner.js"></script>
     </body>
 </html>

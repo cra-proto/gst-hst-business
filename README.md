@@ -6,29 +6,75 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Important links
 
+- [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
+- [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
 - [\[GST COP\] Scoped inventory page \(github\)](https://cra-design.github.io/gst-hst-business/index.html)
-- [Github.dev](https://github.dev/cra-proto/gst-hst-business/blob/main/)
-- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
-- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-proto/gst-hst-business/blob/main/templates/page_template-e.html)
+- [Github.dev](https://github.dev/cra-design/gst-hst-business/blob/main/)
+- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
+- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
+- [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
 
 ## Update procedures:
 
 - Test development files will have `_proto#` appended to the end of the file name
 - Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
-- Updates should have comments identifying what has been updated
+- Updates should be named or have comments identifying what has been updated or changed
 - Any repository path structure changes should be communicated to all indivduals who directly update the repository
+- There should be no relative links on any pages so all links should be made absolute
+- Create all files in locations that reflects where they will be eventually published when created on Canada.ca
+- In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
+
+## Custom page template options
+
+- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
+- The `Github button` on the banner will take you to the the source page on github  
+- All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
+  - The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
+- The option `sourceurl` in the **YAML** section of the page code allows you to add URLs (settings the **link** and **title**) that will appear in the banner for easy navigation to pages you deem relevant to add
+- Additional custom `layout` options that are available in the **YAML** section of the page code are:
+  - `no-test-banner` - removes the top banner from the page
+  - `without-h1-test-banner` - removes the top banner and the h1 for the page is not automatically generated
+
+Additional site wide setting information can be found in the [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md) readme file
 
 ---
 
-## Deleted files list
+## Added/Modified/Deleted files and pages to be published:
 
-- None
+|Change|Github page|Canada.ca|
+|:-:|:-|:-|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[After you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html)||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[GST/HST for businesses](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses.html)||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[Penalties for GST/HST returns](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/penalties-interest_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|[Remit (pay) the GST/HST you collected](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/pay-when_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Before you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Calculate and prepare to report the GST/HST](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Choose a filing method - File your GST/HST return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/choose-your-filing-method_proto4.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Contact us](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/contact-us.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[File your GST/HST return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return-business_subway_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[GST/HST access codes](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/get-gst-hst-access-code.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file and remit though a financial institution](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-remit-financial-institution.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file by phone \(TELEFILE\)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file using the online NETFILE form](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-online-netfile-form.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[How to file using third-party accounting software](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-third-party-software.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[In your CRA account (using NETFILE)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-cra-account.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Instructions for completing a GST/HST return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1/return-instructions_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Leftover completing info (to be placed)](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/leftover-completing-info_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Paper filing](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-mail.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Software for GST/HST Internet File Transfer](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/gst-hst-ift-software_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Added-seagreen)|[Who must complete a return](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/prepare-your-return_topic_proto1/who-must-file_proto1.html)||
+|![Static Badge](https://img.shields.io/badge/Delete-red)|[Complete and file a GST/HST return](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business.html)||
+|![Static Badge](https://img.shields.io/badge/Delete-red)|[Feedback](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-feedback.html)||
+|![Static Badge](https://img.shields.io/badge/Delete-red)|[Remit (pay) the tax you collected – Check My Business Account](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-check-balance.html)||
+|![Static Badge](https://img.shields.io/badge/Delete-red)|[Remit (pay) the tax you collected – Correct a payment](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-correct-payment.html)||
+|![Static Badge](https://img.shields.io/badge/Delete-red)|[Remit (pay) the tax you collected - When to remit (pay)](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-when.html)||
 
 ## Design phase roadmap:
 
-- [ ] Prototype: co-design navigation and content
-- [ ] SME review and accuracy check
-- [ ] Validation usability testing (including accessibility review)
+- [x] Prototype: co-design navigation and content
+- [x] SME review and accuracy check
+- [x] Validation usability testing (including accessibility review)
 - [ ] Refine prototype (if required)
 - [ ] Spot check usability (if required)
 
@@ -63,7 +109,7 @@ gantt
     User testing and notetaking :done, b1, 2024-09-26, 19d
     Import scoped files to repo :done, a2, 2024-10-10, 9d
     Evaluation of user testing :active, b2, after b1, 14d
-    Content and design updates and prototyping :after b2, 60d
+    Content and design updates and prototyping :after b2, 154d
 
 ```
 
@@ -88,4 +134,4 @@ mindmap
         [digital-economy-gsthst - 1]
 ```
 
-**Updated:**  2024-11-06
+**Updated:**  2025-02-07

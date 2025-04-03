@@ -1,6 +1,6 @@
 ---
-layout: no-test-banner
-title: "The page you have requested is outside this CRA testing enviornment"
+testBanner: false
+title: "The page you have requested is outside this CRA testing environment"
 description: ""
 subject: ""
 dateModified: 2024-10-31
@@ -19,28 +19,56 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li><button id="leave" class="wb-inv btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="leavesite"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="scriptleave"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
-    let getURI = function getURI() {
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        return params.uri;
-    };
+    let pageURL = window.location, 
+        devOptions = document.getElementById("devoptions"), 
+        getQueryEl = function getQueryEl(field) {
+            const params = new Proxy(new URLSearchParams(pageURL.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+            return params[field];
+        }, 
+        exitOrigin = getQueryEl("uri"), 
+        pagetitle = getQueryEl("pagetitle"), 
+        scriptexturl = getQueryEl("exturl");
+
+    //script for back button
     document.getElementById("back").addEventListener("click", () => {
         history.back();
     });
-    if (document.getElementById("leave") !== null) {
-        document.getElementById("leave").addEventListener("click", () => {
-            let destinationURI = getURI();
-        
-            if (destinationURI) {
-                window.location = destinationURI;
+
+    //script for leave site button
+    if (typeof URLSearchParams !== "undefined" && devOptions) {
+        if (exitOrigin !== null && devOptions.value === "true") {
+            if (pagetitle !== null) {
+                document.getElementById("leavesitelnk").innerHTML = pagetitle;
+               // document.getElementById("leavesitelnk").innerText = decodeURIComponent(pagetitle);
             }
-        });
-    }
-    if (getURI()) {
-        document.getElementById("leave").classList.remove("wb-inv");
+            document.getElementById("leavesitelnk").addEventListener("click", () => {
+                let extractQuerystring = function extractQuerystring() {
+                        const params = new URLSearchParams(pageURL.search);
+
+                        params.delete("pagetitle");
+                        params.delete("uri");
+                        return params.toString();
+                    },
+                    queryStr = extractQuerystring();
+
+                if (queryStr !== "") {
+                    queryStr = "?" + queryStr;
+                }
+                window.location = exitOrigin + queryStr + window.location.hash;
+            });
+        } else {
+            document.getElementById("leavesite").style.display = "none";
+        }
+    
+        //remove exit script button if no value sent
+        if (scriptexturl === null || devOptions.value === "false") {
+            document.getElementById("scriptleave").style.display = "none";
+        }
     }
 </script>

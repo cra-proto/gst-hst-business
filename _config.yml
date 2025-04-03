@@ -2,7 +2,7 @@
 content_editable: true
 baseurl: /gst-hst-business
 url: https://cra-design.github.io
-repository: cra-protp/gst-hst-business
+repository: cra-design/gst-hst-business
 website: https://www.canada.ca/en.html
 
 # Remote theme, use the latest version
@@ -20,7 +20,15 @@ assets: https://wet-boew.github.io/themes-dist
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
-  
+
+# Custom settings
+siteBanner: true
+exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
+exitByURL: false
+externalOrigin: "https://www.canada.ca"
+relativeExternalLinks: false
+developerOptions: true
+
 # Page front matter defaults
 defaults:
   - scope:
@@ -42,17 +50,19 @@ defaults:
         title: "Canada Revenue Agency (CRA)"
         links:
          - text: "Contact the CRA"
-           url: https://www.canada.ca/en/revenue-agency/corporate/contact-information.html
+           url: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
          - text: "About the CRA"
-           url: https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html
+           url: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
          - text: "Compliance and enforcement"
-           url: https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance.html
+           url: "https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance.html"
       css: 
         - https://use.fontawesome.com/releases/v5.15.4/css/all.css
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css
+        - https://cra-design.github.io/gst-hst-business/templates/css/custom.css
       script: 
         - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
         - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js
+        - https://cra-design.github.io/gst-hst-business/templates/scripts/external-link-detour.js
   -
     scope:
       path: "en/"
