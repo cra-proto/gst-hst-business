@@ -64,7 +64,9 @@ script: "https://domain/your-awesome-script.js"    # Optional. You can add custo
 ```
 
 ## Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
+
 [//]: # (**************************Test comment*********************************)
+
 ```yaml
 layout: default
 lang: en
@@ -121,3 +123,12 @@ relativeExternalLinks: false
 - [Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)
 - [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 - [GitHub Help](https://help.github.com)
+
+```ruby
+gem install github-pages
+ gem update --system 3.6.6
+  gem uninstall fiddle -v 1.1.1
+  gem install faraday-retry
+ gem install bundler
+bundle exec jekyll serve --live reload
+```

@@ -40,6 +40,7 @@ Additional site wide setting information can be found in the [Support informatio
 ---
 
 ## Added/Modified/Deleted files and pages to be published:
+
 |Change|Github page|Canada.ca|
 |:-:|:-|:-|
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|[After you file](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html)||
@@ -68,11 +69,12 @@ Additional site wide setting information can be found in the [Support informatio
 |![Static Badge](https://img.shields.io/badge/Delete-red)|[Remit (pay) the tax you collected – Check My Business Account](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-check-balance.html)||
 |![Static Badge](https://img.shields.io/badge/Delete-red)|[Remit (pay) the tax you collected – Correct a payment](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-correct-payment.html)||
 |![Static Badge](https://img.shields.io/badge/Delete-red)|[Remit (pay) the tax you collected - When to remit (pay)](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-when.html)||
+
 ## Design phase roadmap:
 
-- [ ] Prototype: co-design navigation and content
-- [ ] SME review and accuracy check
-- [ ] Validation usability testing (including accessibility review)
+- [x] Prototype: co-design navigation and content
+- [x] SME review and accuracy check
+- [x] Validation usability testing (including accessibility review)
 - [ ] Refine prototype (if required)
 - [ ] Spot check usability (if required)
 

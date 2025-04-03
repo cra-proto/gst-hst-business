@@ -27,7 +27,7 @@ exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
 exitByURL: false
 externalOrigin: "https://www.canada.ca"
 relativeExternalLinks: false
-developerOptions: false
+developerOptions: true
 
 # Page front matter defaults
 defaults:
