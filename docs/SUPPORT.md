@@ -184,14 +184,14 @@ relativeExternalLinks: false
 
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [GCWeb, the WET-BOEW Canada.ca theme](https://wet-boew.github.io/GCWeb/index-en.html)
-- [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-- [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
+- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 - [Web page creation - GCWeb Jekyll \(translated\)](https://wet--boew-github-io.translate.goog/gcweb-jekyll/pages/index-fr.html?_x_tr_sl=fr&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp)
 - [Variables | Jekyll](https://jekyllrb.com/docs/variables/)
 - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)
 - [Learn YAML in Y minutes](https://learnxinyminutes.com/docs/yaml/)
-- [Centrally Deployed Templates Solutions \(CDTS\) - Internet](https://cenw-wscoe.github.io/sgdc-cdts/docs/internet-nodocwrite-en.html)
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+- [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [GitHub Help](https://help.github.com)
 
 ```ruby
