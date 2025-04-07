@@ -184,6 +184,7 @@ relativeExternalLinks: false
 
 - [User Centered Design Guide](https://design.cra-arc.alpha.canada.ca/en/index.html)
 - [GCWeb, the WET-BOEW Canada.ca theme](https://wet-boew.github.io/GCWeb/index-en.html)
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [Jekyll theme for GCWeb](https://github.com/wet-boew/gcweb-jekyll)
 - [Web page creation - GCWeb Jekyll \(translated\)](https://wet--boew-github-io.translate.goog/gcweb-jekyll/pages/index-fr.html?_x_tr_sl=fr&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp)
