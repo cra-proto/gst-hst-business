@@ -3,64 +3,115 @@
 > [!NOTE]
 > Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
 
-## GCWeb Jekyll page template example
+## GCWeb Jekyll template YAML page settings
 
 ```yaml
 ---
 
-# The "#" character can be used to create comments
+# The "#" character can be used to create comments in YAML
+# none of the settings are mandatory to include
 
-layout: ["default"]                                # Available layout types: core, default, application, documentation, fluid, home, no-container, servermesssage, splashpage-en, without-h1
-lang: ["en" | "fr"]                                # This value will set the page language
-title: "The title of the current page"             # This value will set the title and h1 tag
-sectionTitle: "Section title for the page"         # This value will set the section title above the h1 tag
-titleH1: "The header of the current page"          # This value will set the h1 tag (title over rides)
-description: "Description of the current page"     # Optional. Metadata description
-subject: "the subject of the current page"         # Optional. Metadata subject
-altLangPage: "The url"                             # Optional. Use the url of the alternate language page to display the language toggle
-auth:
-  type: ["signedoff" | "active" | "contextual"]    # Optional. Creates and configures a sign in button
-  label: "Sign in button label"                    # Label of the sign in button
-  labelExtended: "Sign in button extended label"   # Extended label of the sign in button
-  link: "The url"                                  # link of the sign in button
+layout: ["default"]                                # Available layout types: core, default, fluid, no-container, without-h1, application, home, servermesssage, splashpage-en, splashpage-fr
+
+# The following options are available for the layouts core, default, fluid, no-container, without-h1
+
+lang: ["en" | "fr"]                                # Sets the page language
+title: "The title of the current page"             # Sets the title and H1 tag
+description: "Description of the current page"     # Sets the description metadata
+subject: "the subject of the current page"         # Sets the subject metadata
+altLangPage: "The page URL"                        # Sets the URL of the alternate language page for the language toggle
+auth:                                              # Creates and configures a sign in button
+  type: ["signedoff" | "active" | "contextual"]    # Sets the initial state of the sign in button
+  label: "Sign in button label"                    # Sets the label of the sign in button
+  labelExtended: "Sign in button extended label"   # Sets the extended label of the sign in button
+  link: "The page URL"                             # Sets the URL the sign in button takes you to
 breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
-  - title: "The title"
-    link: "The url"
-feedbackData:
-  section: "The title of the current page"         # This value sets what to identify the page as in the feedback section for when feedback is sent    
-dateIssued: YYYY-MM-DD                             # Optional. ISO date
-dateModified: YYYY-MM-DD                           # ISO date
-css: "https://domain/your-stylesheet.css"          # Optional. You can add custom css to your page
-script: "https://domain/your-awesome-script.js"    # Optional. You can add custom javascript to your page
+  - title: "The title"                             # The title of the breadcrumb element
+    link: "The page URL"                           # The URL of the breadcrumb element
+dateIssued: YYYY-MM-DD                             # Sets the date page issued metadata
+dateModified: YYYY-MM-DD                           # Sets the date page was last modified
+css: "https://domain/your-stylesheet.css"          # Sets the link for custom CSS files you add to your page
+script: "https://domain/your-awesome-script.js"    # Sets the link for custom JavaScript files you add to your page
 ---
 
-<p>Content that would be displayed on the page</p>
+<p>HTML Content that will be displayed on the page</p>
 ```
 
-## Additional GCWeb Jekyll page template settings (Optional)
+## Additional GCWeb Jekyll template YAML page settings
 
 ```yaml
-breadcrumbs: false                                 # Disable the breadcrumb
-overwriteBreadcrumbs:
+nositesearch: [true | false]                       # Sets if the site search shows on the page [default: false]
+nomenu: [true | false]                             # Sets if the top menu shows on the page [default: false]
+noFooterMain: [true | false]                       # Sets if the footer shows on the page [default: false]
+noFooterCorporate: [true | false]                  # Sets if the Corporate footer shows on the page [default: false]
+noFooterContextual: [true | false]                 # Sets if the Contextual footer shows on the page [default: false]
+contextualFooter:                                  # Creates and configures the links for a contextual footer
+  title: "Canada Revenue Agency (CRA)"             # Sets the title for the contextual footer area
+  links:                                           # Adds a link in the contextual footer
+   - text: "Contact the CRA"
+     url: "the URL"
+pageclass: "page CSS class"                        # Sets CSS class that are in the <body> tag  
+creator: "the page creator"                        # Sets the Creator element for the page
+privacyUrl: "privacy page URL"                     # Sets the URL for the privacy link in the page footer
+termsUrl: "terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
 
-nositesearch: true                                 # Remove the site search
-nomenu: true                                       # Remove the top menu
-feedback: false                                    # Remove the feedback
-share: false                                       # Remove the share button
-noFooterMain: true                                 # Remove the footer
-noFooterContextual: true                           # Remove the Contextual footer
-noFooterCorporate: true                            # Remove the Corporate footer
-archived: true                                     # Adds the archived banner to the top of the page
-privacyUrl: "privacy page url"                     #
-termsUrl: "terms and conditions page url"          #
-secondarymenu:                                     
-parentPage:                                        
-pageclass: "page css class"                        # css class to add to the <body> tag  
-creator: "the page creator"                        #
-applicationName:
-applicationURL:
-css: "https://domain/your-stylesheet.css"          # Optional. You can add custom css to your entire site
-script: "https://domain/your-awesome-script.js"    # Optional. You can add custom javascript to your entire site
+archived: [true | false]                           # Sets if the archived banner is added to the top of the page [default: false]
+archiveOverlay: [true | false]                     # 
+
+breadcrumbs: [true | false]                        # Toggles if the breadcrumb is shown [default: true]
+overwriteBreadcrumbs: [true | false]               # 
+
+css:                                               # Allows you to add custom CSS to your entire site
+  - href: "The CSS file URL"
+    integrity: ""
+script:                                            # Allows you to add custom script files to your entire site
+  - src: "The script file URL"
+    type: "text/javascript"
+    integrity: ""
+
+# Layout specific settings:
+
+# [application/default/fluid/home/no-container/without-h1] layout specific settings
+feedback: [true | false]                           # Sets if the page feedback item is shown at the bottom of the page
+feedbackData:                                      # Sets the values for the feedback section at the bottom of the page
+  section: "The title of the current page"         # This value sets what to identify the page as in the feedback section for when feedback is sent
+  theme: "Taxes"
+contributors:                                      # Sets the contributors for the page
+  - name: ""
+    url: ""
+ feedbackContact:
+   - link: ""
+     url: ""
+feedbackFallback:
+feedbackPath:
+
+# [default/fluid] layout specific settings
+sectionTitle: "Section title for the page"         # Sets the section title above the H1 tag
+titleH1: "The header of the current page"          # Sets the H1 tag (title over rides this value)
+byline:
+  institution:
+  url:
+
+# [default] layout specific settings
+parentPage:                                        # Sets the header for the right column secondary menu
+  title:
+secondarymenu:                                     # Adds a right column secondary menu
+  - link:
+    title:
+    subnav:                                        # Sets a nested section in the right column secondary menu 
+     - title:
+       link:
+
+# [application] layout specific settings
+applicationName: "Canada Revenue Agency (CRA)"    # Sets the title of the bar at the top of the application layout for the page
+applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL of link in the bar at the top of the application layout for the page
+infoBanner:                                       # Sets a Banner at the top of the page and its elements
+  - title:
+    message:
+    link:
+     - href:
+       text:
+       external:
 ```
 
 ## Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
@@ -68,43 +119,61 @@ script: "https://domain/your-awesome-script.js"    # Optional. You can add custo
 [//]: # (**************************Test comment*********************************)
 
 ```yaml
-layout: default
-lang: en
-share: true
-sitemenu: true
-sitesearch: true
-feedback: true
-feedbackData:
-  theme: "Taxes"
-feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
-privacyUrl: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"
-termsURL: "https://www.canada.ca/en/transparency/terms.html"
-creator:
+layout: ["default"]                                # Available layout types: core, default, fluid, no-container, without-h1, application, home, servermesssage, splashpage-en, splashpage-fr
+lang: ["en" | "fr"]                                # Sets the page language for the entire site
+creator:                                           # Sets the Creator element for all pages on the site
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
-contextualFooter:
+website: "website URL"                             # Root website used for the site
+sitemenu: [true | false]
+sitesearch: [true | false]
+contextualFooter:                                  # Creates and configures the links for a contextual footer for the entire site
   title: "Canada Revenue Agency (CRA)"
   links:
    - text: "Contact the CRA"
      url: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
+privacyUrl: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"   # Sets the URL for the privacy link in the page footer for the entire site
+termsURL: "https://www.canada.ca/en/transparency/terms.html"   # Sets the URL for the terms and conditions link in the page footer for the entire site
+```
+
+## Additional Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
+
+```yaml
+description: "Description of the current page"     # Sets the description metadata for the entire site
+breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
+  - title: "The title"                             # The title of the breadcrumb element
+    link: "The page URL"                           # The URL of the breadcrumb element
+share: [true | false]
+
+# Layout specific settings:
+
+# [application/default/fluid/home/no-container/without-h1] layout specific settings
+feedback: [true | false]                           # Sets if the page feedback item is shown at the bottom of every page for the site
+feedbackData:                                      # Sets the values for the feedback section at the bottom of every page for the site
+  theme: "Taxes"
+feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
+
+# [application] layout specific settings
+applicationName: "Canada Revenue Agency (CRA)"    # Sets the title of the bar at the top of the application layout for all pages on the site
+applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL of link in the bar at the top of the application layout for all pages on the site
 ```
 
 ## Custom page options
 
 ```yaml
-testBanner: [true | false]                         # Optional. Can toggle the banner off or on for a page
-soureceurl:                                        # Optional. Links will be added to the page banner 
-  - title: "The title" 
-    link: "The url"
+testBanner: [true | false]                         # Toggles if the testing site only banner shows for a page
+soureceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
+  - title: "The link title" 
+    link: "The link URL"
 ```
 
 ## Custom site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
 siteBanner: [true | false]                         # Toggles the site wide banner off and on for the site
-developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, cuntom banner links, exit page leave site button)
+developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, custom banner links, exit page leave site button)
 
-exitPage: "Exit intent page url"                   # Identifies the link to the exit intent page used for link generation on all pages
+exitPage: "Exit intent page URL"                   # Identifies the link to the exit intent page used for link generation on all pages
 exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true 
 relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
