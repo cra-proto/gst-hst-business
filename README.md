@@ -2,7 +2,7 @@
 
 Project to optimize the content related to filing GST/HST returns.
 
-**COP Timeframe:** [July 31, 2024 - February 2025]
+**COP Timeframe:** [July 31, 2024 - May 2025]
 
 ## Important links
 
@@ -19,50 +19,24 @@ Project to optimize the content related to filing GST/HST returns.
 - Test development files will have `_proto#` appended to the end of the file name
 - Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
 - Updates should be named or have comments identifying what has been updated or changed
-- Any repository path structure changes should be communicated to all indivduals who directly update the repository
+- Any repository path structure changes should be communicated to all individuals who directly update the repository
 - There should be no relative links on any pages so all links should be made absolute
 - Create all files in locations that reflects where they will be eventually published when created on Canada.ca
 - In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
 
-## Custom page template options
+## Custom Github options
+  - The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the Github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
+- Link overrides can be added to the [exitlinkexcludes.json](https://github.com/cra-design/gst-hst-business/blob/main/_data/exitlinkexcludes.json) file. If there is only an `origin` link and no `destination` link then all occurances of the link to that page will be excluded from redirects to the **exit intent page**. If there is both an `origin` link and a `destination` link then all occurances of the `origin` link will be redirected to the `destination` page
 
-- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
-- The `Github button` on the banner will take you to the the source page on github  
-- All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
-  - The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
-- The option `sourceurl` in the **YAML** section of the page code allows you to add URLs (settings the **link** and **title**) that will appear in the banner for easy navigation to pages you deem relevant to add
-- Additional custom `layout` options that are available in the **YAML** section of the page code are:
-  - `no-test-banner` - removes the top banner from the page
-  - `without-h1-test-banner` - removes the top banner and the h1 for the page is not automatically generated
-
-Additional site wide setting information can be found in the [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md) readme file
+Additional site wide setting and template information can be found in the [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md) markdown file.
 
 ---
 
-## Added/Modified/Deleted files and pages to be published:
-
-### Pages to be Modified (14)
-
-|Action|Github title|Github URL|Canada.ca title|Old Canada.ca URL|New Canada.ca  URL|
-|:-:|:-|:-|:-|:-|:-|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|After you file - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html|After you file - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/after-file.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/after-file.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|By phone (TELEFILE) - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html|GST/HST TELEFILE|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Choose a filing method - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/choose-filing-method.html|File a GST/HST return, rebate or election electronically|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/file-a-gst-hst-return-rebate-election-electronically.html||
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Contact us about your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/contact-us.html|What to do if you have a complaint - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-you-have-complaint.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/contact-us.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return.html|File the return - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/file-return.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|GST/HST filing penalties - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines/penalties-gst-hst-returns.html|GST/HST – Penalties and interest|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-penalties-interest.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines/penalties-gst-hst-returns.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|GST/HST for businesses|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses.html|GST/HST for businesses|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html||
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|GST/HST records to keep|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html|What records to keep - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-records-keep.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|How to file - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file.html|Select a filing method|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-select-method.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Instructions for completing a GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/instructions-completing-gst-hst-return.html|Instructions for completing a GST/HST Return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-instructions.html||
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Reporting requirements and deadlines - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html|When to file - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/when-file.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Software for GST/HST Internet File Transfer|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/software-gst-hst-ift.html|Software|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-software.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/software-gst-hst-ift.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Using the online GST/HST NETFILE form - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-online-netfile-form.html|GST/HST NETFILE|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file/how-file-online-netfile-form.html|
-|![Static Badge](https://img.shields.io/badge/Modified-blue)|Which GST/HST return to use in your situation|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html|What to include in your return - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-include-your-return.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html|
+## Added/Deleted/Modified files and pages to be published:
 
 ### Pages to be added (3)
 
-|Action|Title|Github URL|New Canada.ca URL|
+|Action|Page title|Github URL|New Canada.ca URL|
 |:-:|:-|:-|:-|
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|Calculate and prepare to report the GST/HST|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report.html|
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|By mail - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-mail.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file/how-file-mail.html|
@@ -70,7 +44,7 @@ Additional site wide setting information can be found in the [Support informatio
 
 ### Pages to be deleted (37)
 
-|Action|Page title|URL|
+|Action|Page title|Canada.ca URL|
 |:-:|:-|:-|
 |![Static Badge](https://img.shields.io/badge/Delete-red)|About GST/HST EDI|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-filing-remitting/about-gst-hst.html|
 |![Static Badge](https://img.shields.io/badge/Delete-red)|About GST/HST Internet File Transfer|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-about-gst-hst-internet-file-transfer.html|
@@ -110,7 +84,29 @@ Additional site wide setting information can be found in the [Support informatio
 |![Static Badge](https://img.shields.io/badge/Delete-red)|Who can use GST/HST EDI|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-filing-remitting/who-use-gst-hst.html|
 |![Static Badge](https://img.shields.io/badge/Delete-red)|Your browser|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-electronic-filing-services-your-browser.html|
 
-delete - redirect URL?
+[//]: # (delete - redirect URL?)
+
+### Pages to be Modified (17)
+
+|Action|Github page title|Github URL|Canada.ca page title|Old Canada.ca URL|New Canada.ca URL|
+|:-:|:-|:-|:-|:-|:-|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|After you file - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html|After you file - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/after-file.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/after-file.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|By phone (TELEFILE) - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html|GST/HST TELEFILE|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Calculate the net tax – Complete and file a GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/complete-file-return-business/calculate-net-tax.html|Calculate the net tax - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/calculate-net-tax.html||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Choose a filing method - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/choose-filing-method.html|File a GST/HST return, rebate or election electronically|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/file-a-gst-hst-return-rebate-election-electronically.html||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Contact us about your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/contact-us.html|What to do if you have a complaint - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-you-have-complaint.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/contact-us.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return.html|File the return - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/file-return.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Get a GST/HST access code|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/get-gst-hst-access-code.html|Get a GST/HST access code|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/need-access-code.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file/get-gst-hst-access-code.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|GST/HST filing penalties - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines/penalties-gst-hst-returns.html|GST/HST – Penalties and interest|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-penalties-interest.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines/penalties-gst-hst-returns.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|GST/HST for businesses|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses.html|GST/HST for businesses|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|GST/HST records to keep|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html|What records to keep - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-records-keep.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|How to file - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file.html|Select a filing method|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-select-method.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Instructions for completing a GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/instructions-completing-gst-hst-return.html|Instructions for completing a GST/HST Return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-instructions.html||
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Remit (pay) the GST/HST you collected|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/remit-pay-gst-hst-collected.html|Remit (pay) the tax you collected – How to remit (pay)|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/pay-how.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/remit-pay-gst-hst-collected.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Reporting requirements and deadlines - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html|When to file - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/when-file.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/reporting-requirements-deadlines.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Software for GST/HST Internet File Transfer|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/software-gst-hst-ift.html|Software|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-software.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/software-gst-hst-ift.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Using the online GST/HST NETFILE form - File your GST/HST return|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-online-netfile-form.html|GST/HST NETFILE|https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-return/how-file/how-file-online-netfile-form.html|
+|![Static Badge](https://img.shields.io/badge/Modified-blue)|Which GST/HST return to use in your situation|https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html|What to include in your return - Complete and file a GST/HST return|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-include-your-return.html|https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html|
 
 ## Design phase roadmap:
 
@@ -148,10 +144,11 @@ gantt
     dateFormat  YYYY-MM-DD
     section Design
     Create repository and page template files :done, a1, 2024-09-18, 3d
-    User testing and notetaking :done, b1, 2024-09-26, 19d
+    Baseline user testing and notetaking :done, b1, 2024-09-26, 19d
     Import scoped files to repo :done, a2, 2024-10-10, 9d
-    Evaluation of user testing :active, b2, after b1, 14d
-    Content and design updates and prototyping :after b2, 154d
+    Evaluation of baseline user testing :done, b2, after b1, 14d
+    Content and design updates and prototyping :after b2, 134d
+    Validation user testing and notetaking :active, b3, 2025-03-12, 20d
 
 ```
 
@@ -159,7 +156,7 @@ gantt
 
 ## Canada.ca path structure of scoped files
 
-[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[50 pages\]
+[https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[66 pages\]
 
 ```mermaid
 mindmap
@@ -170,10 +167,14 @@ mindmap
       [gst-hst-netfile - 10]
       [gst-hst-telefile - 7]
     [tax/businesses/topics - 1]
+      [calculate-prepare-report - 4]
+      [file-return - 5]
+        [how-file - 7]
+        [reporting-requirements-deadlines - 1]
       [gst-hst-businesses - 10]
-        [complete-file-return-business - 7]
+        [complete-file-return-business - 6]
           [file-returns - 1]
         [digital-economy-gsthst - 1]
 ```
 
-**Updated:**  2025-02-07
+**Updated:**  2025-04-08
