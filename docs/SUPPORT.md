@@ -40,6 +40,7 @@ script: "https://domain/your-awesome-script.js"    # Sets the link for custom Ja
 ## Additional GCWeb Jekyll template YAML page settings
 
 ```yaml
+---
 nositesearch: [true | false]                       # Sets if the site search shows on the page [default: false]
 nomenu: [true | false]                             # Sets if the top menu shows on the page [default: false]
 noFooterMain: [true | false]                       # Sets if the footer shows on the page [default: false]
@@ -112,6 +113,7 @@ infoBanner:                                       # Sets a Banner at the top of 
      - href:
        text:
        external:
+---
 ```
 
 ## Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
@@ -119,6 +121,7 @@ infoBanner:                                       # Sets a Banner at the top of 
 [//]: # (**************************Test comment*********************************)
 
 ```yaml
+---
 layout: ["default"]                                # Available layout types: core, default, fluid, no-container, without-h1, application, home, servermesssage, splashpage-en, splashpage-fr
 lang: ["en" | "fr"]                                # Sets the page language for the entire site
 creator:                                           # Sets the Creator element for all pages on the site
@@ -134,11 +137,13 @@ contextualFooter:                                  # Creates and configures the 
      url: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
 privacyUrl: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"   # Sets the URL for the privacy link in the page footer for the entire site
 termsURL: "https://www.canada.ca/en/transparency/terms.html"   # Sets the URL for the terms and conditions link in the page footer for the entire site
+---
 ```
 
 ## Additional Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
+---
 description: "Description of the current page"     # Sets the description metadata for the entire site
 breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
   - title: "The title"                             # The title of the breadcrumb element
@@ -156,20 +161,30 @@ feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback
 # [application] layout specific settings
 applicationName: "Canada Revenue Agency (CRA)"    # Sets the title of the bar at the top of the application layout for all pages on the site
 applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL of link in the bar at the top of the application layout for all pages on the site
+---
 ```
 
 ## Custom page options
 
 ```yaml
+---
 testBanner: [true | false]                         # Toggles if the testing site only banner shows for a page
 soureceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
   - title: "The link title" 
     link: "The link URL"
+---
 ```
+Custom YAML settings
+
+- The option `sourceurl` in the **YAML** section of the page code allows you to add URLs (settings the **link** and **title**) that will appear in the banner for easy navigation to pages you deem relevant to add
+- Additional custom `layout` options that are available in the **YAML** section of the page code are:
+  - `no-test-banner` - removes the top banner from the page
+  - `without-h1-test-banner` - removes the top banner and the h1 for the page is not automatically generated
 
 ## Custom site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
+---
 siteBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, custom banner links, exit page leave site button)
 
@@ -178,6 +193,27 @@ exitByURL: [true | false]                          # Toggles if the exit page us
 relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
 relativeExternalLinks: false
+---
+```
+
+## Page template options
+
+- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
+- The `Github button` on the banner will take you to the the source page on github  
+- All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
+
+## Installation instructions for running GCWebb Jekyll on a local PC 
+
+1. Install Ruby [Ruby Installers for Windows](https://rubyinstaller.org/downloads/)
+2. 
+
+```ruby
+gem install github-pages
+ gem update --system 3.6.6
+  gem uninstall fiddle -v 1.1.1
+  gem install faraday-retry
+ gem install bundler
+bundle exec jekyll serve --live reload
 ```
 
 ## Resources
@@ -194,11 +230,3 @@ relativeExternalLinks: false
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [GitHub Help](https://help.github.com)
 
-```ruby
-gem install github-pages
- gem update --system 3.6.6
-  gem uninstall fiddle -v 1.1.1
-  gem install faraday-retry
- gem install bundler
-bundle exec jekyll serve --live reload
-```
