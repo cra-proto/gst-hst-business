@@ -4,15 +4,15 @@
 > Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
 
 ## On this page
-- [GCWeb Jekyll template YAML page settings](#markdown-header-gcweb-jekyll-template-yaml-page-settings)
-- [Additional GCWeb Jekyll template YAML page settings](#markdown-header-additional-gcweb-jekyll-template-yaml-page-settings)
-- [Site _config.yml file options](#markdown-header-site-_config.yml-file-options)
-- [Additional Site _config.yml file options](#markdown-header-additional-site-_config.yml-file-options)
-- [Custom YAML page setting options](#markdown-header-custom-yaml-page-setting-options)
-- [Custom YAML site _config.yml file options](#markdown-header-custom-yaml-site-_config.yml-file-options)
-- [Page template options](#markdown-header-page-template-options)
+- [GCWeb Jekyll template YAML page settings](#user-content-gcweb-jekyll-template-yaml-page-settings)
+- [Additional GCWeb Jekyll template YAML page settings](#user-content-additional-gcweb-jekyll-template-yaml-page-settings)
+- [Site _config.yml file options](#user-content-site-_config.yml-file-options)
+- [Additional Site _config.yml file options](#user-content-additional-site-_config.yml-file-options)
+- [Custom YAML page setting options](#user-content-custom-yaml-page-setting-options)
+- [Custom YAML site _config.yml file options](#user-content-custom-yaml-site-_config.yml-file-options)
+- [Page template options](#user-content-page-template-options)
 - [Installation instructions for running GCWeb Jekyll on a local PC](#markdown-header-installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
-- [Resources](#markdown-header-resources)
+- [Resources](#user-content-resources)
 
 ## GCWeb Jekyll template YAML page settings
 
