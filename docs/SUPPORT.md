@@ -3,6 +3,17 @@
 > [!NOTE]
 > Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
 
+## On this page
+- [GCWeb Jekyll template YAML page settings](#markdown-header-gcweb-jekyll-template-yaml-page-settings)
+- [Additional GCWeb Jekyll template YAML page settings](#markdown-header-additional-gcweb-jekyll-template-yaml-page-settings)
+- [Site _config.yml file options](#markdown-header-site-_config.yml-file-options)
+- [Additional Site _config.yml file options](#markdown-header-additional-site-_config.yml-file-options)
+- [Custom YAML page setting options](#markdown-header-custom-yaml-page-setting-options)
+- [Custom YAML site _config.yml file options](#markdown-header-custom-yaml-site-_config.yml-file-options)
+- [Page template options](#markdown-header-page-template-options)
+- [Installation instructions for running GCWeb Jekyll on a local PC](#markdown-header-installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
+- [Resources](#markdown-header-resources)
+
 ## GCWeb Jekyll template YAML page settings
 
 ```yaml
@@ -52,7 +63,7 @@ contextualFooter:                                  # Creates and configures the 
    - text: "Contact the CRA"
      url: "the URL"
 pageclass: "page CSS class"                        # Sets CSS class that are in the <body> tag  
-creator: "the page creator"                        # Sets the Creator element for the page
+creator: "the page creator"                        # Sets the creator metadata
 privacyUrl: "privacy page URL"                     # Sets the URL for the privacy link in the page footer
 termsUrl: "terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
 
@@ -124,7 +135,7 @@ infoBanner:                                       # Sets a Banner at the top of 
 ---
 layout: ["default"]                                # Available layout types: core, default, fluid, no-container, without-h1, application, home, servermesssage, splashpage-en, splashpage-fr
 lang: ["en" | "fr"]                                # Sets the page language for the entire site
-creator:                                           # Sets the Creator element for all pages on the site
+creator:                                           # Sets the creator metada attribute for all pages on the site
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
 website: "website URL"                             # Root website used for the site
@@ -140,7 +151,7 @@ termsURL: "https://www.canada.ca/en/transparency/terms.html"   # Sets the URL fo
 ---
 ```
 
-## Additional Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
+## Additional site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
 ---
@@ -164,7 +175,7 @@ applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL 
 ---
 ```
 
-## Custom page options
+## Custom YAML page setting options
 
 ```yaml
 ---
@@ -181,7 +192,7 @@ Custom YAML settings
   - `no-test-banner` - removes the top banner from the page
   - `without-h1-test-banner` - removes the top banner and the h1 for the page is not automatically generated
 
-## Custom site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
+## Custom YAML site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
 ---
@@ -202,7 +213,7 @@ relativeExternalLinks: false
 - The `Github button` on the banner will take you to the the source page on github  
 - All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
 
-## Installation instructions for running GCWebb Jekyll on a local PC 
+## Installation instructions for running GCWeb Jekyll on a local PC 
 
 1. Install Ruby [Ruby Installers for Windows](https://rubyinstaller.org/downloads/)
 2. 
