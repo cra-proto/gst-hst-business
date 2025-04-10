@@ -215,17 +215,23 @@ relativeExternalLinks: false
 
 ## Installation instructions for running GCWeb Jekyll on a local PC 
 
-1. Install Ruby [Ruby Installers for Windows](https://rubyinstaller.org/downloads/)
-2. 
+1. [Video instructions for all of step 1-2](https://www.youtube.com/watch?v=LfP7Y9Ja6Qc) Download and install Ruby. You can find a version to download through the [Download Ruby](https://www.ruby-lang.org/en/downloads/) page
+   1. Install Ruby with all the defaults checked and make sure `Run 'ridk install' to install MSYS2 and development toolchain.` is checked.  This will open a command prompt install dialog
+   2. Follow the prompts and install **all three** options that are shown
+      1. First install `1 - MSYS2 base installalation`
+      2. then install `2 - MSYS2 system update (optional)`
+      3. and finally install `3 - MSYS2 and MINGW development toolchain`
+   3. Open the `Command prompt/Terminal/Powershell` and enter `ruby -v` to verify that **ruby** is installed
+   4. At the `Command prompt/Terminal/Powershell` and enter `gem -v` to verify that **gem** is installed
+2. At the `Command prompt/Terminal/Powershell` and enter `gem install jekyll bundler` after it has completed enter `jekyll -v` to verify that **jekyll** is installed
+3. At the `Command prompt/Terminal/Powershell` and enter `gem install github-pages` to install github page support
+4. Update any older elements that you may have been notified of in the `Command prompt/Terminal/Powershell` when you did the various `gem install` commands (e.g. `gem update --system 3.6.7`)
+5. At the the `Command prompt/Terminal/Powershell` enter `bundle exec jekyll serve --live reload`. This should run jekyll, generate your site, and start the local site server
+   1. **Note**: a `gemfile` is required in the local github repository to run the jekyll server.  This gemfile should contain the following line: `gem "github-pages", group: :jekyll_plugins`
+7. In your browser go to `https://localhost:4000/github-workspace-name/` and you should see your a fully generated version of your site 
 
-```ruby
-gem install github-pages
- gem update --system 3.6.6
-  gem uninstall fiddle -v 1.1.1
-  gem install faraday-retry
- gem install bundler
-bundle exec jekyll serve --live reload
-```
+[//]: # (At the `Command prompt/Terminal/Powershell` and enter `gem install bundler`)
+[//]: # (https://www.youtube.com/watch?v=fV01b0duZwU&t=242s)
 
 ## Resources
 
