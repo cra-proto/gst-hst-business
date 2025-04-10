@@ -11,7 +11,7 @@
 - [Custom YAML page setting options](#user-content-custom-yaml-page-setting-options)
 - [Custom YAML site _config.yml file options](#user-content-custom-yaml-site-_config.yml-file-options)
 - [Page template options](#user-content-page-template-options)
-- [Installation instructions for running GCWeb Jekyll on a local PC](#markdown-header-installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
+- [Installation instructions for running GCWeb Jekyll on a local PC](#user-content-installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
 - [Resources](#user-content-resources)
 
 ## GCWeb Jekyll template YAML page settings
