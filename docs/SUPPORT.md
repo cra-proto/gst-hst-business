@@ -180,7 +180,7 @@ applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL 
 ```yaml
 ---
 testBanner: [true | false]                         # Toggles if the testing site only banner shows for a page
-soureceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
+sourceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
   - title: "The link title" 
     link: "The link URL"
 ---
