@@ -20,9 +20,10 @@ let visitedLinkStyle = document.createElement("style"),
             if (destStartPath !== "") {
                 adjustedURI = new URL(adjustedURI, destStartPath).href;
             }
-            return replaceChar.foreach(function entityReplace (arrEl) {
-                return adjustedURI.replace(arrEl, encodeURIComponent(arrEl));
+            replaceChar.foreach(function entityReplace (arrEl) {
+                adjustedURI = adjustedURI.replace(arrEl, encodeURIComponent(arrEl));
             }, adjustedURI);
+            return adjustedURI;
         }, 
         updateFormSubmit = function updateFormSubmit(formEl, formAttr, exitPageURI) {
             let hiddenInEl;
