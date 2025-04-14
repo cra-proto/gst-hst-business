@@ -41,7 +41,7 @@ let linkExcludeURI = "/gst-hst-business/assets/data/link_excludes.json",
                     let pagetitle = encodeURIComponent(this.innerText),
                         exitPageURI = exitPage.value, 
                         destURI = adjustHref(this.href, destStartPath), 
-                        currentURI = this.protocol + "//" this.hostname + this.pathname, 
+                        currentURI = this.protocol + "//" + this.hostname + this.pathname, 
                         linkExcludeIndex = linkExcludes.exitLinkExcludes.findIndex(function findlink(linkArr) {
                             if ("origin" in linkArr) {
                                 return linkArr["origin"].toLowerCase() === currentURI.toLowerCase();
