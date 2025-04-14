@@ -15,14 +15,14 @@ let visitedLinkStyle = document.createElement("style"),
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
         let adjustHref = function adjustHref(el, destStartPath) {
             let adjustedURI = el, 
-            replaceChar = ["?", "#", "&"];
+                replaceChar = ["?", "#", "&"];
 
             if (destStartPath !== "") {
-                replaceChar.foreach(function entityReplace (arrEl) {
-                    adjustedURI = new URL(adjustedURI.replace(arrEl, encodeURIComponent(arrEl)), destStartPath).href;
-                }, adjustedURI);
+                adjustedURI = new URL(adjustedURI, destStartPath).href;
             }
-            return adjustedURI;
+            return replaceChar.foreach(function entityReplace (arrEl) {
+                return adjustedURI.replace(arrEl, encodeURIComponent(arrEl));
+            }, adjustedURI);
         }, 
         updateFormSubmit = function updateFormSubmit(formEl, formAttr, exitPageURI) {
             let hiddenInEl;
@@ -95,7 +95,7 @@ let visitedLinkStyle = document.createElement("style"),
         return domains[0];
     }, 
     rootDomain = getDomain(window.location.origin + window.location.pathname), 
-    defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed) {
+    defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed, relExternalLnk) {
         adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
         if ((relExternalLnk && relExternalLnk.value === "true" && relExternalLnk.dataset.origin !== "") || isAjaxed === true) {
             adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
