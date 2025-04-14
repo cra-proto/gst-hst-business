@@ -8,7 +8,7 @@ var linkExcludes = {};
 
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
-let linkExcludeURI "/gst-hst-business/assets/data/link_excludes.json", 
+let linkExcludeURI = "/gst-hst-business/assets/data/link_excludes.json", 
     visitedLinkStyle = document.createElement("style"), 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
         let adjustHref = function adjustHref(el, destStartPath) {
