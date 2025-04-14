@@ -111,7 +111,7 @@ if (exitPage) {
 
 // changes all external site links and forms to go to destination link
 $(document).on("wb-ready.wb", function () {
-    defaultadjustLinks(this, false);
+    defaultadjustLinks(this, false, relExternalLnk);
 });
 
 // changes all GCM Menu external site links and forms to go to destination link
@@ -124,5 +124,5 @@ $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
 
 // changes all ajaxed external site links and forms to go to destination link
 $("[data-ajax-after], [data-ajax-append], [data-ajax-before], [data-ajax-prepend], [data-ajax-replace]").on("wb-contentupdated", function (event, data) {
-    defaultadjustLinks(this, true);
+    defaultadjustLinks(this, true, relExternalLnk);
 });
