@@ -1,5 +1,11 @@
 "use strict";
 
+var linkExcludes;
+
+    $.getJSON("assets/data/link_excludes.json", function(data) {
+        linkExcludes = data;
+    });
+
 //  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 //  relExternalLnk.value = "false",
 //  relExternalLnk.dataset.origin = "https://www.canada.ca",
