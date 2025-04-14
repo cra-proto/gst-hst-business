@@ -1,0 +1,164 @@
+{
+  "exitLinkExcludes": [
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/cra-login-services.html", 
+      "destination": "https://cra-design.github.io/cra-portal/index.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/services/taxes.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/taxes.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/revenue-agency.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/file-a-gst-hst-return-rebate-election-electronically.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/file-a-gst-hst-return-rebate-election-electronically.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-filing-remitting.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-filing-remitting.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-filing-remitting/about-gst-hst.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-filing-remitting/about-gst-hst.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-filing-remitting/gst-hst-filing-remitting.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-filing-remitting/gst-hst-filing-remitting.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-about-gst-hst-internet-file-transfer.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-about-gst-hst-internet-file-transfer.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-before-you-start.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-before-you-start.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-eligibility.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-eligibility.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-feedback.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-feedback.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions-1.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions-1.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions-2.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions-2.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions-3.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions-3.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-internet-file-transfer/gst-hst-internet-file-transfer-frequently-asked-questions.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-about-gst-hst-netfile.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-about-gst-hst-netfile.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-adjust-a-return-rebate.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-adjust-a-return-rebate.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-before-you-start.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-before-you-start.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-eligibility.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-eligibility.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-feedback.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-feedback.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions-eligibility.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions-eligibility.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions-general.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions-general.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions-using-service.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions-using-service.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/gst-hst-netfile-frequently-asked-questions.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-netfile/need-access-code.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-netfile/need-access-code.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/about-gst-hst-telefile.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/about-gst-hst-telefile.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-before-you-start.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-before-you-start.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-eligibility.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-eligibility.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions-eligibility.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions-eligibility.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions-general.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions-general.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions-using-service.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions-using-service.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions.html", 
+      "destination": "https://cra-design.github.io/gst-hst-business/en/digital-services-businesses/gst-hst-telefile/gst-hst-telefile-frequently-asked-questions.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/account-close.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/account-close.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/account-register.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/account-register.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/complete-file-return-business.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-you-have-complaint.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/complete-file-return-business/what-you-have-complaint.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-include-your-return.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/complete-file-return-business/what-include-your-return.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/calculate-net-tax.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/complete-file-return-business/calculate-net-tax.html"
+    }, 
+    {
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/file-return/outreach-seminar-confirmation.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/complete-file-return-business/file-return/outreach-seminar-confirmation.html"
+    }
+  ]
+}
