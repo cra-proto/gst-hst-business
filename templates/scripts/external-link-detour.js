@@ -7,13 +7,18 @@ let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
 let visitedLinkStyle = document.createElement("style"), 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
-        let adjustHref = function adjustHref(el, destStartPath) {;
+        let adjustHref = function adjustHref(el, destStartPath) {
+            let adjustedURI = el, 
+            replaceChar = ["?", "#", "&"];
+
             if (destStartPath !== "") {
-                return new URL(el.replace("?", "&"), destStartPath).href;
+                replaceChar.foreach(function entityReplace (arrEl) {
+                    adjustedURI = new URL(adjustedURI.replace(arrEl, encodeURIComponent(arrEl)), destStartPath).href;
+                }, adjustedURI);
             }
-            return el;
+            return adjustedURI;
         }, 
-        updateFormSubmit = function updateFormSubmit(formEl, formAttr) {
+        updateFormSubmit = function updateFormSubmit(formEl, formAttr, exitPageURI) {
             let hiddenInEl;
 
             hiddenInEl = document.createElement("input");
@@ -21,20 +26,42 @@ let visitedLinkStyle = document.createElement("style"),
             hiddenInEl.name = "uri";
             hiddenInEl.type = "hidden";
             formEl.append(hiddenInEl);
-            formEl[formAttr] = exitPage.value;
+            formEl[formAttr] = exitPageURI;
         };
 
         if (exitPage) {
             if (hrefSelector !== "") {
                 $(elm).find(hrefSelector).each(function updateExitHref() {
-                    /*
-                    let urlObj = { "url": exitPage.value }
-                    this.dataset.wbExitscript = JSON.stringify(urlObj);
-                    this.classList.add("wb-exitscript");
-                    */
-                    this.href = adjustHref(this.href, destStartPath);
-                  /*  this.href = exitPage.value + "?uri=" + adjustHref(this.href, destStartPath) + "&pagetitle=" + encodeURIComponent(this.innerText); */
-                    this.href = exitPage.value + "?uri=" + adjustHref(this.href, destStartPath).replace('#', '%23') + "&pagetitle=" + encodeURIComponent(this.textContent);
+                    const maxURILength = 2048;
+                    let pagetitle = encodeURIComponent(this.innerText),
+                        exitPageURI = exitPage.value, 
+                        destURI = adjustHref(this.href, destStartPath), 
+                        currentURI = this.baseURI, 
+                        linkExcludeIndex = linkExcludes.exitLinkExcludes.findIndex(function findlink(linkArr) {
+                                return linkArr["origin"].toLowerCase() === currentURI.toLowerCase();
+                            }, currentURI);
+
+                    if (linkExcludeIndex === -1) {
+                        /*
+                        let urlObj = { "url": exitPageURI }
+                        this.dataset.wbExitscript = JSON.stringify(urlObj);
+                        this.classList.add("wb-exitscript");
+                        */
+                        if (pagetitle === "") {
+                            pagetitle = encodeURIComponent(this.textContent);
+                        }
+                        switch (true) {
+                            case exitPageURI.length + destURI.length + 5 <= maxURILength:
+                                exitPageURI = exitPageURI + "?uri=" + destURI;
+                            case exitPageURI + pagetitle.length + 11 <= maxURILength:
+                                exitPageURI = exitPageURI + "&pagetitle=" + pagetitle;
+                        }
+                        this.href = exitPageURI;
+                    } else if ("destination" in linkExcludes.exitLinkExcludes[linkExcludeIndex] === true) {
+                        this.href = linkExcludes.exitLinkExcludes[linkExcludeIndex].destination;
+                    } else {
+                        this.href = exitPageURI;
+                    }
                 });
                 /*
                 $(".wb-exitscript").trigger("wb-init.wb-exitscript");
@@ -44,22 +71,16 @@ let visitedLinkStyle = document.createElement("style"),
             if (actionSelector !== "") {
                 $(elm).find(actionSelector).each(function updateExitAction() {
                     this.method = "GET";
-                    updateFormSubmit(this, "action");
+                    updateFormSubmit(this, "action", exitPage.value);
                 });
             }
 
             if (formActionSelector !== "") {
                 $(elm).find(formActionSelector).each(function updateExitForm() {
-                    updateFormSubmit(this, "formaction");
+                    updateFormSubmit(this, "formaction", exitPage.value);
                 });
             }
         }
-    }, 
-    defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed) {
-        adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
-        if ((relExternalLnk && relExternalLnk.value === "true" && relExternalLnk.dataset.origin !== "") || isAjaxed === true) {
-            adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
-        }        
     }, 
     getDomain = function (url) {
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
@@ -67,7 +88,13 @@ let visitedLinkStyle = document.createElement("style"),
 
         return domains[0];
     }, 
-    rootDomain = getDomain(window.location.origin + window.location.pathname);
+    rootDomain = getDomain(window.location.origin + window.location.pathname), 
+    defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed) {
+        adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
+        if ((relExternalLnk && relExternalLnk.value === "true" && relExternalLnk.dataset.origin !== "") || isAjaxed === true) {
+            adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
+        }        
+    };
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
