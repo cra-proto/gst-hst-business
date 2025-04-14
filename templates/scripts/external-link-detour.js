@@ -20,7 +20,7 @@ let visitedLinkStyle = document.createElement("style"),
             if (destStartPath !== "") {
                 adjustedURI = new URL(adjustedURI, destStartPath).href;
             }
-            replaceChar.foreach(function entityReplace (arrEl) {
+            replaceChar.forEach(function entityReplace (arrEl) {
                 adjustedURI = adjustedURI.replace(arrEl, encodeURIComponent(arrEl));
             }, adjustedURI);
             return adjustedURI;
