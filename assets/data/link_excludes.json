@@ -1,5 +1,4 @@
-{
-  "exitLinkExcludes": [
+[
     {
       "origin": "https://www.canada.ca/en/revenue-agency/services/e-services/cra-login-services.html", 
       "destination": "https://cra-design.github.io/cra-portal/index.html"
@@ -161,4 +160,3 @@
       "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/complete-file-return-business/file-return/outreach-seminar-confirmation.html"
     }
   ]
-}
