@@ -11,14 +11,20 @@
     <div class="container test-banner-content">
         <h2>This site is for CRA testing purposes only</h2>
         <p class="mrgn-bttm-0">Do not enter any personal information on this site</p>
-        {% if page.soureceurl and site.developerOptions == true %}
+        {% if site.developerOptions == true %}
+        {% if page.soureceurl %}
         <ol id="testpage-source" class="list-inline mrgn-bttm-0">
         {% for source in page.soureceurl %}
         {% if source.title and source.title != "" %}
-        <li><span class="fa fa-globe"></span>&nbsp;<a data-exit="false" href="{{ source.link }}">{{ source.title }}</a></li>
+        <li><span class="page.keywords"></span>&nbsp;<a data-exit="false" href="{{ source.link }}">{{ source.title }}</a></li>
         {% endif %}
         {% endfor %}
         </ol>
+        {% endif %}
+        {% if page.keywords and page.keywords != "" %}
+        <p class="mrgn-bttm-0"><span class="glyphicon glyphicon-tags mrgn-rght-sm"><span class="hidden">keyword</span></span>
+{{page.keywords}}</p>
+        {% endif %}
         {% endif %}
     </div>
 </section>
