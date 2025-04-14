@@ -1,6 +1,6 @@
 "use strict";
 
-var linkExcludes = {};
+var linkExcludes = [];
 
 //  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 //  relExternalLnk.value = "false",
@@ -42,7 +42,7 @@ let linkExcludeURI = "/gst-hst-business/assets/data/link_excludes.json",
                         exitPageURI = exitPage.value, 
                         destURI = adjustHref(this.href, destStartPath), 
                         currentURI = this.protocol + "//" + this.hostname + this.pathname, 
-                        linkExcludeIndex = linkExcludes.exitLinkExcludes.findIndex(function findlink(linkArr) {
+                        linkExcludeIndex = linkExcludes.findIndex(function findlink(linkArr) {
                             if ("origin" in linkArr) {
                                 return linkArr["origin"].toLowerCase() === currentURI.toLowerCase();
                             }
@@ -64,8 +64,8 @@ let linkExcludeURI = "/gst-hst-business/assets/data/link_excludes.json",
                                 exitPageURI = exitPageURI + "&pagetitle=" + pagetitle;
                         }
                         this.href = exitPageURI;
-                    } else if ("destination" in linkExcludes.exitLinkExcludes[linkExcludeIndex] === true) {
-                        this.href = linkExcludes.exitLinkExcludes[linkExcludeIndex].destination;
+                    } else if ("destination" in linkExcludes[linkExcludeIndex] === true) {
+                        this.href = linkExcludes[linkExcludeIndex].destination;
                     } else {
                         this.href = exitPageURI;
                     }
@@ -102,8 +102,6 @@ let linkExcludeURI = "/gst-hst-business/assets/data/link_excludes.json",
             adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
         }        
     };
-
-linkExcludes.exitLinkExcludes = [];
 
 //load link exclude json file
 $.getJSON(linkExcludeURI, function(data) {
