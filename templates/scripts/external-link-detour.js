@@ -2,7 +2,7 @@
 
 var linkExcludes;
 
-    $.getJSON("assets/data/link_excludes.json", function(data) {
+    $.getJSON("/gst-hst-business/assets/data/link_excludes.json", function(data) {
         linkExcludes = data;
     });
 
