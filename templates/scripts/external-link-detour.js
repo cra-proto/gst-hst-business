@@ -1,17 +1,15 @@
 "use strict";
 
-var linkExcludes;
-
-    $.getJSON("/gst-hst-business/assets/data/link_excludes.json", function(data) {
-        linkExcludes = data;
-    });
+var linkExcludes = {};
 
 //  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 //  relExternalLnk.value = "false",
 //  relExternalLnk.dataset.origin = "https://www.canada.ca",
+
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
-let visitedLinkStyle = document.createElement("style"), 
+let linkExcludeURI "/gst-hst-business/assets/data/link_excludes.json", 
+    visitedLinkStyle = document.createElement("style"), 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
         let adjustHref = function adjustHref(el, destStartPath) {
             let adjustedURI = el, 
@@ -45,8 +43,10 @@ let visitedLinkStyle = document.createElement("style"),
                         destURI = adjustHref(this.href, destStartPath), 
                         currentURI = this.baseURI, 
                         linkExcludeIndex = linkExcludes.exitLinkExcludes.findIndex(function findlink(linkArr) {
+                            if ("origin" in linkArr) {
                                 return linkArr["origin"].toLowerCase() === currentURI.toLowerCase();
-                            }, currentURI);
+                            }
+                        }, currentURI);
 
                     if (linkExcludeIndex === -1) {
                         /*
@@ -102,6 +102,13 @@ let visitedLinkStyle = document.createElement("style"),
             adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
         }        
     };
+
+linkExcludes.exitLinkExcludes = [];
+
+//load link exclude json file
+$.getJSON(linkExcludeURI, function(data) {
+    linkExcludes = data;
+});
 
 //Remove visited link highlighting from links to exit page
 if (exitPage) {
