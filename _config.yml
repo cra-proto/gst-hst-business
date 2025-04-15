@@ -22,12 +22,12 @@ creator:
   fr: "Agence du revenu du Canada"
 
 # Custom settings
-siteBanner: true
-exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
+developerOptions: true
 exitByURL: false
+exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
 externalOrigin: "https://www.canada.ca"
 relativeExternalLinks: false
-developerOptions: true
+testBanner: true
 
 # Page front matter defaults
 defaults:
