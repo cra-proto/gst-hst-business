@@ -4,15 +4,15 @@
 > Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
 
 ## On this page
-- [GCWeb Jekyll template YAML page settings](#user-content-gcweb-jekyll-template-yaml-page-settings)
-- [Additional GCWeb Jekyll template YAML page settings](#user-content-additional-gcweb-jekyll-template-yaml-page-settings)
-- [Site _config.yml file options](#user-content-site-_config.yml-file-options)
-- [Additional Site _config.yml file options](#user-content-additional-site-_config.yml-file-options)
-- [Custom YAML page setting options](#user-content-custom-yaml-page-setting-options)
-- [Custom YAML site _config.yml file options](#user-content-custom-yaml-site-_config.yml-file-options)
-- [Page template options](#user-content-page-template-options)
-- [Installation instructions for running GCWeb Jekyll on a local PC](#user-content-installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
-- [Resources](#user-content-resources)
+- [GCWeb Jekyll template YAML page settings](#gcweb-jekyll-template-yaml-page-settings)
+- [Additional GCWeb Jekyll template YAML page settings](#additional-gcweb-jekyll-template-yaml-page-settings)
+- [Site _config.yml file options](#site-_config.yml-file-options)
+- [Additional Site _config.yml file options](#additional-site-_config.yml-file-options)
+- [Custom YAML page setting options](#custom-yaml-page-setting-options)
+- [Custom YAML site _config.yml file options](#custom-yaml-site-_config.yml-file-options)
+- [Page template options](#page-template-options)
+- [Installation instructions for running GCWeb Jekyll on a local PC](#installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
+- [Resources](#resources)
 
 ## GCWeb Jekyll template YAML page settings
 
@@ -101,35 +101,33 @@ feedbackPath:
 sectionTitle: "Section title for the page"         # Sets the section title above the H1 tag
 titleH1: "The header of the current page"          # Sets the H1 tag (title over rides this value)
 byline:
-  institution:
-  url:
+  institution: ""
+  url: ""
 
 # [default] layout specific settings
 parentPage:                                        # Sets the header for the right column secondary menu
-  title:
+  title: ""
 secondarymenu:                                     # Adds a right column secondary menu
-  - link:
-    title:
+  - link: ""
+    title: ""
     subnav:                                        # Sets a nested section in the right column secondary menu 
-     - title:
-       link:
+     - title: ""
+       link: ""
 
 # [application] layout specific settings
 applicationName: "Canada Revenue Agency (CRA)"    # Sets the title of the bar at the top of the application layout for the page
 applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL of link in the bar at the top of the application layout for the page
 infoBanner:                                       # Sets a Banner at the top of the page and its elements
-  - title:
-    message:
+  - title: ""
+    message: ""
     link:
-     - href:
-       text:
-       external:
+     - href: ""
+       text: ""
+       external: ""
 ---
 ```
 
 ## Site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
-
-[//]: # (**************************Test comment*********************************)
 
 ```yaml
 ---
@@ -179,31 +177,27 @@ applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL 
 
 ```yaml
 ---
-testBanner: [true | false]                         # Toggles if the testing site only banner shows for a page
+testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page
 sourceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
   - title: "The link title" 
     link: "The link URL"
+keywords: ""                                      # Displays these keywords to be associated to the page
 ---
 ```
-Custom YAML settings
-
-- The option `sourceurl` in the **YAML** section of the page code allows you to add URLs (settings the **link** and **title**) that will appear in the banner for easy navigation to pages you deem relevant to add
-- Additional custom `layout` options that are available in the **YAML** section of the page code are:
-  - `no-test-banner` - removes the top banner from the page
-  - `without-h1-test-banner` - removes the top banner and the h1 for the page is not automatically generated
 
 ## Custom YAML site [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file options
 
 ```yaml
 ---
-siteBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, custom banner links, exit page leave site button)
+testBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 
-exitPage: "Exit intent page URL"                   # Identifies the link to the exit intent page used for link generation on all pages
 exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true 
-relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
+exitPage: "Exit intent page URL"                   # Identifies the link to the exit intent page used for link generation on all pages
+
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
-relativeExternalLinks: false
+relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
+relativeExternalLinks:  [true | false]
 ---
 ```
 
@@ -230,6 +224,7 @@ relativeExternalLinks: false
    1. **Note**: a `gemfile` is required in the local github repository to run the jekyll server.  This gemfile should contain the following line: `gem "github-pages", group: :jekyll_plugins`
 7. In your browser go to `https://localhost:4000/github-workspace-name/` and you should see your a fully generated version of your site 
 
+[//]: # (**************************Test comment*********************************)
 [//]: # (At the `Command prompt/Terminal/Powershell` and enter `gem install bundler`)
 [//]: # (https://www.youtube.com/watch?v=fV01b0duZwU&t=242s)
 
