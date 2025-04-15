@@ -7,7 +7,7 @@
 
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
-let linkExcludeURI = "/assets/data/link_excludes.json", 
+let linkExcludeURI = "/templates/data/link_excludes.json", 
     visitedLinkStyle = document.createElement("style"), 
     linkExcludes = [], 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
