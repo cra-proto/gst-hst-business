@@ -7,7 +7,7 @@
 
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
-let linkExcludeURI = "../../assets/data/link_excludes.json", 
+let linkExcludeURI = "/assets/data/link_excludes.json", 
     visitedLinkStyle = document.createElement("style"), 
     linkExcludes = [], 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
@@ -111,7 +111,7 @@ let linkExcludeURI = "../../assets/data/link_excludes.json",
     };
 
 //load link exclude json file
-$.getJSON(linkExcludeURI, function(data) {
+$.getJSON(window.location.origin + "/" + location.pathname.split("/")[1] + linkExcludeURI, function(data) {
     linkExcludes = data;
 });
 
