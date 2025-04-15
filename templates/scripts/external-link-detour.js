@@ -1,3 +1,10 @@
+/*
+* Github only script
+*
+* Replaces all external links with a link to exit intent page or replaces links with designated replace link found in JSON file 
+*
+*/
+
 "use strict";
 
 //  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
