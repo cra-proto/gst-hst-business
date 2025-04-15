@@ -1,7 +1,5 @@
 "use strict";
 
-var linkExcludes = [];
-
 //  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 //  exitPage.dataset.exitByUrl = "false",
 //  relExternalLnk.value = "false",
