@@ -19,10 +19,14 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li id="leavesite"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
-    <li id="scriptleave"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
+    <li id="exitLink"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="exitWETLink"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
+    "use strict";
+    
+    const devOptionsLocStore = localStorage.getItem("gitCRATemplateDevOptions");
+    
     let pageURL = window.location, 
         devOptions = document.getElementById("devoptions"), 
         getQueryEl = function getQueryEl(field) {
@@ -42,10 +46,9 @@ noFooterMain: true
 
     //script for leave site button
     if (typeof URLSearchParams !== "undefined" && devOptions) {
-        if (exitOrigin !== null && devOptions.value === "true") {
+        if (exitOrigin !== null && (devOptions.value.toLowerCase() === "true" || devOptionsLocStore === true)) {
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
-               // document.getElementById("leavesitelnk").innerText = decodeURIComponent(pagetitle);
             }
             document.getElementById("leavesitelnk").addEventListener("click", () => {
                 let extractQuerystring = function extractQuerystring() {
@@ -63,12 +66,12 @@ noFooterMain: true
                 window.location = exitOrigin + queryStr + window.location.hash;
             });
         } else {
-            document.getElementById("leavesite").style.display = "none";
+            document.getElementById("exitLink").style.display = "none";
         }
     
         //remove exit script button if no value sent
-        if (scriptexturl === null || devOptions.value === "false") {
-            document.getElementById("scriptleave").style.display = "none";
+        if (scriptexturl === null || devOptions.value === "false" || devOptionsLocStore === false) {
+            document.getElementById("exitWETLink").style.display = "none";
         }
     }
 </script>
