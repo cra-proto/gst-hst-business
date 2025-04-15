@@ -46,7 +46,7 @@ noFooterMain: true
 
     //script for leave site button
     if (typeof URLSearchParams !== "undefined" && devOptions) {
-        if (exitOrigin !== null && (devOptions.value.toLowerCase() === "true" || devOptionsLocStore === true)) {
+        if (exitOrigin !== null && (devOptions.value.toLowerCase() === "true" || devOptionsLocStore.toLowerCase() === "true")) {
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
             }
@@ -70,7 +70,7 @@ noFooterMain: true
         }
     
         //remove exit script button if no value sent
-        if (scriptexturl === null || devOptions.value === "false" || devOptionsLocStore === false) {
+        if (scriptexturl === null || devOptions.value === "false" || devOptionsLocStore.toLowerCase() === "false") {
             document.getElementById("exitWETLink").style.display = "none";
         }
     }
