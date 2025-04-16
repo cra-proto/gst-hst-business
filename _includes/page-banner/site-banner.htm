@@ -11,10 +11,14 @@
     <div class="container test-banner-content">
         <h2>This site is for CRA testing purposes only</h2>
         <p id="personalInfoText" class="mrgn-bttm-0">Do not enter any personal information on this site</p>
-        {% if site.developerOptions == true %}{% if page.soureceurl %}<ol id="testpage-source" class="list-inline mrgn-bttm-0">
-        {% for source in page.soureceurl %}{% if source.title and source.title != "" %}<li><span class="glyphicon glyphicon-link"></span>&nbsp;<a data-exit="false" href="{{ source.link }}">{{ source.title }}</a></li>
-        {% endif %}{% endfor %}</ol>{% endif %}
-        {% if page.keywords and page.keywords != "" %}<p class="mrgn-bttm-0"><span class="glyphicon glyphicon-tags mrgn-rght-sm"><span class="wb-inv">keyword:</span></span><span id="pageKeywords">{{page.keywords}}</span></p>{% endif %}
+{% if site.developerOptions == true %}{% if page.soureceurl %}
+        <ol id="testpage-source" class="list-inline mrgn-bttm-0">
+{% for source in page.soureceurl %}{% if source.title and source.title != "" %}
+        <li><span class="glyphicon glyphicon-link"></span>&nbsp;<a data-exit="false" href="{{ source.link }}">{{ source.title }}</a></li>{% endif %}{% endfor %}
+        </ol>{% endif %}
+{% if page.keywords and page.keywords != "" %}
+        <p class="mrgn-bttm-0"><span class="glyphicon glyphicon-tags mrgn-rght-sm"><span class="wb-inv">keyword:</span></span><span id="pageKeywords">{{page.keywords}}</span></p>
+{% endif %}
         <script src="https://cra-design.github.io/gst-hst-business/templates/scripts/test-site-banner.js"></script>{% endif %}
     </div>
 </section>
