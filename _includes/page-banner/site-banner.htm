@@ -1,3 +1,4 @@
+<!-- START Test site banner -->
 <section id="test-banner" class="gc-archv">
     {% if site.developerOptions == true %}
     <div id="devtoolbar" class="pull-right">
@@ -6,11 +7,10 @@
             <li id="githubBtnGrp" class="btn-group hide-devmenu"><a id="githubBtn" class="btn btn-default btn-sm" data-exit="false" href="#" title="Go to Github source"><span class="fab fa-github"></span><span class="wb-inv">Go to Github source</span></a></li>
         </ul>
     </div>
-    <script src="https://cra-design.github.io/gst-hst-business/templates/scripts/test-site-banner.js"></script>
     {% endif %}
     <div class="container test-banner-content">
         <h2>This site is for CRA testing purposes only</h2>
-        <p class="mrgn-bttm-0">Do not enter any personal information on this site</p>
+        <p id="personalInfoText" class="mrgn-bttm-0">Do not enter any personal information on this site</p>
         {% if site.developerOptions == true %}
         {% if page.soureceurl %}
         <ol id="testpage-source" class="list-inline mrgn-bttm-0">
@@ -22,9 +22,10 @@
         </ol>
         {% endif %}
         {% if page.keywords and page.keywords != "" %}
-        <p class="mrgn-bttm-0"><span class="glyphicon glyphicon-tags mrgn-rght-sm"><span class="wb-inv">keyword:</span></span>
-{{page.keywords}}</p>
+        <p class="mrgn-bttm-0"><span class="glyphicon glyphicon-tags mrgn-rght-sm"><span class="wb-inv">keyword:</span></span><span id="pageKeywords">{{page.keywords}}</span></p>
         {% endif %}
+        <script src="https://cra-design.github.io/gst-hst-business/templates/scripts/test-site-banner.js"></script>
         {% endif %}
     </div>
 </section>
+<!-- END Test site banner -->
