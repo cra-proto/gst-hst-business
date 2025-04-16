@@ -40,7 +40,7 @@ let getGithubURL = function (pageURL) {
     };
 
 document.addEventListener("DOMContentLoaded", function() {
-    if (devOptions.value.toLowerCase() === "true" || devOptionsLocStore === true) {
+    if (devOptions.value.toLowerCase() === "true" || devOptionsLocStore.toLowerCase() === "true") {
         // Add toolbar and buttons
         // document.getElementById("test-banner").append("<div id=\"devtoolbar\" class=\"pull-right\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li><li id=\"githubBtnGrp\" class=\"btn-group hide-devmenu\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li></ul></div>");
 

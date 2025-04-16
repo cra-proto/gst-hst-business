@@ -4,6 +4,7 @@
 > Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
 
 ## On this page
+
 - [GCWeb Jekyll template YAML page settings](#gcweb-jekyll-template-yaml-page-settings)
 - [Additional GCWeb Jekyll template YAML page settings](#additional-gcweb-jekyll-template-yaml-page-settings)
 - [Site _config.yml file options](#site-_config.yml-file-options)
@@ -26,23 +27,20 @@ layout: ["default"]                                # Available layout types: cor
 
 # The following options are available for the layouts core, default, fluid, no-container, without-h1
 
-lang: ["en" | "fr"]                                # Sets the page language
 title: "The title of the current page"             # Sets the title and H1 tag
 description: "Description of the current page"     # Sets the description metadata
-subject: "the subject of the current page"         # Sets the subject metadata
+subject: "The subject of the current page"         # Sets the subject metadata
 altLangPage: "The page URL"                        # Sets the URL of the alternate language page for the language toggle
 auth:                                              # Creates and configures a sign in button
   type: ["signedoff" | "active" | "contextual"]    # Sets the initial state of the sign in button
   label: "Sign in button label"                    # Sets the label of the sign in button
   labelExtended: "Sign in button extended label"   # Sets the extended label of the sign in button
   link: "The page URL"                             # Sets the URL the sign in button takes you to
-breadcrumbs:                                       # By default the Canada.ca breadcrumbs is already set
+breadcrumbs:                                       # [Method 1] - By default the Canada.ca breadcrumbs is already set
   - title: "The title"                             # The title of the breadcrumb element
     link: "The page URL"                           # The URL of the breadcrumb element
 dateIssued: YYYY-MM-DD                             # Sets the date page issued metadata
 dateModified: YYYY-MM-DD                           # Sets the date page was last modified
-css: "https://domain/your-stylesheet.css"          # Sets the link for custom CSS files you add to your page
-script: "https://domain/your-awesome-script.js"    # Sets the link for custom JavaScript files you add to your page
 ---
 
 <p>HTML Content that will be displayed on the page</p>
@@ -57,26 +55,31 @@ nomenu: [true | false]                             # Sets if the top menu shows 
 noFooterMain: [true | false]                       # Sets if the footer shows on the page [default: false]
 noFooterCorporate: [true | false]                  # Sets if the Corporate footer shows on the page [default: false]
 noFooterContextual: [true | false]                 # Sets if the Contextual footer shows on the page [default: false]
+
+lang: ["en" | "fr"]                                # Sets the page language
 contextualFooter:                                  # Creates and configures the links for a contextual footer
   title: "Canada Revenue Agency (CRA)"             # Sets the title for the contextual footer area
   links:                                           # Adds a link in the contextual footer
-   - text: "Contact the CRA"
-     url: "the URL"
-pageclass: "page CSS class"                        # Sets CSS class that are in the <body> tag  
-creator: "the page creator"                        # Sets the creator metadata
-privacyUrl: "privacy page URL"                     # Sets the URL for the privacy link in the page footer
-termsUrl: "terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
+   - text: "The CRA footer link text"
+     url: "The CRA footer URL"
+pageclass: "Page CSS class"                        # Sets CSS class that are in the <body> tag  
+creator: "The page creator"                        # Sets the creator metadata
+privacyUrl: "Privacy page URL"                     # Sets the URL for the privacy link in the page footer
+termsUrl: "Terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
 
 archived: [true | false]                           # Sets if the archived banner is added to the top of the page [default: false]
 archiveOverlay: [true | false]                     # 
 
-breadcrumbs: [true | false]                        # Toggles if the breadcrumb is shown [default: true]
+breadcrumbs: [true | false]                        # [Method 2] - Toggles if the breadcrumb is shown [default: true]
 overwriteBreadcrumbs: [true | false]               # 
 
-css:                                               # Allows you to add custom CSS to your entire site
+css: "https://domain/your-stylesheet.css"          # [Method 1] - Sets the link for custom CSS files you add to your page
+css:                                               # [Method 2] - Allows you to add custom CSS to your entire site
   - href: "The CSS file URL"
     integrity: ""
-script:                                            # Allows you to add custom script files to your entire site
+
+script: "https://domain/your-awesome-script.js"    # [Method 1] - Sets the link for custom JavaScript files you add to your page
+script:                                            # [Method 2] - Allows you to add custom script files to your entire site
   - src: "The script file URL"
     type: "text/javascript"
     integrity: ""
@@ -136,7 +139,7 @@ lang: ["en" | "fr"]                                # Sets the page language for 
 creator:                                           # Sets the creator metada attribute for all pages on the site
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
-website: "website URL"                             # Root website used for the site
+website: "Website URL"                             # Root website used for the site
 sitemenu: [true | false]
 sitesearch: [true | false]
 contextualFooter:                                  # Creates and configures the links for a contextual footer for the entire site
@@ -207,7 +210,7 @@ relativeExternalLinks:  [true | false]
 - The `Github button` on the banner will take you to the the source page on github  
 - All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
 
-## Installation instructions for running GCWeb Jekyll on a local PC 
+## Installation instructions for running GCWeb Jekyll on a local PC
 
 1. [Video instructions for all of step 1-2](https://www.youtube.com/watch?v=LfP7Y9Ja6Qc) Download and install Ruby. You can find a version to download through the [Download Ruby](https://www.ruby-lang.org/en/downloads/) page
    1. Install Ruby with all the defaults checked and make sure `Run 'ridk install' to install MSYS2 and development toolchain.` is checked.  This will open a command prompt install dialog
@@ -222,7 +225,7 @@ relativeExternalLinks:  [true | false]
 4. Update any older elements that you may have been notified of in the `Command prompt/Terminal/Powershell` when you did the various `gem install` commands (e.g. `gem update --system 3.6.7`)
 5. At the the `Command prompt/Terminal/Powershell` enter `bundle exec jekyll serve --live reload`. This should run jekyll, generate your site, and start the local site server
    1. **Note**: a `gemfile` is required in the local github repository to run the jekyll server.  This gemfile should contain the following line: `gem "github-pages", group: :jekyll_plugins`
-7. In your browser go to `https://localhost:4000/github-workspace-name/` and you should see your a fully generated version of your site 
+6. In your browser go to `https://localhost:4000/github-workspace-name/` and you should see your a fully generated version of your site
 
 [//]: # (**************************Test comment*********************************)
 [//]: # (At the `Command prompt/Terminal/Powershell` and enter `gem install bundler`)
@@ -241,4 +244,3 @@ relativeExternalLinks:  [true | false]
 - [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
 - [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [GitHub Help](https://help.github.com)
-
