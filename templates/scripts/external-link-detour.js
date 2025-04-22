@@ -45,7 +45,7 @@ let linkExcludeURI = "/templates/data/link_excludes.json",
             if (hrefSelector !== "") {
                 $(elm).find(hrefSelector).each(function updateExitHref() {
                     const maxURILength = 2048;
-                    let urlObj, 
+                    let urlObj, queryHash, 
                         pagetitle = encodeURIComponent(this.innerText),
                         exitPageURI = exitPage.value, 
                         destURI = adjustHref(this.href, destStartPath), 
@@ -75,12 +75,13 @@ let linkExcludeURI = "/templates/data/link_excludes.json",
                             this.href = exitPageURI;
                         }
                     } else if ("destination" in linkExcludes[linkExcludeIndex] === true) {
+                        queryHash = this.href.substring(linkExcludes[linkExcludeIndex].origin.length);
                         if ("exitByUrl" in exitPage.dataset && exitPage.dataset.exitByUrl.toLowerCase() === "true") {
-                            urlObj = { "url": linkExcludes[linkExcludeIndex].destination };
+                            urlObj = { "url": linkExcludes[linkExcludeIndex].destination + queryHash };
                             this.dataset.wbExitscript = JSON.stringify(urlObj);
                             this.classList.add("wb-exitscript");
                         } else {
-                            this.href = linkExcludes[linkExcludeIndex].destination;
+                            this.href = linkExcludes[linkExcludeIndex].originlinkExcludes[linkExcludeIndex].destination + queryHash;
                         }
                     }
                 });
