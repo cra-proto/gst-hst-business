@@ -81,7 +81,7 @@ let linkExcludeURI = "/templates/data/link_excludes.json",
                             this.dataset.wbExitscript = JSON.stringify(urlObj);
                             this.classList.add("wb-exitscript");
                         } else {
-                            this.href = linkExcludes[linkExcludeIndex].originlinkExcludes[linkExcludeIndex].destination + queryHash;
+                            this.href = linkExcludes[linkExcludeIndex].destination + queryHash;
                         }
                     }
                 });
