@@ -23,10 +23,11 @@
     <data id="relextlnk" data-origin="{{ site.externalOrigin }}" value="{{ site.relativeExternalLinks }}"></data>
 {% if page.testBanner == true or site.testBanner == true and page.testBanner != false %}
     {% if page.soureceurl != blank %}<data id="sourceurl" value="[{%- for source in page.soureceurl -%}{%- if source.title != blank and source.link != blank -%}{% if forloop.first != true %}, {% endif %}&lcub;&quot;sourcelink&quot;: &quot;{{ source.link }}&quot;, &quot;sourcetitle&quot;: &quot;{{ source.title }}&quot;&rcub;{%- endif -%}{%- endfor -%}]"></data>{% endif %}
-    {% if page.keywords != blank %}<data id="pageKeywords">{{ page.keywords }}</data>{% endif %}
+    {% if page.keywords != blank %}<data id="pageKeywords" value="{{ page.keywords }}"></data>{% endif %}
   {% include page-banner/site-banner.htm %}
 {% endif %}
     <!-- END of github only template section -->
+
 {%- if page.archived -%}
 	{% include headers-includes/archive.html %}
 {%- endif -%}
