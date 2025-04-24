@@ -94,9 +94,9 @@ feedbackData:                                      # Sets the values for the fee
 contributors:                                      # Sets the contributors for the page
   - name: ""
     url: ""
- feedbackContact:
-   - link: ""
-     url: ""
+feedbackContact:
+  - link: ""
+    url: ""
 feedbackFallback:
 feedbackPath:
 
@@ -127,6 +127,18 @@ infoBanner:                                       # Sets a Banner at the top of 
      - href: ""
        text: ""
        external: ""
+---
+```
+
+## Custom YAML page setting options
+
+```yaml
+---
+testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page
+sourceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
+  - title: "The link title" 
+    link: "The link URL"
+keywords: ""                                      # Displays these keywords to be associated to the page
 ---
 ```
 
@@ -173,18 +185,6 @@ feedbackPath: "https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback
 # [application] layout specific settings
 applicationName: "Canada Revenue Agency (CRA)"    # Sets the title of the bar at the top of the application layout for all pages on the site
 applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL of link in the bar at the top of the application layout for all pages on the site
----
-```
-
-## Custom YAML page setting options
-
-```yaml
----
-testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page
-sourceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
-  - title: "The link title" 
-    link: "The link URL"
-keywords: ""                                      # Displays these keywords to be associated to the page
 ---
 ```
 
