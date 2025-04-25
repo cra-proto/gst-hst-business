@@ -24,7 +24,7 @@ creator:
 # Custom settings
 developerOptions: true
 exitByURL: false
-exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
+exitPage: "/gst-hst-business/exit-intent.html"
 externalOrigin: "https://www.canada.ca"
 relativeExternalLinks: false
 testBanner: true
