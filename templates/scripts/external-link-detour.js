@@ -113,7 +113,7 @@ let linkExcludeURI = "/templates/data/link_excludes.json",
     rootDomain = getDomain(window.location.origin + window.location.pathname), 
     defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed, relExternalLnk) {
         adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), area[href^='http']area:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
-        if ((relExternalLnk && relExternalLnk.value.toLowerCase() === "true" && relExternalLnk.dataset.origin !== "") || isAjaxed === true) {
+        if ((relExternalLnk && relExternalLnk.dataset.origin !== "") && (relExternalLnk.value.toLowerCase() === "true" || isAjaxed === true)) {
             adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript), area[href^='/']area:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
         }        
     };
