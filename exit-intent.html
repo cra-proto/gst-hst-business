@@ -45,8 +45,8 @@ noFooterMain: true
     });
 
     //script for leave site button
-    if (typeof URLSearchParams !== "undefined" && devOptions) {
-        if (exitOrigin !== null && (devOptionsLocStore.toLowerCase() === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore.toLowerCase() !== "false"))) {
+    if (typeof URLSearchParams !== "undefined" && devOptions !== null) {
+        if (exitOrigin !== null && (devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false"))) {
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
             }
@@ -70,7 +70,7 @@ noFooterMain: true
         }
     
         //remove exit script button if no value sent
-        if (scriptexturl === null || devOptionsLocStore.toLowerCase() === "false" || (devOptions !== null && devOptions.value.toLowerCase() === "false" && devOptionsLocStore.toLowerCase() !== "true")) {
+        if (scriptexturl === null || devOptionsLocStore === "false" || (devOptions.value.toLowerCase() === "false" && devOptionsLocStore !== "true")) {
             document.getElementById("exitWETLink").style.display = "none";
         }
     }
