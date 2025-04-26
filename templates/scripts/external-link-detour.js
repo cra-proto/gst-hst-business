@@ -14,8 +14,7 @@
 
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
-let linkExcludeURI = "/templates/data/link_excludes.json", 
-    visitedLinkStyle = document.createElement("style"), 
+let visitedLinkStyle = document.createElement("style"), 
     linkExcludes = [], 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
         let adjustHref = function adjustHref(el, destStartPath) {
@@ -119,9 +118,11 @@ let linkExcludeURI = "/templates/data/link_excludes.json",
     };
 
 //load link exclude json file
-$.getJSON(window.location.origin + "/" + location.pathname.split("/")[1] + linkExcludeURI, function(data) {
-    linkExcludes = data;
-});
+if ("modLinkFile" in exitPage.dataset && exitPage.dataset.modLinkFile !== "") {
+    $.getJSON(exitPage.dataset.modLinkFile, function(data) {
+        linkExcludes = data;
+    });
+}
 
 //Remove visited link highlighting from links to exit page
 if (exitPage !== null) {
