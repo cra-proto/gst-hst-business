@@ -1,7 +1,7 @@
 # Support information
 
 > [!NOTE]
-> Make sure to use the spacing indicated below or in the page templates as improper spacing and layout of values can cause issues in the how the page is generated
+> Make sure to follow the spacing as shown below or as shown in the templates as improper spacing and layout of values and variables can cause issues in the format of how a page is generated
 
 ## On this page
 
