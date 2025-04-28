@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $(document).on("wb-ready.wb", function () {
             // Add toolbar and buttons
-            document.getElementById("test-banner").innerHTML = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li><li id=\"githubBtnGrp\" class=\"btn-group hide-devmenu\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li></ul></div>" + document.getElementById("test-banner").innerHTML;
+            if (document.getElementById("test-banner") !== null) {
+                document.getElementById("test-banner").innerHTML = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li><li id=\"githubBtnGrp\" class=\"btn-group hide-devmenu\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li></ul></div>" + document.getElementById("test-banner").innerHTML;
+            }
             if (sourceUrlList !== null && sourceUrlList.value !== "") {
                 sourceUrlArr = JSON.parse(sourceUrlList.value);
                 if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle !== "") || sourceUrlArr.length > 1) {

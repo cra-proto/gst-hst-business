@@ -199,6 +199,7 @@ exitByURL: [true | false]                          # Toggles if the exit page us
 exitPage: "Exit intent page URL"                   # Identifies the link to the exit intent page used for link generation on all pages
 
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
+modifiedLinkList: "JSON link file URL"             # The path and filename of a JSON file with links that over ride the exit links and redirect the designated URLs to a specified page
 relativeExternalLinks: [true | false]              # Identifies whether links to the exit intent page will be generated from relative links where the link starts with "/"
 relativeExternalLinks:  [true | false]
 ---

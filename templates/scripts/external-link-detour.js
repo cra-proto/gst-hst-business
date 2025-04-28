@@ -9,6 +9,7 @@
 
 //  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
 //  exitPage.dataset.exitByUrl = "false",
+//  exitPage.dataset.modLinkFile = "https://cra-design.github.io/gst-hst-business/templates/data/link_excludes.json", 
 //  relExternalLnk.value = "false",
 //  relExternalLnk.dataset.origin = "https://www.canada.ca",
 
@@ -40,7 +41,7 @@ let visitedLinkStyle = document.createElement("style"),
             formEl[formAttr] = exitPageURI;
         };
 
-        if (exitPage) {
+        if (exitPage !== null) {
             if (hrefSelector !== "") {
                 $(elm).find(hrefSelector).each(function updateExitHref() {
                     const maxURILength = 2048;
