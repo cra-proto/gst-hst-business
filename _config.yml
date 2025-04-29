@@ -26,7 +26,7 @@ developerOptions: true
 exitByURL: false
 exitPage: "/gst-hst-business/exit-intent.html"
 externalOrigin: "https://www.canada.ca"
-modifiedLinkList: "/templates/data/link_excludes.json"
+modifiedLinkList: "/gst-hst-business/templates/data/link_excludes.json"
 relativeExternalLinks: false
 testBanner: true
 
