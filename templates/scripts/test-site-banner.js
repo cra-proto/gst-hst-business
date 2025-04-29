@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
             if (document.getElementById("test-banner") !== null) {
                 document.getElementById("test-banner").innerHTML = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li><li id=\"githubBtnGrp\" class=\"btn-group hide-devmenu\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li></ul></div>" + document.getElementById("test-banner").innerHTML;
             }
-            if (sourceUrlList !== null && sourceUrlList.value !== "") {
+            if (sourceUrlList !== null && sourceUrlList.value !== "" && document.getElementById("test-banner-content") !== null) {
                 sourceUrlArr = JSON.parse(sourceUrlList.value);
                 if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle !== "") || sourceUrlArr.length > 1) {
                     document.getElementById("test-banner-content").innerHTML = document.getElementById("test-banner-content").innerHTML + "<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\"></ol>";
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     });
                 }
             }
-            if (keywords !== null && keywords.value !== "") {
+            if (keywords !== null && keywords.value !== "" && document.getElementById("test-banner-content") !== null) {
                 document.getElementById("test-banner-content").innerHTML = document.getElementById("test-banner-content").innerHTML + "<p class=\"mrgn-bttm-0\"><span class=\"glyphicon glyphicon-tags mrgn-rght-sm\"><span class=\"wb-inv\">Keywords:</span></span><span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
             }
 
