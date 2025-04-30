@@ -14,6 +14,7 @@ Project to optimize the content related to filing GST/HST returns.
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
 - [Github Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
 - [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
+- [Convert page to GCWeb/Jekyll page tool](https://cra-design.github.io/core-prototype/core/tools/page-convert-jekyll.html)
 
 ## Added/Deleted/Modified files and pages to be published:
 
