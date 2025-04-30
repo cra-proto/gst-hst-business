@@ -2,36 +2,18 @@
 
 Project to optimize the content related to filing GST/HST returns.
 
-**COP Timeframe:** [July 31, 2024 - May 2025]
+**COP Timeframe:** [July 31, 2024 - June 2025]
 
 ## Important links
 
 - [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
+- [Added/Deleted/Modified files and pages to be published](https://github.com/cra-design/gst-hst-business/blob/main/docs/UPDATES.md)
 - [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
 - [\[GST COP\] Scoped inventory page \(github\)](https://cra-design.github.io/gst-hst-business/index.html)
 - [Github.dev](https://github.dev/cra-design/gst-hst-business/blob/main/)
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
 - [Github Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
 - [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
-
-## Update procedures:
-
-- Test development files will have `_proto#` appended to the end of the file name
-- Changes will be committed by selecting `create a new branch` and then performing a `pull request` to merge the updated content
-- Updates should be named or have comments identifying what has been updated or changed
-- Any repository path structure changes should be communicated to all individuals who directly update the repository
-- There should be no relative links on any pages so all links should be made absolute
-- Create all files in locations that reflects where they will be eventually published when created on Canada.ca
-- In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
-
-## Custom Github options
-
-- The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the Github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
-- Link overrides can be added to the [exitlinkexcludes.json](https://github.com/cra-design/gst-hst-business/blob/main/_data/exitlinkexcludes.json) file. If there is only an `origin` link and no `destination` link then all occurances of the link to that page will be excluded from redirects to the **exit intent page**. If there is both an `origin` link and a `destination` link then all occurances of the `origin` link will be redirected to the `destination` page
-
-Additional site wide setting and template information can be found in the [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md) markdown file.
-
----
 
 ## Added/Deleted/Modified files and pages to be published:
 
@@ -113,6 +95,18 @@ Additional site wide setting and template information can be found in the [Suppo
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|View expected and filed returns in your business account||View expected and filed returns|[https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/business-account/view-expected-filed-returns.html](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/business-account/view-expected-filed-returns.html)||
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|Which GST/HST return to use in your situation|[https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html)|What to include in your return - Complete and file a GST/HST return|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-include-your-return.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/what-include-your-return.html)|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/which-return-report-gst-hst.html)|
 
+## Update procedures:
+
+- Prototype development files will have `_proto#` appended to the end of the file name
+- Changes will be committed to the repository by selecting `create a new branch` and then performing a `pull request` to merge the newly updated content
+- Updates or pull requests should be named or have comments identifying what has been updated or changed
+- Any repository path structure changes should be communicated to all individuals who directly update the repository
+- Relative links should not be uysed on any pages and all links in the repository should be absolute links
+- Create and name all files in the locations that reflects what they will be named and where they will be eventually be published when created on Canada.ca
+- In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be changed to `false` before testing takes place
+
+---
+
 ## Design phase roadmap:
 
 - [x] Prototype: co-design navigation and content
@@ -182,4 +176,4 @@ mindmap
         [digital-economy-gsthst - 1]
 ```
 
-**Updated:**  2025-04-08
+**Updated:**  2025-04-30
