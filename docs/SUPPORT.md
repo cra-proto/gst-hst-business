@@ -5,15 +5,31 @@
 
 ## On this page
 
+- [Basic GCWeb setup instructions](basic-gcweb-setup-instructions)
+- [Page template options](#page-template-options)
+- [Custom Github options](#custom-github-options)
 - [GCWeb Jekyll template YAML page settings](#gcweb-jekyll-template-yaml-page-settings)
 - [Additional GCWeb Jekyll template YAML page settings](#additional-gcweb-jekyll-template-yaml-page-settings)
 - [Site _config.yml file options](#site-_config.yml-file-options)
 - [Additional Site _config.yml file options](#additional-site-_config.yml-file-options)
 - [Custom YAML page setting options](#custom-yaml-page-setting-options)
 - [Custom YAML site _config.yml file options](#custom-yaml-site-_config.yml-file-options)
-- [Page template options](#page-template-options)
 - [Installation instructions for running GCWeb Jekyll on a local PC](#installation-instructions-for-running-gcweb-jekyll-on-a-local-pc)
 - [Resources](#resources)
+
+## Basic GCWeb setup instructions
+For the GCWeb/Jekyll setup to function a `_config.yml` file must saved at the repositories root. Examples: [GCWeb _config.yml](https://github.com/wet-boew/gcweb-jekyll/blob/master/_config.yml), [core-prototype _config.yml](https://github.com/cra-design/core-prototype/blob/main/_config.yml)
+
+## Page template options
+
+- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
+- The `Github button` on the banner will take you to the the source page on github  
+- All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
+
+## Custom Github options
+
+- The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the Github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
+- Link overrides can be added to the [exit-link-excludes.json](https://github.com/cra-design/gst-hst-business/blob/main/_data/exitlinkexcludes.json) file. If there is only an `origin` link and no `destination` link then all occurrences of the link to that page will be excluded from redirects to the **exit intent page**. If there is both an `origin` link and a `destination` link then all occurrences of the `origin` link will be redirected to the `destination` page
 
 ## GCWeb Jekyll template YAML page settings
 
@@ -192,7 +208,7 @@ applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL 
 
 ```yaml
 ---
-developerOptions: [true | false]                   # Turns the developer options on/off for all pages (edit button, github button, custom banner links, exit page leave site button)
+developerOptions: [true | false]                   # Turns the developer options on/off for all pages (Edit button, Github button, custom banner links, exit page leave site button)
 testBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 
 exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true 
@@ -204,12 +220,6 @@ relativeExternalLinks: [true | false]              # Identifies whether links to
 relativeExternalLinks:  [true | false]
 ---
 ```
-
-## Page template options
-
-- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
-- The `Github button` on the banner will take you to the the source page on github  
-- All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
 
 ## Installation instructions for running GCWeb Jekyll on a local PC
 
