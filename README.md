@@ -9,7 +9,7 @@ Project to optimize the content related to filing GST/HST returns.
 ### Page management
 
 - [\[GST COP\] Scoped inventory page \(github\)](https://cra-design.github.io/gst-hst-business/index.html)
-- [Added/Deleted/Modified files and pages to be published](https://github.com/cra-design/gst-hst-business/blob/main/docs/UPDATES.md)
+- [Added/Deleted/Modified files and pages to be published](https://github.com/cra-design/gst-hst-business/blob/main/docs/CHANGELOG.md)
 
 ### Information
 
