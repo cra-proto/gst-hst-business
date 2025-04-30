@@ -6,14 +6,25 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Important links
 
-- [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
-- [Added/Deleted/Modified files and pages to be published](https://github.com/cra-design/gst-hst-business/blob/main/docs/UPDATES.md)
-- [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
+### Page management
+
 - [\[GST COP\] Scoped inventory page \(github\)](https://cra-design.github.io/gst-hst-business/index.html)
-- [Github.dev](https://github.dev/cra-design/gst-hst-business/blob/main/)
+- [Added/Deleted/Modified files and pages to be published](https://github.com/cra-design/gst-hst-business/blob/main/docs/UPDATES.md)
+
+### Information
+
+- [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
+- [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
+
+### Templates
+
 - [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
 - [Github Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
 - [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
+
+### Tools
+
+- [Github.dev](https://github.dev/cra-design/gst-hst-business/blob/main/)
 - [Convert page to GCWeb/Jekyll page tool](https://cra-design.github.io/core-prototype/core/tools/page-convert-jekyll.html)
 
 ## Added/Deleted/Modified files and pages to be published:
