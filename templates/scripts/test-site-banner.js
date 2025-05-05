@@ -50,14 +50,15 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         subjectInfo = "", 
         descriptionInfo = "", 
         sourceLinkInfo = "", 
-        keywordInfo = "";
+        keywordInfo = "", 
+        overlaySec = "";
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $(document).on("wb-ready.wb", function () {
             // Add toolbar and buttons
             gitURL = getGithubURL(window.location.origin + window.location.pathname);
             if (document.getElementById("test-banner") !== null) {
-                pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li>";
+                pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
                     if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle !== "") || sourceUrlArr.length > 1) {
@@ -73,14 +74,15 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 if (sourceLinkInfo + keywordInfo !== "") {
-                    pageInfo = pageInfo + "<li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign\"></span><span class=\"wb-inv\">Page information</span></a></li>";
+                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
                 }
 
                 if (gitURL !== "") {
-                    pageInfo = pageInfo + "<li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>";
+                    pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>\n";
                 }
 
-                pageInfo = pageInfo + "</ul></div>";
+                pageInfo = pageInfo + "    </ul>\n</div>\n";
+                document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
                 titleElm = document.querySelector("meta[name=dcterms\\.title]");
                 if (titleElm !== null && "content" in titleElm === true) {
                     titleInfo = "<p class=\"mrgn-bttm-sm\"><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
@@ -94,16 +96,16 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
                 if (sourceLinkInfo + keywordInfo !== "") {
-                    pageInfo = pageInfo + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div class=\"modal-body\">\n";
-                    pageInfo = pageInfo + sourceLinkInfo;
+                    overlaySec = "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div class=\"modal-body\">\n";
+                    overlaySec = overlaySec + sourceLinkInfo;
                     if (sourceLinkInfo !== "" && titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
-                        pageInfo = pageInfo + "\n<hr>\n";
+                        overlaySec = overlaySec + "\n<hr>\n";
                     }
-                    pageInfo = pageInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo;
-                    pageInfo = pageInfo + "\n    </div>\n</section>";
+                    overlaySec = overlaySec + titleInfo + subjectInfo + descriptionInfo + keywordInfo;
+                    overlaySec = overlaySec + "\n    </div>\n</section>";
                 }
-                if (pageInfo !== "") {
-                    document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
+                if (overlaySec !== "") {
+                    document.getElementById("test-banner").innerHTML = document.getElementById("test-banner").innerHTML + overlaySec;
                     $(".wb-overlay").trigger("wb-init.wb-overlay");
                 }
             }
