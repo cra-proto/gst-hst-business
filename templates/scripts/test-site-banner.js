@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         overlaySec = "";
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
-        document.getElementById("site-banner-inc").innerHTML = document.getElementById("site-banner-inc").innerHTML + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n    </div>\n</section>";
+        document.getElementById("site-banner-inc").outerHTML = document.getElementById("site-banner-inc").outerHTML + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n    </div>\n</section>";
         $(document).on("wb-ready.wb", function () {
             // Add toolbar and buttons
             gitURL = getGithubURL(window.location.origin + window.location.pathname);
