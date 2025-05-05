@@ -96,16 +96,14 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
                 if (sourceLinkInfo + keywordInfo !== "") {
-                    overlaySec = "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div class=\"modal-body\">\n";
-                    overlaySec = overlaySec + sourceLinkInfo;
+                    overlaySec = sourceLinkInfo;
                     if (sourceLinkInfo !== "" && titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
                     overlaySec = overlaySec + titleInfo + subjectInfo + descriptionInfo + keywordInfo;
-                    overlaySec = overlaySec + "\n    </div>\n</section>";
                 }
                 if (overlaySec !== "") {
-                    document.getElementById("site-banner-inc").innerHTML = document.getElementById("site-banner-inc").innerHTML + overlaySec;
+                    document.getElementById("dev-info-body").innerHTML = overlaySec;
                     $(".wb-overlay").trigger("wb-init.wb-overlay");
                 }
             }
@@ -144,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     });
                 }
 
+                document.getElementById("site-banner-inc").innerHTML = document.getElementById("site-banner-inc").innerHTML + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n    </div>\n</section>";
                 // Initalize page information button
 /*                if (document.getElementById("pageInfoBtn") !== null) {
                     wb.doc.on("click", "#pageInfoBtn", function(event) {
