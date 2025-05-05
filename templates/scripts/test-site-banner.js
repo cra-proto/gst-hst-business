@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         overlaySec = "";
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
-        document.getElementById("site-banner-inc").outerHTML = document.getElementById("site-banner-inc").outerHTML + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n    </div>\n</section>";
         $(document).on("wb-ready.wb", function () {
             // Add toolbar and buttons
             gitURL = getGithubURL(window.location.origin + window.location.pathname);
@@ -97,15 +96,17 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
                 if (sourceLinkInfo + keywordInfo !== "") {
-                    overlaySec = sourceLinkInfo;
+                    overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
+                    overlaySec = overlaySec + sourceLinkInfo;
                     if (sourceLinkInfo !== "" && titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
                     overlaySec = overlaySec + titleInfo + subjectInfo + descriptionInfo + keywordInfo;
+                    overlaySec = overlaySec + "\n    </div>\n</section>\n";
                 }
                 if (overlaySec !== "") {
-                    document.getElementById("dev-info-body").innerHTML = overlaySec;
-                    $(".wb-overlay").trigger("wb-init.wb-overlay");
+                    document.getElementById("site-banner-inc").outerHTML = document.getElementById("site-banner-inc").outerHTML + overlaySec;
+                    $(".wb-lbx").trigger("wb-init.wb-lbx");
                 }
             }
 
