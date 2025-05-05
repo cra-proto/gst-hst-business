@@ -58,20 +58,17 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
             if (document.getElementById("test-banner") !== null) {
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li>";
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
-                if (gitURL !== "") {
-                    pageInfo = pageInfo + "<li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>";
-                }
                 titleElm = document.querySelector("meta[name=dcterms\\.title]");
-                if (titleElm.length > 0 && "content" in titleElm[0] === true) {
-                    titleInfo = "<p><strong>Title</strong>:&nbsp;" + titleElm[0].content.trim() + "</p>\n";
+                if (titleElm !== null && "content" in titleElm === true) {
+                    titleInfo = "<p><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
                 }
                 subjectElm = document.querySelector("meta[name=dcterms\\.subject]");
-                if (subjectElm.length > 0 && "content" in subjectElm[0] === true) {
-                    subjectInfo = "<p><strong>Subject</strong>:&nbsp;" + subjectElm[0].content.trim() + "</p>\n";
+                if (subjectElm !== null && "content" in subjectElm === true) {
+                    subjectInfo = "<p><strong>Subject</strong>:&nbsp;" + subjectElm.content.trim() + "</p>\n";
                 }
                 descriptionElm = document.querySelector("meta[name=dcterms\\.description]");
-                if (descriptionElm.length > 0 && "content" in descriptionElm[0] === true) {
-                    descriptionInfo = "<p><strong>Description</strong>:&nbsp;" + descriptionElm[0].content.trim() + "</p>\n";
+                if (descriptionElm !== null && "content" in descriptionElm === true) {
+                    descriptionInfo = "<p><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
 
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
@@ -89,7 +86,11 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 if (sourceLinkInfo + keywordInfo !== "") {
-                    pageInfo = pageInfo + "<li id=\"pageInfoBtnGrp\" class=\"btn-group wb-inv\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign\"></span><span class=\"wb-inv\">Page information</span></a></li>";
+                    pageInfo = pageInfo + "<li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign\"></span><span class=\"wb-inv\">Page information</span></a></li>";
+                }
+
+                if (gitURL !== "") {
+                    pageInfo = pageInfo + "<li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>";
                 }
 
                 pageInfo = pageInfo + "</ul></div>";
