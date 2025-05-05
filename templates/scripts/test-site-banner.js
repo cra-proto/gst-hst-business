@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $(document).on("wb-ready.wb", function () {
             // Add toolbar and buttons
+            gitURL = getGithubURL(window.location.origin + window.location.pathname);
             if (document.getElementById("test-banner") !== null) {
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\"><ul class=\"btn-toolbar list-inline\" role=\"toolbar\"><li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit\"></span><span class=\"wb-inv\">Edit</span></a></li>";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
@@ -75,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     pageInfo = pageInfo + "<li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign\"></span><span class=\"wb-inv\">Page information</span></a></li>";
                 }
 
-                gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 if (gitURL !== "") {
                     pageInfo = pageInfo + "<li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>";
                 }
@@ -139,9 +139,21 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     });
                 }
 
+                // Initalize page information button
+                if (document.getElementById("pageInfoBtn") !== null) {
+                    wb.doc.on("click", "#pageInfoBtn", function(event) {
+                        if (event.stopPropagation) {
+                            event.stopImmediatePropagation();
+                        } else {
+                            event.cancelBubble = true;
+                        }
+                        $("#dev-page-info").trigger("open.wb-overlay");
+                    });
+                }
+
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
-                    document.getElementById("githubBtn").href = githubURL;
+                    document.getElementById("githubBtn").href = gitURL;
                 }
         
         // Load modied page content if it exists from local Storage
