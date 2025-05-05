@@ -102,7 +102,10 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     pageInfo = pageInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo;
                     pageInfo = pageInfo + "\n    </div>\n</section>";
                 }
-                document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
+                if (pageInfo !== "") {
+                    document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
+                    $(".wb-overlay").trigger("wb-init.wb-overlay");
+                }
             }
 
 /*
@@ -140,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 // Initalize page information button
-                if (document.getElementById("pageInfoBtn") !== null) {
+/*                if (document.getElementById("pageInfoBtn") !== null) {
                     wb.doc.on("click", "#pageInfoBtn", function(event) {
                         if (event.stopPropagation) {
                             event.stopImmediatePropagation();
@@ -149,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         }
                         $("#dev-page-info").trigger("open.wb-overlay");
                     });
-                }
+                }*/
 
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
