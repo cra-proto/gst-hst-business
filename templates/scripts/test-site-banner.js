@@ -148,6 +148,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         }
 */
             }
-        }, { once: true });
+        });
     }
 }, { once: true });
