@@ -18,6 +18,7 @@
 - [Resources](#resources)
 
 ## Basic GCWeb setup instructions
+
 For the GCWeb/Jekyll setup to function a `_config.yml` file must saved at the repositories root. Examples: [GCWeb _config.yml](https://github.com/wet-boew/gcweb-jekyll/blob/master/_config.yml), [core-prototype _config.yml](https://github.com/cra-design/core-prototype/blob/main/_config.yml)
 
 ## Page template options

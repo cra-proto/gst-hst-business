@@ -18,7 +18,14 @@ let relExternalLnk = document.getElementById("relextlnk");
 let visitedLinkStyle = document.createElement("style"), 
     linkExcludes = [], 
     adjustLinks = function adjustLinks(elm, hrefSelector, actionSelector, formActionSelector, destStartPath) {
-        let adjustHref = function adjustHref(el, destStartPath) {
+        let linkExcludeIndex = function linkExcludeIndex(testURI) {
+                return linkExcludes.findIndex(function findlink(linkArr) {
+                if ("origin" in linkArr) {
+                    return linkArr.origin.toLowerCase() === testURI.toLowerCase();
+                }
+            }, testURI);
+        }, 
+        adjustHref = function adjustHref(el, destStartPath) {
             let adjustedURI = el, 
                 replaceChar = ["?", "#", "&"];
 
@@ -50,13 +57,9 @@ let visitedLinkStyle = document.createElement("style"),
                         exitPageURI = exitPage.value, 
                         destURI = adjustHref(this.href, destStartPath), 
                         currentURI = this.protocol + "//" + this.hostname + this.pathname, 
-                        linkExcludeIndex = linkExcludes.findIndex(function findlink(linkArr) {
-                            if ("origin" in linkArr) {
-                                return linkArr.origin.toLowerCase() === currentURI.toLowerCase();
-                            }
-                        }, currentURI);
+                        lnkExclIdx = linkExcludeIndex(currentURI);
 
-                    if (linkExcludeIndex === -1) {
+                    if (lnkExclIdx === -1) {
                         if ("exitByUrl" in exitPage.dataset && exitPage.dataset.exitByUrl.toLowerCase() === "true") {
                             urlObj = { "url": exitPageURI };
                             this.dataset.wbExitscript = JSON.stringify(urlObj);
@@ -74,14 +77,14 @@ let visitedLinkStyle = document.createElement("style"),
                             }
                             this.href = exitPageURI;
                         }
-                    } else if ("destination" in linkExcludes[linkExcludeIndex] === true) {
-                        queryHash = this.href.substring(linkExcludes[linkExcludeIndex].origin.length);
+                    } else if ("destination" in linkExcludes[lnkExclIdx] === true) {
+                        queryHash = this.href.substring(linkExcludes[lnkExclIdx].origin.length);
                         if ("exitByUrl" in exitPage.dataset && exitPage.dataset.exitByUrl.toLowerCase() === "true") {
-                            urlObj = { "url": linkExcludes[linkExcludeIndex].destination + queryHash };
+                            urlObj = { "url": linkExcludes[lnkExclIdx].destination + queryHash };
                             this.dataset.wbExitscript = JSON.stringify(urlObj);
                             this.classList.add("wb-exitscript");
                         } else {
-                            this.href = linkExcludes[linkExcludeIndex].destination + queryHash;
+                            this.href = linkExcludes[lnkExclIdx].destination + queryHash;
                         }
                     }
                 });
@@ -92,14 +95,34 @@ let visitedLinkStyle = document.createElement("style"),
 
             if (actionSelector !== "") {
                 $(elm).find(actionSelector).each(function updateExitAction() {
+                    let queryHash,
+                        exitPageURI = exitPage.value, 
+                        currentURI = this.protocol + "//" + this.hostname + this.pathname, 
+                        lnkExclIdx = linkExcludeIndex(currentURI);
+
                     this.method = "GET";
-                    updateFormSubmit(this, "action", exitPage.value);
+                    if (lnkExclIdx === -1) {
+                        updateFormSubmit(this, "action", exitPageURI);
+                    } else if ("destination" in linkExcludes[lnkExclIdx] === true) {
+                        queryHash = this.href.substring(linkExcludes[lnkExclIdx].origin.length);
+                        updateFormSubmit(this, "action", linkExcludes[lnkExclIdx].destination + queryHash);
+                    }
                 });
             }
 
             if (formActionSelector !== "") {
                 $(elm).find(formActionSelector).each(function updateExitForm() {
-                    updateFormSubmit(this, "formaction", exitPage.value);
+                    let queryHash, 
+                        exitPageURI = exitPage.value, 
+                        currentURI = this.protocol + "//" + this.hostname + this.pathname,
+                        lnkExclIdx = linkExcludeIndex(currentURI);
+
+                    if (lnkExclIdx === -1) {
+                        updateFormSubmit(this, "formaction", exitPageURI);
+                    } else if ("destination" in linkExcludes[lnkExclIdx] === true) {
+                        queryHash = this.href.substring(linkExcludes[lnkExclIdx].origin.length);
+                        updateFormSubmit(this, "formaction", linkExcludes[lnkExclIdx].destination + queryHash);
+                    }
                 });
             }
         }
