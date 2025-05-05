@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         overlaySec = "";
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
-        $(document).on("wb-ready.wb", function () {
+        $("#site-banner-inc").on("wb-contentupdated", function () {
             // Add toolbar and buttons
             gitURL = getGithubURL(window.location.origin + window.location.pathname);
             if (document.getElementById("test-banner") !== null) {
@@ -148,6 +148,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         }
 */
             }
-        });
+        }, { once: true });
     }
 }, { once: true });
