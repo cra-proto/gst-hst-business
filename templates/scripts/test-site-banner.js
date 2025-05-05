@@ -105,20 +105,10 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     overlaySec = overlaySec + "\n    </div>\n</section>\n";
                 }
                 if (overlaySec !== "") {
-                    document.getElementById("site-banner-inc").outerHTML = document.getElementById("site-banner-inc").outerHTML + overlaySec;
+                    document.getElementById("test-banner").outerHTML = document.getElementById("test-banner").outerHTML + overlaySec;
                     $(".wb-lbx").trigger("wb-init.wb-lbx");
                 }
             }
-
-/*
-            if (document.getElementById("test-banner-content") !== null && sourceLinkInfo !== "") {
-                document.getElementById("test-banner-content").innerHTML = document.getElementById("test-banner-content").innerHTML + sourceLinkInfo;
-            }
-
-            if (document.getElementById("test-banner-content") !== null && keywordInfo !== "") {
-                document.getElementById("test-banner-content").innerHTML = document.getElementById("test-banner-content").innerHTML + keywordInfo;
-            }
-*/
 
             if (document.getElementById("devtoolbar") !== null) {
         
@@ -143,18 +133,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         event.preventDefault();
                     });
                 }
-
-                // Initalize page information button
-/*                if (document.getElementById("pageInfoBtn") !== null) {
-                    wb.doc.on("click", "#pageInfoBtn", function(event) {
-                        if (event.stopPropagation) {
-                            event.stopImmediatePropagation();
-                        } else {
-                            event.cancelBubble = true;
-                        }
-                        $("#dev-page-info").trigger("open.wb-overlay");
-                    });
-                }*/
 
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
