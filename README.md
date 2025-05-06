@@ -13,6 +13,8 @@ Project to optimize the content related to filing GST/HST returns.
 
 ### Information
 
+- [Design phase roadmap](https://github.com/cra-design/gst-hst-business/blob/main/docs/ROADMAP.md)
+- [Contribution guidelines](https://github.com/cra-design/gst-hst-business/blob/main/docs/CONTRIBUTING.md)
 - [Support information](https://github.com/cra-design/gst-hst-business/blob/main/docs/SUPPORT.md)
 - [Privacy statement](https://github.com/cra-design/gst-hst-business/blob/main/docs/PRIVACY.md)
 
