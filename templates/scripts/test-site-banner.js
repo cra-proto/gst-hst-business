@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 if (descriptionElm !== null && "content" in descriptionElm === true) {
                     descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
-                if (sourceLinkInfo + keywordInfo !== "") {
+                if (sourceLinkInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
                     if (sourceLinkInfo !== "" && titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
