@@ -128,7 +128,7 @@ Project to optimize the content related to filing GST/HST returns.
 - [x] SME review and accuracy check
 - [x] Validation usability testing (including accessibility review)
 - [ ] Refine prototype (if required)
-- [ ] Spot check usability (if required)
+- [ ] ~~Spot check usability (if required)~~
 
 ```mermaid
 %%{
