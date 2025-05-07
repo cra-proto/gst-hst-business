@@ -73,16 +73,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     keywordInfo = "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
                 }
 
-                if (sourceLinkInfo + keywordInfo !== "") {
-                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
-                }
-
-                if (gitURL !== "") {
-                    pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github mrgn-tp-sm\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>\n";
-                }
-
-                pageInfo = pageInfo + "    </ul>\n</div>\n";
-                document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
                 titleElm = document.querySelector("meta[name=dcterms\\.title]");
                 if (titleElm !== null && "content" in titleElm === true) {
                     titleInfo = "<p class=\"mrgn-bttm-sm\"><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
@@ -95,6 +85,16 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 if (descriptionElm !== null && "content" in descriptionElm === true) {
                     descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
+                if (sourceLinkInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
+                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
+                }
+
+                if (gitURL !== "") {
+                    pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\"><span class=\"fab fa-github mrgn-tp-sm\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>\n";
+                }
+
+                pageInfo = pageInfo + "    </ul>\n</div>\n";
+                document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
                 if (sourceLinkInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
