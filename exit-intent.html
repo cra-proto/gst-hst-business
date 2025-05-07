@@ -25,9 +25,8 @@ noFooterMain: true
 <script>
     "use strict";
     
-    const devOptionsLocStore = localStorage.getItem("gitCRATemplateDevOptions");
-    
-    let pageURL = window.location, 
+    let devOptionsLocStore = null, 
+        pageURL = window.location, 
         devOptions = document.getElementById("devoptions"), 
         getQueryEl = function getQueryEl(field) {
             const params = new Proxy(new URLSearchParams(pageURL.search), {
@@ -46,6 +45,10 @@ noFooterMain: true
 
     //script for leave site button
     if (typeof URLSearchParams !== "undefined" && devOptions !== null) {
+        if ("locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
+            devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
+        }
+
         if (exitOrigin !== null && (devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false"))) {
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;

@@ -23,6 +23,7 @@ creator:
 
 # Custom settings
 developerOptions: true
+devOptionsLocStore: "gitCRATemplateDevOptions"
 exitByURL: false
 exitPage: "/gst-hst-business/exit-intent.html"
 externalOrigin: "https://www.canada.ca"

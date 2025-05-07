@@ -7,8 +7,6 @@
 
 "use strict";
 
-const devOptionsLocStore = localStorage.getItem("gitCRATemplateDevOptions");
-
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
@@ -45,6 +43,7 @@ let sourceUrlArr,
 
 document.addEventListener("DOMContentLoaded", function initDevOpts() {
     let pageInfo, titleElm, subjectElm, descriptionElm, 
+        devOptionsLocStore = null, 
         gitURL = "",
         titleInfo = "", 
         subjectInfo = "", 
@@ -52,6 +51,10 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         sourceLinkInfo = "", 
         keywordInfo = "", 
         overlaySec = "";
+
+        if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
+            devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
+        }
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
