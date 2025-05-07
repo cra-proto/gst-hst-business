@@ -19,8 +19,8 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li id="exitLink"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
-    <li id="exitWETLink"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
+    <li id="exitLink" style="display: none;"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="exitWETLink" style="display: none;"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
     "use strict";
@@ -68,13 +68,12 @@ noFooterMain: true
                 }
                 window.location = exitOrigin + queryStr + window.location.hash;
             });
-        } else {
-            document.getElementById("exitLink").style.display = "none";
+            document.getElementById("exitLink").style.removeProperty("display");
         }
     
         //remove exit script button if no value sent
-        if (scriptexturl === null || devOptionsLocStore === "false" || (devOptions.value.toLowerCase() === "false" && devOptionsLocStore !== "true")) {
-            document.getElementById("exitWETLink").style.display = "none";
+        if (scriptexturl !== null || devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
+            document.getElementById("exitWETLink").style.removeProperty("display");
         }
     }
 </script>
