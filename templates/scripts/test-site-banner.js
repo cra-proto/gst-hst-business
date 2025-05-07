@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit mrgn-tp-sm\"></span><span class=\"wb-inv\">Edit</span></a></li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
-                    if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle !== "") || sourceUrlArr.length > 1) {
+                    if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
                         sourceLinkInfo = "<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
                         sourceUrlArr.forEach(function addSourceLinks(sourceUrlData) {
                            sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link\"></span>&nbsp;<a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\">" + sourceUrlData.sourcetitle + "</a></li>\n";
@@ -69,20 +69,20 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         sourceLinkInfo = sourceLinkInfo + "</ol>\n";
                     }
                 }
-                if (keywords !== null && keywords.value !== "") {
+                if (keywords !== null && keywords.value.trim() !== "") {
                     keywordInfo = "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
                 }
 
                 titleElm = document.querySelector("meta[name=dcterms\\.title]");
-                if (titleElm !== null && "content" in titleElm === true) {
+                if (titleElm !== null && "content" in titleElm === true && titleElm.content.trim() !== "") {
                     titleInfo = "<p class=\"mrgn-bttm-sm\"><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
                 }
                 subjectElm = document.querySelector("meta[name=dcterms\\.subject]");
-                if (subjectElm !== null && "content" in subjectElm === true) {
+                if (subjectElm !== null && "content" in subjectElm === true && subjectElm.content.trim() !== "") {
                     subjectInfo = "<p class=\"mrgn-bttm-sm\"><strong>Subject</strong>:&nbsp;" + subjectElm.content.trim() + "</p>\n";
                 }
                 descriptionElm = document.querySelector("meta[name=dcterms\\.description]");
-                if (descriptionElm !== null && "content" in descriptionElm === true) {
+                if (descriptionElm !== null && "content" in descriptionElm === true && descriptionElm.content.trim() !== "") {
                     descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
                 if (sourceLinkInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
