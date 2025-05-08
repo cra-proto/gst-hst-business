@@ -10,7 +10,7 @@
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
-let insertLoc = document.getElementById("test-banner");
+let insertId = "test-banner";
 
 let sourceUrlArr, 
     getGithubURL = function (pageURL) {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
             // Add toolbar and buttons
-            if (insertLoc !== null) {
+            if (document.getElementById(insertId) !== null) {
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit mrgn-tp-sm\"></span><span class=\"wb-inv\">Edit</span></a></li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
-                insertLoc.innerHTML = pageInfo + insertLoc.innerHTML;
+                document.getElementById(insertId).innerHTML = pageInfo + document.getElementById(insertId).innerHTML;
                 if (sourceLinkInfo + metadataInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     }
                     overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
                     overlaySec = overlaySec + "\n    </div>\n</section>\n";
-                    insertLoc.outerHTML = insertLoc.outerHTML + overlaySec;
+                    document.getElementById(insertId).outerHTML = document.getElementById(insertId).outerHTML + overlaySec;
                     $(".wb-lbx").trigger("wb-init.wb-lbx");
                 }
             }
