@@ -10,6 +10,7 @@
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
+let insertLoc = document.getElementById("test-banner");
 
 let sourceUrlArr, 
     getGithubURL = function (pageURL) {
@@ -45,50 +46,47 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
     let pageInfo, titleElm, subjectElm, descriptionElm, 
         devOptionsLocStore = null, 
         gitURL = "",
-        titleInfo = "", 
-        subjectInfo = "", 
-        descriptionInfo = "", 
         sourceLinkInfo = "", 
-        keywordInfo = "", 
+        metadataInfo = "", 
         overlaySec = "";
 
-        if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
-            devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
-        }
+    if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
+        devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
+    }
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
             // Add toolbar and buttons
-            gitURL = getGithubURL(window.location.origin + window.location.pathname);
-            if (document.getElementById("test-banner") !== null) {
+            if (insertLoc !== null) {
+                gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit mrgn-tp-sm\"></span><span class=\"wb-inv\">Edit</span></a></li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
                     if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
-                        sourceLinkInfo = "<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
+                        sourceLinkInfo = "<h3 class=\"mrgn-tp-sm\">Pertinent links</h3>\n<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
                         sourceUrlArr.forEach(function addSourceLinks(sourceUrlData) {
-                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link\"></span>&nbsp;<a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\">" + sourceUrlData.sourcetitle + "</a></li>\n";
+                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\">" + sourceUrlData.sourcetitle + "</a></li>\n";
                         });
                         sourceLinkInfo = sourceLinkInfo + "</ol>\n";
                     }
                 }
-                if (keywords !== null && keywords.value.trim() !== "") {
-                    keywordInfo = "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
-                }
-
                 titleElm = document.querySelector("meta[name=dcterms\\.title]");
                 if (titleElm !== null && "content" in titleElm === true && titleElm.content.trim() !== "") {
-                    titleInfo = "<p class=\"mrgn-bttm-sm\"><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
                 }
                 subjectElm = document.querySelector("meta[name=dcterms\\.subject]");
                 if (subjectElm !== null && "content" in subjectElm === true && subjectElm.content.trim() !== "") {
-                    subjectInfo = "<p class=\"mrgn-bttm-sm\"><strong>Subject</strong>:&nbsp;" + subjectElm.content.trim() + "</p>\n";
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Subject</strong>:&nbsp;" + subjectElm.content.trim() + "</p>\n";
                 }
                 descriptionElm = document.querySelector("meta[name=dcterms\\.description]");
                 if (descriptionElm !== null && "content" in descriptionElm === true && descriptionElm.content.trim() !== "") {
-                    descriptionInfo = "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
-                if (sourceLinkInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
+                if (keywords !== null && keywords.value.trim() !== "") {
+                    metadataInfo = metadataInfo + "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
+                }
+
+                if (sourceLinkInfo + metadataInfo !== "") {
                     pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
                 }
 
@@ -97,18 +95,16 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
-                document.getElementById("test-banner").innerHTML = pageInfo + document.getElementById("test-banner").innerHTML;
-                if (sourceLinkInfo + titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
+                insertLoc.innerHTML = pageInfo + insertLoc.innerHTML;
+                if (sourceLinkInfo + metadataInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
-                    if (sourceLinkInfo !== "" && titleInfo + subjectInfo + descriptionInfo + keywordInfo !== "") {
+                    if (sourceLinkInfo !== "" && metadataInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
-                    overlaySec = overlaySec + titleInfo + subjectInfo + descriptionInfo + keywordInfo;
+                    overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
                     overlaySec = overlaySec + "\n    </div>\n</section>\n";
-                }
-                if (overlaySec !== "") {
-                    document.getElementById("test-banner").outerHTML = document.getElementById("test-banner").outerHTML + overlaySec;
+                    insertLoc.outerHTML = insertLoc.outerHTML + overlaySec;
                     $(".wb-lbx").trigger("wb-init.wb-lbx");
                 }
             }
@@ -123,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                             document.designMode = "off";
                             void 0;
                             // saves cuurent modified page content to local storage
-//                    sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
+//                            sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
                             this.classList.add("btn-default");
                             this.classList.remove("btn-primary");
                         } else {
@@ -142,13 +138,13 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     document.getElementById("githubBtn").href = gitURL;
                 }
         
-        // Load modied page content if it exists from local Storage
+                // Load modied page content if it exists from local Storage
 /*
-        window.onload = function () {
-            if (sessionStorage.getItem("content")) {
-                document.getElementsByTagName("main")[0].innerHTML = sessionStorage.getItem("content");
-            }
-        }
+                window.onload = function () {
+                    if (sessionStorage.getItem("content")) {
+                        document.getElementsByTagName("main")[0].innerHTML = sessionStorage.getItem("content");
+                    }
+                }
 */
             }
         });
