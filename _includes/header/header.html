@@ -6,7 +6,6 @@
 {% if page.soureceurl != nil %}<data id="sourceurl" value="[{%- for source in page.soureceurl -%}{%- if source.title != "" and source.link != "" -%}{% if forloop.first == false %}, {% endif %}&lcub;&quot;sourcelink&quot;: &quot;{{ source.link }}&quot;, &quot;sourcetitle&quot;: &quot;{{ source.title }}&quot;&rcub;{%- endif -%}{%- endfor -%}]"></data>{% endif %}
 {% if page.keywords != nil and page.keywords != "" %}<data id="pageKeywords" value="{{ page.keywords }}"></data>{% endif %}
 <div id="site-banner-inc" class="wb-disable-allow" data-ajax-replace="/gst-hst-business/templates/includes/site-banner.htm"></div>
-<script src="https://cra-design.github.io/gst-hst-business/templates/scripts/git-dev-options-e.js"></script>
 {% endif %}
 <!-- END of github only template section -->
 <header>
