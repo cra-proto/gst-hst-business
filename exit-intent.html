@@ -25,7 +25,8 @@ noFooterMain: true
 <script>
     "use strict";
     
-    let devOptionsLocStore = null, 
+    let exitOrigin, pagetitle, 
+        devOptionsLocStore = null, 
         pageURL = window.location, 
         devOptions = document.getElementById("devoptions"), 
         getQueryEl = function getQueryEl(field) {
@@ -33,10 +34,7 @@ noFooterMain: true
                 get: (searchParams, prop) => searchParams.get(prop),
             });
             return params[field];
-        }, 
-        exitOrigin = getQueryEl("uri"), 
-        pagetitle = getQueryEl("pagetitle"), 
-        scriptexturl = getQueryEl("exturl");
+        };
 
     //script for back button
     document.getElementById("back").addEventListener("click", () => {
@@ -49,7 +47,9 @@ noFooterMain: true
             devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
         }
 
+        exitOrigin = getQueryEl("uri");
         if (exitOrigin !== null && (devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false"))) {
+            pagetitle = getQueryEl("pagetitle");
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
             }
@@ -72,8 +72,9 @@ noFooterMain: true
         }
     
         //remove exit script button if no value sent
-        if (scriptexturl !== null || devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
+        if (getQueryEl("exturl") !== null || devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
             document.getElementById("exitWETLink").style.removeProperty("display");
+//            $("#exitWETLink").trigger("wb-init.wb-exitscript");
         }
     }
 </script>
