@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
+                    document.getElementById("githubBtn").setAttribute("target", "_blank");
                     document.getElementById("githubBtn").href = gitURL;
                 }
         
