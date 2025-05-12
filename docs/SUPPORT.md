@@ -223,7 +223,7 @@ relativeExternalLinks:  [true | false]
 ---
 ```
 
-## Installation instructions for running GCWeb Jekyll on a local PC
+## Installation instructions for running GCWeb Jekyll on a local (personal) PC
 
 1. [Video instructions for all of step 1-2](https://www.youtube.com/watch?v=LfP7Y9Ja6Qc) Download and install Ruby. You can find a version to download through the [Download Ruby](https://www.ruby-lang.org/en/downloads/) page
    1. Install Ruby with all the defaults checked and make sure `Run 'ridk install' to install MSYS2 and development toolchain.` is checked.  This will open a command prompt install dialog
