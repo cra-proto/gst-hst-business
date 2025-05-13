@@ -19,8 +19,8 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li id="exitLink" style="display: none;"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
-    <li id="exitWETLink" style="display: none;"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
+    <li id="exitLink" class="hidden"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="exitWETLink" class="hidden"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
     "use strict";
@@ -68,12 +68,12 @@ noFooterMain: true
                 }
                 window.location = exitOrigin + queryStr + window.location.hash;
             });
-            document.getElementById("exitLink").style.removeProperty("display");
+            document.getElementById("exitLink").classList.remove("hidden");
         }
     
         //remove exit script button if no value sent
         if (getQueryEl("exturl") !== null || devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
-            document.getElementById("exitWETLink").style.removeProperty("display");
+            document.getElementById("exitWETLink").classList.remove("hidden");
 //            $("#exitWETLink").trigger("wb-init.wb-exitscript");
         }
     }
