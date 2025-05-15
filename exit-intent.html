@@ -19,21 +19,22 @@ noFooterMain: true
 <p>Please press the back button to return to the previous page.</p>
 <ul class="list-inline">
     <li><button id="back" class="btn btn-call-to-action btn-lg" type="button">Go Back!</button></li>
-    <li id="leavesite"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
-    <li id="scriptleave"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
+    <li id="exitLink" class="hidden"><button id="leavesitelnk" class="btn btn-link btn-lg" type="button">Leave the test site</button></li>
+    <li id="exitWETLink" class="hidden"><span class="wb-exitscript wb-exitscript-urlparam"></span></li>
 </ul>
 <script>
-    let pageURL = window.location, 
+    "use strict";
+    
+    let exitOrigin, pagetitle, 
+        devOptionsLocStore = null, 
+        pageURL = window.location, 
         devOptions = document.getElementById("devoptions"), 
         getQueryEl = function getQueryEl(field) {
             const params = new Proxy(new URLSearchParams(pageURL.search), {
                 get: (searchParams, prop) => searchParams.get(prop),
             });
             return params[field];
-        }, 
-        exitOrigin = getQueryEl("uri"), 
-        pagetitle = getQueryEl("pagetitle"), 
-        scriptexturl = getQueryEl("exturl");
+        };
 
     //script for back button
     document.getElementById("back").addEventListener("click", () => {
@@ -41,11 +42,16 @@ noFooterMain: true
     });
 
     //script for leave site button
-    if (typeof URLSearchParams !== "undefined" && devOptions) {
-        if (exitOrigin !== null && devOptions.value === "true") {
+    if (typeof URLSearchParams !== "undefined" && devOptions !== null) {
+        if ("locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
+            devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
+        }
+
+        exitOrigin = getQueryEl("uri");
+        if (exitOrigin !== null && (devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false"))) {
+            pagetitle = getQueryEl("pagetitle");
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
-               // document.getElementById("leavesitelnk").innerText = decodeURIComponent(pagetitle);
             }
             document.getElementById("leavesitelnk").addEventListener("click", () => {
                 let extractQuerystring = function extractQuerystring() {
@@ -62,13 +68,13 @@ noFooterMain: true
                 }
                 window.location = exitOrigin + queryStr + window.location.hash;
             });
-        } else {
-            document.getElementById("leavesite").style.display = "none";
+            document.getElementById("exitLink").classList.remove("hidden");
         }
     
         //remove exit script button if no value sent
-        if (scriptexturl === null || devOptions.value === "false") {
-            document.getElementById("scriptleave").style.display = "none";
+        if (getQueryEl("exturl") !== null || devOptionsLocStore === "true" || (devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
+            document.getElementById("exitWETLink").classList.remove("hidden");
+//            $("#exitWETLink").trigger("wb-init.wb-exitscript");
         }
     }
 </script>

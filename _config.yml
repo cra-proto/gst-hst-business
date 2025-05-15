@@ -22,12 +22,14 @@ creator:
   fr: "Agence du revenu du Canada"
 
 # Custom settings
-siteBanner: true
-exitPage: "https://cra-design.github.io/gst-hst-business/exit-intent.html"
-exitByURL: false
-externalOrigin: "https://www.canada.ca"
-relativeExternalLinks: false
 developerOptions: true
+devOptionsLocStore: "gitCRATemplateDevOptions"
+exitByURL: false
+exitPage: "/gst-hst-business/exit-intent.html"
+externalOrigin: "https://www.canada.ca"
+modifiedLinkList: "/gst-hst-business/templates/data/link_excludes.json"
+relativeExternalLinks: false
+testBanner: true
 
 # Page front matter defaults
 defaults:
@@ -51,17 +53,17 @@ defaults:
         links:
          - text: "Contact the CRA"
            url: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
+         - text: "Update your information"
+           url: "https://www.canada.ca/en/revenue-agency/services/update-information-cra.html"
          - text: "About the CRA"
            url: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
-         - text: "Compliance and enforcement"
-           url: "https://www.canada.ca/en/revenue-agency/programs/about-canada-revenue-agency-cra/compliance.html"
       css: 
         - https://use.fontawesome.com/releases/v5.15.4/css/all.css
-        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css
-        - https://cra-design.github.io/gst-hst-business/templates/css/custom.css
+        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2025-04-nahanni.css
+        - https://cra-design.github.io/gst-hst-business/templates/css/testing-banner.css
       script: 
         - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
-        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.js
+        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2025-04-nahanni.js
         - https://cra-design.github.io/gst-hst-business/templates/scripts/external-link-detour.js
   -
     scope:

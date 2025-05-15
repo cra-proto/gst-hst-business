@@ -247,3 +247,20 @@ noFooterMain: true
         </details>
     </details>
 </div>
+<br>
+<div class="btn-group">
+  <button id="dev_on" class="btn btn-default" type="button">Developer options: ON</button>
+  <button id="dev_off" class="btn btn-default" type="button">Developer options: OFF</button>
+  <button id="dev_clear" class="btn btn-default" type="button">Developer options: clear</button>
+</div>
+<script>
+    document.getElementById("dev_on").addEventListener("click", function (event) {
+        localStorage.setItem("gitCRATemplateDevOptions", true);
+    });
+    document.getElementById("dev_off").addEventListener("click", function (event) {
+        localStorage.setItem("gitCRATemplateDevOptions", false);
+    });
+    document.getElementById("dev_clear").addEventListener("click", function (event) {
+        localStorage.removeItem("gitCRATemplateDevOptions");
+    });
+</script>
