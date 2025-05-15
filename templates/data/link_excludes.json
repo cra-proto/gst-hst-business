@@ -201,9 +201,10 @@
     }, 
     {
       "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report.html",
-      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/calculate-prepare-report.html
-
-    https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html",
+      "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/calculate-prepare-report.html"
+    },   
+    { 
+      "origin": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html",
       "destination": "https://cra-design.github.io/gst-hst-business/en/topics/gst-hst-businesses/calculate-prepare-report/gst-hst-records-keep.html"
     }, 
     {
