@@ -10,7 +10,7 @@
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
-let insertElm = document.getElementById("test-banner");
+let insertId = "test-banner";
 
 let sourceUrlArr, 
     getGithubURL = function (pageURL) {
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
             let pageInfo, titleElm, subjectElm, descriptionElm, 
+                insertElm = document.getElementById(insertId), 
                 gitURL = "",
                 githublink = "",
                 sourceLinkInfo = "", 
