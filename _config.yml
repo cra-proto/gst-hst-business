@@ -22,7 +22,7 @@ creator:
   fr: "Agence du revenu du Canada"
 
 # Custom settings
-developerOptions: true
+developerOptions: false
 devOptionsLocStore: "gitCRATemplateDevOptions"
 exitByURL: false
 exitPage: "/gst-hst-business/exit-intent.html"
