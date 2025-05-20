@@ -10,7 +10,7 @@
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
-let insertId = "test-banner";
+let insertElm = document.getElementById("test-banner");
 
 let sourceUrlArr, 
     getGithubURL = function (pageURL) {
@@ -43,12 +43,7 @@ let sourceUrlArr,
     };
 
 document.addEventListener("DOMContentLoaded", function initDevOpts() {
-    let pageInfo, titleElm, subjectElm, descriptionElm, 
-        devOptionsLocStore = null, 
-        gitURL = "",
-        sourceLinkInfo = "", 
-        metadataInfo = "", 
-        overlaySec = "";
+    let devOptionsLocStore = null;
 
     if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
         devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
@@ -56,6 +51,13 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
+            let pageInfo, titleElm, subjectElm, descriptionElm, 
+                gitURL = "",
+                githublink = "",
+                sourceLinkInfo = "", 
+                metadataInfo = "", 
+                overlaySec = "";
+
             // Add toolbar and buttons
             if (document.getElementById(insertId) !== null) {
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
@@ -87,24 +89,27 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 if (sourceLinkInfo + metadataInfo !== "") {
-                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
+                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm mrgn-rght-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
                 }
 
                 if (gitURL !== "") {
                     pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>\n";
+//                    githublink = githublink + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to Github source</a></p>\n";
+                    
                 }
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
-                document.getElementById(insertId).innerHTML = pageInfo + document.getElementById(insertId).innerHTML;
+                insertElm.innerHTML = pageInfo + insertElm.innerHTML;
                 if (sourceLinkInfo + metadataInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
-                    if (sourceLinkInfo !== "" && metadataInfo !== "") {
+                    overlaySec = overlaySec + githublink;
+                    if (sourceLinkInfo + githublink !== "" && metadataInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
                     overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
                     overlaySec = overlaySec + "\n    </div>\n</section>\n";
-                    document.getElementById(insertId).outerHTML = document.getElementById(insertId).outerHTML + overlaySec;
+                    insertElm.outerHTML = insertElm.outerHTML + overlaySec;
                     $(".wb-lbx").trigger("wb-init.wb-lbx");
                 }
             }
