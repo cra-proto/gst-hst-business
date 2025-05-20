@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 overlaySec = "";
 
             // Add toolbar and buttons
-            if (document.getElementById(insertId) !== null) {
+            if (insertElm !== null) {
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit mrgn-tp-sm\"></span><span class=\"wb-inv\">Edit</span></a></li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
