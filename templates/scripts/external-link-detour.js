@@ -69,11 +69,15 @@ let visitedLinkStyle = document.createElement("style"),
                                 pagetitle = encodeURIComponent(this.textContent);
                             }
                             switch (true) {
-                                case destURI.length > 0 && exitPageURI.length + destURI.length + 5 <= maxURILength:
-                                    exitPageURI = exitPageURI + "?uri=" + destURI;
+                                case (destURI.length > 0 && exitPageURI.length + destURI.length + 5 <= maxURILength):
+                                    if (destURI.length > 0) {
+                                        exitPageURI = exitPageURI + "?uri=" + destURI;
+                                    }
                                     // falls through
-                                case pagetitle.length > 0 && exitPageURI + pagetitle.length + 11 <= maxURILength:
-                                    exitPageURI = exitPageURI + "&pagetitle=" + pagetitle;
+                                case (pagetitle.length > 0 && exitPageURI + pagetitle.length + 11 <= maxURILength):
+                                    if (pagetitle.length > 0) {
+                                        exitPageURI = exitPageURI + "&pagetitle=" + pagetitle;
+                                    }
                             }
                             this.href = exitPageURI;
                         }
