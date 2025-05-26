@@ -52,6 +52,8 @@ noFooterMain: true
             pagetitle = getQueryEl("pagetitle");
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
+            } else {
+                document.getElementById("leavesitelnk").innerHTML = exitOrigin;
             }
             document.getElementById("leavesitelnk").addEventListener("click", () => {
                 let extractQuerystring = function extractQuerystring() {
@@ -67,6 +69,7 @@ noFooterMain: true
                     queryStr = "?" + queryStr;
                 }
                 window.location = exitOrigin + queryStr + window.location.hash;
+                if (pagetitle !== null) {
             });
             document.getElementById("exitLink").classList.remove("hidden");
         }
