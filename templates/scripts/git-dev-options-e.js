@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
-            let pageInfo, titleElm, subjectElm, descriptionElm, 
+            let pageInfo, titleElm, subjectElm, descriptionElm, keywordsElm, 
                 insertElm = document.getElementById(insertId), 
                 gitURL = "",
                 githublink = "",
@@ -87,6 +87,11 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
                 if (keywords !== null && keywords.value.trim() !== "") {
                     metadataInfo = metadataInfo + "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
+                } else {
+                    keywordsElm = document.querySelector("meta[name=dcterms\\.keywords]");
+                    if (keywordsElm !== null && "content" in keywordsElm === true && keyworsdElm.content.trim() !== "") {
+                        metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Keywords</strong>:&nbsp;" + keyworsdElm.content.trim() + "</p>\n";
+                    }
                 }
 
                 if (sourceLinkInfo + metadataInfo !== "") {

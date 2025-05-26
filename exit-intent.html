@@ -52,6 +52,8 @@ noFooterMain: true
             pagetitle = getQueryEl("pagetitle");
             if (pagetitle !== null) {
                 document.getElementById("leavesitelnk").innerHTML = pagetitle;
+            } else {
+                document.getElementById("leavesitelnk").innerHTML = exitOrigin;
             }
             document.getElementById("leavesitelnk").addEventListener("click", () => {
                 let extractQuerystring = function extractQuerystring() {
