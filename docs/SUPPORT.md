@@ -32,7 +32,7 @@ For the GCWeb/Jekyll setup to function a `_config.yml` file must saved at the re
 - The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the Github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
 - Link overrides can be added to the [exit-link-excludes.json](https://github.com/cra-design/gst-hst-business/blob/main/_data/exitlinkexcludes.json) file. If there is only an `origin` link and no `destination` link then all occurrences of the link to that page will be excluded from redirects to the **exit intent page**. If there is both an `origin` link and a `destination` link then all occurrences of the `origin` link will be redirected to the `destination` page
 
-## GCWeb Jekyll template YAML page settings
+## GCWeb Jekyll template YAML Front Matter page settings
 
 ```yaml
 ---
@@ -63,7 +63,7 @@ dateModified: YYYY-MM-DD                           # Sets the date page was last
 <p>HTML Content that will be displayed on the page</p>
 ```
 
-## Additional GCWeb Jekyll template YAML page settings
+## Additional GCWeb Jekyll template YAML Front Matter page settings
 
 ```yaml
 ---
@@ -147,7 +147,7 @@ infoBanner:                                       # Sets a Banner at the top of 
 ---
 ```
 
-## Custom YAML page setting options
+## Custom YAML Front Matter page setting options
 
 ```yaml
 ---
