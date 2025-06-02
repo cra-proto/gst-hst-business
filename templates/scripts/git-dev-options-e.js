@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
                         sourceLinkInfo = "<h3 class=\"mrgn-tp-sm\">Pertinent links</h3>\n<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
                         sourceUrlArr.forEach(function addSourceLinks(sourceUrlData) {
-                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\" target=\"_blank\">" + sourceUrlData.sourcetitle + "</a></li>\n";
+                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link mrgn-rght-sm\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\" target=\"_blank\">" + sourceUrlData.sourcetitle + "</a></li>\n";
                         });
                         sourceLinkInfo = sourceLinkInfo + "</ol>\n";
                     }
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
                         if (editArea !== null && editArea.contentEditable === "true") {
                             // saves cuurent modified page content to local storage
-//                            sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
+//                            sessionStorage.setItem("content", editArea.innerHTML);
                             this.title = "Edit";
                             this.classList.remove("px-1");
                             document.getElementById("iconText").innerHTML = "Edit";
