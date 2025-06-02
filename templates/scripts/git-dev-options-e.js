@@ -171,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 //                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
                             }
                             setEditButton();
+                            editArea.contentEditable = "false";
 //                            tinymce.activeEditor.hide();
 //                            tinymce.activeEditor.execCommand("mceVisualBlocks");
 //                            document.designMode = "off";
