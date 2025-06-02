@@ -43,7 +43,8 @@ let sourceUrlArr,
     };
 
 document.addEventListener("DOMContentLoaded", function initDevOpts() {
-    let devOptionsLocStore = null;
+    let devOptionsLocStore = null, 
+        contentChanged = "";
 
     if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
         devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
@@ -53,11 +54,20 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
         $("#site-banner-inc").on("wb-contentupdated", function () {
             let pageInfo, titleElm, subjectElm, descriptionElm, keywordsElm, 
                 insertElm = document.getElementById(insertId), 
-                gitURL = "",
-                githubLinkInfo = "",
+                gitURL = "", 
+                githubLinkInfo = "", 
                 sourceLinkInfo = "", 
                 metadataInfo = "", 
-                overlaySec = "";
+                overlaySec = "", 
+                setEditButton = function setEditButton() {
+                    document.getElementById("editBtn").title = "Edit";
+                    document.getElementById("editBtn").classList.remove("px-1");
+                    document.getElementById("editIcon").classList.remove("fa-save");
+                    document.getElementById("iconText").innerHTML = "Edit";
+                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
+                    document.getElementById("editBanIcon").classList.add("wb-inv");
+                    document.getElementById("editIcon").classList.add("fa-edit");
+                };
 
             // Add toolbar and buttons
             if (insertElm !== null) {
@@ -69,20 +79,23 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                             e.target.hide();
                         });
                     }, 
-                    plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save",
+                    plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
                     toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
                     inline: true, 
                     quickbars_image_toolbar: false, 
                     quickbars_selection_toolbar: true, 
                     quickbars_insert_toolbar: false, 
-                    relative_urls: false,
+                    relative_urls: false, 
                     entity_encoding: "raw", 
                     importcss_append: true, 
                     content_css: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css", 
                     selector: "main"
                 });
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
-                pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIconStack\"><span id=\"editIcon\" class=\"fa fa-edit fa-stack-1x\"></span><span id=\"editBanIcon\" class=\"wb-inv fa fa-ban fa-stack-2x text-warning\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></span></a></li>\n";
+                pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\">";
+                pageInfo = pageInfo + "<a id=\"editBtn\" class=\"btn btn-default btn-sm px-1\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIconStack\"><span id=\"editIcon\" class=\"fa fa-edit fa-stack-1x\"></span><span id=\"editBanIcon\" class=\"wb-inv fa fa-ban fa-stack-2x text-warning\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></span></a>";
+                pageInfo = pageInfo + "<a id=\"deleteChangeBtn\" class=\"btn btn-default btn-sm hidden\" title=\"Delete edits\" href=\"#\"><span class=\"fa fa-trash-alt\"></span><span class=\"wb-inv\">Delete edits</span></a>";
+                pageInfo = pageInfo + "</li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
                     if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
@@ -147,23 +160,38 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 // Initalize Edit button
                 if (document.getElementById("editBtn") !== null) {
                     document.getElementById("editBtn").addEventListener("click", function (event) {
-                        let editArea = document.querySelector("main");
+                        let editArea = document.querySelector("main"), 
+                            currentContent = editArea.innerHTML;
 
                         if (editArea !== null && editArea.contentEditable === "true") {
+                            
                             // saves cuurent modified page content to local storage
+                            if (contentChanged !== "" && contentChanged !== currentContent) {
 //                            sessionStorage.setItem("content", editArea.innerHTML);
-                            this.title = "Edit";
-                            this.classList.remove("px-1");
-                            document.getElementById("iconText").innerHTML = "Edit";
-                            document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
-                            document.getElementById("editBanIcon").classList.add("wb-inv");
-                            editArea.contentEditable = "false";
+//                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
+                            }
+                            setEditButton();
 //                            tinymce.activeEditor.hide();
 //                            tinymce.activeEditor.execCommand("mceVisualBlocks");
 //                            document.designMode = "off";
                         } else {
+                            if (contentChanged === "") {
+                                editArea.addEventListener("input", function(event) {
+                                    contentChanged = currentContent;
+
+//                                    document.getElementById("editBtn").classList.remove("px-1");
+//                                    document.getElementById("editBtn").title = "Keep edits";
+//                                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
+//                                    document.getElementById("editIcon").classList.remove("fa-edit");
+//                                    document.getElementById("iconText").innerHTML = "Keep edits";
+//                                    document.getElementById("editBanIcon").classList.add("wb-inv");
+//                                    document.getElementById("editIcon").classList.add("fa-save");
+                                }, { once: true });
+                            }
                             this.title = "Stop edit";
                             this.classList.add("px-1");
+                            document.getElementById("editIcon").classList.remove("fa-save");
+                            document.getElementById("editIcon").classList.add("fa-edit");
                             document.getElementById("iconText").innerHTML = "Stop edit";
                             document.getElementById("editIconStack").classList.add("fa-stack", "fa-xs");
                             document.getElementById("editBanIcon").classList.remove("wb-inv");
@@ -176,6 +204,13 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         event.preventDefault();
                     });
                 }
+
+                // Delete Edit button
+                document.getElementById("deleteChangeBtn").addEventListener("click", function() {
+                    setEditButton();
+                    contentChanged = "";
+                    document.getElementById("deleteChangeBtn").classList.add("hidden");
+                });
 
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
