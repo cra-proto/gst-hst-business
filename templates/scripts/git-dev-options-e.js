@@ -12,7 +12,9 @@ let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
 let insertId = "test-banner";
 
-let sourceUrlArr, 
+let sourceUrlArr, pageOrigin, 
+    pageKey = location.pathname.replaceAll("/","").replaceAll(":","").replaceAll("-","").split(".").slice(0, -1).join(".").toLowerCase(), 
+    pageStorage = localStorage.getItem(pageKey), 
     getGithubURL = function (pageURL) {
         let pageName = "", 
             githubURL = null;
@@ -44,7 +46,13 @@ let sourceUrlArr,
 
 document.addEventListener("DOMContentLoaded", function initDevOpts() {
     let devOptionsLocStore = null, 
-        contentChanged = "";
+        updatedContent = "";
+
+    pageOrigin = document.querySelector("main").innerHTML;
+    // Load modied page content if it exists from local Storage
+    if (localStorage.getItem(pageKey)) {
+        document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
+    }
 
     if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
         devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
@@ -67,6 +75,24 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
                     document.getElementById("editBanIcon").classList.add("wb-inv");
                     document.getElementById("editIcon").classList.add("fa-edit");
+                }, 
+                setStopEditButton = function setStopEditButton() {
+                    document.getElementById("editBtn").title = "Stop edit";
+                    document.getElementById("editBtn").classList.add("px-1");
+                    document.getElementById("editIcon").classList.remove("fa-save");
+                    document.getElementById("editIcon").classList.add("fa-edit");
+                    document.getElementById("iconText").innerHTML = "Stop edit";
+                    document.getElementById("editIconStack").classList.add("fa-stack", "fa-xs");
+                    document.getElementById("editBanIcon").classList.remove("wb-inv");
+                }, 
+                setCacheButton = function setCacheButton() {
+                    document.getElementById("editBtn").classList.remove("px-1");
+                    document.getElementById("editBtn").title = "Cache edits";
+                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
+                    document.getElementById("editIcon").classList.remove("fa-edit");
+                    document.getElementById("iconText").innerHTML = "Cache edits";
+                    document.getElementById("editBanIcon").classList.add("wb-inv");
+                    document.getElementById("editIcon").classList.add("fa-save");
                 };
 
             // Add toolbar and buttons
@@ -94,7 +120,11 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\">";
                 pageInfo = pageInfo + "<a id=\"editBtn\" class=\"btn btn-default btn-sm px-1\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIconStack\"><span id=\"editIcon\" class=\"fa fa-edit fa-stack-1x\"></span><span id=\"editBanIcon\" class=\"wb-inv fa fa-ban fa-stack-2x text-warning\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></span></a>";
-                pageInfo = pageInfo + "<a id=\"deleteChangeBtn\" class=\"btn btn-default btn-sm hidden\" title=\"Delete edits\" href=\"#\"><span class=\"fa fa-trash-alt\"></span><span class=\"wb-inv\">Delete edits</span></a>";
+                pageInfo = pageInfo + "<a id=\"deleteChangeBtn\" class=\"btn btn-default btn-sm";
+                if (localStorage.getItem(pageKey) === null) {
+                    pageInfo = pageInfo + " hidden";
+                }
+                pageInfo = pageInfo + "\" title=\"Remove edits\" href=\"#\"><span class=\"far fa-trash-alt\"></span><span class=\"wb-inv\">Remove edits</span></a>";
                 pageInfo = pageInfo + "</li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
@@ -168,45 +198,34 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 // Initalize Edit button
                 if (document.getElementById("editBtn") !== null) {
                     document.getElementById("editBtn").addEventListener("click", function (event) {
-                        let editArea = document.querySelector("main"), 
-                            currentContent = editArea.innerHTML;
+                        let currentContent, 
+                            editArea = document.querySelector("main");
+
+                        currentContent = editArea.innerHTML;
 
                         if (editArea !== null && editArea.contentEditable === "true") {
                             
-                            // saves cuurent modified page content to local storage
-                            if (contentChanged !== "" && contentChanged !== currentContent) {
-//                            sessionStorage.setItem("content", editArea.innerHTML);
+                            // Caches current modified page content to local storage
+                            if (updatedContent !== "" && updatedContent !== currentContent) {
+//                                localStorage.setItem(pageKey, currentContent);
 //                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
                             }
-                            setEditButton();
                             editArea.contentEditable = "false";
 //                            tinymce.activeEditor.hide();
 //                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            setEditButton();
 //                            document.designMode = "off";
                         } else {
-                            if (contentChanged === "") {
+                            if (updatedContent === "") {
                                 editArea.addEventListener("input", function(event) {
-                                    contentChanged = currentContent;
-
-//                                    document.getElementById("editBtn").classList.remove("px-1");
-//                                    document.getElementById("editBtn").title = "Keep edits";
-//                                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
-//                                    document.getElementById("editIcon").classList.remove("fa-edit");
-//                                    document.getElementById("iconText").innerHTML = "Keep edits";
-//                                    document.getElementById("editBanIcon").classList.add("wb-inv");
-//                                    document.getElementById("editIcon").classList.add("fa-save");
+                                    updatedContent = currentContent;
+//                                    setCacheButton();
                                 }, { once: true });
                             }
-                            this.title = "Stop edit";
-                            this.classList.add("px-1");
-                            document.getElementById("editIcon").classList.remove("fa-save");
-                            document.getElementById("editIcon").classList.add("fa-edit");
-                            document.getElementById("iconText").innerHTML = "Stop edit";
-                            document.getElementById("editIconStack").classList.add("fa-stack", "fa-xs");
-                            document.getElementById("editBanIcon").classList.remove("wb-inv");
                             editArea.contentEditable = "true";
 //                            tinymce.activeEditor.show();
 //                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            setStopEditButton();
 //                            document.designMode = "on";
                         }
                         void 0;
@@ -216,24 +235,17 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
                 // Delete page edits button
                 document.getElementById("deleteChangeBtn").addEventListener("click", function() {
-                    setEditButton();
-                    contentChanged = "";
+                    document.querySelector("main").innerHTML = pageOrigin;
+                    localStorage.removeItem(pageKey);
+                    updatedContent = "";
                     document.getElementById("deleteChangeBtn").classList.add("hidden");
+                    setEditButton();
                 });
 
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
                     document.getElementById("githubBtn").href = gitURL;
                 }
-        
-                // Load modied page content if it exists from local Storage
-/*
-                window.onload = function () {
-                    if (sessionStorage.getItem("content")) {
-                        editArea.innerHTML = sessionStorage.getItem("content");
-                    }
-                }
-*/
             }
         });
     }
