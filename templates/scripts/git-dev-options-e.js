@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
-            let pageInfo, titleElm, subjectElm, descriptionElm, keywordsElm, 
+            let pageInfo, titleElm, subjectElm, descriptionElm, keywordsElm, modifyDateElm, issueDateElm, 
                 insertElm = document.getElementById(insertId), 
                 gitURL = "", 
                 githubLinkInfo = "", 
@@ -125,6 +125,14 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     if (keywordsElm !== null && "content" in keywordsElm === true && keywordsElm.content.trim() !== "") {
                         metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Keywords</strong>:&nbsp;" + keywordsElm.content.trim() + "</p>\n";
                     }
+                }
+                modifyDateElm = document.querySelector("meta[name=dcterms\\.modified]");
+                if (modifyDateElm !== null && "content" in modifyDateElm === true && modifyDateElm.content.trim() !== "") {
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date modified</strong>:&nbsp;" + modifyDateElm.content.trim() + "</p>\n";
+                }
+                issueDateElm = document.querySelector("meta[name=dcterms\\.issued]");
+                if (issueDateElm !== null && "content" in issueDateElm === true && issueDateElm.content.trim() !== "") {
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date issued</strong>:&nbsp;" + issueDateElm.content.trim() + "</p>\n";
                 }
 /*
                 if (gitURL !== "") {
@@ -206,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     });
                 }
 
-                // Delete Edit button
+                // Delete page edits button
                 document.getElementById("deleteChangeBtn").addEventListener("click", function() {
                     setEditButton();
                     contentChanged = "";
