@@ -164,11 +164,11 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 if (issueDateElm !== null && "content" in issueDateElm === true && issueDateElm.content.trim() !== "") {
                     metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date issued</strong>:&nbsp;" + issueDateElm.content.trim() + "</p>\n";
                 }
-/*
+
                 if (gitURL !== "") {
                     githubLinkInfo = githubLinkInfo + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to Github source</a></p>\n";
                 }
-*/
+
                 if (sourceLinkInfo + githubLinkInfo + metadataInfo !== "") {
                     pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
                 }
@@ -186,7 +186,9 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     if (sourceLinkInfo + githubLinkInfo !== "" && metadataInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
-                    overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
+                    if (metadataInfo !== "") {
+                        overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
+                    }
                     overlaySec = overlaySec + "\n    </div>\n</section>\n";
                     insertElm.outerHTML = insertElm.outerHTML + overlaySec;
                     $(".wb-lbx").trigger("wb-init.wb-lbx");
