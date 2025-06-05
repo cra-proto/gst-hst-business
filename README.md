@@ -1,4 +1,4 @@
-# GST/HST for Small Business [COP FY2024]
+# GST/HST for Small Business [COP FY2024-Q2 - FY2025-Q2]
 
 Project to optimize the content related to filing GST/HST returns.
 
