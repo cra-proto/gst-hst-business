@@ -12,7 +12,9 @@ let keywords = document.getElementById("pageKeywords");
 let sourceUrlList = document.getElementById("sourceurl");
 let insertId = "test-banner";
 
-let sourceUrlArr, 
+let sourceUrlArr, pageOrigin, 
+    pageKey = location.pathname.replaceAll("/","").replaceAll(":","").replaceAll("-","").split(".").slice(0, -1).join(".").toLowerCase(), 
+    pageStorage = localStorage.getItem(pageKey), 
     getGithubURL = function (pageURL) {
         let pageName = "", 
             githubURL = null;
@@ -43,7 +45,14 @@ let sourceUrlArr,
     };
 
 document.addEventListener("DOMContentLoaded", function initDevOpts() {
-    let devOptionsLocStore = null;
+    let devOptionsLocStore = null, 
+        updatedContent = "";
+
+    pageOrigin = document.querySelector("main").innerHTML;
+    // Load modied page content if it exists from local Storage
+    if (localStorage.getItem(pageKey)) {
+        document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
+    }
 
     if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
         devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
@@ -51,24 +60,78 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
     if (devOptionsLocStore === "true" || (devOptions !== null && devOptions.value.toLowerCase() === "true" && devOptionsLocStore !== "false")) {
         $("#site-banner-inc").on("wb-contentupdated", function () {
-            let pageInfo, titleElm, subjectElm, descriptionElm, keywordsElm, 
+            let pageInfo, titleElm, subjectElm, descriptionElm, keywordsElm, modifyDateElm, issueDateElm, 
                 insertElm = document.getElementById(insertId), 
-                gitURL = "",
-                githublink = "",
+                gitURL = "", 
+                githubLinkInfo = "", 
                 sourceLinkInfo = "", 
                 metadataInfo = "", 
-                overlaySec = "";
+                overlaySec = "", 
+                setEditButton = function setEditButton() {
+                    document.getElementById("editBtn").title = "Edit";
+                    document.getElementById("editBtn").classList.remove("px-1");
+                    document.getElementById("editIcon").classList.remove("fa-save");
+                    document.getElementById("iconText").innerHTML = "Edit";
+                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
+                    document.getElementById("editBanIcon").classList.add("wb-inv");
+                    document.getElementById("editIcon").classList.add("fa-edit");
+                }, 
+                setStopEditButton = function setStopEditButton() {
+                    document.getElementById("editBtn").title = "Stop edit";
+                    document.getElementById("editBtn").classList.add("px-1");
+                    document.getElementById("editIcon").classList.remove("fa-save");
+                    document.getElementById("editIcon").classList.add("fa-edit");
+                    document.getElementById("iconText").innerHTML = "Stop edit";
+                    document.getElementById("editIconStack").classList.add("fa-stack", "fa-xs");
+                    document.getElementById("editBanIcon").classList.remove("wb-inv");
+                }, 
+                setCacheButton = function setCacheButton() {
+                    document.getElementById("editBtn").classList.remove("px-1");
+                    document.getElementById("editBtn").title = "Cache edits";
+                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
+                    document.getElementById("editIcon").classList.remove("fa-edit");
+                    document.getElementById("iconText").innerHTML = "Cache edits";
+                    document.getElementById("editBanIcon").classList.add("wb-inv");
+                    document.getElementById("editIcon").classList.add("fa-save");
+                };
 
             // Add toolbar and buttons
             if (insertElm !== null) {
+                tinymce.init({
+                    promotion: false, 
+                    license_key: "gpl", 
+                    setup: function (ed) {
+                        ed.on("init", function (e) {
+                            e.target.hide();
+                        });
+                    }, 
+                    plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
+                    toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
+                    inline: true, 
+                    quickbars_image_toolbar: false, 
+                    quickbars_selection_toolbar: true, 
+                    quickbars_insert_toolbar: false, 
+                    relative_urls: false, 
+                    entity_encoding: "raw", 
+                    importcss_append: true, 
+                    content_css: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css", 
+                    selector: "main"
+                });
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
-                pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\"><a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span class=\"fa fa-edit mrgn-tp-sm\"></span><span class=\"wb-inv\">Edit</span></a></li>\n";
+                pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\">";
+                pageInfo = pageInfo + "<a id=\"editBtn\" class=\"btn btn-default btn-sm px-1\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIconStack\"><span id=\"editIcon\" class=\"fa fa-edit fa-stack-1x\"></span><span id=\"editBanIcon\" class=\"wb-inv fa fa-ban fa-stack-2x text-warning\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></span></a>";
+                pageInfo = pageInfo + "<a id=\"deleteChangeBtn\" class=\"btn btn-default btn-sm";
+                if (localStorage.getItem(pageKey) === null) {
+                    pageInfo = pageInfo + " hidden";
+                }
+                pageInfo = pageInfo + "\" title=\"Remove edits\" href=\"#\"><span class=\"far fa-trash-alt\"></span><span class=\"wb-inv\">Remove edits</span></a>";
+                pageInfo = pageInfo + "</li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
                     if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
                         sourceLinkInfo = "<h3 class=\"mrgn-tp-sm\">Pertinent links</h3>\n<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
                         sourceUrlArr.forEach(function addSourceLinks(sourceUrlData) {
-                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\" target=\"_blank\">" + sourceUrlData.sourcetitle + "</a></li>\n";
+                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link mrgn-rght-sm\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\" target=\"_blank\">" + sourceUrlData.sourcetitle + "</a></li>\n";
                         });
                         sourceLinkInfo = sourceLinkInfo + "</ol>\n";
                     }
@@ -89,19 +152,29 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     metadataInfo = metadataInfo + "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
                 } else {
                     keywordsElm = document.querySelector("meta[name=dcterms\\.keywords]");
-                    if (keywordsElm !== null && "content" in keywordsElm === true && keyworsdElm.content.trim() !== "") {
-                        metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Keywords</strong>:&nbsp;" + keyworsdElm.content.trim() + "</p>\n";
+                    if (keywordsElm !== null && "content" in keywordsElm === true && keywordsElm.content.trim() !== "") {
+                        metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Keywords</strong>:&nbsp;" + keywordsElm.content.trim() + "</p>\n";
                     }
                 }
+                modifyDateElm = document.querySelector("meta[name=dcterms\\.modified]");
+                if (modifyDateElm !== null && "content" in modifyDateElm === true && modifyDateElm.content.trim() !== "") {
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date modified</strong>:&nbsp;" + modifyDateElm.content.trim() + "</p>\n";
+                }
+                issueDateElm = document.querySelector("meta[name=dcterms\\.issued]");
+                if (issueDateElm !== null && "content" in issueDateElm === true && issueDateElm.content.trim() !== "") {
+                    metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date issued</strong>:&nbsp;" + issueDateElm.content.trim() + "</p>\n";
+                }
 
-                if (sourceLinkInfo + metadataInfo !== "") {
-                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm mrgn-rght-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
+                if (gitURL !== "") {
+                    githubLinkInfo = githubLinkInfo + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to Github source</a></p>\n";
+                }
+
+                if (sourceLinkInfo + githubLinkInfo + metadataInfo !== "") {
+                    pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
                 }
 
                 if (gitURL !== "") {
                     pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>\n";
-//                    githublink = githublink + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to Github source</a></p>\n";
-                    
                 }
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
@@ -109,11 +182,13 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 if (sourceLinkInfo + metadataInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
-                    overlaySec = overlaySec + githublink;
-                    if (sourceLinkInfo + githublink !== "" && metadataInfo !== "") {
+                    overlaySec = overlaySec + githubLinkInfo;
+                    if (sourceLinkInfo + githubLinkInfo !== "" && metadataInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
-                    overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
+                    if (metadataInfo !== "") {
+                        overlaySec = overlaySec + "<h3 class=\"mrgn-tp-sm mrgn-bttm-md\">Metadata</h3>\n" + metadataInfo;
+                    }
                     overlaySec = overlaySec + "\n    </div>\n</section>\n";
                     insertElm.outerHTML = insertElm.outerHTML + overlaySec;
                     $(".wb-lbx").trigger("wb-init.wb-lbx");
@@ -125,38 +200,54 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 // Initalize Edit button
                 if (document.getElementById("editBtn") !== null) {
                     document.getElementById("editBtn").addEventListener("click", function (event) {
-                        if (document.getElementsByTagName("main").contentEditable === "true") {
-                            document.getElementsByTagName("main").contentEditable = "false";
-                            document.designMode = "off";
-                            void 0;
-                            // saves cuurent modified page content to local storage
-//                            sessionStorage.setItem("content", document.getElementsByTagName("main")[0].innerHTML);
-                            this.classList.add("btn-default");
-                            this.classList.remove("btn-primary");
+                        let currentContent, 
+                            editArea = document.querySelector("main");
+
+                        currentContent = editArea.innerHTML;
+
+                        if (editArea !== null && editArea.contentEditable === "true") {
+                            
+                            // Caches current modified page content to local storage
+                            if (updatedContent !== "" && updatedContent !== currentContent) {
+//                                localStorage.setItem(pageKey, currentContent);
+//                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
+                            }
+                            editArea.contentEditable = "false";
+//                            tinymce.activeEditor.hide();
+//                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            setEditButton();
+//                            document.designMode = "off";
                         } else {
-                            document.getElementsByTagName("main").contentEditable = "true";
-                            document.designMode = "on";
-                            void 0;
-                            this.classList.add("btn-primary");
-                            this.classList.remove("btn-default");
+                            if (updatedContent === "") {
+                                editArea.addEventListener("input", function(event) {
+                                    updatedContent = currentContent;
+//                                    setCacheButton();
+                                }, { once: true });
+                            }
+                            editArea.contentEditable = "true";
+//                            tinymce.activeEditor.show();
+//                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            setStopEditButton();
+//                            document.designMode = "on";
                         }
+                        void 0;
                         event.preventDefault();
                     });
                 }
+
+                // Delete page edits button
+                document.getElementById("deleteChangeBtn").addEventListener("click", function() {
+                    document.querySelector("main").innerHTML = pageOrigin;
+                    localStorage.removeItem(pageKey);
+                    updatedContent = "";
+                    document.getElementById("deleteChangeBtn").classList.add("hidden");
+                    setEditButton();
+                });
 
                 // Initalize Github button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
                     document.getElementById("githubBtn").href = gitURL;
                 }
-        
-                // Load modied page content if it exists from local Storage
-/*
-                window.onload = function () {
-                    if (sessionStorage.getItem("content")) {
-                        document.getElementsByTagName("main")[0].innerHTML = sessionStorage.getItem("content");
-                    }
-                }
-*/
             }
         });
     }

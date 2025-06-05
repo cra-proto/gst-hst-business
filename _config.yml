@@ -59,10 +59,10 @@ defaults:
            url: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
       css: 
         - https://use.fontawesome.com/releases/v5.15.4/css/all.css
-        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2025-04-nahanni.css
+        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2025-12-mille-iles.css
         - /gst-hst-business/templates/css/testing-banner.css
       script: 
-        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2025-04-nahanni.js
+        - https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2025-12-mille-iles.js
         - /gst-hst-business/templates/scripts/external-link-detour.js
 #        - https://www.canada.ca/etc/designs/canada/wet-boew/js/ep-pp.min.js
   -

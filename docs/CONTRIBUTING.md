@@ -9,4 +9,3 @@
 - Create and name all files in the locations that reflects what they will be named and where they will be eventually be published when created on Canada.ca
 - Follow [Government of Canada domains and URLs - How to write URLs](https://design.canada.ca/specifications/mandatory-elements/domains-urls.html#du3a) guidelines for naming paths and files
 - In the [_config.yml](https://github.com/cra-design/gst-hst-business/blob/main/_config.yml) file the `developerOptions:` setting should be set to `false` before testing takes place
-- 
