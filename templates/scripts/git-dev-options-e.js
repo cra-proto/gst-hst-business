@@ -228,12 +228,6 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                             setEditButton();
 //                            document.designMode = "off";
                         } else {
-                            if (updatedContent === "") {
-                                editArea.addEventListener("input", function(event) {
-                                    updatedContent = currentContent;
-//                                    setCacheButton();
-                                }, { once: true });
-                            }
                             editArea.contentEditable = "true";
                             tinymce.activeEditor.execCommand("mceVisualBlocks");
                             tinymce.activeEditor.show();
