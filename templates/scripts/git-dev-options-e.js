@@ -70,29 +70,26 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 setEditButton = function setEditButton() {
                     document.getElementById("editBtn").title = "Edit";
                     document.getElementById("editBtn").classList.remove("px-1");
+                    document.getElementById("editIcon").classList.add("fa-edit");
+                    document.getElementById("editIcon").classList.remove("fa-window-close");
                     document.getElementById("editIcon").classList.remove("fa-save");
                     document.getElementById("iconText").innerHTML = "Edit";
-                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
-                    document.getElementById("editBanIcon").classList.add("wb-inv");
-                    document.getElementById("editIcon").classList.add("fa-edit");
                 }, 
                 setStopEditButton = function setStopEditButton() {
                     document.getElementById("editBtn").title = "Stop edit";
                     document.getElementById("editBtn").classList.add("px-1");
+                    document.getElementById("editIcon").classList.remove("fa-edit");
+                    document.getElementById("editIcon").classList.add("fa-window-close");
                     document.getElementById("editIcon").classList.remove("fa-save");
-                    document.getElementById("editIcon").classList.add("fa-edit");
                     document.getElementById("iconText").innerHTML = "Stop edit";
-                    document.getElementById("editIconStack").classList.add("fa-stack", "fa-xs");
-                    document.getElementById("editBanIcon").classList.remove("wb-inv");
                 }, 
                 setCacheButton = function setCacheButton() {
-                    document.getElementById("editBtn").classList.remove("px-1");
                     document.getElementById("editBtn").title = "Cache edits";
-                    document.getElementById("editIconStack").classList.remove("fa-stack", "fa-xs");
+                    document.getElementById("editBtn").classList.remove("px-1");
                     document.getElementById("editIcon").classList.remove("fa-edit");
-                    document.getElementById("iconText").innerHTML = "Cache edits";
-                    document.getElementById("editBanIcon").classList.add("wb-inv");
+                    document.getElementById("editIcon").classList.remove("fa-window-close");
                     document.getElementById("editIcon").classList.add("fa-save");
+                    document.getElementById("iconText").innerHTML = "Cache edits";
                 };
 
             // Add toolbar and buttons
@@ -103,7 +100,19 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     setup: function (ed) {
                         ed.on("init", function (e) {
                             e.target.hide();
-                        });
+                        }),
+                        ed.on("input Change", function(e) {
+                            if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
+                                    updatedContent = document.querySelector("main").innerHTML;
+                                    switch (updatedContent) {
+                                        case pageStorage:
+//                                            setStopEditButton();
+                                            break;
+                                        default:
+//                                            setCacheButton();
+                                            break;
+                                    }
+                            }                            
                     }, 
                     plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
                     toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
@@ -119,12 +128,12 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 });
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\">";
-                pageInfo = pageInfo + "<a id=\"editBtn\" class=\"btn btn-default btn-sm px-1\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIconStack\"><span id=\"editIcon\" class=\"fa fa-edit fa-stack-1x\"></span><span id=\"editBanIcon\" class=\"wb-inv fa fa-ban fa-stack-2x text-warning\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></span></a>";
+                pageInfo = pageInfo + "<a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIcon\" class=\"fa fa-edit mrgn-tp-sm\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></a>";
                 pageInfo = pageInfo + "<a id=\"deleteChangeBtn\" class=\"btn btn-default btn-sm";
                 if (localStorage.getItem(pageKey) === null) {
                     pageInfo = pageInfo + " hidden";
                 }
-                pageInfo = pageInfo + "\" title=\"Remove edits\" href=\"#\"><span class=\"far fa-trash-alt\"></span><span class=\"wb-inv\">Remove edits</span></a>";
+                pageInfo = pageInfo + "\" title=\"Remove edits\" href=\"#\"><span class=\"far fa-trash-alt mrgn-tp-sm\"></span><span class=\"wb-inv\">Remove edits</span></a>";
                 pageInfo = pageInfo + "</li>\n";
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
@@ -213,8 +222,8 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 //                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
                             }
                             editArea.contentEditable = "false";
-//                            tinymce.activeEditor.hide();
-//                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            tinymce.activeEditor.hide();
                             setEditButton();
 //                            document.designMode = "off";
                         } else {
@@ -225,8 +234,8 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                                 }, { once: true });
                             }
                             editArea.contentEditable = "true";
-//                            tinymce.activeEditor.show();
-//                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            tinymce.activeEditor.execCommand("mceVisualBlocks");
+                            tinymce.activeEditor.show();
                             setStopEditButton();
 //                            document.designMode = "on";
                         }
