@@ -103,16 +103,17 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         }),
                         ed.on("input Change", function(e) {
                             if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
-                                    updatedContent = document.querySelector("main").innerHTML;
-                                    switch (updatedContent) {
-                                        case pageStorage:
-//                                            setStopEditButton();
-                                            break;
-                                        default:
-//                                            setCacheButton();
-                                            break;
-                                    }
-                            }                            
+                                updatedContent = document.querySelector("main").innerHTML;
+                                switch (updatedContent) {
+                                    case pageStorage:
+//                                        setStopEditButton();
+                                        break;
+                                    default:
+//                                        setCacheButton();
+                                        break;
+                                }
+                            }
+                        });
                     }, 
                     plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
                     toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
