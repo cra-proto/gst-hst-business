@@ -46,13 +46,7 @@ let sourceUrlArr, pageOrigin,
 
 document.addEventListener("DOMContentLoaded", function initDevOpts() {
     let devOptionsLocStore = null, 
-        updatedContent = "";
-
-    pageOrigin = document.querySelector("main").innerHTML;
-    // Load modied page content if it exists from local Storage
-    if (localStorage.getItem(pageKey)) {
-        document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
-    }
+        editStartContent = "";
 
     if (devOptions !== null && "locStorage" in devOptions.dataset && devOptions.dataset.locStorage !== "") {
         devOptionsLocStore = localStorage.getItem(devOptions.dataset.locStorage);
@@ -93,16 +87,30 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     license_key: "gpl", 
                     setup: function (ed) {
                         ed.on("init", function (e) {
+                            pageOrigin = document.querySelector("main").innerHTML;
+
+                            // Load modied page content if it exists from local Storage
+                            if (localStorage.getItem(pageKey)) {
+                                document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
+                            }
+
                             e.target.hide();
                         }),
                         ed.on("input Change", function(e) {
                             if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
                                 switch (document.querySelector("main").innerHTML) {
+                                    case pageOrigin:
+                                        localStorage.removeItem(pageKey);
+                                        pageStorage = null;
+                                        document.getElementById("deleteChangeBtn").classList.add("hidden");
+                                        setStopEditButton();
+                                        break;
+                                    case editStartContent:
                                     case pageStorage:
-//                                        setStopEditButton();
+                                        setStopEditButton();
                                         break;
                                     default:
-//                                        setCacheButton();
+                                        setCacheButton();
                                         break;
                                 }
                             }
@@ -206,28 +214,35 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         let currentContent, 
                             editArea = document.querySelector("main");
 
-                        currentContent = editArea.innerHTML;
+                        if (editArea !== null) {
+                            currentContent = editArea.innerHTML;
+                            if (editArea.contentEditable === "true") {
 
-                        if (editArea !== null && editArea.contentEditable === "true") {
-                            
-                            // Caches current modified page content to local storage
-                            if (updatedContent !== "" && updatedContent !== currentContent) {
-//                                localStorage.setItem(pageKey, currentContent);
-//                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
-                                updatedContent = "";
+                                // Caches current modified page content to local storage
+                                if (editStartContent !== "") {
+                                    if (pageOrigin === currentContent) {
+                                        localStorage.removeItem(pageKey);
+                                        document.getElementById("deleteChangeBtn").classList.add("hidden");
+
+                                    } else if (editStartContent !== currentContent) {
+                                        localStorage.setItem(pageKey, currentContent);
+                                        document.getElementById("deleteChangeBtn").classList.remove("hidden");
+                                    }
+                                    editStartContent = "";
+                                }
+                                editArea.contentEditable = "false";
+                                tinymce.activeEditor.execCommand("mceVisualBlocks");
+                                tinymce.activeEditor.hide();
+                                setEditButton();
+//                                document.designMode = "off";
+                            } else {
+                                editArea.contentEditable = "true";
+                                tinymce.activeEditor.execCommand("mceVisualBlocks");
+                                tinymce.activeEditor.show();
+                                editStartContent = editArea.innerHTML;
+                                setStopEditButton();
+//                                document.designMode = "on";
                             }
-                            editArea.contentEditable = "false";
-                            tinymce.activeEditor.execCommand("mceVisualBlocks");
-                            tinymce.activeEditor.hide();
-                            setEditButton();
-//                            document.designMode = "off";
-                        } else {
-                            editArea.contentEditable = "true";
-                            tinymce.activeEditor.execCommand("mceVisualBlocks");
-                            tinymce.activeEditor.show();
-                            updatedContent = editArea.innerHTML;
-                            setStopEditButton();
-//                            document.designMode = "on";
                         }
                         void 0;
                         event.preventDefault();
@@ -238,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 document.getElementById("deleteChangeBtn").addEventListener("click", function() {
                     document.querySelector("main").innerHTML = pageOrigin;
                     localStorage.removeItem(pageKey);
-                    updatedContent = "";
+                    editStartContent = "";
                     document.getElementById("deleteChangeBtn").classList.add("hidden");
                     setEditButton();
                 });
