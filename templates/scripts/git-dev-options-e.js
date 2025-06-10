@@ -69,25 +69,19 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 overlaySec = "", 
                 setEditButton = function setEditButton() {
                     document.getElementById("editBtn").title = "Edit";
-                    document.getElementById("editBtn").classList.remove("px-1");
+                    document.getElementById("editIcon").classList.remove("fa-window-close", "fa-save");
                     document.getElementById("editIcon").classList.add("fa-edit");
-                    document.getElementById("editIcon").classList.remove("fa-window-close");
-                    document.getElementById("editIcon").classList.remove("fa-save");
                     document.getElementById("iconText").innerHTML = "Edit";
                 }, 
                 setStopEditButton = function setStopEditButton() {
                     document.getElementById("editBtn").title = "Stop edit";
-                    document.getElementById("editBtn").classList.add("px-1");
-                    document.getElementById("editIcon").classList.remove("fa-edit");
+                    document.getElementById("editIcon").classList.remove("fa-edit", "fa-save");
                     document.getElementById("editIcon").classList.add("fa-window-close");
-                    document.getElementById("editIcon").classList.remove("fa-save");
                     document.getElementById("iconText").innerHTML = "Stop edit";
                 }, 
                 setCacheButton = function setCacheButton() {
                     document.getElementById("editBtn").title = "Cache edits";
-                    document.getElementById("editBtn").classList.remove("px-1");
-                    document.getElementById("editIcon").classList.remove("fa-edit");
-                    document.getElementById("editIcon").classList.remove("fa-window-close");
+                    document.getElementById("editIcon").classList.remove("fa-edit", "fa-window-close");
                     document.getElementById("editIcon").classList.add("fa-save");
                     document.getElementById("iconText").innerHTML = "Cache edits";
                 };
@@ -103,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         }),
                         ed.on("input Change", function(e) {
                             if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
-                                updatedContent = document.querySelector("main").innerHTML;
-                                switch (updatedContent) {
+                                switch (document.querySelector("main").innerHTML) {
                                     case pageStorage:
 //                                        setStopEditButton();
                                         break;
@@ -206,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
             }
 
             if (document.getElementById("devtoolbar") !== null) {
-        
+
                 // Initalize Edit button
                 if (document.getElementById("editBtn") !== null) {
                     document.getElementById("editBtn").addEventListener("click", function (event) {
@@ -221,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                             if (updatedContent !== "" && updatedContent !== currentContent) {
 //                                localStorage.setItem(pageKey, currentContent);
 //                                document.getElementById("deleteChangeBtn").classList.remove("hidden");
+                                updatedContent = "";
                             }
                             editArea.contentEditable = "false";
                             tinymce.activeEditor.execCommand("mceVisualBlocks");
@@ -231,6 +225,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                             editArea.contentEditable = "true";
                             tinymce.activeEditor.execCommand("mceVisualBlocks");
                             tinymce.activeEditor.show();
+                            updatedContent = editArea.innerHTML;
                             setStopEditButton();
 //                            document.designMode = "on";
                         }
