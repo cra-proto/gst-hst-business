@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
                 insertElm.innerHTML = pageInfo + insertElm.innerHTML;
-                if (sourceLinkInfo + metadataInfo !== "") {
+                if (sourceLinkInfo + githubLinkInfo + metadataInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
                     overlaySec = overlaySec + sourceLinkInfo;
                     overlaySec = overlaySec + githubLinkInfo;
