@@ -78,56 +78,57 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     document.getElementById("editIcon").classList.remove("fa-edit", "fa-window-close");
                     document.getElementById("editIcon").classList.add("fa-save");
                     document.getElementById("iconText").innerHTML = "Cache edits";
+                },
+                initTinyMCE = function () {
+                    tinymce.init({
+                        promotion: false, 
+                        license_key: "gpl", 
+                        setup: function (ed) {
+                            ed.on("init", function (e) {
+                                pageOrigin = document.querySelector("main").innerHTML;
+
+                                // Load modied page content if it exists from local Storage
+                                if (localStorage.getItem(pageKey)) {
+                                    document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
+                                }
+                                ed.execCommand("mceVisualBlocks");
+                            }),
+                            ed.on("input Change", function(e) {
+                                if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
+                                    switch (document.querySelector("main").innerHTML) {
+                                        case pageOrigin:
+                                            localStorage.removeItem(pageKey);
+                                            pageStorage = null;
+                                            document.getElementById("deleteChangeBtn").classList.add("hidden");
+                                            setStopEditButton();
+                                            break;
+                                        case editStartContent:
+                                        case pageStorage:
+                                            setStopEditButton();
+                                            break;
+                                        default:
+                                            setCacheButton();
+                                            break;
+                                    }
+                                }
+                            });
+                        }, 
+                        plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
+                        toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
+                        inline: true, 
+                        quickbars_image_toolbar: false, 
+                        quickbars_selection_toolbar: true, 
+                        quickbars_insert_toolbar: false, 
+                        relative_urls: false, 
+                        entity_encoding: "raw", 
+                        importcss_append: true, 
+                        content_css: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css", 
+                        selector: "main"
+                    });
                 };
 
             // Add toolbar and buttons
             if (insertElm !== null) {
-                tinymce.init({
-                    promotion: false, 
-                    license_key: "gpl", 
-                    setup: function (ed) {
-                        ed.on("init", function (e) {
-                            pageOrigin = document.querySelector("main").innerHTML;
-
-                            // Load modied page content if it exists from local Storage
-                            if (localStorage.getItem(pageKey)) {
-                                document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
-                            }
-
-                            e.target.hide();
-                        }),
-                        ed.on("input Change", function(e) {
-                            if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
-                                switch (document.querySelector("main").innerHTML) {
-                                    case pageOrigin:
-                                        localStorage.removeItem(pageKey);
-                                        pageStorage = null;
-                                        document.getElementById("deleteChangeBtn").classList.add("hidden");
-                                        setStopEditButton();
-                                        break;
-                                    case editStartContent:
-                                    case pageStorage:
-                                        setStopEditButton();
-                                        break;
-                                    default:
-                                        setCacheButton();
-                                        break;
-                                }
-                            }
-                        });
-                    }, 
-                    plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
-                    toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
-                    inline: true, 
-                    quickbars_image_toolbar: false, 
-                    quickbars_selection_toolbar: true, 
-                    quickbars_insert_toolbar: false, 
-                    relative_urls: false, 
-                    entity_encoding: "raw", 
-                    importcss_append: true, 
-                    content_css: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css", 
-                    selector: "main"
-                });
                 gitURL = getGithubURL(window.location.origin + window.location.pathname);
                 pageInfo = "<div id=\"devtoolbar\" class=\"pull-right mrgn-rght-md\">\n    <ul class=\"btn-toolbar list-inline\" role=\"toolbar\">\n        <li id=\"editBtnGrp\" class=\"btn-group\">";
                 pageInfo = pageInfo + "<a id=\"editBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"\" title=\"Edit\"><span id=\"editIcon\" class=\"fa fa-edit mrgn-tp-sm\"></span><span id=\"iconText\" class=\"wb-inv\">Edit</span></a>";
@@ -230,18 +231,16 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                                     }
                                     editStartContent = "";
                                 }
+                                tinymce.remove();
                                 editArea.contentEditable = "false";
-                                tinymce.activeEditor.execCommand("mceVisualBlocks");
-                                tinymce.activeEditor.hide();
                                 setEditButton();
-//                                document.designMode = "off";
+                                // document.designMode = "off";
                             } else {
+                                initTinyMCE();
                                 editArea.contentEditable = "true";
-                                tinymce.activeEditor.execCommand("mceVisualBlocks");
-                                tinymce.activeEditor.show();
                                 editStartContent = editArea.innerHTML;
                                 setStopEditButton();
-//                                document.designMode = "on";
+                                // document.designMode = "on";
                             }
                         }
                         void 0;
