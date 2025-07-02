@@ -20,9 +20,6 @@ assets: https://wet-boew.github.io/themes-dist
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
-sitemenuPath:
-  en: "https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html"
-  fr: "https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-fr.html"
 
 # Custom settings
 developerOptions: false
@@ -51,6 +48,7 @@ defaults:
       feedbackPath: https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html
       privacyUrl: https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html
       termsURL: https://www.canada.ca/en/transparency/terms.html
+      sitemenuPath: https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html
       contextualFooter:
         title: "Canada Revenue Agency (CRA)"
         links:
