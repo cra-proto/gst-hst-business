@@ -83,6 +83,7 @@ pageclass: "Page CSS class"                        # Sets CSS class that are in 
 creator: "The page creator"                        # Sets the creator metadata
 privacyUrl: "Privacy page URL"                     # Sets the URL for the privacy link in the page footer
 termsUrl: "Terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
+sitemenuPath: https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html # Sets the path of the ajaxed Site Menu
 
 archived: [true | false]                           # Sets if the archived banner is added to the top of the page [default: false]
 archiveOverlay: [true | false]                     # 
