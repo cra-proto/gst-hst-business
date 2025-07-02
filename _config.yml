@@ -20,6 +20,9 @@ assets: https://wet-boew.github.io/themes-dist
 creator:
   en: "Canada Revenue Agency"
   fr: "Agence du revenu du Canada"
+sitemenuPath:
+  en: "https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html"
+  fr: "https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-fr.html"
 
 # Custom settings
 developerOptions: false
