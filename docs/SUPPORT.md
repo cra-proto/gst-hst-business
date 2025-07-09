@@ -83,6 +83,7 @@ pageclass: "Page CSS class"                        # Sets CSS class that are in 
 creator: "The page creator"                        # Sets the creator metadata
 privacyUrl: "Privacy page URL"                     # Sets the URL for the privacy link in the page footer
 termsUrl: "Terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
+sitemenuPath: https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html # Sets the path of the ajaxed Site Menu
 
 archived: [true | false]                           # Sets if the archived banner is added to the top of the page [default: false]
 archiveOverlay: [true | false]                     # 
@@ -214,7 +215,9 @@ devOptionsLocStore: "gitCRATemplateDevOptions"     # Sets the localStorage key n
 testBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 
 exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true 
-exitPage: "Exit intent page URL"                   # Identifies the link to the exit intent page used for link generation on all pages
+exitPage:                                          # Identifies the links to the exit intent page used for link generation on all pages
+  en: "English exit intent page URL"
+  fr: "French exit intent page URL"
 
 externalOrigin: "https://domain"                   # The domain will be prepended to all links on all pages where the link starts with "/"
 modifiedLinkList: "JSON link file URL"             # The path and filename of a JSON file with links that over ride the exit links and redirect the designated URLs to a specified page
