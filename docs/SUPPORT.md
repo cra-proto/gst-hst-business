@@ -1,7 +1,7 @@
 # Support information
 
 > [!NOTE]
-> Make sure to follow the spacing as shown below or as shown in the templates as improper spacing and layout of values and variables can cause issues in the format of how a page is generated
+> Make sure to indent with spaces as used below or as shown in the templates as improper spacing and layout of values and variables can cause issues in the format and look of how a page is generated.
 
 ## On this page
 
@@ -23,7 +23,7 @@ For the GCWeb/Jekyll setup to function a `_config.yml` file must saved at the re
 
 ## Page template options
 
-- The `Edit button` on the banner toggles **contenteditable** on and off allowing editing of the live page **Note:** Any changes made are not saved and will be lost if navigated off the page or the browser tab is closed or refreshed
+- The `Edit button` on the banner toggles an instance **TinyMCE** on and off allowing editing of the live page **Note:** Any changes you save with this method are only saved for yourself so if you want to make any permanent changes you'll still need to update those via GitHub
 - The `Github button` on the banner will take you to the the source page on github  
 - All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
 
@@ -152,7 +152,7 @@ infoBanner:                                       # Sets a Banner at the top of 
 
 ```yaml
 ---
-testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page
+testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page (deafult: true)
 sourceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
   - title: "The link title" 
     link: "The link URL"
