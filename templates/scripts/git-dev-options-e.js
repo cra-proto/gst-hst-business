@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 if (sourceUrlList !== null && sourceUrlList.value !== "") {
                     sourceUrlArr = JSON.parse(sourceUrlList.value);
                     if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
-                        sourceLinkInfo = "<h3 class=\"mrgn-tp-sm\">Pertinent links</h3>\n<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
+                        sourceLinkInfo = "<h3 class=\"mrgn-tp-sm\">Noted links for this page</h3>\n<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
                         sourceUrlArr.forEach(function addSourceLinks(sourceUrlData) {
                            sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link mrgn-rght-sm\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\" target=\"_blank\">" + sourceUrlData.sourcetitle + "</a></li>\n";
                         });
