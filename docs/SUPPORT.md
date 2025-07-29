@@ -153,7 +153,7 @@ infoBanner:                                       # Sets a Banner at the top of 
 ```yaml
 ---
 testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page (deafult: true)
-sourceurl:                                        # Configures and adds links of your choice to the testing site only banner for a page
+notedlinks:                                        # Configures and adds links of your choice to the testing site only banner for a page
   - title: "The link title" 
     link: "The link URL"
 keywords: ""                                      # Displays these keywords to be associated to the page
