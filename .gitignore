@@ -4,3 +4,4 @@ _site
 .vscode
 frontmatter.json
 gemfile.lock
+.github/workflows
