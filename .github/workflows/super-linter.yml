@@ -2,8 +2,7 @@
 name: Lint
 
 on: # yamllint disable-line rule:truthy
-  milestone:
-    types: [created, closed]
+  workflow_dispatch:
 
 permissions: {}
 
