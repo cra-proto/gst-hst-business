@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         promotion: false, 
                         license_key: "gpl", 
                         setup: function (ed) {
-                            ed.on("init", function (e) {
+                            ed.on("init", function () {
                                 pageOrigin = document.querySelector("main").innerHTML;
 
                                 // Load modied page content if it exists from local Storage

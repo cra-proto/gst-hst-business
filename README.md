@@ -33,7 +33,7 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Update procedures:
 
-- Prototype development files will have `_proto#` appended to the end of the file name
+- Prototype development files will have `_proto#` appended to the end of the filename
 - Changes will be committed to the repository by selecting `create a new branch` and then performing a `pull request` to merge the newly updated content
 - Updates or pull requests should be named or have comments identifying what has been updated or changed
 - Any repository path structure changes should be communicated to all individuals who directly update the repository

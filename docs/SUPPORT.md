@@ -259,5 +259,5 @@ relativeExternalLinks: [true | false]              # Identifies whether links to
 - [Liquid template language](https://shopify.github.io/liquid/basics/introduction/)
 - [Liquid | Jekyll](https://jekyllrb.com/docs/liquid/)
 - [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-- [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
+- [Mermaid Markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [GitHub Help](https://help.github.com)
