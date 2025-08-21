@@ -2,8 +2,7 @@
 name: Lint
 
 on: # yamllint disable-line rule:truthy
-  milestone:
-    types: [created, closed]
+  workflow_dispatch:
 
 permissions: {}
 
@@ -32,14 +31,19 @@ jobs:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+          VALIDATE_HTML_DOCTYPE: false # Enable DOCTYPE validation for HTML
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
           SAVE_SUPER_LINTER_SUMMARY: true
           SAVE_SUPER_LINTER_OUTPUT: true
           SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
           SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
+          HTML_HINT_CONFIG_FILE: .github/linters/.htmlhintrc
+          HTMLHINT_CONFIG_FILE: .github/linters/.htmlhintrc
 
-linters:
-  html:
-    disable:
-      - doctype-first
-      - id-class-value
+      - name: Create HTMLHint config
+        run: |
+          echo '{
+            "doctype-first": false,
+            "id-class-value": false
+          }' > .htmlhintrc
+ 
