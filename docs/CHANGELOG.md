@@ -2,7 +2,7 @@
 
 ## Pages to be added (3)
 
-|Action|Page title|Github URL|New Canada.ca URL|Update modified/issued date|
+|Action|Page title|GitHub URL|New Canada.ca URL|Update modified/issued date|
 |:-:|:-|:-|:-|:-:|
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|Calculate and prepare to report the GST/HST|[https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report.html](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/calculate-prepare-report.html)|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/calculate-prepare-report.html)|YES|
 |![Static Badge](https://img.shields.io/badge/Added-seagreen)|By mail - File your GST/HST return|[https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-mail.html](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-mail.html)|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/how-file/by-mail.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/how-file/by-mail.html)|YES|
@@ -51,7 +51,7 @@
 
 ## Pages to be Modified (22)
 
-|Action|Github page title|Github URL|Canada.ca page title|Old Canada.ca URL|New Canada.ca URL|Update modified date|
+|Action|GitHub page title|GitHub URL|Canada.ca page title|Old Canada.ca URL|New Canada.ca URL|Update modified date|
 |:-:|:-|:-|:-|:-|:-|:-:|
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|After you file - File your GST/HST return|[https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/after-file.html)|After you file - Complete and file a GST/HST return|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/after-file.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/complete-file-return-business/after-file.html)|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/after-file.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/after-file.html)|YES|
 |![Static Badge](https://img.shields.io/badge/Modified-blue)|By phone (TELEFILE) - File your GST/HST return|[https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html](https://github.com/cra-design/gst-hst-business/blob/main/en/topics/gst-hst-businesses/file-return/how-file/how-file-phone-telefile.html)|GST/HST TELEFILE|[https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile.html](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/gst-hst-telefile.html)|[https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/how-file/by-phone-telefile.html](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/how-file/by-phone-telefile.html)|YES|

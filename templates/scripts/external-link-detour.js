@@ -1,5 +1,5 @@
 /*
-* Github only script
+* GitHub only script
 *
 * Replaces all external links with a link to exit intent page or replaces links with designated replace link found in JSON file 
 *
@@ -154,7 +154,7 @@ if ("modLinkFile" in exitPage.dataset && exitPage.dataset.modLinkFile !== "") {
 
 //Remove visited link highlighting from links to exit page
 if (exitPage !== null) {
-    visitedLinkStyle.innerHTML = "/*\n*** Not to be copied to Canada.ca ***\n\nCSS for github specific elements\n*//\n\n.btn-primary[href*='" + exitPage.value + "']:visited, .btn-success[href*='" + exitPage.value + "']:visited, .btn-info[href*='" + exitPage.value + "']:visited, .btn-danger[href*='" + exitPage.value + "']:visited { color: #fff; } .btn-default[href*='" + exitPage.value + "']:visited { color: #335075; } .btn-warning[href*='" + exitPage.value + "']:visited { color: #000; } a[href*='" + exitPage.value + "']:visited{ color:inherit; } ";
+    visitedLinkStyle.innerHTML = "/*\n*** Not to be copied to Canada.ca ***\n\nCSS for GitHub specific elements\n*//\n\n.btn-primary[href*='" + exitPage.value + "']:visited, .btn-success[href*='" + exitPage.value + "']:visited, .btn-info[href*='" + exitPage.value + "']:visited, .btn-danger[href*='" + exitPage.value + "']:visited { color: #fff; } .btn-default[href*='" + exitPage.value + "']:visited { color: #335075; } .btn-warning[href*='" + exitPage.value + "']:visited { color: #000; } a[href*='" + exitPage.value + "']:visited{ color:inherit; } ";
     $("head").append(visitedLinkStyle);
 }
 
