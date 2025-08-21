@@ -38,7 +38,8 @@ jobs:
           SAVE_SUPER_LINTER_OUTPUT: true
           SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
           SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
-          HTML_HINT_CONFIG_FILE: ./.htmlhintrc
+          HTML_HINT_CONFIG_FILE: .github/linters/.htmlhintrc
+          HTMLHINT_CONFIG_FILE: .github/linters/.htmlhintrc
 
       - name: Create HTMLHint config
         run: |
