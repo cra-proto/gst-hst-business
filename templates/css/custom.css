@@ -8,7 +8,14 @@ CSS for github specific elements
     background-color: #f9f4d4 !important; 
     padding: 10px 0 !important;
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 50);
 }
-.test-banner-content {font-size: 14px;}
-.test-banner-content h2 {margin-bottom: 4px !important; margin-top: 0;}
+
+.test-banner-content {
+    font-size: 14px;
+}
+
+.test-banner-content h2 {
+    margin-bottom: 4px !important;
+    margin-top: 0;
+}

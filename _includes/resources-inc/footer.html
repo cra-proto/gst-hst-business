@@ -3,21 +3,21 @@
 <script src="{{ setting-resourcesBasePathWetboew }}/js/wet-boew{{ setting-minifiedSuffix }}.js"></script>
 <script src="{{ setting-resourcesBasePathTheme }}/js/theme{{ setting-minifiedSuffix }}.js"></script>
 {%- if page.script.first -%}
-	{%- for js in page.script -%}
-		{%- if js.first -%}
-			{% assign jsType = js.type %}
-			{% assign jsIntegrity = js.integrity %}
-			<script src="{{ js.src }}"{% if jsType %} type="{{ jsType }}"{% endif %}{% if jsIntegrity %} integrity="{{ jsIntegrity }}" crossorigin="anonymous"{% endif %}></script>
-		{%- elsif js -%}
-			<script src="{{ js }}"></script>
-		{%- endif -%}
-	{%- endfor -%}
+    {%- for js in page.script -%}
+        {%- if js.first -%}
+            {% assign jsType = js.type %}
+            {% assign jsIntegrity = js.integrity %}
+            <script src="{{ js.src }}"{% if jsType %} type="{{ jsType }}"{% endif %}{% if jsIntegrity %} integrity="{{ jsIntegrity }}" crossorigin="anonymous"{% endif %}></script>
+        {%- elsif js -%}
+            <script src="{{ js }}"></script>
+        {%- endif -%}
+    {%- endfor -%}
 {%- elsif page.script -%}
-	<script src="{{ page.script }}"></script>
+    <script src="{{ page.script }}"></script>
 {%- endif -%}
 {% if page.testBanner == true or site.testBanner == true and page.testBanner != false %}
-<!-- START of github only scripts --->
+<!-- START of GitHub only scripts --->
 <script src="/gst-hst-business/templates/scripts/git-dev-options-e.js"></script>
 <script src="https://cra-design.github.io/core-prototype/resources/tools/tinymce/tinymce.min.js"></script>
-<!-- END of github only scripts --->
+<!-- END of GitHub only scripts --->
 {% endif %}

@@ -31,3 +31,15 @@ jobs:
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
+          SAVE_SUPER_LINTER_SUMMARY: true
+          SAVE_SUPER_LINTER_OUTPUT: true
+          SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
+          SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
+
+linters:
+  html:
+    disable:
+      - doctype-first
+      - id-class-value

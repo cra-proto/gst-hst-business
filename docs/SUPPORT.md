@@ -7,7 +7,7 @@
 
 - [Basic GCWeb setup instructions](basic-gcweb-setup-instructions)
 - [Page template options](#page-template-options)
-- [Custom Github options](#custom-github-options)
+- [Custom GitHub options](#custom-github-options)
 - [GCWeb Jekyll template YAML page settings](#gcweb-jekyll-template-yaml-page-settings)
 - [Additional GCWeb Jekyll template YAML page settings](#additional-gcweb-jekyll-template-yaml-page-settings)
 - [Site _config.yml file options](#site-_config.yml-file-options)
@@ -24,12 +24,12 @@ For the GCWeb/Jekyll setup to function a `_config.yml` file must saved at the re
 ## Page template options
 
 - The `Edit button` on the banner toggles an instance **TinyMCE** on and off allowing editing of the live page **Note:** Any changes you save with this method are only saved for yourself so if you want to make any permanent changes you'll still need to update those via GitHub
-- The `Github button` on the banner will take you to the the source page on github  
+- The `GitHub button` on the banner will take you to the the source page on GitHub  
 - All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
 
-## Custom Github options
+## Custom GitHub options
 
-- The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the Github domain so that replacement links are not generated to direct them automatically through the **exit intent page**
+- The data attribute `data-exit="false"` can be used on `<a>` and `<form>` tags directed outside of the GitHub domain so that replacement links are not generated to direct them automatically through the **exit intent page**
 - Link overrides can be added to the [exit-link-excludes.json](https://github.com/cra-design/gst-hst-business/blob/main/_data/exitlinkexcludes.json) file. If there is only an `origin` link and no `destination` link then all occurrences of the link to that page will be excluded from redirects to the **exit intent page**. If there is both an `origin` link and a `destination` link then all occurrences of the `origin` link will be redirected to the `destination` page
 
 ## GCWeb Jekyll template YAML Front Matter page settings
@@ -210,7 +210,7 @@ applicationURL: "https://www.canada.ca/en/revenue-agency.html"   # Sets the URL 
 
 ```yaml
 ---
-developerOptions: [true | false]                   # Turns the developer options on/off for all pages (Edit button, Github button, custom banner links, exit page leave site button)
+developerOptions: [true | false]                   # Turns the developer options on/off for all pages (Edit button, GitHub button, custom banner links, exit page leave site button)
 devOptionsLocStore: "gitCRATemplateDevOptions"     # Sets the localStorage key name that is used to store the boolean value trigger if the developer options are on/off
 testBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 
@@ -236,10 +236,10 @@ relativeExternalLinks: [true | false]              # Identifies whether links to
    3. Open the `Command prompt/Terminal/Powershell` and enter `ruby -v` to verify that **ruby** is installed
    4. At the `Command prompt/Terminal/Powershell` and enter `gem -v` to verify that **gem** is installed
 2. At the `Command prompt/Terminal/Powershell` and enter `gem install jekyll bundler` after it has completed enter `jekyll -v` to verify that **Jekyll** is installed
-3. At the `Command prompt/Terminal/Powershell` and enter `gem install github-pages` to install github page support
+3. At the `Command prompt/Terminal/Powershell` and enter `gem install GitHub-pages` to install GitHub page support
 4. Update any older elements that you may have been notified of in the `Command prompt/Terminal/Powershell` when you did the various `gem install` commands (e.g. `gem update --system 3.6.7`)
 5. At the the `Command prompt/Terminal/Powershell` enter `bundle exec jekyll serve --live reload`. This should run Jekyll, generate your site, and start the local site server
-   1. **Note**: a `gemfile` is required in the local github repository to run the jekyll server.  This gemfile should contain the following line: `gem "github-pages", group: :jekyll_plugins`
+   1. **Note**: a `gemfile` is required in the local GitHub repository to run the jekyll server.  This gemfile should contain the following line: `gem "github-pages", group: :jekyll_plugins`
 6. In your browser go to `https://localhost:4000/github-workspace-name/` and you should see your a fully generated version of your site
 
 [//]: # (**************************Test comment*********************************)
@@ -259,5 +259,5 @@ relativeExternalLinks: [true | false]              # Identifies whether links to
 - [Liquid template language](https://shopify.github.io/liquid/basics/introduction/)
 - [Liquid | Jekyll](https://jekyllrb.com/docs/liquid/)
 - [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-- [Mermaid markdown documentation](https://mermaid.js.org/intro/getting-started.html)
+- [Mermaid Markdown documentation](https://mermaid.js.org/intro/getting-started.html)
 - [GitHub Help](https://help.github.com)

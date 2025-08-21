@@ -20,9 +20,9 @@ Project to optimize the content related to filing GST/HST returns.
 
 ### Templates
 
-- [Github Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
-- [Github Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
-- [Github Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
+- [GitHub Canada.ca page template \(Jekyll\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_jekyll-en.html)
+- [GitHub Canada.ca page template \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template-e.html)
+- [GitHub Canada.ca page template with login \(CDTS\)](https://github.com/cra-design/gst-hst-business/blob/main/templates/page_template_login-e.html)
 
 ### Tools
 
@@ -33,7 +33,7 @@ Project to optimize the content related to filing GST/HST returns.
 
 ## Update procedures:
 
-- Prototype development files will have `_proto#` appended to the end of the file name
+- Prototype development files will have `_proto#` appended to the end of the filename
 - Changes will be committed to the repository by selecting `create a new branch` and then performing a `pull request` to merge the newly updated content
 - Updates or pull requests should be named or have comments identifying what has been updated or changed
 - Any repository path structure changes should be communicated to all individuals who directly update the repository

@@ -1,7 +1,7 @@
 /*
-* Github only script
+* GitHub only script
 *
-* Creates developer buttons - go to github source version annd contenEditable page edit buttons 
+* Creates developer buttons - go to GitHub source version annd contenEditable page edit buttons 
 *
 */
 
@@ -24,15 +24,15 @@ let sourceUrlArr, pageOrigin,
         }
 
         switch (true) {
-            // Generate github.com URL's from [repo name].github.io URL's
+            // Generate GitHub.com URL's from [repo name].github.io URL's
             case pageURL.indexOf(".github.io/") > -1:
                 githubURL = pageURL.toString().replace(new RegExp("^https:\/\/(.*?)\.github\.io\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/$1\/$2\/blob\/main\/$3$4" + pageName);
                 break;
-            // Generate github.com URL's from test.canada.ca URL's
+            // Generate GitHub.com URL's from test.canada.ca URL's
             case pageURL.indexOf("://test.canada.ca/") > -1:
                 githubURL = pageURL.toString().replace(new RegExp("^https:\/\/test\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/gc-proto\/$1\/blob\/master\/$2$3" + pageName);
                 break;
-            // Generate github.com URL's from [repo name].alpha.canada.ca URL's
+            // Generate GitHub.com URL's from [repo name].alpha.canada.ca URL's
             case pageURL.indexOf(".alpha.canada.ca/") > -1:
                 githubURL = pageURL.toString().replace(new RegExp("^https:\/\/design\.cra-arc\.alpha\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/alpha-canada-ca\/cra-ucd-guide\/blob\/main\/$1\/$2$3" + pageName);
                 break;
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         promotion: false, 
                         license_key: "gpl", 
                         setup: function (ed) {
-                            ed.on("init", function (e) {
+                            ed.on("init", function () {
                                 pageOrigin = document.querySelector("main").innerHTML;
 
                                 // Load modied page content if it exists from local Storage
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 if (gitURL !== "") {
-                    githubLinkInfo = githubLinkInfo + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to Github source</a></p>\n";
+                    githubLinkInfo = githubLinkInfo + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to GitHub source</a></p>\n";
                 }
 
                 if (sourceLinkInfo + githubLinkInfo + metadataInfo !== "") {
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 }
 
                 if (gitURL !== "") {
-                    pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to Github source\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm\"></span><span class=\"wb-inv\">Go to Github source</span></a></li>\n";
+                    pageInfo = pageInfo + "        <li id=\"githubBtnGrp\" class=\"btn-group\"><a id=\"githubBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"Go to GitHub source\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm\"></span><span class=\"wb-inv\">Go to GitHub source</span></a></li>\n";
                 }
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     setEditButton();
                 });
 
-                // Initalize Github button
+                // Initalize GitHub button
                 if (document.getElementById("githubBtn") !== null && gitURL !== "") {
                     document.getElementById("githubBtn").href = gitURL;
                 }
