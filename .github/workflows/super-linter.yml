@@ -35,7 +35,8 @@ jobs:
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
           SAVE_SUPER_LINTER_SUMMARY: true
           SAVE_SUPER_LINTER_OUTPUT: true
-          SUPER_LINTER_OUTPUT_DIRECTORY_NAME: output
+          SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
+          SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
 
 linters:
   html:
