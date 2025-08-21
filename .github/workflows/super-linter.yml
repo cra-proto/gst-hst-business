@@ -38,8 +38,10 @@ jobs:
           SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
           SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
 
-linters:
-  html:
-    disable:
-      - doctype-first
-      - id-class-value
+      - name: Create HTMLHint config
+        run: |
+          echo '{
+            "doctype-first": false,
+            "id-class-value": false
+          }' > .htmlhintrc
+ 
