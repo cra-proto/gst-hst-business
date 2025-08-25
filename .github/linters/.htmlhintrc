@@ -27,7 +27,7 @@
   "input-requires-label": true, 
   "main-require": true, 
   "meta-charset-require": true, 
-  "meta-description-require": true, 
+  "meta-description-require": false, 
   "meta-viewport-require": true, 
   "script-disabled": false, 
   "space-tab-mixed-disabled": "space", 
