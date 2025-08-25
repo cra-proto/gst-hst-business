@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     document.getElementById("editIcon").classList.remove("fa-edit", "fa-window-close");
                     document.getElementById("editIcon").classList.add("fa-save");
                     document.getElementById("iconText").innerHTML = "Cache edits";
-                },
+                }, 
                 initTinyMCE = function () {
                     tinymce.init({
                         promotion: false, 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                                     document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
                                 }
                                 ed.execCommand("mceVisualBlocks");
-                            }),
+                            }), 
                             ed.on("input Change", function(e) {
                                 if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
                                     switch (document.querySelector("main").innerHTML) {

@@ -38,17 +38,17 @@
             padding-bottom: 15px;
         }
 
-        .checkbox-lg>li.checkbox input[type=checkbox],
+        .checkbox-lg>li.checkbox input[type=checkbox], 
         .fieldflow-lg .radio input[type=radio] {
             margin-top: 12px;
             transform: scale(2);
         }
 
-        .checkbox-lg label,
-        .fieldflow-lg,
-        .fieldflow-lg label,
-        .fieldflow-lg div,
-        .fieldflow-lg select,
+        .checkbox-lg label, 
+        .fieldflow-lg, 
+        .fieldflow-lg label, 
+        .fieldflow-lg div, 
+        .fieldflow-lg select, 
         .std-blt {
             font-size: 20px;
             line-height: 1.65em;
@@ -77,7 +77,7 @@
         }
 
         /* to make list item full width */
-        .cnt-wdth-lmtd main li,
+        .cnt-wdth-lmtd main li, 
         main .cnt-wdth-lmtd li {
             max-width: 100ch;
         }
@@ -116,9 +116,7 @@
         <section class="mrgn-bttm-xl">
             <!--<h2 class="h-2 wb-inv">6 tasks left</h2>-->
 
-
             <p class="mrgn-tp-md">You forgot about the requirement to file electronically and filed your GST/HST return by mail. This was your first time doing so, what consequences might you face as a result?</p>
-
 
             <fieldset class="provisional gc-chckbxrdio mrgn-tp-lg">
                 <legend>Possible answers</legend>
@@ -146,30 +144,27 @@
                 </ul>
             </fieldset>
 
-
             <div class="clearfix"></div>
             <div class="btn-container">
                 <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/file-gst-hst-return/reporting-requirements-deadlines/gst-hst-filing-penalties.html" target="_blank" role="button" class="btn btn-primary btn-lg mrgn-tp-md"><span class="far fa-window-restore"></span> Start task<span class="wb-inv">this button will open a page in a new tab</span></a> <a href="post-task-survey.html" role="button" class="btn btn-default btn-lg mrgn-lft-md mrgn-tp-md">Post-task survey</a>
             </div>
 
-
             <!--
             <script>
-            // insert buttons from the current task 
-    
+            // insert buttons from the current task
+
                 const currentTask = TASKS[0] // TODO
-    
+
                 const btnContainer = document.querySelector(".btn-container")
-    
+
                 const buttonsHTML = currentTask.buttonLinks.map(({title,href, target, classes, spanClasses})=>`
                 <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""} ><span class="${spanClasses}"></span> ${title}</a>
                 `).join("")
-                
+
                 console.log("🚀 ~ file: task-page.html ~ line 59 ~ buttonsHTML", buttonsHTML)
-                
+
                 btnContainer.innerHTML = buttonsHTML
-                
-                
+
             </script>
             -->
         </section>
@@ -179,9 +174,9 @@
         <script type="text/javascript">
             var defPreFooter = document.getElementById("def-preFooter");
             defPreFooter.outerHTML = wet.builder.preFooter({
-                dateModified: "2025-07-08",
-                showPostContent: true,
-                showFeedback: true,
+                dateModified: "2025-07-08", 
+                showPostContent: true, 
+                showFeedback: true, 
                 showShare: true
             });
         </script>
@@ -192,7 +187,7 @@
     <script type="text/javascript">
         var defFooter = document.getElementById("def-footer");
         defFooter.outerHTML = wet.builder.footer({
-            showFooter: true,
+            showFooter: true, 
             showFeatures: true
         });
     </script>
