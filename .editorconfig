@@ -5,7 +5,7 @@ root = true
 
 [*]
 charset = utf-8
-spelling_language en-CA
+spelling_language = en-CA
 end_of_line = crlf
 trim_trailing_whitespace = true
 insert_final_newline = false
