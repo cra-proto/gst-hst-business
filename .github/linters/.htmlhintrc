@@ -1,5 +1,4 @@
 {
-  "rules": {
     "alt-require": true,
     "attr-lowercase": true,
     "attr-no-duplication": true,
@@ -42,5 +41,4 @@
     "tagname-specialchars": true,
     "tags-check": false,
     "title-require": true
-  }
 }
