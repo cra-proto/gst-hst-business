@@ -8,8 +8,8 @@
     <meta name="robots" content="noindex">
     <!-- Meta data -->
     <!-- Meta data-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" >
-    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf">
+    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
     <link href="/templates/css/provisional-radio-buttons.css" rel="stylesheet">
     <style>
         /*Checkbox/Fieldflow radio input sizing,positioning*/
@@ -139,7 +139,7 @@
                 const btnContainer = document.querySelector(".btn-container")
 
                 const buttonsHTML = currentTask.buttonLinks.map(({title,href, target, classes, spanClasses})=>`
-                <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""} ><span class="${spanClasses}"></span> ${title}</a>
+                <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""}><span class="${spanClasses}"></span> ${title}</a>
                 `).join("")
 
                 console.log("🚀 ~ file: task-page.html ~ line 59 ~ buttonsHTML", buttonsHTML)
