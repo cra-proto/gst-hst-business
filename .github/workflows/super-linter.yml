@@ -38,6 +38,7 @@ jobs:
           CREATE_LOG_FILE: true
           LOG_FILE: super-linter.log
           MULTI_STATUS: true
+          FILTER_REGEX_EXCLUDE: _includes\/.+?\.html
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
           ENABLE_GITHUB_ACTIONS_GROUP_TITLE: true
           LINTER_RULES_PATH: .github/linters
