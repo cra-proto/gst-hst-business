@@ -34,7 +34,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           # VALIDATE_HTML_DOCTYPE: false # Enable DOCTYPE validation for HTML
+          DEFAULT_BRANCH: main
+          CREATE_LOG_FILE: true
+          LOG_FILE: super-linter.log
+          MULTI_STATUS: true
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
+          ENABLE_GITHUB_ACTIONS_GROUP_TITLE: true
           LINTER_RULES_PATH: .github/linters
           SAVE_SUPER_LINTER_OUTPUT: true
           SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
