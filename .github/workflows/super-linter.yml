@@ -33,10 +33,11 @@ jobs:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          VALIDATE_HTML_DOCTYPE: false # Enable DOCTYPE validation for HTML
+          # VALIDATE_HTML_DOCTYPE: false # Enable DOCTYPE validation for HTML
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
-          SAVE_SUPER_LINTER_SUMMARY: true
+          LINTER_RULES_PATH: .github/linters
           SAVE_SUPER_LINTER_OUTPUT: true
           SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
+          SAVE_SUPER_LINTER_SUMMARY: true
           SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
           # HTMLHINT_CONFIG_FILE: .github/linters/.htmlhintrc
