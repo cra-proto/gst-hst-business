@@ -24,7 +24,7 @@ For the GCWeb/Jekyll setup to function a `_config.yml` file must saved at the re
 ## Page template options
 
 - The `Edit button` on the banner toggles an instance **TinyMCE** on and off allowing editing of the live page **Note:** Any changes you save with this method are only saved for yourself so if you want to make any permanent changes you'll still need to update those via GitHub
-- The `GitHub button` on the banner will take you to the the source page on GitHub  
+- The `GitHub button` on the banner will take you to the the source page on GitHub
 - All pages links and forms that direct outside of the repository to will automatically be replaced with links to the **exit intent page**
 
 ## Custom GitHub options
@@ -79,17 +79,17 @@ contextualFooter:                                  # Creates and configures the 
   links:                                           # Adds a link in the contextual footer
    - text: "The CRA footer link text"
      url: "The CRA footer URL"
-pageclass: "Page CSS class"                        # Sets CSS class that are in the <body> tag  
+pageclass: "Page CSS class"                        # Sets CSS class that are in the <body> tag
 creator: "The page creator"                        # Sets the creator metadata
 privacyUrl: "Privacy page URL"                     # Sets the URL for the privacy link in the page footer
 termsUrl: "Terms and conditions page URL"          # Sets the URL for the terms and conditions link in the page footer
 sitemenuPath: https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html # Sets the path of the ajaxed Site Menu
 
 archived: [true | false]                           # Sets if the archived banner is added to the top of the page [default: false]
-archiveOverlay: [true | false]                     # 
+archiveOverlay: [true | false]                     #
 
 breadcrumbs: [true | false]                        # [Method 2] - Toggles if the breadcrumb is shown [default: true]
-overwriteBreadcrumbs: [true | false]               # 
+overwriteBreadcrumbs: [true | false]               #
 
 css: "https://domain/your-stylesheet.css"          # [Method 1] - Sets the link for custom CSS files you add to your page
 css:                                               # [Method 2] - Allows you to add custom CSS to your entire site
@@ -131,7 +131,7 @@ parentPage:                                        # Sets the header for the rig
 secondarymenu:                                     # Adds a right column secondary menu
   - link: ""
     title: ""
-    subnav:                                        # Sets a nested section in the right column secondary menu 
+    subnav:                                        # Sets a nested section in the right column secondary menu
      - title: ""
        link: ""
 
@@ -154,7 +154,7 @@ infoBanner:                                       # Sets a Banner at the top of 
 ---
 testBanner: [true | false]                        # Toggles if the testing site only banner shows for a page (deafult: true)
 notedlinks:                                        # Configures and adds links of your choice to the testing site only banner for a page
-  - title: "The link title" 
+  - title: "The link title"
     link: "The link URL"
 keywords: ""                                      # Displays these keywords to be associated to the page
 ---
@@ -214,7 +214,7 @@ developerOptions: [true | false]                   # Turns the developer options
 devOptionsLocStore: "gitCRATemplateDevOptions"     # Sets the localStorage key name that is used to store the boolean value trigger if the developer options are on/off
 testBanner: [true | false]                         # Toggles the site wide banner off and on for the site
 
-exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true 
+exitByURL: [true | false]                          # Toggles if the exit page uses the developed method or if it uses the WET Exit plugin. Default is true
 exitPage:                                          # Identifies the links to the exit intent page used for link generation on all pages
   en: "English exit intent page URL"
   fr: "French exit intent page URL"

@@ -7,11 +7,11 @@
 
 "use strict";
 
-//  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html",
-//  exitPage.dataset.exitByUrl = "false",
+//  exitPage.value = "https://cra-design.github.io/gst-hst-business/exit-intent.html", 
+//  exitPage.dataset.exitByUrl = "false", 
 //  exitPage.dataset.modLinkFile = "https://cra-design.github.io/gst-hst-business/templates/data/link_excludes.json", 
-//  relExternalLnk.value = "false",
-//  relExternalLnk.dataset.origin = "https://www.canada.ca",
+//  relExternalLnk.value = "false", 
+//  relExternalLnk.dataset.origin = "https://www.canada.ca", 
 
 let exitPage = document.getElementById("exitpage");
 let relExternalLnk = document.getElementById("relextlnk");
@@ -53,7 +53,7 @@ let visitedLinkStyle = document.createElement("style"),
                 $(elm).find(hrefSelector).each(function updateExitHref() {
                     const maxURILength = 2048;
                     let urlObj, queryHash, 
-                        pagetitle = encodeURIComponent(this.innerText),
+                        pagetitle = encodeURIComponent(this.innerText), 
                         exitPageURI = exitPage.value, 
                         destURI = adjustHref(this.href, destStartPath), 
                         currentURI = this.protocol + "//" + this.hostname + this.pathname, 
@@ -99,7 +99,7 @@ let visitedLinkStyle = document.createElement("style"),
 
             if (actionSelector !== "") {
                 $(elm).find(actionSelector).each(function updateExitAction() {
-                    let queryHash,
+                    let queryHash, 
                         exitPageURI = exitPage.value, 
                         currentURI = this.protocol + "//" + this.hostname + this.pathname, 
                         lnkExclIdx = linkExcludeIndex(currentURI);
@@ -118,7 +118,7 @@ let visitedLinkStyle = document.createElement("style"),
                 $(elm).find(formActionSelector).each(function updateExitForm() {
                     let queryHash, 
                         exitPageURI = exitPage.value, 
-                        currentURI = this.protocol + "//" + this.hostname + this.pathname,
+                        currentURI = this.protocol + "//" + this.hostname + this.pathname, 
                         lnkExclIdx = linkExcludeIndex(currentURI);
 
                     if (lnkExclIdx === -1) {
@@ -132,7 +132,7 @@ let visitedLinkStyle = document.createElement("style"),
         }
     }, 
     getDomain = function (url) {
-        let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"),
+        let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"), 
             domains = pattern.exec(url);
 
         return domains[0];
@@ -142,7 +142,7 @@ let visitedLinkStyle = document.createElement("style"),
         adjustLinks(elm, "a[href^='http']a:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), area[href^='http']area:not([href^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "form[action^='http']form:not([action^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript)", "input[formaction^='http']input:not([formaction^='" + rootDomain + "'], [data-exit='false'], .wb-exitscript), button[formaction^='http']button:not([formaction^='" + rootDomain + "'], [formaction^='/'], [data-exit='false'], .wb-exitscript)", "");
         if ((relExternalLnk && relExternalLnk.dataset.origin !== "") && (relExternalLnk.value.toLowerCase() === "true" || isAjaxed === true)) {
             adjustLinks(elm, "a[href^='/']a:not([data-exit='false'], .wb-exitscript), area[href^='/']area:not([data-exit='false'], .wb-exitscript)", "form[action^='/']form:not([data-exit='false'], .wb-exitscript)", "input[formaction^='/']input:not([data-exit='false'], .wb-exitscript), button[formaction^='/']button:not([data-exit='false'], .wb-exitscript)", relExternalLnk.dataset.origin);
-        }        
+        }
     };
 
 //load link exclude json file

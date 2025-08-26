@@ -5,10 +5,12 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 permissions: {}
-
+env:
+  LINTER_RULES_PATH: .github/linters
+  
 jobs:
   build:
-    name: Lint
+    name: Super-Linter [Validation]
     runs-on: ubuntu-latest
 
     permissions:
@@ -31,19 +33,17 @@ jobs:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          VALIDATE_HTML_DOCTYPE: false # Enable DOCTYPE validation for HTML
+          # VALIDATE_HTML_DOCTYPE: false # Enable DOCTYPE validation for HTML
+          DEFAULT_BRANCH: main
+          CREATE_LOG_FILE: true
+          LOG_FILE: super-linter.log
+          MULTI_STATUS: true
+          FILTER_REGEX_EXCLUDE: _includes\/.+?\.html
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
-          SAVE_SUPER_LINTER_SUMMARY: true
+          ENABLE_GITHUB_ACTIONS_GROUP_TITLE: true
+          LINTER_RULES_PATH: .github/linters
           SAVE_SUPER_LINTER_OUTPUT: true
           SUPER_LINTER_OUTPUT_DIRECTORY_NAME: super-linter-output
+          SAVE_SUPER_LINTER_SUMMARY: true
           SUPER_LINTER_SUMMARY_FILE_NAME: super-linter-summary.md
-          HTML_HINT_CONFIG_FILE: .github/linters/.htmlhintrc
-          HTMLHINT_CONFIG_FILE: .github/linters/.htmlhintrc
-
-      - name: Create HTMLHint config
-        run: |
-          echo '{
-            "doctype-first": false,
-            "id-class-value": false
-          }' > .htmlhintrc
- 
+          # HTMLHINT_CONFIG_FILE: .github/linters/.htmlhintrc

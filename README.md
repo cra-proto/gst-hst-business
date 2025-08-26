@@ -56,14 +56,14 @@ Project to optimize the content related to filing GST/HST returns.
 %%{
   init: {
     'darkMode': false, 
-    'theme': 'base',
+    'theme': 'base', 
     'themeVariables': {
       'lineColor': '#F8B229', 
       'textColor': '#ADADAD', 
       'primaryColor': '#000ED6', 
       'primaryBorderColor': '#534FBC', 
       'primaryTextColor': '#ADADAD', 
-      'secondaryColor': '#850000',
+      'secondaryColor': '#850000', 
       'secondaryTextColor': '#ADADAD', 
       'tertiaryColor': '#FFFFFF',  
       'tertiaryTextColor': '#ADADAD'

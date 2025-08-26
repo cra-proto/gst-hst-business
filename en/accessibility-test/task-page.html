@@ -8,8 +8,8 @@
     <meta name="robots" content="noindex">
     <!-- Meta data -->
     <!-- Meta data-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" />
-    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf">
+    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
     <link href="/templates/css/provisional-radio-buttons.css" rel="stylesheet">
     <style>
         /*Checkbox/Fieldflow radio input sizing,positioning*/
@@ -32,17 +32,17 @@
             padding-bottom: 15px;
         }
 
-        .checkbox-lg>li.checkbox input[type=checkbox],
+        .checkbox-lg>li.checkbox input[type=checkbox], 
         .fieldflow-lg .radio input[type=radio] {
             margin-top: 12px;
             transform: scale(2);
         }
 
-        .checkbox-lg label,
-        .fieldflow-lg,
-        .fieldflow-lg label,
-        .fieldflow-lg div,
-        .fieldflow-lg select,
+        .checkbox-lg label, 
+        .fieldflow-lg, 
+        .fieldflow-lg label, 
+        .fieldflow-lg div, 
+        .fieldflow-lg select, 
         .std-blt {
             font-size: 20px;
             line-height: 1.65em;
@@ -71,7 +71,7 @@
         }
 
         /* to make list item full width */
-        .cnt-wdth-lmtd main li,
+        .cnt-wdth-lmtd main li, 
         main .cnt-wdth-lmtd li {
             max-width: 100ch;
         }
@@ -91,7 +91,7 @@
     <!--
     <script src="/tasks.js"></script>
     -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MVJVJRZ2R"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6MVJVJRZ2R'); </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-6MVJVJRZ2R"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6MVJVJRZ2R'); </script>
     <!-- START Clarity tracking code -->
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
@@ -118,35 +118,34 @@
         <section class="mrgn-bttm-xl">
             <!--<h2 class="h-2 wb-inv">5 tasks left</h2>-->
             <p class="mrgn-tp-md">Please select the task that the moderator tells you to.</p>
-            
+
             <div class="row">
              <div class="col-md-8" aria-label="List of 4 tasks">
-                 <a href="task-1.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 1 of 6">Task 1</a> 
-                 <a href="task-2.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 2 of 6">Task 2</a> 
-                 <a href="task-3.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 3 of 6">Task 3</a> 
-                 <a href="task-4.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 4 of 6">Task 4</a> 
-                 <a href="task-5.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 5 of 6">Task 5</a> 
-                 <a href="task-6.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 6 of 6">Task 6</a> 
+                 <a href="task-1.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 1 of 6">Task 1</a>
+                 <a href="task-2.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 2 of 6">Task 2</a>
+                 <a href="task-3.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 3 of 6">Task 3</a>
+                 <a href="task-4.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 4 of 6">Task 4</a>
+                 <a href="task-5.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 5 of 6">Task 5</a>
+                 <a href="task-6.html" role="button" class="btn btn-primary btn-lg mrgn-tp-md" aria-label="task 6 of 6">Task 6</a>
                  </div>
              </div>
 
             <!--
              <script>
-            // insert buttons from the current task 
-    
+            // insert buttons from the current task
+
                 const currentTask = TASKS[0] // TODO
-    
+
                 const btnContainer = document.querySelector(".btn-container")
-    
+
                 const buttonsHTML = currentTask.buttonLinks.map(({title,href, target, classes, spanClasses})=>`
-                <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""} ><span class="${spanClasses}"></span> ${title}</a>
+                <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""}><span class="${spanClasses}"></span> ${title}</a>
                 `).join("")
-                
+
                 console.log("🚀 ~ file: task-page.html ~ line 59 ~ buttonsHTML", buttonsHTML)
-                
+
                 btnContainer.innerHTML = buttonsHTML
-                
-                
+
             </script>
             -->
         </section>
@@ -154,10 +153,11 @@
         <!-- Write closure template -->
         <script type="text/javascript">
             var defPreFooter = document.getElementById("def-preFooter");
+
             defPreFooter.outerHTML = wet.builder.preFooter({
-                dateModified: "2020-05-05",
-                showPostContent: true,
-                showFeedback: true,
+                dateModified: "2020-05-05", 
+                showPostContent: true, 
+                showFeedback: true, 
                 showShare: true
             });
         </script>
@@ -168,7 +168,7 @@
     <script type="text/javascript">
         var defFooter = document.getElementById("def-footer");
         defFooter.outerHTML = wet.builder.footer({
-            showFooter: true,
+            showFooter: true, 
             showFeatures: true
         });
     </script>

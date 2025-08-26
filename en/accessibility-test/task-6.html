@@ -8,8 +8,8 @@
     <meta name="robots" content="noindex">
     <!-- Meta data -->
     <!-- Meta data-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" />
-    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf">
+    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
 
     <link href="/templates/css/provisional-radio-buttons.css" rel="stylesheet">
     <style>
@@ -94,7 +94,7 @@
     <!--
     <script src="/tasks.js"></script>
     -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MVJVJRZ2R"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6MVJVJRZ2R'); </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-6MVJVJRZ2R"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6MVJVJRZ2R'); </script>
     <!-- START Clarity tracking code -->
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
@@ -116,9 +116,7 @@
         <section class="mrgn-bttm-xl">
             <!--<h2 class="h-2 wb-inv">6 tasks left</h2>-->
 
-
             <p class="mrgn-tp-md">You recently completed your GST/HST return however realized you forgot to include some important information.  What should you do?</p>
-
 
             <fieldset class="provisional gc-chckbxrdio mrgn-tp-lg">
                 <legend>Possible answers</legend>
@@ -142,30 +140,27 @@
                 </ul>
             </fieldset>
 
-
             <div class="clearfix"></div>
             <div class="btn-container">
                 <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html" target="_blank" role="button" class="btn btn-primary btn-lg mrgn-tp-md"><span class="far fa-window-restore"></span> Start task<span class="wb-inv">this button will open a page in a new tab</span></a> <a href="post-task-survey.html" role="button" class="btn btn-default btn-lg mrgn-lft-md mrgn-tp-md">Post-task survey</a>
             </div>
 
-
             <!--
             <script>
-            // insert buttons from the current task 
-    
+            // insert buttons from the current task
+
                 const currentTask = TASKS[0] // TODO
-    
+
                 const btnContainer = document.querySelector(".btn-container")
-    
+
                 const buttonsHTML = currentTask.buttonLinks.map(({title,href, target, classes, spanClasses})=>`
-                <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""} ><span class="${spanClasses}"></span> ${title}</a>
+                <a href="${href}" role="button" class="btn btn-lg mrgn-tp-md ${classes}" ${target ? `target="${target}" name="this link will open in a new tab"` : ""}><span class="${spanClasses}"></span> ${title}</a>
                 `).join("")
-                
+
                 console.log("🚀 ~ file: task-page.html ~ line 59 ~ buttonsHTML", buttonsHTML)
-                
+
                 btnContainer.innerHTML = buttonsHTML
-                
-                
+
             </script>
             -->
         </section>

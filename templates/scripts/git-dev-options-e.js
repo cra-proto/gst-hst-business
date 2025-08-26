@@ -1,7 +1,7 @@
 /*
 * GitHub only script
 *
-* Creates developer buttons - go to GitHub source version annd contenEditable page edit buttons 
+* Creates developer buttons - go to GitHub source version annd contenEditable page edit buttons
 *
 */
 
@@ -9,10 +9,10 @@
 
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
-let sourceUrlList = document.getElementById("sourceurl");
+let notedLinksList = document.getElementById("notedlinks");
 let insertId = "test-banner";
 
-let sourceUrlArr, pageOrigin, 
+let notedLinksArr, pageOrigin, 
     pageKey = location.pathname.replaceAll("/","").replaceAll(":","").replaceAll("-","").split(".").slice(0, -1).join(".").toLowerCase(), 
     pageStorage = localStorage.getItem(pageKey), 
     getGithubURL = function (pageURL) {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 insertElm = document.getElementById(insertId), 
                 gitURL = "", 
                 githubLinkInfo = "", 
-                sourceLinkInfo = "", 
+                notedLinkInfo = "", 
                 metadataInfo = "", 
                 overlaySec = "", 
                 setEditButton = function setEditButton() {
@@ -78,22 +78,23 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     document.getElementById("editIcon").classList.remove("fa-edit", "fa-window-close");
                     document.getElementById("editIcon").classList.add("fa-save");
                     document.getElementById("iconText").innerHTML = "Cache edits";
-                },
-                initTinyMCE = function () {
+                }, 
+                tinyMCEInit = function () {
+                    tinymce.remove();
                     tinymce.init({
                         promotion: false, 
                         license_key: "gpl", 
-                        setup: function (ed) {
-                            ed.on("init", function () {
-                                pageOrigin = document.querySelector("main").innerHTML;
+                        init_instance_callback: function (ed) {
+                            pageOrigin = document.querySelector("main").innerHTML;
 
-                                // Load modied page content if it exists from local Storage
-                                if (localStorage.getItem(pageKey)) {
-                                    document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
-                                }
-                                ed.execCommand("mceVisualBlocks");
-                            }),
-                            ed.on("input Change", function(e) {
+                            // Load modied page content if it exists from local Storage
+                            if (localStorage.getItem(pageKey)) {
+                                document.querySelector("main").innerHTML = localStorage.getItem(pageKey);
+                            }
+                            ed.execCommand("mceVisualBlocks");
+                        }, 
+                        setup: function (ed) {
+                            ed.on("input Change", function (e) {
                                 if (e.originalEvent === undefined || ("command" in e.originalEvent === false && ("focusedEditor" in e.originalEvent === true && e.originalEvent.focusedEditor !== null)) || ("command" in e.originalEvent === true && e.originalEvent.command !== "mceVisualBlocks" && e.originalEvent.command !== "mceVisualChars")) {
                                     switch (document.querySelector("main").innerHTML) {
                                         case pageOrigin:
@@ -116,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         plugins: "accordion advlist anchor autolink autoresize charmap code codesample fullscreen help image importcss link lists media nonbreaking pagebreak quickbars searchreplace table visualblocks visualchars save", 
                         toolbar: "undo redo | searchreplace | blocks styles removeformat | bold code | bullist numlist table | link unlink anchor | outdent indent alignnone | hr nonbreaking charmap | visualblocks visualchars | help", 
                         inline: true, 
+                        language: "en", 
                         quickbars_image_toolbar: false, 
                         quickbars_selection_toolbar: true, 
                         quickbars_insert_toolbar: false, 
@@ -136,30 +138,35 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                 if (localStorage.getItem(pageKey) === null) {
                     pageInfo = pageInfo + " hidden";
                 }
+
                 pageInfo = pageInfo + "\" title=\"Remove edits\" href=\"#\"><span class=\"far fa-trash-alt mrgn-tp-sm\"></span><span class=\"wb-inv\">Remove edits</span></a>";
                 pageInfo = pageInfo + "</li>\n";
-                if (sourceUrlList !== null && sourceUrlList.value !== "") {
-                    sourceUrlArr = JSON.parse(sourceUrlList.value);
-                    if ((sourceUrlArr.length === 1 && sourceUrlArr[0].sourcetitle.trim() !== "") || sourceUrlArr.length > 1) {
-                        sourceLinkInfo = "<h3 class=\"mrgn-tp-sm\">Noted links for this page</h3>\n<ol id=\"testpage-source\" class=\"list-inline mrgn-bttm-0\">\n";
-                        sourceUrlArr.forEach(function addSourceLinks(sourceUrlData) {
-                           sourceLinkInfo = sourceLinkInfo + "<li><span class=\"glyphicon glyphicon-link mrgn-rght-sm\"></span><a data-exit=\"false\" href=\"" + sourceUrlData.sourcelink + "\" target=\"_blank\">" + sourceUrlData.sourcetitle + "</a></li>\n";
+                if (notedLinksList !== null && notedLinksList.value !== "") {
+                    notedLinksArr = JSON.parse(notedLinksList.value);
+                    if ((notedLinksArr.length === 1 && notedLinksArr[0].sourcetitle.trim() !== "") || notedLinksArr.length > 1) {
+                        notedLinkInfo = "<h3 class=\"mrgn-tp-sm\">Noted links</h3>\n<ol id=\"notedpages-links\" class=\"list-inline mrgn-bttm-0\">\n";
+                        notedLinksArr.forEach(function addNotedLinks(notedLinksData) {
+                           notedLinkInfo = notedLinkInfo + "<li><span class=\"glyphicon glyphicon-link mrgn-rght-sm\"></span><a data-exit=\"false\" href=\"" + notedLinksData.sourcelink + "\" target=\"_blank\">" + notedLinksData.sourcetitle + "</a></li>\n";
                         });
-                        sourceLinkInfo = sourceLinkInfo + "</ol>\n";
+                        notedLinkInfo = notedLinkInfo + "</ol>\n";
                     }
                 }
+
                 titleElm = document.querySelector("meta[name=dcterms\\.title]");
                 if (titleElm !== null && "content" in titleElm === true && titleElm.content.trim() !== "") {
                     metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Title</strong>:&nbsp;" + titleElm.content.trim() + "</p>\n";
                 }
+
                 subjectElm = document.querySelector("meta[name=dcterms\\.subject]");
                 if (subjectElm !== null && "content" in subjectElm === true && subjectElm.content.trim() !== "") {
                     metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Subject</strong>:&nbsp;" + subjectElm.content.trim() + "</p>\n";
                 }
+
                 descriptionElm = document.querySelector("meta[name=dcterms\\.description]");
                 if (descriptionElm !== null && "content" in descriptionElm === true && descriptionElm.content.trim() !== "") {
                     metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Description</strong>:&nbsp;" + descriptionElm.content.trim() + "</p>\n";
                 }
+
                 if (keywords !== null && keywords.value.trim() !== "") {
                     metadataInfo = metadataInfo + "<p><strong>Keywords</strong>:&nbsp;<span id=\"pageKeywords\" class=\"mrgn-lft-sm\">" + keywords.value + "</span></p>";
                 } else {
@@ -168,20 +175,24 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                         metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Keywords</strong>:&nbsp;" + keywordsElm.content.trim() + "</p>\n";
                     }
                 }
+
                 modifyDateElm = document.querySelector("meta[name=dcterms\\.modified]");
                 if (modifyDateElm !== null && "content" in modifyDateElm === true && modifyDateElm.content.trim() !== "") {
                     metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date modified</strong>:&nbsp;" + modifyDateElm.content.trim() + "</p>\n";
                 }
+
                 issueDateElm = document.querySelector("meta[name=dcterms\\.issued]");
                 if (issueDateElm !== null && "content" in issueDateElm === true && issueDateElm.content.trim() !== "") {
                     metadataInfo = metadataInfo + "<p class=\"mrgn-bttm-sm\"><strong>Date issued</strong>:&nbsp;" + issueDateElm.content.trim() + "</p>\n";
                 }
 
+                pageInfo = pageInfo + "        <li id=\"resBtnGrp\" class=\"btn-group\"><a id=\"resolutionBtn\" class=\"btn btn-default btn-sm\" data-exit=\"false\" href=\"#\" title=\"View page at different WET resolution widths\" target=\"_blank\"><span class=\"glyphicon glyphicon-resize-horizontal mrgn-tp-sm\"></span><span class=\"wb-inv\">View page at different WET resolution widths</span></a></li>\n";
+
                 if (gitURL !== "") {
-                    githubLinkInfo = githubLinkInfo + "        <p><a data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to GitHub source</a></p>\n";
+                    githubLinkInfo = githubLinkInfo + "        <p><a id=\"githubOverlayBtn\" data-exit=\"false\" href=\"#\" target=\"_blank\"><span class=\"fab fa-github mrgn-tp-sm mrgn-rght-sm\"></span>Go to GitHub source</a></p>\n";
                 }
 
-                if (sourceLinkInfo + githubLinkInfo + metadataInfo !== "") {
+                if (notedLinkInfo + githubLinkInfo + metadataInfo !== "") {
                     pageInfo = pageInfo + "        <li id=\"pageInfoBtnGrp\" class=\"btn-group\"><a id=\"pageInfoBtn\" class=\"btn btn-default btn-sm wb-lbx\" data-exit=\"false\" href=\"#dev-page-info\" aria-controls=\"dev-page-info\" role=\"button\" title=\"Page information\"><span class=\"glyphicon glyphicon-info-sign mrgn-tp-sm\"></span><span class=\"wb-inv\">Page information</span></a></li>\n";
                 }
 
@@ -191,11 +202,11 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
 
                 pageInfo = pageInfo + "    </ul>\n</div>\n";
                 insertElm.innerHTML = pageInfo + insertElm.innerHTML;
-                if (sourceLinkInfo + githubLinkInfo + metadataInfo !== "") {
+                if (notedLinkInfo + githubLinkInfo + metadataInfo !== "") {
                     overlaySec = overlaySec + "<section id=\"dev-page-info\" class=\"mfp-hide modal-dialog modal-content overlay-def\">\n    <header class=\"modal-header\">\n        <h2 class=\"modal-title\">Page information</h2>\n    </header>\n    <div id=\"dev-info-body\" class=\"modal-body\">\n";
-                    overlaySec = overlaySec + sourceLinkInfo;
+                    overlaySec = overlaySec + notedLinkInfo;
                     overlaySec = overlaySec + githubLinkInfo;
-                    if (sourceLinkInfo + githubLinkInfo !== "" && metadataInfo !== "") {
+                    if (notedLinkInfo + githubLinkInfo !== "" && metadataInfo !== "") {
                         overlaySec = overlaySec + "\n<hr>\n";
                     }
                     if (metadataInfo !== "") {
@@ -231,12 +242,12 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                                     }
                                     editStartContent = "";
                                 }
-                                tinymce.remove();
                                 editArea.contentEditable = "false";
+                                tinymce.remove();
                                 setEditButton();
                                 // document.designMode = "off";
                             } else {
-                                initTinyMCE();
+                                tinyMCEInit();
                                 editArea.contentEditable = "true";
                                 editStartContent = editArea.innerHTML;
                                 setStopEditButton();
@@ -257,9 +268,71 @@ document.addEventListener("DOMContentLoaded", function initDevOpts() {
                     setEditButton();
                 });
 
+                // resize page width button
+                document.getElementById("resolutionBtn").addEventListener("click", function() {
+                    let generateResolutionPage = function generateResolutionPage(pageURL) {
+                        let header, resPage, pgtitle, iframe, 
+                            resArr = [{ width: "480px", label: "Extra small devices (<768px)" }, 
+ { width: "991px", label: "Small devices (<992px)" }, { width: "1199px", label: "Medium devices (<1200px)" }], 
+                            getFilenameFromUrlSplit = function(pageURL) {
+                                let filenameWithParams, questionMarkIndex;
+
+                                if (pageURL) {
+                                    filenameWithParams = pageURL.split("/").pop();
+                                    questionMarkIndex = filenameWithParams.indexOf("?");
+                                    if (questionMarkIndex !== -1) {
+                                        return filenameWithParams.substring(0, questionMarkIndex);
+                                    }
+                                    return filenameWithParams;
+                                }
+                                return "";
+                            };
+
+                        resPage = window.open("", "_blank").document;
+                        if (resPage !== null || resPage.closed === false) {
+                            header = resPage.createElement("h1");
+                            header.textContent = pageURL;
+                            resPage.body.appendChild(header);
+                            resArr.forEach(function (sizedata) {
+                                let subhead = resPage.createElement("h2"), 
+                                    sp = resPage.createElement("span"), 
+                                    frameContainer = resPage.createElement("div");
+
+                                iframe = resPage.createElement("iframe");
+                                subhead.textContent = sizedata.label + " ";
+                                sp.style.color = "palegoldenrod";
+                                sp.textContent = sizedata.width;
+                                subhead.appendChild(sp);
+                                subhead.style.background = "black";
+                                subhead.style.color = "white";
+                                subhead.style.padding = "10px 20px";
+                                frameContainer.appendChild(subhead);
+                                iframe.src = pageURL;
+                                iframe.sandbox = "allow-scripts";
+                                iframe.style.width = sizedata.width;
+                                iframe.style.border = "2px solid black";
+                                iframe.style.height = "505px";
+                                iframe.draggable = "true";
+                                frameContainer.appendChild(iframe);
+                                resPage.body.appendChild(frameContainer);
+                            }, resPage);
+                            pgtitle = resPage.createElement("title");
+                            pgtitle.textContent = "WET page widths [" + getFilenameFromUrlSplit(pageURL) + "]";
+                            resPage.head.appendChild(pgtitle);
+                        }
+                    };
+                    generateResolutionPage(window.location.origin + window.location.pathname);
+                });
+
                 // Initalize GitHub button
-                if (document.getElementById("githubBtn") !== null && gitURL !== "") {
-                    document.getElementById("githubBtn").href = gitURL;
+                if (gitURL !== "") {
+                    if (document.getElementById("githubBtn") !== null) {
+                        document.getElementById("githubBtn").href = gitURL;
+                    }
+
+                    if (document.getElementById("githubOverlayBtn") !== null) {
+                        document.getElementById("githubOverlayBtn").href = gitURL;
+                    }
                 }
             }
         });

@@ -17,9 +17,6 @@
     <meta name="dcterms.type" content="service description">
     <meta name="dcterms.identifier" content="Canada_Revenue_Agency">
     <!-- Meta data -->
-    <!-- Load closure template scripts -->
-    <!--<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/compiled/soyutils.js"></script>-->
-    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_4/cdts/compiled/wet-en.js"></script>
     <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.min.css">
     <link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/m%C3%A9li-m%C3%A9lo/2024-09-kejimkujik.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
@@ -35,6 +32,9 @@
         <!-- /ROOT/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/static/refTop.html -->
         <!--#include virtual="/app/cls/WET/gcweb/v4_0_43/cdts/static/refTop.html" -->
     </noscript>
+    <!-- Load closure template scripts -->
+    <!--<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_43/cdts/compiled/soyutils.js"></script>-->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_4/cdts/compiled/wet-en.js"></script>
         <div id="def-top">
         <nav aria-label="Skip Links">
             <ul id="wb-tphp">
@@ -118,7 +118,7 @@
                         </nav>
 
                     </div>
-            
+
                     <div class="col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4">
                         <section id="wb-so">
                             <h2 class="wb-inv">Sign in</h2>
@@ -189,7 +189,7 @@
     <script>
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
-            showShare: false,
+            showShare: false, 
             pagedetails: false
         });
     </script>
@@ -204,17 +204,17 @@
         defFooter.outerHTML = wet.builder.footer({
             privacyLink: {
                 href: "https://www.canada.ca/en/revenue-agency/corporate/privacy-notice.html"
-            },
+            }, 
             contextualFooter: {
-                title: "Canada Revenue Agency (CRA)",
+                title: "Canada Revenue Agency (CRA)", 
                 links: [{
-                    text: "Contact the CRA",
+                    text: "Contact the CRA", 
                     href: "https://www.canada.ca/en/revenue-agency/corporate/contact-information.html"
                 }, {
                     text: "Update your information", 
                     href: "https://www.canada.ca/en/revenue-agency/services/update-information-cra.html"
                 }, {
-                    text: "About the CRA",
+                    text: "About the CRA", 
                     href: "https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra.html"
                 }]
             }
