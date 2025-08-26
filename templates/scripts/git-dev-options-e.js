@@ -9,7 +9,7 @@
 
 let devOptions = document.getElementById("devoptions");
 let keywords = document.getElementById("pageKeywords");
-let notedLinksList = document.getElementById("notedlinks");
+let notedLinksList = document.getElementById("sourceurl");
 let insertId = "test-banner";
 
 let notedLinksArr, pageOrigin, 
