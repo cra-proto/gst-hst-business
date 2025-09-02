@@ -135,7 +135,10 @@ let visitedLinkStyle = document.createElement("style"),
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"), 
             domains = pattern.exec(url);
 
-        return domains[0];
+        if (domains !== null) {
+            return domains[0];
+        }
+        return "";
     }, 
     rootDomain = getDomain(window.location.origin + window.location.pathname), 
     defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed, relExternalLnk) {
