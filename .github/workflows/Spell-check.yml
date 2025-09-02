@@ -6,11 +6,11 @@ on:
     - '**.js'
     - '**.vue'
     - '**.txt'
-    - '**.html'
+    - '/en/*.html'
     - '**.md'
 
 jobs:
-  spelling:
+  "Spell check results":
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
