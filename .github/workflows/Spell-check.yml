@@ -10,7 +10,7 @@ on:
     - '**.md'
 
 jobs:
-  "Spell check results":
+  Spell-check-results:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
