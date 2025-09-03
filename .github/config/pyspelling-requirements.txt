@@ -1,0 +1,3 @@
+# pip requirement file for pyspelling
+# pip install -r pyspelling-requirements.txt
+pyspelling==2.8.2
