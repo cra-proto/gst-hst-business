@@ -135,7 +135,10 @@ let visitedLinkStyle = document.createElement("style"),
         let pattern = new RegExp("^(https?:\/\/[^\/]+\/[^\/]*\/?)"), 
             domains = pattern.exec(url);
 
-        return domains[0];
+        if (domains !== null) {
+            return domains[0];
+        }
+        return "";
     }, 
     rootDomain = getDomain(window.location.origin + window.location.pathname), 
     defaultadjustLinks = function defaultadjustLinks(elm, isAjaxed, relExternalLnk) {
@@ -145,7 +148,7 @@ let visitedLinkStyle = document.createElement("style"),
         }
     };
 
-//load link exclude json file
+//load link exclude JSON file
 if ("modLinkFile" in exitPage.dataset && exitPage.dataset.modLinkFile !== "") {
     $.getJSON(exitPage.dataset.modLinkFile, function(data) {
         linkExcludes = data;
@@ -171,7 +174,7 @@ $(".gcweb-menu").on("wb-ready.gcweb-menu", function () {
     }
 });
 
-// changes all ajaxed external site links and forms to go to destination link
+// changes all AJAXed external site links and forms to go to destination link
 $("[data-ajax-after], [data-ajax-append], [data-ajax-before], [data-ajax-prepend], [data-ajax-replace]").on("wb-contentupdated", function () {
     defaultadjustLinks(this, true, relExternalLnk);
 });

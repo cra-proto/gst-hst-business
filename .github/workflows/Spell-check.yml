@@ -1,0 +1,20 @@
+# .github/workflows/check_spelling.yml
+name: Check Spelling
+on:
+  workflow_dispatch:
+    paths:
+    - '**.js'
+    - '**.vue'
+    - '**.txt'
+    - '/en/*.html'
+    - '**.md'
+
+jobs:
+  Spell-check-results:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+    - name: Check Spelling
+      uses: UnicornGlobal/spellcheck-github-actions@master
