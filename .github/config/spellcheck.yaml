@@ -1,0 +1,112 @@
+# spellcheck.yaml
+matrix:
+- name: JavaScript-EN
+  sources:
+  - '**/*.js'
+  expect_match: false
+  aspell:
+    lang: en
+    d: en_CA
+    #filter-path: /mingw64/lib/aspell-0.60
+  dictionary:
+    wordlists:
+    - .github/config/spell-wordlist-en.txt
+    output: wordlist-en.dic
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.javascript:
+      jsdocs: true
+      line_comments: true
+      block_comments: true
+      group_comments: false
+      decode_escapes: true
+      strings: false
+
+- name: HTML-EN
+  sources:
+  - 'en/**/*.html'
+  expect_match: false
+  default_encoding: utf-8
+  aspell:
+    lang: en
+    d: en_CA
+    #filter-path: /mingw64/lib/aspell-0.60
+  dictionary:
+    wordlists:
+    - .github/config/spell-wordlist-en.txt
+    output: wordlist-en.dic
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.html:
+      comments: true
+      attributes:
+      - title
+      - alt
+      ignores:
+      - ':matches(code, pre, samp, kbd, var)'
+
+- name: HTML-FR
+  sources:
+  - 'fr/**/*.html'
+  expect_match: false
+  default_encoding: utf-8
+  aspell:
+    lang: fr
+    d: fr_CA
+    #filter-path: /mingw64/lib/aspell-0.60
+  dictionary:
+    wordlists:
+    - .github/config/spell-wordlist-fr.txt
+    output: wordlist-fr.dic
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.html:
+      comments: true
+      attributes:
+      - title
+      - alt
+      ignores:
+      - ':matches(code, pre, samp, kbd, var)'
+
+- name: Markdown-EN
+  expect_match: false
+  sources:
+  - '**/*.md'
+  - '*.md
+  aspell:
+    lang: en
+    d: en_CA
+    #filter-path: /mingw64/lib/aspell-0.60
+  dictionary:
+    wordlists:
+    - .github/config/spell-wordlist-en.txt
+      output: wordlist-en.dic
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.markdown:
+      markdown_extensions:
+      - markdown.extensions.extra:
+  - pyspelling.filters.html:
+      comments: true
+      attributes:
+      - title
+      - alt
+      ignores:
+      - ':matches(code, pre, samp, kbd, var)'
+
+- name: Text-EN
+  sources:
+    wordlists:
+    - .github/config/spell-wordlist-en.txt
+    output: wordlist-en.dic
+    encoding: utf-8
+  ignores:
+  expect_match: false
+  dictionary:
+    wordlists:
+    - .github/config/spell-wordlist-en.txt
+      output: wordlist-en.dic
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.text:
+      convert_encoding: utf-8
