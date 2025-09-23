@@ -1,1 +1,1 @@
-<li><a href="{{ site.url }}/{{ site.title }}{{ include.url }}">{{ include.title }}</a></li>
+<li><a href="{{ site.url }}{% if include.url contains "/" %}{% else %}/{{ site.title }}{% endif %}{{ include.url }}">{{ include.title }}</a></li>
