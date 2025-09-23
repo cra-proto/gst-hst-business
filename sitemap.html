@@ -1,0 +1,20 @@
+---
+testBanner: false
+title: "Sitemap"
+dateModified: 2025-09-23
+dateIssued: 2025-09-23
+nositesearch: true
+nomenu: true
+breadcrumbs: false
+feedback: false
+share: false
+noFooterContextual: true
+noFooterCorporate: true
+noFooterMain: true
+---
+
+<ul>
+{% for p in site.pages %}
+    {% include sitemapxml.html url=p.url title=p.title  %}
+{% endfor %}
+</ul>
