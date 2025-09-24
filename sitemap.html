@@ -21,7 +21,8 @@ noFooterMain: true
     </div>
 </div>
 <ul>
-{% for p in site.pages %}
+{% assign sitePages = site.pages | sort %}
+{% for p in sitePages %}
     {% include sitemapxml.html url=p.url title=p.title  %}
     {% assign folder_path = p.url | split: "/" %}
     {% assign count_of_folders = folder_path.size | minus: 1 %}
