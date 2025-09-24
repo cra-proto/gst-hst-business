@@ -27,9 +27,9 @@ noFooterMain: true
     {% assign page_url = p.url | slice: 1, p.url.size %}
     {% assign folder_path = page_url | split: "/" %}
     <p>
-    {% for fp in folder_path limit: folder_path.size | minus: 2 %}
+    {% for fp in folder_path limit: folder_path.size | minus: 3 %}
         <span>[{{ fp }}]</span>
     {% endfor %}
-    <span>({{ folder_path.size }})</span></p>
+    <span> - ({{ folder_path.size }})</span></p>
 {% endfor %}
 </ul>
