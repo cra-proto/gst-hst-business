@@ -25,11 +25,10 @@ noFooterMain: true
 {% for p in sitePages %}
     {% include sitemapxml.html url=p.url title=p.title  %}
     {% assign folder_path = p.url | split: "/" %}
-    {% assign count_of_folders = folder_path.size %}
     <p>
     {% for fp in folder_path %}
         <span>[{{ fp }}]</span>
     {% endfor %}
-    <span> - ({{ count_of_folders }})</span></p>
+    <span> - ({{ folder_path.size }})</span></p>
 {% endfor %}
 </ul>
