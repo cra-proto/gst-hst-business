@@ -1,4 +1,4 @@
-# Added/Deleted/Modified files and pages to be published:
+# Added/Deleted/Modified files and pages to be published
 
 ## Pages to be added (3)
 
