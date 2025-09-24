@@ -24,7 +24,7 @@ noFooterMain: true
 {% assign sitePages = site.pages | sort: "url" %}
 {% for p in sitePages %}
     {% include sitemapxml.html url = p.url title = p.title  %}
-    {% assign pageUrl = p.url | slice: 1, -1 %}
+    {% assign pageUrl = p.url | slice: 1, p.url.size %}
     <p>"{{ pageUrl }}" ** {{ p.url }} **</p>
     {% assign folder_path = pageUrl | split: "/" %}
     <p>
