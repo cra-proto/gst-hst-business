@@ -29,9 +29,11 @@ noFooterMain: true
     {% if folder_path.size > 1 %}
         <p>
         {% for fp in folder_path %}
-            {% unless forloop.last %}
+            {% if forloop.last %}
+               &nbsp;{{ fp }}
+            {% else %}
                 [{{ fp }}]
-            {% endunless %}
+            {% endif %}
         {% endfor %}
         </p>
     {% endif %}
