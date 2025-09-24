@@ -26,12 +26,14 @@ noFooterMain: true
     {% include sitemapxml.html url = p.url title = p.title %}
     {% assign page_url = p.url | slice: 1, p.url.size %}
     {% assign folder_path = page_url | split: "/" %}
-    <p>
-    {% for fp in folder_path %}
-        {% unless forloop.last %}
-            [{{ fp }}]
-        {% endunless %}
-    {% endfor %}
-    </p>
+    {% if folder_path.size > 1 %}
+        <p>
+        {% for fp in folder_path %}
+            {% unless forloop.last %}
+                [{{ fp }}]
+            {% endunless %}
+        {% endfor %}
+        </p>
+    {% endif %}
 {% endfor %}
 </ul>
