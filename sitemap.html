@@ -20,15 +20,17 @@ noFooterMain: true
         </ul>
     </div>
 </div>
+<p>Check</p>
 <ul>
 {% assign sitePages = site.pages | sort: "url" %}
 {% for p in sitePages %}
-    {% include sitemapxml.html url=p.url title=p.title  %}
-    {% assign folder_path = p.url | split: "/" %}
+    {% include sitemapxml.html url = p.url title = p.title  %}
+    {% assign page_url = p.url | slice: 1, -1 %}
+    {% assign folder_path = page_url | split: "/" %}
     <p>
-    {% for fp in folder_path %}
+    {% for fp in folder_path limit: folder_path.size | minus: 1 %}
         <span>[{{ fp }}]</span>
     {% endfor %}
-    <span> - ({{ folder_path.size }})</span></p>
+    <span>** {{ page_url }} ** - ({{ folder_path.size }})</span></p>
 {% endfor %}
 </ul>
