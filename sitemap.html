@@ -21,7 +21,7 @@ noFooterMain: true
     </div>
 </div>
 <ul>
-{% assign sitePages = site.pages | sort %}
+{% assign sitePages = site.pages | sort: 'url' %}
 {% for p in sitePages %}
     {% include sitemapxml.html url=p.url title=p.title  %}
     {% assign folder_path = p.url | split: "/" %}
