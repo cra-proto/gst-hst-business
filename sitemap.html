@@ -20,10 +20,11 @@ noFooterMain: true
         </ul>
     </div>
 </div>
+<p>Check</p>
 <ul>
 {% assign sitePages = site.pages | sort: "url" %}
 {% for p in sitePages %}
-    {% include sitemapxml.html url=p.url title=p.title  %}
+    {% include sitemapxml.html url = p.url title = p.title  %}
     {% assign page_url = p.url | slice: 1, -1 %}
     {% assign folder_path = page_url | split: "/" %}
     <p>
