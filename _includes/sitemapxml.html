@@ -1,1 +1,2 @@
-<li><a href="{{ site.url }}{% if include.url | slice: 1, -1 contains "/" %}{% else %}/{{ site.title }}{% endif %}{{ include.url }}">{{ include.title }}{{include.url | slice: 1, -1}}</a></li>
+{% assign file_path = include.url | slice: 1, -1 %}
+<li><a href="{{ site.url }}{% if file_path contains "/" %}{% else %}/{{ site.title }}{% endif %}{{ include.url }}">{{ include.title }}{{ file_path }}</a></li>
