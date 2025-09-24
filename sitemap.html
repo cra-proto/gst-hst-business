@@ -30,6 +30,6 @@ noFooterMain: true
     {% for fp in folder_path limit: folder_path.size | minus: 1 %}
         <span>[{{ fp }}]</span>
     {% endfor %}
-    <span> - ({{ folder_path.size }})</span></p>
+    <span>&lt;{{ pageUrl }}&gt; - ({{ folder_path.size }})</span></p>
 {% endfor %}
 </ul>
