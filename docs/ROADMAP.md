@@ -1,4 +1,4 @@
-# Design phase roadmap:
+# Design phase roadmap
 
 - [x] Prototype: co-design navigation and content
 - [x] SME review and accuracy check
