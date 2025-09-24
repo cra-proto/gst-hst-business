@@ -29,9 +29,9 @@ noFooterMain: true
     <p>
     {% for fp in folder_path %}
         {% unless forloop.last %}
-            <span>[{{ fp }}]</span>
+            [{{ fp }}]
         {% endunless %}
     {% endfor %}
-    <span> - ({{ folder_path.size }})</span></p>
+    </p>
 {% endfor %}
 </ul>
