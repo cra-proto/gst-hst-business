@@ -27,6 +27,7 @@ Project to optimize the content related to filing GST/HST returns.
 ### Tools
 
 - [Github.dev](https://github.dev/cra-design/gst-hst-business/blob/main/)
+- [Test banner developer options](https://cra-design.github.io/core-prototype/core/tools/index.html)
 - [Convert page to GCWeb/Jekyll page tool](https://cra-design.github.io/core-prototype/core/tools/page-convert-jekyll.html)
 
 ---
