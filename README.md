@@ -97,6 +97,10 @@ gantt
 [https://www.canada.ca/en/revenue-agency/services/](https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-businesses/) \[66 pages\]
 
 ```mermaid
+---
+config:
+  theme: 'neutral'
+---
 mindmap
   root((services))
     [e-services/digital-services-businesses - 3]
