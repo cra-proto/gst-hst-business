@@ -1,4 +1,4 @@
-name: Spell Check [En-CA]
+name: Spell Check  (Canadian English)
 
 on:
   workflow_dispatch:
