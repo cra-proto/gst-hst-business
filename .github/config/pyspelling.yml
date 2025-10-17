@@ -1,0 +1,11 @@
+# config/pyspelling.yml
+spellchecker: aspell
+matrix:
+  - name: html-canadian-english
+    aspell:
+      lang: en_CA # Specify Canadian English
+    sources:
+      - "**/*.html" # Target all HTML files
+    pipeline:
+      - pyspelling.filters.html
+    wordlist: spell-wordlist-en.txt # Optional: path to your custom wordlist
