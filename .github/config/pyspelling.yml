@@ -24,10 +24,10 @@ matrix:
       strings: false
 
 - name: Markdown-canadian-english
-  expect_match: false
   sources:
   - '**/*.md'
-  - '*.md
+  - '*.md'
+  expect_match: false
   aspell:
     lang: en
     d: en_CA
