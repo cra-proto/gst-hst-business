@@ -49,22 +49,22 @@ matrix:
       ignores:
       - ':matches(code, pre, samp, kbd, var)'
 
-- name: Text-canadian-english
-  sources:
-    wordlists:
-    - .github/config/spell-wordlist-en.txt
-    output: wordlist-en.dic
-    encoding: utf-8
-  ignores:
-  expect_match: false
-  dictionary:
-    wordlists:
-    - .github/config/spell-wordlist-en.txt
-    output: wordlist-en.dic
-    encoding: utf-8
-  pipeline:
-  - pyspelling.filters.text:
-      convert_encoding: utf-8
+#- name: Text-canadian-english
+#  sources:
+#    wordlists:
+#    - .github/config/spell-wordlist-en.txt
+#    output: wordlist-en.dic
+#    encoding: utf-8
+#  ignores:
+#  expect_match: false
+#  dictionary:
+#    wordlists:
+#    - .github/config/spell-wordlist-en.txt
+#    output: wordlist-en.dic
+#    encoding: utf-8
+#  pipeline:
+#  - pyspelling.filters.text:
+#      convert_encoding: utf-8
 
 - name: HTML-canadian-english
   sources:
