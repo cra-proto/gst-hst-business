@@ -1,6 +1,5 @@
 # config/pyspelling.yml
 spellchecker: aspell
-  - name: html-canadian-english
 matrix:
 - name: JavaScript-canadian-english
   sources:
