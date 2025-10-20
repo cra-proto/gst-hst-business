@@ -19,8 +19,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Specify your desired Python version
+
       - name: Install Aspell Canadian English dictionary
         run: |
+          pip install pyspelling
           sudo apt-get update
           sudo apt-get install -y aspell-en
           # Aspell's 'en' dictionary often covers common English,
