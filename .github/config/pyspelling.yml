@@ -60,7 +60,7 @@ matrix:
   dictionary:
     wordlists:
     - .github/config/spell-wordlist-en.txt
-      output: wordlist-en.dic
+    output: wordlist-en.dic
     encoding: utf-8
   pipeline:
   - pyspelling.filters.text:
