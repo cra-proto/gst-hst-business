@@ -3,7 +3,7 @@ spellchecker: aspell
 matrix:
 - name: JavaScript-canadian-english
   sources:
-  - '**/*.js'
+  - "**/*.js"
   expect_match: false
   aspell:
     lang: en
@@ -22,11 +22,17 @@ matrix:
       group_comments: false
       decode_escapes: true
       strings: false
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
 
 - name: Markdown-canadian-english
   sources:
-  - '**/*.md'
-  - '*.md'
+  - "**/*.md"
+  - "*.md"
   expect_match: false
   aspell:
     lang: en
@@ -47,7 +53,13 @@ matrix:
       - title
       - alt
       ignores:
-      - ':matches(code, pre, samp, kbd, var)'
+      - ":matches(code, pre, samp, kbd, var)"
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
 
 #- name: Text-canadian-english
 #  sources:
@@ -68,7 +80,7 @@ matrix:
 
 - name: HTML-canadian-english
   sources:
-  - 'en/**/*.html'
+  - "en/**/*.html"
   expect_match: false
   default_encoding: utf-8
   aspell:
@@ -87,11 +99,17 @@ matrix:
       - title
       - alt
       ignores:
-      - ':matches(code, pre, samp, kbd, var)'
+      - ":matches(code, pre, samp, kbd, var)"
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
 
 - name: HTML-FR
   sources:
-  - 'fr/**/*.html'
+  - "fr/**/*.html"
   expect_match: false
   default_encoding: utf-8
   aspell:
@@ -110,4 +128,10 @@ matrix:
       - title
       - alt
       ignores:
-      - ':matches(code, pre, samp, kbd, var)'
+      - ":matches(code, pre, samp, kbd, var)"
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
