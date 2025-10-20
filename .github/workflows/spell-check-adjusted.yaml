@@ -28,7 +28,7 @@ jobs:
         run: |
           pip install pyspelling
           sudo apt-get update
-          sudo apt-get install -y aspell-en
+          sudo apt-get install -y aspell-en aspell-fr
           # Aspell's 'en' dictionary often covers common English,
           # but for specific Canadian variants, you might need to ensure
           # en_CA is available or handle it through custom wordlists.
