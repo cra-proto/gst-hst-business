@@ -1,0 +1,50 @@
+name: Spell Check  (Canadian English)
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_paths:
+        description: 'Comma-separated paths or glob patterns (e.g., src/**, *.js)'
+        required: false
+        type: string
+      file_type:
+        description: 'Specific file extension to process (e.g., .js, .py)'
+        required: false
+        type: string
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Specify your desired Python version
+
+      - name: Install Aspell Canadian English dictionary
+        run: |
+          pip install pyspelling
+          sudo apt-get update
+          sudo apt-get install -y aspell-en
+          # Aspell's 'en' dictionary often covers common English,
+          # but for specific Canadian variants, you might need to ensure
+          # en_CA is available or handle it through custom wordlists.
+
+      - name: Run PySpelling with custom config
+        run: pyspelling --config .github/config/pyspelling.yml
+
+      - name: Process specific paths
+        if: github.event.inputs.target_paths != ''
+        run: |
+          echo "Processing files in: ${{ github.event.inputs.target_paths }}"
+          # Add your script here to find and process files based on target_paths
+          # Example: find . -path "${{ github.event.inputs.target_paths }}" -exec echo {} \;
+      - name: Process specific file type
+        if: github.event.inputs.file_type != ''
+        run: |
+          echo "Processing files of type: ${{ github.event.inputs.file_type }}"
+          # Add your script here to find and process files based on file_type
+          # Example: find . -name "*${{ github.event.inputs.file_type }}" -exec echo {} \;
