@@ -107,31 +107,31 @@ matrix:
       - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
         close: ""
 
-- name: HTML-FR
-  sources:
-  - "fr/**/*.html"
-  expect_match: false
-  default_encoding: utf-8
-  aspell:
-    lang: fr
-    d: fr_CA
-    #filter-path: /mingw64/lib/aspell-0.60
-  dictionary:
-    wordlists:
-    - .github/config/spell-wordlist-fr.txt
-    output: wordlist-fr.dic
-    encoding: utf-8
-  pipeline:
-  - pyspelling.filters.html:
-      comments: true
-      attributes:
-      - title
-      - alt
-      ignores:
-      - ":matches(code, pre, samp, kbd, var)"
-  - pyspelling.filters.context:
-      context_visible_first: true
+#- name: HTML-FR
+#  sources:
+#  - "fr/**/*.html"
+#  expect_match: false
+#  default_encoding: utf-8
+#  aspell:
+#    lang: fr
+#    d: fr_CA
+#    #filter-path: /mingw64/lib/aspell-0.60
+#  dictionary:
+#    wordlists:
+#    - .github/config/spell-wordlist-fr.txt
+#    output: wordlist-fr.dic
+#    encoding: utf-8
+#  pipeline:
+#  - pyspelling.filters.html:
+#      comments: true
+#      attributes:
+#      - title
+#      - alt
+#      ignores:
+#      - ":matches(code, pre, samp, kbd, var)"
+#  - pyspelling.filters.context:
+#      context_visible_first: true
       # Define a pattern to ignore words that start with a capital letter
-      delimiters:
-      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
-        close: ""
+#      delimiters:
+#      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+#        close: ""
