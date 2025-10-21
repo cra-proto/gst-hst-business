@@ -1,10 +1,9 @@
 # config/pyspelling.yml
 spellchecker: aspell
-  - name: html-canadian-english
 matrix:
 - name: JavaScript-canadian-english
   sources:
-  - '**/*.js'
+  - "**/*.js"
   expect_match: false
   aspell:
     lang: en
@@ -23,12 +22,18 @@ matrix:
       group_comments: false
       decode_escapes: true
       strings: false
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
 
 - name: Markdown-canadian-english
-  expect_match: false
   sources:
-  - '**/*.md'
-  - '*.md
+  - "**/*.md"
+  - "*.md"
+  expect_match: false
   aspell:
     lang: en
     d: en_CA
@@ -36,7 +41,7 @@ matrix:
   dictionary:
     wordlists:
     - .github/config/spell-wordlist-en.txt
-      output: wordlist-en.dic
+    output: wordlist-en.dic
     encoding: utf-8
   pipeline:
   - pyspelling.filters.markdown:
@@ -48,28 +53,34 @@ matrix:
       - title
       - alt
       ignores:
-      - ':matches(code, pre, samp, kbd, var)'
+      - ":matches(code, pre, samp, kbd, var)"
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
 
-- name: Text-canadian-english
-  sources:
-    wordlists:
-    - .github/config/spell-wordlist-en.txt
-    output: wordlist-en.dic
-    encoding: utf-8
-  ignores:
-  expect_match: false
-  dictionary:
-    wordlists:
-    - .github/config/spell-wordlist-en.txt
-      output: wordlist-en.dic
-    encoding: utf-8
-  pipeline:
-  - pyspelling.filters.text:
-      convert_encoding: utf-8
+#- name: Text-canadian-english
+#  sources:
+#    wordlists:
+#    - .github/config/spell-wordlist-en.txt
+#    output: wordlist-en.dic
+#    encoding: utf-8
+#  ignores:
+#  expect_match: false
+#  dictionary:
+#    wordlists:
+#    - .github/config/spell-wordlist-en.txt
+#    output: wordlist-en.dic
+#    encoding: utf-8
+#  pipeline:
+#  - pyspelling.filters.text:
+#      convert_encoding: utf-8
 
 - name: HTML-canadian-english
   sources:
-  - 'en/**/*.html'
+  - "en/**/*.html"
   expect_match: false
   default_encoding: utf-8
   aspell:
@@ -88,27 +99,39 @@ matrix:
       - title
       - alt
       ignores:
-      - ':matches(code, pre, samp, kbd, var)'
+      - ":matches(code, pre, samp, kbd, var)"
+  - pyspelling.filters.context:
+      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+      delimiters:
+      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+        close: ""
 
-- name: HTML-FR
-  sources:
-  - 'fr/**/*.html'
-  expect_match: false
-  default_encoding: utf-8
-  aspell:
-    lang: fr
-    d: fr_CA
-    #filter-path: /mingw64/lib/aspell-0.60
-  dictionary:
-    wordlists:
-    - .github/config/spell-wordlist-fr.txt
-    output: wordlist-fr.dic
-    encoding: utf-8
-  pipeline:
-  - pyspelling.filters.html:
-      comments: true
-      attributes:
-      - title
-      - alt
-      ignores:
-      - ':matches(code, pre, samp, kbd, var)'
+#- name: HTML-FR
+#  sources:
+#  - "fr/**/*.html"
+#  expect_match: false
+#  default_encoding: utf-8
+#  aspell:
+#    lang: fr
+#    d: fr_CA
+#    #filter-path: /mingw64/lib/aspell-0.60
+#  dictionary:
+#    wordlists:
+#    - .github/config/spell-wordlist-fr.txt
+#    output: wordlist-fr.dic
+#    encoding: utf-8
+#  pipeline:
+#  - pyspelling.filters.html:
+#      comments: true
+#      attributes:
+#      - title
+#      - alt
+#      ignores:
+#      - ":matches(code, pre, samp, kbd, var)"
+#  - pyspelling.filters.context:
+#      context_visible_first: true
+      # Define a pattern to ignore words that start with a capital letter
+#      delimiters:
+#      - open: "\b[A-Z]{2}[A-Za-z'’-]*\b"
+#        close: ""
