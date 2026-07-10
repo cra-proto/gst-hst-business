@@ -1,4 +1,3 @@
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB" crossorigin="anonymous"></script>
 <script src="{{ setting-resourcesBasePathWetboew }}/js/wet-boew{{ setting-minifiedSuffix }}.js"></script>
 <script src="{{ setting-resourcesBasePathTheme }}/js/theme{{ setting-minifiedSuffix }}.js"></script>
@@ -16,8 +15,16 @@
     <script src="{{ page.script }}"></script>
 {%- endif -%}
 {% if page.testBanner == true or site.testBanner == true and page.testBanner != false %}
-<!-- START of GitHub only scripts --->
-<script src="/gst-hst-business/templates/scripts/git-dev-options-e.js"></script>
-<script src="https://cra-design.github.io/core-prototype/resources/tools/tinymce/tinymce.min.js"></script>
-<!-- END of GitHub only scripts --->
+{%- if i18nText-lang == "fr" -%}
+<!-- DÉBUT des scripts GitHub seulement -->
+{%- elsif i18nText-lang == "en" -%}
+<!-- START of GitHub only scripts -->
+{%- endif -%}
+<script src="https://cra-test-arc.canada.ca/core-prototype/source/scripts/git-dev-options-{%- if i18nText-lang == "fr" -%}f{%- elsif i18nText-lang == "en" -%}e{%- endif -%}.js"></script>
+<script src="https://cra-test-arc.canada.ca/core-prototype/resources/tools/tinymce/tinymce.min.js"></script>
+{%- if i18nText-lang == "fr" -%}
+<!-- FIN des scripts GitHub seulement -->
+{%- elsif i18nText-lang == "en" -%}
+<!-- END of GitHub only scripts -->
+{%- endif -%}
 {% endif %}
