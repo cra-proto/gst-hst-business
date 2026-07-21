@@ -2,7 +2,7 @@
 # standard jekyll configuration
 content_editable: true
 baseurl: /gst-hst-business
-url: https://cra-proto.github.io
+url: https://cra-test-arc.canada.ca
 repository: cra-proto/gst-hst-business
 website: https://www.canada.ca/en.html
 
