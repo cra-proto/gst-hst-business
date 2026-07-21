@@ -2,8 +2,8 @@
 # standard jekyll configuration
 content_editable: true
 baseurl: /gst-hst-business
-url: https://cra-design.github.io
-repository: cra-design/gst-hst-business
+url: https://cra-proto.github.io
+repository: cra-proto/gst-hst-business
 website: https://www.canada.ca/en.html
 
 # Remote theme, use the latest version
