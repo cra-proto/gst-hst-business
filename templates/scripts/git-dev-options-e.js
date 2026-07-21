@@ -36,6 +36,10 @@ let notedLinksArr, pageOrigin,
             case pageURL.indexOf(".alpha.canada.ca/") > -1:
                 githubURL = pageURL.toString().replace(new RegExp("^https:\/\/design\.cra-arc\.alpha\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/alpha-canada-ca\/cra-ucd-guide\/blob\/main\/$1\/$2$3" + pageName);
                 break;
+            // Generate GitHub.com URL's from cra-test-arc.canada.ca URL's
+            case pageURL.indexOf("://cra-test-arc.canada.ca/") > -1:
+                githubURL = pageURL.toString().replace(new RegExp("^https:\/\/cra-test-arc\.canada\.ca\/(.*?)\/((?:.*)(?=\/))?(\/?.*\..+)?"), "https:\/\/github\.com\/cra-proto\/$1\/blob\/master\/$2$3" + pageName);
+                break;
         }
         if (githubURL !== null) {
             return githubURL;
