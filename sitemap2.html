@@ -33,6 +33,8 @@ noFooterMain: true
   {%- comment %} 2. Sort strictly by URL to keep directory hierarchies contiguous {% endcomment -%}
   {%- assign sorted_pages = valid_pages | sort: "url" -%}
   {%- assign open_folders = "" | split: "," -%}
+  {%- comment %} Track how many real HTML details elements are currently open {% endcomment -%}
+  {%- assign physical_html_depth = 0 -%}
 
   {%- for p in sorted_pages -%}
     {%- comment %} Deduce current folder structures from the URL path {% endcomment -%}
@@ -58,30 +60,35 @@ noFooterMain: true
         {%- assign old_f = open_folders[i] -%}
         {%- assign new_f = this_page_folders[i] -%}
         {%- if old_f == new_f -%}
-          {%- assign keep_open_count = keep_open_count | plus: 1 -%}
-        {%- else -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endif -%}
+          {%- assign keep_open_count = keep_open_count | plus: 1 -}
+        {%- else -}
+          {%- break -}
+        {%- endif -}
+      {%- endif -}
     {%- endfor -%}
 
-    {%- comment %} Step B: Unwind and close ONLY the specific sub-folders that changed {% endcomment -%}
+    {%- comment %} Step B: Unwind and close HTML folders ONLY if we exited a structural path block {% endcomment -%}
     {%- assign current_open_num = open_folders.size -%}
     {%- if current_open_num > keep_open_count -%}
-      {%- assign close_needed = current_open_num | minus: keep_open_count -%}
-      {%- for c in (1..close_needed) -%}
+      {%- comment %} 
+        If the folder we are leaving caused an HTML block to open, 
+        we must close exactly one level of HTML structures.
+      {% endcomment -%}
+      {%- if physical_html_depth > 0 -%}
         </ul></details></li>
-      {%- endfor -%}
+        {%- assign physical_html_depth = physical_html_depth | minus: 1 -%}
+      {%- endif -%}
+      
       {%- assign temp_folders = "" | split: "," -%}
       {%- for i in (0..keep_open_count) -%}
         {%- if i < keep_open_count -%}
           {%- assign temp_folders = temp_folders | push: open_folders[i] -%}
         {%- endif -%}
       {%- endfor -%}
-      {%- assign open_folders = temp_folders -%}
+      {%- assign open_folders = temp_folders -}
     {%- endif -%}
 
-    {%- comment %} Step C: Open new sub-folders if we are diving deeper down a path {% endcomment -%}
+    {%- comment %} Step C: Open new sub-folders with unified HTML structural counting {% endcomment -%}
     {%- assign start_index = open_folders.size -%}
     {%- assign end_index = this_page_folders.size -%}
     {%- if start_index < end_index -%}
@@ -101,11 +108,11 @@ noFooterMain: true
             {%- assign skip_summary = true -%}
           {%- endif -%}
           {%- if skip_summary == false -%}
-            {%- assign aria_level = open_folders.size -%}
-            <li role="treeitem" aria-level="{{ aria_level }}" aria-setsize="1" aria-posinset="1" aria-expanded="false" aria-selected="false">
+            {%- assign physical_html_depth = physical_html_depth | plus: 1 -%}
+            <li role="treeitem" aria-level="{{ physical_html_depth }}" aria-setsize="1" aria-posinset="1" aria-expanded="false" aria-selected="false">
               <details>
                 <summary>{{ folder_summary_chain }}</summary>
-                <ul role="group">
+                <ul role="group" class="lst-none">
             {%- assign folder_summary_chain = "" -%}
           {%- endif -%}
         {%- endif -%}
@@ -114,23 +121,22 @@ noFooterMain: true
 
     {%- comment %} Step D: Determine node display label (Front Matter Title vs Raw Filename) {% endcomment -%}
     {%- assign display_label = p.title -%}
-    {%- if display_label == nil or display_label == "" -%}
-      {%- assign display_label = filename -%}
+    {%- if display_label == nil or display_label == "" -}
+      {%- assign display_label = filename -}
     {%- endif -%}
 
     {%- comment %} Step E: Render the page link node safely inside the parent container {% endcomment -%}
-    {%- assign leaf_level = open_folders.size | plus: 1 -%}
+    {%- assign leaf_level = physical_html_depth | plus: 1 -%}
     <li role="treeitem" aria-level="{{ leaf_level }}" aria-setsize="1" aria-posinset="1" aria-expanded="none" aria-selected="false">
       <a href="{{ p.url | relative_url }}">{{ display_label | escape }}</a>
     </li>
-  {%- endfor -%}
+  {%- endfor -}
 
-  {%- comment %} Step F: Complete layout cycle by unwinding remaining tags {% endcomment -%}
-  {%- assign remaining_closes = open_folders.size -%}
-  {%- if remaining_closes > 0 -%}
-    {%- for i in (1..remaining_closes) -%}
+  {%- comment %} Step F: Complete layout cycle by unwinding remaining tags accurately {% endcomment -%}
+  {%- if physical_html_depth > 0 -%}
+    {%- for i in (1..physical_html_depth) -%}
       </ul></details></li>
-    {%- endfor -%}
+    {%- endfor -}
   {%- endif -%}
 </ul>
 </nav>
