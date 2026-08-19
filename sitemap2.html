@@ -128,13 +128,13 @@ noFooterMain: true
     <li role="treeitem" aria-level="{{ leaf_level }}" aria-setsize="1" aria-posinset="1" aria-expanded="none" aria-selected="false">
       <a href="{{ p.url | relative_url }}">{{ display_label | escape }}</a>
     </li>
-  {%- endfor -}
+  {%- endfor -%}
 
   {%- comment %} Step F: Complete layout cycle by unwinding remaining tags accurately {% endcomment -%}
   {%- if physical_html_depth > 0 -%}
     {%- for i in (1..physical_html_depth) -%}
       </ul></details></li>
-    {%- endfor -}
+    {%- endfor -%}
   {%- endif -%}
 </ul>
 </nav>
