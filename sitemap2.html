@@ -60,11 +60,11 @@ noFooterMain: true
         {%- assign old_f = open_folders[i] -%}
         {%- assign new_f = this_page_folders[i] -%}
         {%- if old_f == new_f -%}
-          {%- assign keep_open_count = keep_open_count | plus: 1 -}
-        {%- else -}
-          {%- break -}
-        {%- endif -}
-      {%- endif -}
+          {%- assign keep_open_count = keep_open_count | plus: 1 -%}
+        {%- else -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endif -%}
     {%- endfor -%}
 
     {%- comment %} Step B: Unwind and close HTML folders ONLY if we exited a structural path block {% endcomment -%}
@@ -85,7 +85,7 @@ noFooterMain: true
           {%- assign temp_folders = temp_folders | push: open_folders[i] -%}
         {%- endif -%}
       {%- endfor -%}
-      {%- assign open_folders = temp_folders -}
+      {%- assign open_folders = temp_folders -%}
     {%- endif -%}
 
     {%- comment %} Step C: Open new sub-folders with unified HTML structural counting {% endcomment -%}
@@ -121,8 +121,8 @@ noFooterMain: true
 
     {%- comment %} Step D: Determine node display label (Front Matter Title vs Raw Filename) {% endcomment -%}
     {%- assign display_label = p.title -%}
-    {%- if display_label == nil or display_label == "" -}
-      {%- assign display_label = filename -}
+    {%- if display_label == nil or display_label == "" -%}
+      {%- assign display_label = filename -%}
     {%- endif -%}
 
     {%- comment %} Step E: Render the page link node safely inside the parent container {% endcomment -%}
@@ -130,13 +130,13 @@ noFooterMain: true
     <li role="treeitem" aria-level="{{ leaf_level }}" aria-setsize="1" aria-posinset="1" aria-expanded="none" aria-selected="false">
       <a href="{{ p.url | relative_url }}">{{ display_label | escape }}</a>
     </li>
-  {%- endfor -}
+  {%- endfor -%}
 
   {%- comment %} Step F: Complete layout cycle by unwinding remaining tags accurately {% endcomment -%}
   {%- if physical_html_depth > 0 -%}
     {%- for i in (1..physical_html_depth) -%}
       </ul></details></li>
-    {%- endfor -}
+    {%- endfor -%}
   {%- endif -%}
 </ul>
 </nav>
