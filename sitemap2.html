@@ -262,13 +262,13 @@ ul[role="tree"] li {
     {%- if frenchExists == true -%}
         <span class="label label-info">en</span>
     {%- endif -%}
-      <a href="{{ p.url | relative_url }}" tabindex="-1" data-exit="false">{{ display_label | escape }}</a>
+      <a href="{{ p.url | relative_url }}" tabindex="-1" target="_blank" data-exit="false">{{ display_label | escape }}</a>
     </li>
 
     {%- if frenchExists == true -%}
     <li role="treeitem" aria-level="{{ leaf_level }}" aria-selected="false">
         <span class="label label-info">fr</span>
-      <a href="{{ pf.url }}" tabindex="-1" data-exit="false">{{ pf.title }}</a>
+      <a href="{{ pf.url }}" tabindex="-1" target="_blank" data-exit="false">{{ pf.title }}</a>
     </li>
     {%- endif -%}
 
