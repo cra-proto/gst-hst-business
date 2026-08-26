@@ -145,10 +145,6 @@ ul[role="tree"] li {
         </ul>
     </div>
 </div>
-<br>
-<button id="btn-expand-all" type="button" class="btn btn-default">Expand All</button>
-<button id="btn-collapse-all" type="button" class="btn btn-default">Collapse All</button>
-<br>
 <nav class="mrgn-tp-md">
 <ul class="list-unstyled tree" role="tree" aria-labelledby="tree1">
   {%- comment %} 1. Filter out pages marked sitemap: false, but retain pages without titles {% endcomment -%}
@@ -794,25 +790,4 @@ Treeitem.prototype.handleMouseOut = function (event) {
   event.currentTarget.classList.remove("hover");
 };
 
-</script>
-<script>
-  window.addEventListener("load", () => {
-  const trees = document.querySelectorAll('[role="tree"]');
-  
-  for (let i = 0; i < trees.length; i++) {
-    const t = new Tree(trees[i]);
-    t.init();
-
-    // Wire up the buttons for the first tree instance
-    if (i === 0) {
-      document.getElementById("btn-expand-all")?.addEventListener("click", () => {
-        t.expandAll();
-      });
-
-      document.getElementById("btn-collapse-all")?.addEventListener("click", () => {
-        t.collapseAll();
-      });
-    }
-  }
-});
 </script>
