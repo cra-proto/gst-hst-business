@@ -93,7 +93,7 @@ ul[role="tree"] li {
 [role="treeitem"] span.tree-title::before {
   z-index: 1;
 /*  background: var(--expandcolor) url("/core-prototype/source/media/expand-collapse.svg") 0 0; */
-  background: none url("/cra-portal/source/media/folder-open-close.svg") 0 0;
+  background: #fff url("/cra-portal/source/media/folder-open-close.svg") 0 0;
 }
 
 /* Expanded style: Shifts background left to show the minus sign (right half) */
@@ -236,7 +236,7 @@ ul[role="tree"] li {
         {%- assign open_folders = open_folders | push: folder_name -%}
         {%- assign physical_html_depth = physical_html_depth | plus: 1 -%}
 <li role="treeitem" aria-level="{{ physical_html_depth }}" aria-expanded="false" aria-selected="false" class="tree-parent">
-<span class="tree-title"><strong>{{ folder_name }}</strong></span>
+<span class="tree-title">{{ folder_name }}</span>
 <ul role="group">
       {%- endfor -%}
     {%- endif -%}
