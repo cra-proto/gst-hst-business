@@ -1,11 +1,11 @@
 ---
 testBanner: false
-title: "Sitemap"
+title: "GST/HST COP Repository"
 dateModified: 2026-08-26
 dateIssued: 2025-08-26
 nositesearch: true
 nomenu: true
-breadcrumbs: false
+breadcrumbs : false
 feedback: false
 share: false
 noFooterContextual: true
@@ -15,10 +15,18 @@ sitemapExclude: true
 ---
 <style>
 .tree {
-  --spacing: 2rem;
+  --spacing: 2.3rem;
   --radius: 10px;
-  --listitemcolor: #ccc;  
-  --expandcolor: #295376;  
+  --listitemcolor: #ccc;
+  --expandcolor: #295376;
+}
+
+/* Clear default layout parameters */
+.tree, 
+.tree ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .tree li {
@@ -27,31 +35,32 @@ sitemapExclude: true
   padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
 }
 
-[role="treeitem"] ul {
+ul[role="tree"] li {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+li[role="treeitem"] ul {
   margin-left: calc(var(--radius) - var(--spacing));
   padding-left: 0;
 }
 
-[role="treeitem"] li {
-  line-height: 1.5em !important;
+li[role="treeitem"] {
+  line-height: 1.3em !important;
   border-left: 2px solid var(--listitemcolor);
+  cursor: pointer;
 }
 
-ul[role="tree"] li {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+ul[role="tree"] > li[role="treeitem"] {
+  border-left-color: transparent;
 }
 
-[role="treeitem"] li a {
-  display: block;
-  padding-bottom: 0.3em;
-}
-
-[role="treeitem"] li:last-child {
+li[role="treeitem"]:last-child {
   border-color: transparent;
 }
 
-[role="treeitem"] li::before {
+/* Tree Connecting Lines (L-shape) */
+li[role="treeitem"]::before {
   content: "";
   display: block;
   position: absolute;
@@ -63,21 +72,43 @@ ul[role="tree"] li {
   border-width: 0 0 2px 2px;
 }
 
-[role="treeitem"] span.tree-title {
-  display: block !important; 
+ul[role="tree"] > li[role="treeitem"]::before {
+  display: none;
+}
+
+li[role="treeitem"] span.tree-title {
+  display: inline-flex !important;
+  align-items: center;
   cursor: pointer;
   line-height: 1.2em;
+  white-space: nowrap;
+  font-weight: 501;
+  margin-left: calc(-1 * (var(--spacing) - var(--radius) + 17px));
+  padding: 0.35em 0.6em 0.35em calc(var(--spacing) - var(--radius) + 12px);
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
 }
 
-[role="treeitem"] span.tree-title:focus {
-  outline: none;
+li[role="treeitem"] a {
+  display: inline-flex !important;
+  align-items: center;
+  cursor: pointer;
+  line-height: 1.2em;
+  white-space: nowrap;
+  margin-left: calc(-1 * (var(--spacing) - var(--radius) - 15px));
+  padding: 0.35em 0.6em;
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
+  text-decoration: underline;
 }
 
-[role="treeitem"] span.tree-title:focus-visible {
-  outline: 1px dotted #000;
+li[role="treeitem"] a:visited {
+  color: #551a8b;
 }
 
-.tree li::after, .tree span.tree-title::before {
+.tree li::after {
   content: "";
   display: block;
   position: absolute;
@@ -87,55 +118,70 @@ ul[role="tree"] li {
   height: calc(2 * var(--radius));
   border-radius: 50%;
   background: var(--listitemcolor);
+  z-index: 3;
 }
 
-/* Base style: Shows the plus sign (left half of the SVG) */
-[role="treeitem"] span.tree-title::before {
-  z-index: 1;
-/*  background: var(--expandcolor) url("/core-prototype/source/media/expand-collapse.svg") 0 0; */
-  background: #fff url("/cra-portal/source/media/folder-open-close.svg") 0 0;
-}
-
-/* Expanded style: Shifts background left to show the minus sign (right half) */
-[role="treeitem"][aria-expanded="true"] span.tree-title::before {
-  background-position: 20px;
-}
-
-[role="treeitem"][aria-expanded="false"] span.tree-title::before {
-  background-position: 0px;
-}
-
-[role="treeitem"] > span.tree-title::before {
-  background-position: calc(-2 * var(--radius)) 0;
-}
-
-[role="treeitem"][aria-expanded="false"] + [role="group"] {
+.tree li:has(> span.tree-title)::after {
   display: none;
 }
 
-[role="treeitem"][aria-expanded="true"] + [role="group"] {
-  display: block;
+.tree li span.tree-title:hover {
+  background-color: var(--expandcolor);
+  color: #ffffff;
+/*  font-weight: 500; */
 }
 
-[role="treeitem"][aria-expanded="false"] > ul {
+.tree li a:hover {
+  background-color: #eaebed;
+  color: #0000ee;
+}
+
+[role="treeitem"] span.tree-title:focus,
+[role="treeitem"] li a:focus {
+  outline: 0;
+}
+
+[role="treeitem"] span.tree-title:focus-visible,
+[role="treeitem"] li a:focus-visible {
+  outline: 1px dotted #000;
+}
+
+/* --- FontAwesome Folder Icons --- */
+li[role="treeitem"] > span.tree-title::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #26374a;
+  position: absolute;
+  left: calc(var(--spacing) - var(--radius) - 21px);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; 
+  padding: 2px;
+}
+
+/* Closed Folder State */
+li[role="treeitem"][aria-expanded="false"] > span.tree-title::before {
+  content: "\f07b";
+}
+
+/* Open Folder State */
+li[role="treeitem"][aria-expanded="true"] > span.tree-title::before {
+  content: "\f07c";
+}
+
+.tree li span.tree-title:hover::before {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+li[role="treeitem"][aria-expanded="false"] + [role="group"], 
+li[role="treeitem"][aria-expanded="false"] > ul {
   display: none;
 }
 
-[role="treeitem"][aria-expanded="true"] > ul {
+li[role="treeitem"][aria-expanded="true"] + [role="group"], 
+li[role="treeitem"][aria-expanded="true"] > ul {
   display: block;
-}
-
-.tree li.hover, .tree li span.tree-title:hover {
-  background-color: #eaebed;
-}
-
-li.tree-parent::after:hover {
-  background-color: #eaebed;
-}
-
-.tree-title {
-  padding-bottom: 0.25em;
-  padding-top: 0.25em;
 }
 </style>
 <div class="mrgn-tp-md brdr-bttm">
@@ -145,8 +191,12 @@ li.tree-parent::after:hover {
         </ul>
     </div>
 </div>
-<nav class="mrgn-tp-md">
-<ul class="list-unstyled tree" role="tree" aria-labelledby="tree1">
+<br>
+<button id="btn-expand-all" type="button" class="btn btn-default">Expand All</button>
+<button id="btn-collapse-all" type="button" class="btn btn-default">Collapse All</button>
+<br>
+<h2 id="tree1">Sitemap (treeview)</h2>
+<ul class="list-unstyled tree wb-treeview" role="tree" aria-labelledby="tree1">
   {%- comment %} 1. Filter out pages marked sitemap: false, but retain pages without titles {% endcomment -%}
   {%- assign valid_pages = "" | split: "," -%}
   {%- assign englishPages = "" | split: "," -%}
@@ -240,7 +290,7 @@ li.tree-parent::after:hover {
         {%- assign folder_name = this_page_folders[i] -%}
         {%- assign open_folders = open_folders | push: folder_name -%}
         {%- assign physical_html_depth = physical_html_depth | plus: 1 -%}
-<li role="treeitem" aria-level="{{ physical_html_depth }}" aria-expanded="false" aria-selected="false" class="tree-parent">
+<li role="treeitem" aria-level="{{ physical_html_depth }}" aria-expanded="true" aria-selected="false" class="tree-parent">
 <span class="tree-title">{{ folder_name }}</span>
 <ul role="group">
       {%- endfor -%}
@@ -262,7 +312,7 @@ li.tree-parent::after:hover {
     {%- if frenchExists == true -%}
         <span class="label label-info">en</span>
     {%- endif -%}
-      <a href="{{ p.url | relative_url }}" tabindex="-1" target="_blank" data-exit="false">{{ display_label | escape }}</a>
+      <a href="{{ p.url | relative_url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title }}"{%- endif -%}>{{ display_label | escape }}</a>
     </li>
 
     {%- if frenchExists == true -%}
@@ -282,512 +332,556 @@ li.tree-parent::after:hover {
     {%- endfor -%}
   {%- endif -%}
 </ul>
-</nav>
 <script>
-/*
- *   This content is licensed according to the W3C Software License at
- *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
- *
- *   File:   Tree.js
- *
- *   Desc:   Tree widget that implements ARIA Authoring Practices
- *           for a tree being used as a file viewer
- */
+    "use strict";
 
-/* global Treeitem */
+    function initializeAllTrees() {
+        var trees = document.querySelectorAll("[role=\"tree\"]");
+        var i = 0;
+        while (i < trees.length) {
+            var treeNode = trees[i];
+            if (!treeNode.getAttribute("data-tree-initialized")) {
+                treeNode.setAttribute("data-tree-initialized", "true");
+                var t = createTree(treeNode);
+                initTree(t);
+                treeNode._treeInstance = t;
+            }
+            i = i + 1;
+        }
+    }
 
-"use strict";
+    function initializeTreeButtons() {
+        var expandBtn = document.getElementById("btn-expand-all");
+        var collapseBtn = document.getElementById("btn-collapse-all");
 
-/**
- * ARIA Treeview example
- *
- * @function onload
- * @description  after page has loaded initialize all treeitems based on the role=treeitem
- */
+        if (expandBtn && !expandBtn.getAttribute("data-btn-initialized")) {
+            expandBtn.setAttribute("data-btn-initialized", "true");
+            expandBtn.addEventListener("click", function () {
+                triggerGlobalExpansion(true);
+            });
+        }
 
-window.addEventListener("load", function () {
-  var trees = document.querySelectorAll('[role="tree"]');
+        if (collapseBtn && !collapseBtn.getAttribute("data-btn-initialized")) {
+            collapseBtn.setAttribute("data-btn-initialized", "true");
+            collapseBtn.addEventListener("click", function () {
+                triggerGlobalExpansion(false);
+            });
+        }
+    }
 
-  for (var i = 0; i < trees.length; i++) {
-    var t = new Tree(trees[i]);
-    t.init();
-  }
+    document.addEventListener("wb-ready.wb", function () {
+        initializeAllTrees();
+        initializeTreeButtons();
+    });
+
+    document.addEventListener("wet-boew-ready", function () {
+        initializeAllTrees();
+        initializeTreeButtons();
+    });
+
+    function triggerGlobalExpansion(shouldExpand) {
+        var trees = document.querySelectorAll("[role=\"tree\"]");
+        var i = 0;
+        while (i < trees.length) {
+            var treeNode = trees[i];
+            var treeItems = treeNode.querySelectorAll("[role=\"treeitem\"]");
+            var j = 0;
+            while (j < treeItems.length) {
+                var itemNode = treeItems[j];
+                var hasGroup = itemNode.querySelector("[role=\"group\"], ul");
+                if (hasGroup) {
+                    if (shouldExpand) {
+                        itemNode.setAttribute("aria-expanded", "true");
+                    } else {
+                        itemNode.setAttribute("aria-expanded", "false");
+                    }
+                }
+                j = j + 1;
+            }
+            if (treeNode._treeInstance) {
+                updateVisibleTreeitems(treeNode._treeInstance);
+            }
+            i = i + 1;
+        }
+    }
+
+    function createTree(node) {
+        if (typeof node !== "object") {
+            return null;
+        }
+        return {
+            domNode: node,
+            treeitems: [],
+            firstChars: [],
+            firstTreeitem: null,
+            lastTreeitem: null,
+            selectedItem: null
+        };
+    }
+
+    function initTree(tree) {
+        if (!tree.domNode.getAttribute("role")) {
+            tree.domNode.setAttribute("role", "tree");
+        }
+        findTreeitems(tree.domNode, tree, null);
+        updateVisibleTreeitems(tree);
+        if (tree.firstTreeitem && tree.firstTreeitem.domNode) {
+            tree.firstTreeitem.domNode.tabIndex = 0;
+        }
+    }
+
+    function findTreeitems(node, tree, group) {
+        var elem = node.firstElementChild;
+        var ti = group;
+        while (elem) {
+            if (elem.tagName.toLowerCase() === "li") {
+                ti = createTreeitem(elem, tree, group);
+                initTreeitem(ti);
+                tree.treeitems.push(ti);
+                tree.firstChars.push(ti.label.substring(0, 1).toLowerCase());
+            }
+            if (elem.firstElementChild) {
+                findTreeitems(elem, tree, ti);
+            }
+            elem = elem.nextElementSibling;
+        }
+    }
+
+    function setSelectedToItem(tree, treeitem) {
+        if (tree.selectedItem) {
+            tree.selectedItem.domNode.setAttribute("aria-selected", "false");
+        }
+        treeitem.domNode.setAttribute("aria-selected", "true");
+        tree.selectedItem = treeitem;
+    }
+
+    function setFocusToItem(tree, treeitem) {
+        var i = 0;
+        while (i < tree.treeitems.length) {
+            var ti = tree.treeitems[i];
+            if (ti === treeitem) {
+                ti.domNode.tabIndex = 0;
+                ti.domNode.focus();
+            } else {
+                ti.domNode.tabIndex = -1;
+            }
+            i = i + 1;
+        }
+    }
+
+    function setFocusToNextItem(tree, currentItem) {
+        var nextItem = null;
+        var i = tree.treeitems.length - 1;
+        while (i >= 0) {
+            var ti = tree.treeitems[i];
+            if (ti === currentItem) {
+                i = -1;
+            } else {
+                if (ti.isVisible) {
+                    nextItem = ti;
+                }
+                i = i - 1;
+            }
+        }
+        if (nextItem) {
+            setFocusToItem(tree, nextItem);
+        }
+    }
+
+    function setFocusToPreviousItem(tree, currentItem) {
+        var prevItem = null;
+        var i = 0;
+        while (i < tree.treeitems.length) {
+            var ti = tree.treeitems[i];
+            if (ti === currentItem) {
+                i = tree.treeitems.length;
+            } else {
+                if (ti.isVisible) {
+                    prevItem = ti;
+                }
+                i = i + 1;
+            }
+        }
+        if (prevItem) {
+            setFocusToItem(tree, prevItem);
+        }
+    }
+
+    function setFocusToParentItem(tree, currentItem) {
+        if (currentItem.groupTreeitem) {
+            setFocusToItem(tree, currentItem.groupTreeitem);
+        }
+    }
+
+    function setFocusToFirstItem(tree) {
+        if (tree.firstTreeitem) {
+            setFocusToItem(tree, tree.firstTreeitem);
+        }
+    }
+
+    function setFocusToLastItem(tree) {
+        if (tree.lastTreeitem) {
+            setFocusToItem(tree, tree.lastTreeitem);
+        }
+    }
+
+    function expandTreeitem(tree, currentItem) {
+        if (currentItem.isExpandable) {
+            currentItem.domNode.setAttribute("aria-expanded", "true");
+            updateVisibleTreeitems(tree);
+        }
+    }
+
+    function expandAllSiblingItems(tree, currentItem) {
+        var i = 0;
+        while (i < tree.treeitems.length) {
+            var ti = tree.treeitems[i];
+            if (ti.groupTreeitem === currentItem.groupTreeitem && ti.isExpandable) {
+                expandTreeitem(tree, ti);
+            }
+            i = i + 1;
+        }
+    }
+
+    function collapseTreeitem(tree, currentItem) {
+        var groupTreeitem = null;
+        if (isTreeitemExpanded(currentItem)) {
+            groupTreeitem = currentItem;
+        } else {
+            groupTreeitem = currentItem.groupTreeitem;
+        }
+        if (groupTreeitem) {
+            groupTreeitem.domNode.setAttribute("aria-expanded", "false");
+            updateVisibleTreeitems(tree);
+            setFocusToItem(tree, groupTreeitem);
+        }
+    }
+
+    function updateVisibleTreeitems(tree) {
+        if (tree.treeitems.length > 0) {
+            tree.firstTreeitem = tree.treeitems[0];
+        }
+        var i = 0;
+        while (i < tree.treeitems.length) {
+            var ti = tree.treeitems[i];
+            var parent = ti.domNode.parentNode;
+            ti.isVisible = true;
+            while (parent && parent !== tree.domNode) {
+                if (parent.getAttribute("aria-expanded") === "false") {
+                    ti.isVisible = false;
+                }
+                parent = parent.parentNode;
+            }
+            if (ti.isVisible) {
+                tree.lastTreeitem = ti;
+            }
+            i = i + 1;
+        }
+    }
+
+    function setFocusByFirstCharacter(tree, currentItem, char) {
+        char = char.toLowerCase();
+        var start = tree.treeitems.indexOf(currentItem) + 1;
+        if (start === tree.treeitems.length) {
+            start = 0;
+        }
+        var index = getIndexFirstChars(tree, start, char);
+        if (index === -1) {
+            index = getIndexFirstChars(tree, 0, char);
+        }
+        if (index > -1) {
+            setFocusToItem(tree, tree.treeitems[index]);
+        }
+    }
+
+    function getIndexFirstChars(tree, startIndex, char) {
+        var i = startIndex;
+        while (i < tree.firstChars.length) {
+            if (tree.treeitems[i].isVisible && char === tree.firstChars[i]) {
+                return i;
+            }
+            i = i + 1;
+        }
+        return -1;
+    }
+
+    function createTreeitem(node, treeObj, group) {
+        if (typeof node !== "object") {
+            return null;
+        }
+        node.tabIndex = -1;
+
+        var label = "";
+        var titleSpan = node.querySelector(".tree-title");
+        var linkChild = node.querySelector("a");
+
+        if (node.getAttribute("aria-label")) {
+            label = node.getAttribute("aria-label").trim();
+        } else {
+            if (titleSpan) {
+                label = titleSpan.textContent.trim();
+            } else {
+                if (linkChild) {
+                    label = linkChild.textContent.trim();
+                } else {
+                    label = node.textContent.trim();
+                }
+            }
+        }
+
+        var isExpandable = false;
+        var elem = node.firstElementChild;
+        while (elem) {
+            if (elem.tagName.toLowerCase() === "ul") {
+                elem.setAttribute("role", "group");
+                isExpandable = true;
+            }
+            elem = elem.nextElementSibling;
+        }
+
+        var inGroup = false;
+        if (group) {
+            inGroup = true;
+        }
+        return {
+            tree: treeObj,
+            groupTreeitem: group,
+            domNode: node,
+            label: label,
+            isExpandable: isExpandable,
+            isVisible: false,
+            inGroup: inGroup,
+            keyCode: {
+                RETURN: 13,
+                SPACE: 32,
+                PAGEUP: 33,
+                PAGEDOWN: 34,
+                END: 35,
+                HOME: 36,
+                LEFT: 37,
+                UP: 38,
+                RIGHT: 39,
+                DOWN: 40
+            }
+        };
+    }
+
+    function initTreeitem(treeitem) {
+        treeitem.domNode.tabIndex = -1;
+        if (!treeitem.domNode.getAttribute("role")) {
+            treeitem.domNode.setAttribute("role", "treeitem");
+        }
+        if (treeitem.isExpandable && !treeitem.domNode.getAttribute("aria-expanded")) {
+            treeitem.domNode.setAttribute("aria-expanded", "false");
+        }
+        treeitem.domNode.addEventListener("keydown", function (event) {
+            handleTreeitemKeydown(treeitem, event);
+        });
+        treeitem.domNode.addEventListener("click", function (event) {
+            handleTreeitemClick(treeitem, event);
+        });
+        treeitem.domNode.addEventListener("focus", function () {
+            handleTreeitemFocus(treeitem);
+        });
+        treeitem.domNode.addEventListener("blur", function () {
+            handleTreeitemBlur(treeitem);
+        });
+        if (!treeitem.isExpandable) {
+            treeitem.domNode.addEventListener("mouseover", handleTreeitemMouseOver);
+            treeitem.domNode.addEventListener("mouseout", handleTreeitemMouseOut);
+        }
+    }
+
+    function isTreeitemExpanded(treeitem) {
+        if (treeitem.isExpandable && treeitem.domNode.getAttribute("aria-expanded") === "true") {
+            return true;
+        }
+        return false;
+    }
+
+    function handleTreeitemKeydown(treeitem, event) {
+        var flag = false;
+        var char = event.key;
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+            return;
+        }
+        if (event.shiftKey && char.length === 1 && char.match(/\S/)) {
+            if (char === "*") {
+                expandAllSiblingItems(treeitem.tree, treeitem);
+                flag = true;
+            } else {
+                setFocusByFirstCharacter(treeitem.tree, treeitem, char);
+                flag = true;
+            }
+        } else {
+            if (event.keyCode === treeitem.keyCode.RETURN || event.keyCode === treeitem.keyCode.SPACE) {
+                if (!treeitem.isExpandable) {
+                    setFocusToItem(treeitem.tree, treeitem);
+                }
+                setSelectedToItem(treeitem.tree, treeitem);
+                flag = true;
+            }
+            if (event.keyCode === treeitem.keyCode.UP) {
+                setFocusToPreviousItem(treeitem.tree, treeitem);
+                flag = true;
+            }
+            if (event.keyCode === treeitem.keyCode.DOWN) {
+                setFocusToNextItem(treeitem.tree, treeitem);
+                flag = true;
+            }
+            if (event.keyCode === treeitem.keyCode.RIGHT) {
+                if (treeitem.isExpandable) {
+                    if (isTreeitemExpanded(treeitem)) {
+                        setFocusToNextItem(treeitem.tree, treeitem);
+                    } else {
+                        expandTreeitem(treeitem.tree, treeitem);
+                    }
+                }
+                flag = true;
+            }
+            if (event.keyCode === treeitem.keyCode.LEFT) {
+                if (treeitem.isExpandable && isTreeitemExpanded(treeitem)) {
+                    collapseTreeitem(treeitem.tree, treeitem);
+                    flag = true;
+                } else {
+                    if (treeitem.inGroup) {
+                        setFocusToParentItem(treeitem.tree, treeitem);
+                        flag = true;
+                    }
+                }
+            }
+            if (event.keyCode === treeitem.keyCode.HOME) {
+                setFocusToFirstItem(treeitem.tree);
+                flag = true;
+            }
+            if (event.keyCode === treeitem.keyCode.END) {
+                setFocusToLastItem(treeitem.tree);
+                flag = true;
+            }
+            if (!flag && char.length === 1 && char.match(/\S/)) {
+                if (char === "*") {
+                    expandAllSiblingItems(treeitem.tree, treeitem);
+                    flag = true;
+                } else {
+                    setFocusByFirstCharacter(treeitem.tree, treeitem, char);
+                    flag = true;
+                }
+            }
+        }
+        if (flag) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
+    }
+
+    function handleTreeitemClick(treeitem, event) {
+        if (treeitem.isExpandable) {
+            if (isTreeitemExpanded(treeitem)) {
+                collapseTreeitem(treeitem.tree, treeitem);
+            } else {
+                expandTreeitem(treeitem.tree, treeitem);
+            }
+        } else {
+            setFocusToItem(treeitem.tree, treeitem);
+        }
+        setSelectedToItem(treeitem.tree, treeitem);
+        event.stopPropagation();
+    }
+
+    function handleTreeitemFocus(treeitem) {
+        var node = treeitem.domNode;
+        if (treeitem.isExpandable) {
+            var titleSpan = node.querySelector(".tree-title");
+            if (titleSpan) {
+                node = titleSpan;
+            } else {
+                node = node.firstElementChild;
+            }
+        }
+        node.classList.add("focus");
+    }
+
+    function handleTreeitemBlur(treeitem) {
+        var node = treeitem.domNode;
+        if (treeitem.isExpandable) {
+            var titleSpan = node.querySelector(".tree-title");
+            if (titleSpan) {
+                node = titleSpan;
+            } else {
+                node = node.firstElementChild;
+            }
+        }
+        node.classList.remove("focus");
+    }
+
+    function handleTreeitemMouseOver(event) {
+        event.currentTarget.classList.add("hover");
+    }
+
+    function handleTreeitemMouseOut(event) {
+        event.currentTarget.classList.remove("hover");
+    }
+</script>
+<script>
+document.addEventListener("wb-ready.wb", function () {
+  initializeTreeButtons();
 });
 
-/*
- *   @constructor
- *
- *   @desc
- *       Tree item object for representing the state and user interactions for a
- *       tree widget
- *
- *   @param node
- *       An element with the role=tree attribute
- */
+document.addEventListener("wet-boew-ready", function () {
+  initializeTreeButtons();
+});
 
-var Tree = function (node) {
-  // Check whether node is a DOM element
-  if (typeof node !== "object") {
-    return;
+function initializeTreeButtons() {
+  var expandBtn = document.getElementById("btn-expand-all");
+  var collapseBtn = document.getElementById("btn-collapse-all");
+
+  if (expandBtn && !expandBtn.getAttribute("data-btn-initialized")) {
+    expandBtn.setAttribute("data-btn-initialized", "true");
+    expandBtn.addEventListener("click", function () {
+      triggerGlobalExpansion(true);
+    });
   }
 
-  this.domNode = node;
-
-  this.treeitems = [];
-  this.firstChars = [];
-
-  this.firstTreeitem = null;
-  this.lastTreeitem = null;
-  this.selectedItem = null;
-};
-
-Tree.prototype.init = function () {
-  function findTreeitems(node, tree, group) {
-    var elem = node.firstElementChild;
-    var ti = group;
-
-    while (elem) {
-      if (elem.tagName.toLowerCase() === "li") {
-        ti = new Treeitem(elem, tree, group);
-        ti.init();
-        tree.treeitems.push(ti);
-        tree.firstChars.push(ti.label.substring(0, 1).toLowerCase());
-      }
-
-      if (elem.firstElementChild) {
-        findTreeitems(elem, tree, ti);
-      }
-
-      elem = elem.nextElementSibling;
-    }
+  if (collapseBtn && !collapseBtn.getAttribute("data-btn-initialized")) {
+    collapseBtn.setAttribute("data-btn-initialized", "true");
+    collapseBtn.addEventListener("click", function () {
+      triggerGlobalExpansion(false);
+    });
   }
+}
 
-  // initialize pop up menus
-  if (!this.domNode.getAttribute("role")) {
-    this.domNode.setAttribute("role", "tree");
-  }
-
-  findTreeitems(this.domNode, this, false);
-
-  this.updateVisibleTreeitems();
-
-  this.firstTreeitem.domNode.tabIndex = 0;
-};
-
-Tree.prototype.setSelectedToItem = function (treeitem) {
-  if (this.selectedItem) {
-    this.selectedItem.domNode.setAttribute("aria-selected", "false");
-  }
-  treeitem.domNode.setAttribute("aria-selected", "true");
-  this.selectedItem = treeitem;
-};
-
-Tree.prototype.setFocusToItem = function (treeitem) {
-  for (var i = 0; i < this.treeitems.length; i++) {
-    var ti = this.treeitems[i];
-
-    if (ti === treeitem) {
-      ti.domNode.tabIndex = 0;
-      ti.domNode.focus();
-    } else {
-      ti.domNode.tabIndex = -1;
-    }
-  }
-};
-
-Tree.prototype.setFocusToNextItem = function (currentItem) {
-  var nextItem = false;
-
-  for (var i = this.treeitems.length - 1; i >= 0; i--) {
-    var ti = this.treeitems[i];
-    if (ti === currentItem) {
-      break;
-    }
-    if (ti.isVisible) {
-      nextItem = ti;
-    }
-  }
-
-  if (nextItem) {
-    this.setFocusToItem(nextItem);
-  }
-};
-
-Tree.prototype.setFocusToPreviousItem = function (currentItem) {
-  var prevItem = false;
-
-  for (var i = 0; i < this.treeitems.length; i++) {
-    var ti = this.treeitems[i];
-    if (ti === currentItem) {
-      break;
-    }
-    if (ti.isVisible) {
-      prevItem = ti;
-    }
-  }
-
-  if (prevItem) {
-    this.setFocusToItem(prevItem);
-  }
-};
-
-Tree.prototype.setFocusToParentItem = function (currentItem) {
-  if (currentItem.groupTreeitem) {
-    this.setFocusToItem(currentItem.groupTreeitem);
-  }
-};
-
-Tree.prototype.setFocusToFirstItem = function () {
-  this.setFocusToItem(this.firstTreeitem);
-};
-
-Tree.prototype.setFocusToLastItem = function () {
-  this.setFocusToItem(this.lastTreeitem);
-};
-
-Tree.prototype.expandTreeitem = function (currentItem) {
-  if (currentItem.isExpandable) {
-    currentItem.domNode.setAttribute("aria-expanded", true);
-    this.updateVisibleTreeitems();
-  }
-};
-
-Tree.prototype.expandAllSiblingItems = function (currentItem) {
-  for (var i = 0; i < this.treeitems.length; i++) {
-    var ti = this.treeitems[i];
-
-    if (ti.groupTreeitem === currentItem.groupTreeitem && ti.isExpandable) {
-      this.expandTreeitem(ti);
-    }
-  }
-};
-
-Tree.prototype.collapseTreeitem = function (currentItem) {
-  var groupTreeitem = false;
-
-  if (currentItem.isExpanded()) {
-    groupTreeitem = currentItem;
-  } else {
-    groupTreeitem = currentItem.groupTreeitem;
-  }
-
-  if (groupTreeitem) {
-    groupTreeitem.domNode.setAttribute("aria-expanded", false);
-    this.updateVisibleTreeitems();
-    this.setFocusToItem(groupTreeitem);
-  }
-};
-
-// Expand all function
-Tree.prototype.expandAll = function () {
-  for (var i = 0; i < this.treeitems.length; i++) {
-    var ti = this.treeitems[i];
-    if (ti.isExpandable) {
-      ti.domNode.setAttribute("aria-expanded", "true");
-    }
-  }
-  this.updateVisibleTreeitems();
-};
-
-// Collapse all function
-Tree.prototype.collapseAll = function () {
-  for (var i = 0; i < this.treeitems.length; i++) {
-    var ti = this.treeitems[i];
-    if (ti.isExpandable) {
-      ti.domNode.setAttribute("aria-expanded", "false");
-    }
-  }
-  this.updateVisibleTreeitems();
-  this.setFocusToFirstItem();
-};
-
-Tree.prototype.updateVisibleTreeitems = function () {
-  this.firstTreeitem = this.treeitems[0];
-
-  for (var i = 0; i < this.treeitems.length; i++) {
-    var ti = this.treeitems[i];
-
-    var parent = ti.domNode.parentNode;
-
-    ti.isVisible = true;
-
-    while (parent && parent !== this.domNode) {
-      if (parent.getAttribute("aria-expanded") == "false") {
-        ti.isVisible = false;
-      }
-      parent = parent.parentNode;
-    }
-
-    if (ti.isVisible) {
-      this.lastTreeitem = ti;
-    }
-  }
-};
-
-Tree.prototype.setFocusByFirstCharacter = function (currentItem, char) {
-  var start, index;
-
-  char = char.toLowerCase();
-
-  // Get start index for search based on position of currentItem
-  start = this.treeitems.indexOf(currentItem) + 1;
-  if (start === this.treeitems.length) {
-    start = 0;
-  }
-
-  // Check remaining slots in the menu
-  index = this.getIndexFirstChars(start, char);
-
-  // If not found in remaining slots, check from beginning
-  if (index === -1) {
-    index = this.getIndexFirstChars(0, char);
-  }
-
-  // If match was found...
-  if (index > -1) {
-    this.setFocusToItem(this.treeitems[index]);
-  }
-};
-
-Tree.prototype.getIndexFirstChars = function (startIndex, char) {
-  for (var i = startIndex; i < this.firstChars.length; i++) {
-    if (this.treeitems[i].isVisible) {
-      if (char === this.firstChars[i]) {
-        return i;
-      }
-    }
-  }
-  return -1;
-};
-/*
- *   This content is licensed according to the W3C Software License at
- *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
- *
- *   File:   Treeitem.js
- *
- *   Desc:   Treeitem widget that implements ARIA Authoring Practices
- *           for a tree being used as a file viewer
- */
-
-/*
- *   @constructor
- *
- *   @desc
- *       Treeitem object for representing the state and user interactions for a
- *       treeItem widget
- *
- *   @param node
- *       An element with the role=tree attribute
- */
-
-var Treeitem = function (node, treeObj, group) {
-  // Check whether node is a DOM element
-  if (typeof node !== "object") {
-    return;
-  }
-
-  node.tabIndex = -1;
-  this.tree = treeObj;
-  this.groupTreeitem = group;
-  this.domNode = node;
-  this.label = node.textContent.trim();
-
-  if (node.getAttribute("aria-label")) {
-    this.label = node.getAttribute("aria-label").trim();
-  }
-
-  this.isExpandable = false;
-  this.isVisible = false;
-  this.inGroup = false;
-
-  if (group) {
-    this.inGroup = true;
-  }
-
-  var elem = node.firstElementChild;
-
-  while (elem) {
-    if (elem.tagName.toLowerCase() == "ul") {
-      elem.setAttribute("role", "group");
-      this.isExpandable = true;
-      break;
-    }
-
-    elem = elem.nextElementSibling;
-  }
-
-  this.keyCode = Object.freeze({
-    RETURN: 13,
-    SPACE: 32,
-    PAGEUP: 33,
-    PAGEDOWN: 34,
-    END: 35,
-    HOME: 36,
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-  });
-};
-
-Treeitem.prototype.init = function () {
-  this.domNode.tabIndex = -1;
-
-  if (!this.domNode.getAttribute("role")) {
-    this.domNode.setAttribute("role", "treeitem");
-  }
-
-  this.domNode.addEventListener("keydown", this.handleKeydown.bind(this));
-  this.domNode.addEventListener("click", this.handleClick.bind(this));
-  this.domNode.addEventListener("focus", this.handleFocus.bind(this));
-  this.domNode.addEventListener("blur", this.handleBlur.bind(this));
-
-  if (!this.isExpandable) {
-    this.domNode.addEventListener("mouseover", this.handleMouseOver.bind(this));
-    this.domNode.addEventListener("mouseout", this.handleMouseOut.bind(this));
-  }
-};
-
-Treeitem.prototype.isExpanded = function () {
-  if (this.isExpandable) {
-    return this.domNode.getAttribute("aria-expanded") === "true";
-  }
-
-  return false;
-};
-
-/* EVENT HANDLERS */
-
-Treeitem.prototype.handleKeydown = function (event) {
-  var flag = false,
-    char = event.key;
-
-  function isPrintableCharacter(str) {
-    return str.length === 1 && str.match(/\S/);
-  }
-
-  function printableCharacter(item) {
-    if (char == "*") {
-      item.tree.expandAllSiblingItems(item);
-      flag = true;
-    } else {
-      if (isPrintableCharacter(char)) {
-        item.tree.setFocusByFirstCharacter(item, char);
-        flag = true;
-      }
-    }
-  }
-
-  if (event.altKey || event.ctrlKey || event.metaKey) {
-    return;
-  }
-
-  if (event.shift) {
-    if (isPrintableCharacter(char)) {
-      printableCharacter(this);
-    }
-  } else {
-    switch (event.keyCode) {
-      case this.keyCode.RETURN:
-      case this.keyCode.SPACE:
-        if (!this.isExpandable) this.tree.setFocusToItem(this);
-        this.tree.setSelectedToItem(this);
-        flag = true;
-        break;
-
-      case this.keyCode.UP:
-        this.tree.setFocusToPreviousItem(this);
-        flag = true;
-        break;
-
-      case this.keyCode.DOWN:
-        this.tree.setFocusToNextItem(this);
-        flag = true;
-        break;
-
-      case this.keyCode.RIGHT:
-        if (this.isExpandable) {
-          if (this.isExpanded()) {
-            this.tree.setFocusToNextItem(this);
-          } else {
-            this.tree.expandTreeitem(this);
-          }
-        }
-        flag = true;
-        break;
-
-      case this.keyCode.LEFT:
-        if (this.isExpandable && this.isExpanded()) {
-          this.tree.collapseTreeitem(this);
-          flag = true;
+function triggerGlobalExpansion(shouldExpand) {
+  var trees = document.querySelectorAll("[role=\"tree\"]");
+  var i = 0;
+  while (i < trees.length) {
+    var treeNode = trees[i];
+    var treeItems = treeNode.querySelectorAll("[role=\"treeitem\"]");
+    var j = 0;
+    while (j < treeItems.length) {
+      var itemNode = treeItems[j];
+      var hasGroup = itemNode.querySelector("[role=\"group\"], ul");
+      if (hasGroup) {
+        if (shouldExpand) {
+          itemNode.setAttribute("aria-expanded", "true");
         } else {
-          if (this.inGroup) {
-            this.tree.setFocusToParentItem(this);
-            flag = true;
-          }
+          itemNode.setAttribute("aria-expanded", "false");
         }
-        break;
-
-      case this.keyCode.HOME:
-        this.tree.setFocusToFirstItem();
-        flag = true;
-        break;
-
-      case this.keyCode.END:
-        this.tree.setFocusToLastItem();
-        flag = true;
-        break;
-
-      default:
-        if (isPrintableCharacter(char)) {
-          printableCharacter(this);
-        }
-        break;
+      }
+      j = j + 1;
     }
+    i = i + 1;
   }
-
-  if (flag) {
-    event.stopPropagation();
-    event.preventDefault();
+  
+  // Re-sync visibility state flags inside all active tracking arrays
+  var k = 0;
+  var allTreeContainers = document.querySelectorAll("[role=\"tree\"]");
+  while (k < allTreeContainers.length) {
+    var activeContainer = allTreeContainers[k];
+    // Dynamic scan to map structural visibility changes back to the engine
+    var simulatedTree = { treeitems: [] };
+    findTreeitems(activeContainer, simulatedTree, null);
+    updateVisibleTreeitems(simulatedTree);
+    k = k + 1;
   }
-};
-
-Treeitem.prototype.handleClick = function (event) {
-  if (this.isExpandable) {
-    if (this.isExpanded()) {
-      this.tree.collapseTreeitem(this);
-    } else {
-      this.tree.expandTreeitem(this);
-    }
-    event.stopPropagation();
-  } else {
-    this.tree.setFocusToItem(this);
-  }
-  this.tree.setSelectedToItem(this);
-};
-
-Treeitem.prototype.handleFocus = function () {
-  var node = this.domNode;
-  if (this.isExpandable) {
-    node = node.firstElementChild;
-  }
-  node.classList.add("focus");
-};
-
-Treeitem.prototype.handleBlur = function () {
-  var node = this.domNode;
-  if (this.isExpandable) {
-    node = node.firstElementChild;
-  }
-  node.classList.remove("focus");
-};
-
-Treeitem.prototype.handleMouseOver = function (event) {
-  event.currentTarget.classList.add("hover");
-};
-
-Treeitem.prototype.handleMouseOut = function (event) {
-  event.currentTarget.classList.remove("hover");
-};
-
+}
 </script>
