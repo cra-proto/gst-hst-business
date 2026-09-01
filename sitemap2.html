@@ -30,7 +30,7 @@ script:
 <button id="btn-collapse-all" type="button" class="btn btn-default">Collapse All</button>
 <br>
 <h2 id="tree1">Sitemap (treeview)</h2>
-<div class="wb-filter" data-wb-filter="{&quot;selector&quot;: &quot;li&quot;, &quot;attr&quot;: &quot;data-filter-val&quot;}">
+<div class="wb-filter">
 <section id="treeview">
 <ul class="list-unstyled tree wb-treeview" role="tree" aria-labelledby="tree1">
   {%- comment %} 1. Filter out pages marked sitemap: false, but retain pages without titles {% endcomment -%}
@@ -144,17 +144,19 @@ script:
     {%- comment %} Step E: Render the page link node safely inside the parent container {% endcomment -%}
     {%- assign leaf_level = physical_html_depth | plus: 1 -%}
 
-    <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}" data-filter-val="{{ p.title | escape }}">
+    <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}">
     {%- if frenchExists == true -%}
         <span class="label label-info">en</span>
     {%- endif -%}
       <a href="{{ p.url | relative_url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ display_label | escape }}</a>
+      <span class="wb-inv" aria-hidden="true">{{ p.title }}</span>
     </li>
 
     {%- if frenchExists == true -%}
-    <li role="treeitem" aria-level="{{ leaf_level }}" aria-selected="false" data-filter-val="{{ p.title | escape }}">
+    <li role="treeitem" aria-level="{{ leaf_level }}" aria-selected="false">
         <span class="label label-info">fr</span>
       <a href="{{ pf.url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ pf.title }}</a>
+      <span class="wb-inv" aria-hidden="true">{{ p.title }}</span>
     </li>
     {%- endif -%}
 
