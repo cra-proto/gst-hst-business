@@ -30,6 +30,8 @@ script:
 <button id="btn-collapse-all" type="button" class="btn btn-default">Collapse All</button>
 <br>
 <h2 id="tree1">Sitemap (treeview)</h2>
+<div class="wb-filter">
+<section id="treeview">
 <ul class="list-unstyled tree wb-treeview" role="tree" aria-labelledby="tree1">
   {%- comment %} 1. Filter out pages marked sitemap: false, but retain pages without titles {% endcomment -%}
   {%- assign valid_pages = "" | split: "," -%}
@@ -166,3 +168,5 @@ script:
     {%- endfor -%}
   {%- endif -%}
 </ul>
+</section>
+</div>
