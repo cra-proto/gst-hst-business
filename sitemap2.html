@@ -144,17 +144,17 @@ script:
     {%- comment %} Step E: Render the page link node safely inside the parent container {% endcomment -%}
     {%- assign leaf_level = physical_html_depth | plus: 1 -%}
 
-    <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}" data-filter-val="{{ p.title }}">
+    <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}" data-filter-val="{{ p.title | escape }}">
     {%- if frenchExists == true -%}
         <span class="label label-info">en</span>
     {%- endif -%}
-      <a href="{{ p.url | relative_url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title }}"{%- endif -%}>{{ display_label | escape }}</a>
+      <a href="{{ p.url | relative_url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ display_label | escape }}</a>
     </li>
 
     {%- if frenchExists == true -%}
-    <li role="treeitem" aria-level="{{ leaf_level }}" aria-selected="false" data-filter-val="{{ p.title }}">
+    <li role="treeitem" aria-level="{{ leaf_level }}" aria-selected="false" data-filter-val="{{ p.title | escape }}">
         <span class="label label-info">fr</span>
-      <a href="{{ pf.url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title }}"{%- endif -%}>{{ pf.title }}</a>
+      <a href="{{ pf.url }}" tabindex="-1" target="_blank" data-exit="false"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ pf.title }}</a>
     </li>
     {%- endif -%}
 
