@@ -150,10 +150,10 @@ script:
 </ul>
 </section>
 </div>
-{% assign valid_pages = site.static_files | where_exp: "item", "item.extname == '.html'" | sort: "path" %}
+{% assign static_pages = site.static_files | where_exp: "item", "item.extname == '.html'" | sort: "path" %}
 {% assign parsed_paths = site.pages | map: "path" %}
 {% assign has_unique_pages = false %}
-{% for sp in valid_pages %}
+{% for sp in static_pages %}
   {% unless parsed_paths contains sp.path %}
     {% assign has_unique_pages = true %}
   {% endunless %}
@@ -165,7 +165,7 @@ script:
 <div class="wb-filter">
 <section>
 <ul>
-{% for sp in valid_pages %}
+{% for sp in static_pages %}
   {% unless parsed_paths contains sp.path %}
     <li>
       <a target="_blank" data-exit="false" href="{{ sp.path | relative_url }}">{{ sp.path }}</a>
