@@ -13,7 +13,6 @@ noFooterCorporate: true
 noFooterMain: true
 sitemapExclude: true
 css:
-css:
   - href: "https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     integrity: "sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
     crossorigin: "anonymous"
@@ -41,23 +40,14 @@ script:
 <ul class="list-unstyled tree wb-treeview" role="tree" aria-labelledby="tree1">
   {%- comment %} 1. Filter out pages marked sitemap: false, but retain pages without titles {% endcomment -%}
   {%- assign valid_pages = "" | split: "," -%}
-  {%- assign englishPages = "" | split: "," -%}
-  {%- assign frenchPages = "" | split: "," -%}
 
-  {%- for p in site.html_pages -%}
+  {%- for p in site.pages -%}
     {%- if p.sitemap != false and p.sitemapExclude != true -%}
-      {%- if p.url contains "/en/" -%}
-        {%- assign englishPages = englishPages | push: p -%}
-      {%- elsif p.url contains "/fr/" -%}
-        {%- assign frenchPages = frenchPages | push: p -%}
-      {%- endif -%}
       {%- assign valid_pages = valid_pages | push: p -%}
     {%- endif -%}
   {%- endfor -%}
 
   {%- comment %} 2. Sort strictly by URL to keep directory hierarchies contiguous {% endcomment -%}
-  {%- assign englishPages = englishPages | sort: "url" -%}
-  {%- assign frenchPages = frenchPages | sort: "url" -%}
   {%- assign sorted_pages = valid_pages | sort: "url" -%}
   {%- assign open_folders = "" | split: "," -%}
   {%- assign physical_html_depth = 0 -%}
@@ -119,13 +109,6 @@ script:
     {%- assign start_index = open_folders.size -%}
     {%- assign end_index = this_page_folders.size -%}
 
-    {%- assign pf = frenchPages | where: "url", p.altLangPage | first -%}
-    {%- if pf -%}
-      {%- assign frenchExists = true -%}
-    {%- else -%}
-      {%- assign frenchExists = false -%}
-    {%- endif -%}
-
     {%- if start_index < end_index -%}
       {%- assign loop_end = end_index | minus: 1 -%}
       {%- for i in (start_index..loop_end) -%}
@@ -151,20 +134,9 @@ script:
     {%- assign leaf_level = physical_html_depth | plus: 1 -%}
 
     <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}">
-    {%- if frenchExists == true -%}
-        <span class="label label-info">en</span>
-    {%- endif -%}
       <a tabindex="-1" target="_blank" class="page-link" data-exit="false" lang="{{ page.lang }}" href="{{ p.url | relative_url }}"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ display_label | escape }}</a>
       <span class="page-title wb-inv" aria-hidden="true">{{ p.title }}</span>
     </li>
-
-    {%- if frenchExists == true -%}
-    <li role="treeitem" aria-level="{{ leaf_level }}" aria-selected="false">
-        <span class="label label-info">fr</span>
-      <a tabindex="-1" target="_blank" class="page-link" data-exit="false" lang="{{ page.lang }}" href="{{ pf.url }}"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ pf.title }}</a>
-      <span class="page-title wb-inv" aria-hidden="true">{{ p.title }}</span>
-    </li>
-    {%- endif -%}
 
   {%- endfor -%}
 
@@ -178,3 +150,29 @@ script:
 </ul>
 </section>
 </div>
+{% assign valid_pages = site.static_files | where_exp: "item", "item.extname == '.html'" | sort: "path" %}
+{% assign parsed_paths = site.pages | map: "path" %}
+{% assign has_unique_pages = false %}
+{% for sp in valid_pages %}
+  {% unless parsed_paths contains sp.path %}
+    {% assign has_unique_pages = true %}
+  {% endunless %}
+{% endfor %}
+{% if has_unique_pages %}
+<hr>
+<br>
+<h2 class="mrgn-tp-md">Non FrontMatter pages</h2>
+<div class="wb-filter">
+<section>
+<ul>
+{% for sp in valid_pages %}
+  {% unless parsed_paths contains sp.path %}
+    <li>
+      <a target="_blank" data-exit="false" href="{{ sp.path | relative_url }}">{{ sp.path }}</a>
+    </li>
+  {% endunless %}
+{% endfor %}
+</ul>
+</section>
+</div>
+{% endif %}
