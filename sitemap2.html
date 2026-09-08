@@ -38,140 +38,145 @@ script:
 </div>
 <section id="treeview">
 <ul class="list-unstyled wb-treeview" role="tree" aria-labelledby="tree1">
-  {%- comment %} 1. Filter out pages marked sitemap: false, but retain pages without titles {% endcomment -%}
-  {%- assign valid_pages = "" | split: "," -%}
+{%- assign static_html = site.static_files | where_exp: "item", "item.extname == '.html'" -%}
+{%- assign parsed_html = site.pages | where_exp: "item", "item.name contains '.html'" -%}
+{%- assign all_html_pages = static_html | concat: parsed_html -%}
 
-  {%- for p in site.pages -%}
-    {%- if p.sitemap != false and p.sitemapExclude != true -%}
-      {%- assign valid_pages = valid_pages | push: p -%}
-    {%- endif -%}
-  {%- endfor -%}
+{%- assign path_string_list = "" -%}
+{%- for p in all_html_pages -%}
+  {%- if p.sitemap == false or p.sitemapExclude == true -%}{%- continue -%}{%- endif -%}
+  
+  {%- if p.url -%}
+    {%- assign target_path = p.url -%}
+  {%- else -%}
+    {%- assign target_path = p.path -%}
+  {%- endif -%}
+  
+  {%- assign first_char = target_path | slice: 0 -%}
+  {%- if first_char != "/" -%}
+    {%- assign target_path = target_path | prepend: "/" -%}
+  {%- endif -%}
+  
+  {%- if path_string_list == "" -%}
+    {%- assign path_string_list = target_path -%}
+  {%- else -%}
+    {%- assign path_string_list = path_string_list | append: "||" | append: target_path -%}
+  {%- endif -%}
+{%- endfor -%}
 
-  {%- comment %} 2. Sort strictly by URL to keep directory hierarchies contiguous {% endcomment -%}
-  {%- assign sorted_pages = valid_pages | sort: "url" -%}
-  {%- assign open_folders = "" | split: "," -%}
-  {%- assign physical_html_depth = 0 -%}
+{%- assign sorted_paths = path_string_list | split: "||" | sort -%}
 
-  {%- for p in sorted_pages -%}
-    {%- comment %} Deduce current folder structures from the URL path {% endcomment -%}
-    {%- assign url_parts = p.url | split: "/" -%}
-    {%- assign parts_size = url_parts.size -%}
-    {%- assign filename = url_parts | last -%}
-    {%- assign target_folder_depth = parts_size | minus: 2 -%}
-    {%- assign this_page_folders = "" | split: "," -%}
-    {%- if target_folder_depth > 0 -%}
-      {%- for i in (1..target_folder_depth) -%}
-        {%- assign this_page_folders = this_page_folders | push: url_parts[i] -%}
-      {%- endfor -%}
-    {%- endif -%}
+{%- assign open_folders = "" | split: "," -%}
+{%- assign physical_html_depth = 0 -%}
 
-    {%- comment %} Step A: Determine how many folder levels we have departed from {% endcomment -%}
-    {%- assign keep_open_count = 0 -%}
-    {%- assign max_possible_match = open_folders.size -%}
-    {%- if this_page_folders.size < max_possible_match -%}
-      {%- assign max_possible_match = this_page_folders.size -%}
-    {%- endif -%}
-    {%- if max_possible_match > 0 -%}
-      {%- assign loop_end = max_possible_match | minus: 1 -%}
-      {%- for i in (0..loop_end) -%}
-        {%- assign old_f = open_folders[i] -%}
-        {%- assign new_f = this_page_folders[i] -%}
-        {%- if old_f == new_f -%}
-          {%- assign keep_open_count = keep_open_count | plus: 1 -%}
-        {%- else -%}
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
-
-    {%- comment %} Step B: Unwind and close EVERY level we left {% endcomment -%}
-    {%- assign current_open_num = open_folders.size -%}
-    {%- if current_open_num > keep_open_count -%}
-      {%- assign levels_to_close = current_open_num | minus: keep_open_count -%}
-      {%- for c in (1..levels_to_close) -%}
-        {%- if physical_html_depth > 0 -%}
-          </ul></li>
-          {%- assign physical_html_depth = physical_html_depth | minus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-      
-      {%- assign temp_folders = "" | split: "," -%}
-      {%- if keep_open_count > 0 -%}
-        {%- assign loop_end = keep_open_count | minus: 1 -%}
-        {%- for i in (0..loop_end) -%}
-          {%- assign temp_folders = temp_folders | push: open_folders[i] -%}
-        {%- endfor -%}
+{%- for active_path in sorted_paths -%}
+  {%- assign p = nil -%}
+  {%- for item in all_html_pages -%}
+    {%- if item.url == active_path or item.path == active_path -%}
+      {%- assign p = item -%}
+      {%- break -%}
+    {%- else -%}
+      {%- assign clean_item_path = item.path -%}
+      {%- assign check_char = clean_item_path | slice: 0 -%}
+      {%- if check_char != "/" -%}{%- assign clean_item_path = clean_item_path | prepend: "/" -%}{%- endif -%}
+      {%- if clean_item_path == active_path -%}
+        {%- assign p = item -%}
+        {%- break -%}
       {%- endif -%}
-      {%- assign open_folders = temp_folders -%}
     {%- endif -%}
-
-    {%- comment %} Step C: Open new sub-folders with unified HTML structural counting {% endcomment -%}
-    {%- assign start_index = open_folders.size -%}
-    {%- assign end_index = this_page_folders.size -%}
-
-    {%- if start_index < end_index -%}
-      {%- assign loop_end = end_index | minus: 1 -%}
-      {%- for i in (start_index..loop_end) -%}
-        {%- assign folder_name = this_page_folders[i] -%}
-        {%- assign open_folders = open_folders | push: folder_name -%}
-        {%- assign physical_html_depth = physical_html_depth | plus: 1 -%}
-<li role="treeitem" aria-expanded="true" aria-selected="false" class="tv-parent" aria-level="{{ physical_html_depth }}">
-<span class="tv-title">{{ folder_name }}</span>
-<ul role="group">
-      {%- endfor -%}
-    {%- endif -%}
-
-    {%- comment %} Step D: Determine node display label (Front Matter Title vs Raw Filename) {% endcomment -%}
-    {%- comment %} assign display_label = p.title {% endcomment -%}
-    {%- comment %} if display_label == nil or display_label == "" {% endcomment -%}
-      {%- assign display_label = filename -%}
-    {%- if filename == nil or filename == "" -%}
-      {%- assign display_label = "index.html" -%}
-    {%- endif -%}
-    {%- comment %} endif {% endcomment -%}
-
-    {%- comment %} Step E: Render the page link node safely inside the parent container {% endcomment -%}
-    {%- assign leaf_level = physical_html_depth | plus: 1 -%}
-
-    <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}">
-      <a tabindex="-1" target="_blank" class="tv-page-link" data-exit="false" lang="{{ page.lang }}" href="{{ p.url | relative_url }}"{%- if p.title != nil and p.title != "" -%} title="{{ p.title | escape }}"{%- endif -%}>{{ display_label | escape }}</a>
-      <span class="tv-page-title wb-inv" aria-hidden="true">{{ p.title }}</span>
-    </li>
-
   {%- endfor -%}
 
-  {%- comment %} Step F: Complete layout cycle by unwinding remaining tags accurately {% endcomment -%}
-  {%- if physical_html_depth > 0 -%}
-    {%- for i in (1..physical_html_depth) -%}
-      </ul>
-    </li>
+  {%- if p == nil -%}{%- continue -%}{%- endif -%}
+
+  {%- assign url_parts = active_path | split: "/" -%}
+  {%- assign parts_size = url_parts.size -%}
+  {%- assign filename = url_parts | last -%}
+  {%- assign target_folder_depth = parts_size | minus: 2 -%}
+  
+  {%- assign this_page_folders = "" | split: "," -%}
+  {%- if target_folder_depth > 0 -%}
+    {%- for i in (1..target_folder_depth) -%}
+      {%- if url_parts[i] != "" and url_parts[i] != nil -%}
+        {%- assign this_page_folders = this_page_folders | push: url_parts[i] -%}
+      {%- endif -%}
     {%- endfor -%}
   {%- endif -%}
-</ul>
-</section>
-</div>
-{% assign static_pages = site.static_files | where_exp: "item", "item.extname == '.html'" | sort: "path" %}
-{% assign parsed_paths = site.pages | map: "path" %}
-{% assign has_unique_pages = false %}
-{% for sp in static_pages %}
-  {% unless parsed_paths contains sp.path %}
-    {% assign has_unique_pages = true %}
-  {% endunless %}
-{% endfor %}
-{% if has_unique_pages %}
-<hr>
-<br>
-<h2 class="mrgn-tp-md">Non FrontMatter pages</h2>
-<div class="wb-filter">
-<section>
-<ul>
-{% for sp in static_pages %}
-  {% unless parsed_paths contains sp.path %}
-    <li>
-      <a target="_blank" data-exit="false" href="{{ sp.path | relative_url }}">{{ sp.path }}</a>
+
+  {%- assign keep_open_count = 0 -%}
+  {%- assign max_possible_match = open_folders.size -%}
+  {%- if this_page_folders.size < max_possible_match -%}
+    {%- assign max_possible_match = this_page_folders.size -%}
+  {%- endif -%}
+
+  {%- if max_possible_match > 0 -%}
+    {%- assign loop_end = max_possible_match | minus: 1 -%}
+    {%- for i in (0..loop_end) -%}
+      {%- assign old_f = open_folders[i] -%}
+      {%- assign new_f = this_page_folders[i] -%}
+      {%- if old_f == new_f -%}
+        {%- assign keep_open_count = keep_open_count | plus: 1 -%}
+      {%- else -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- assign current_open_num = open_folders.size -%}
+  {%- if current_open_num > keep_open_count -%}
+    {%- assign levels_to_close = current_open_num | minus: keep_open_count -%}
+    {%- for c in (1..levels_to_close) -%}
+      {%- if physical_html_depth > 0 -%}
+        </ul></li>
+        {%- assign physical_html_depth = physical_html_depth | minus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+    
+    {%- assign temp_folders = "" | split: "," -%}
+    {%- if keep_open_count > 0 -%}
+      {%- assign loop_end = keep_open_count | minus: 1 -%}
+      {%- for i in (0..loop_end) -%}
+        {%- assign temp_folders = temp_folders | push: open_folders[i] -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- assign open_folders = temp_folders -%}
+  {%- endif -%}
+
+  {%- assign start_index = open_folders.size -%}
+  {%- assign end_index = this_page_folders.size -%}
+  {%- if start_index < end_index -%}
+    {%- assign loop_end = end_index | minus: 1 -%}
+    {%- for i in (start_index..loop_end) -%}
+      {%- assign folder_name = this_page_folders[i] -%}
+      {%- assign open_folders = open_folders | push: folder_name -%}
+      {%- assign physical_html_depth = physical_html_depth | plus: 1 -%}
+      <li role="treeitem" aria-expanded="true" aria-selected="false" class="tv-parent" aria-level="{{ physical_html_depth }}">
+        <span class="tv-title">{{ folder_name }}</span>
+        <ul role="group">
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- assign display_label = filename -%}
+  {%- if filename == nil or filename == "" -%}
+    {%- assign display_label = "index.html" -%}
+  {%- endif -%}
+  {%- assign leaf_level = physical_html_depth | plus: 1 -%}
+
+  <li role="treeitem" aria-selected="false" aria-level="{{ leaf_level }}">
+    {%- if p.url -%}
+      <a tabindex="-1" target="_blank" class="tv-page-link" data-exit="false" lang="{{ page.lang | default: 'en' }}" href="{{ p.url | relative_url }}"{%- if p.title -%} title="{{ p.title | escape }}"{%- endif -%}>{{ display_label | escape }}</a>
+      {%- if p.title -%}<span class="tv-page-title wb-inv" aria-hidden="true">{{ p.title | escape }}</span>{%- endif -%}
+    {%- else -%}
+      <a tabindex="-1" target="_blank" class="tv-page-link" data-exit="false" href="{{ p.path | relative_url }}">{{ display_label | escape }}</a>
+    {%- endif -%}
+  </li>
+{%- endfor -%}
+
+{%- if physical_html_depth > 0 -%}
+  {%- for i in (1..physical_html_depth) -%}
+      </ul>
     </li>
-  {% endunless %}
-{% endfor %}
+  {%- endfor -%}
+{%- endif -%}
 </ul>
 </section>
 </div>
