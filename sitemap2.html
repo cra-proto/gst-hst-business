@@ -42,9 +42,8 @@ script:
 
 {%- assign pages_html = site.pages | where_exp: "item", "item.name contains '.html'" -%}
 {%- assign pages_md   = site.pages | where_exp: "item", "item.name contains '.md'" -%}
-{%- assign pages_txt  = site.pages | where_exp: "item", "item.name contains '.txt'" -%}
 
-{%- assign all_pages = static_html | concat: pages_html | concat: pages_md | concat: pages_txt -%}
+{%- assign all_pages = static_html | concat: pages_html | concat: pages_md -%}
 
 {%- assign path_string_list = "" -%}
 {%- for p in all_pages -%}
