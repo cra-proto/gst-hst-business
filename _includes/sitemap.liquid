@@ -53,8 +53,8 @@
 {%- assign exclude_paths = "" | split: "" -%}
 {%- assign exclude_names = "" | split: "" -%}
 
-{%- if include.exclude and include.exclude != "" -%}
-  {%- assign raw_excludes = include.exclude | split: "," -%}
+{%- if include.exclude_filepath and include.exclude_filepath != "" -%}
+  {%- assign raw_excludes = include.exclude_filepath | split: "," -%}
   {%- for raw_exclude in raw_excludes -%}
     {%- assign ex = raw_exclude | strip -%}
     {%- if ex == "" -%}
@@ -80,7 +80,7 @@
 {%- assign entries = "" | split: "" -%}
 
 {%- for p in all_pages -%}
-  {%- if p.sitemap == false or p.sitemapExclude == true -%}
+  {%- if p.sitemapExclude == true -%}
     {%- continue -%}
   {%- endif -%}
   {%- assign tree_path = p.url | default: p.path -%}
@@ -129,7 +129,7 @@
 {%- assign sorted_entries = entries | sort_natural -%}
 
 {%- if sorted_entries.size > 0 -%}
-  {{ crlf }}<ul id="{{ include.tree_id | default: 'sitemap-tree' }}" class="list-unstyled wb-treeview treeview" role="tree"{% if include.tree_label and include.tree_label != "" %} aria-labelledby="{{ include.tree_label }}"{% endif %}>{{ crlf }}
+  {{ crlf }}<ul id="{{ include.tree_id | default: 'tree1' }}" class="list-unstyled wb-treeview treeview" role="tree"{% if include.tree_label and include.tree_label != "" %} aria-labelledby="{{ include.tree_label }}"{% endif %}>{{ crlf }}
   {%- assign open_folders = "" | split: "," -%}
 {%- for entry in sorted_entries -%}
   {%- assign parts = entry | split: "#" -%}
